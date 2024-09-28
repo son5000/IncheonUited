@@ -59,11 +59,9 @@ export default function Calendar () {
         <p>
             <button onClick={handlePrevMonth}></button>
             <span>
-              {/* foramt 을 사용해 현재날짜의 연도 값을 'yyyy'형태로 가져온다 */}
             {format(currentDate , 'yyyy')}
             </span>
             <span>
-              {/*  format 을 사용해 현재날짜의 월 값을 'MM'형태로 가져온다. */}
             {format(currentDate ,'MM',{locale:ko})}
             </span>
             <button onClick={handleNextMonth}></button>
