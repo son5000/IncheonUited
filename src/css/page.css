@@ -466,40 +466,22 @@
 .proArea > ul > li > ul > li > p {width: 100%; top: 10%; left: 10%; font-size: 28px; position: absolute; font-weight: 600; }
 .proArea > ul > li > ul > li > p > span { padding-left: 10px; color: var(--color--gray);}
 
+.scheduleArea > h2{font-size: 0.1px; text-indent: -9999px;}
+.scheduleArea .calendar{width: 100%;}
+.scheduleArea .calendar > .nav {text-align: center; position: relative; margin-bottom: 70px; display: flex; align-items: center; justify-content: center;}
+.scheduleArea .calendar > .nav > div{gap: 35px; position: absolute; left: 0; display: flex; } 
+.scheduleArea .calendar > .nav > div > span{display: flex; align-items: center;}
+.scheduleArea .calendar > .nav > div > span:nth-of-type(1)::before{margin-right: 10px; content: url('../../public/images/player/square_gray.png'); width: 30px; height: 30px; display: inline-block;}
+.scheduleArea .calendar > .nav > div > span:nth-of-type(2)::before{margin-right: 10px; content: url('../../public/images/player/square_blue.png'); width: 30px; height: 30px; display: inline-block;}
+.scheduleArea .calendar > .nav > p {font-size: 34px; font-weight: 600; width: 300px; height: 35px; display: flex; align-items: center; justify-content: space-evenly;}
+.scheduleArea .calendar > .nav > p > button {width: 18px; height: 35px; cursor: pointer;}
+.scheduleArea .calendar > .nav > p > button:nth-of-type(1){background: url('../../public/images/player/prevbtn.png') no-repeat center / auto;}
+.scheduleArea .calendar > .nav > p > button:nth-of-type(2){background: url('../../public/images/player/nextbtn.png') no-repeat center / auto;}
+.scheduleArea .calendar > ul{width: 100%; display: grid; grid-template-columns: repeat(7,1fr); line-height: 80px; text-align: center; color: var(--color--gray)}
+.scheduleArea .calendar > ul > li {border: 1px  solid var(--color--gray); border-top: 2px solid var(--color--gray) ;}
+.scheduleArea .calendar > ol {margin-bottom: 70px; display: grid; grid-template-columns: repeat(7,1fr);}
+.scheduleArea .calendar > ol > li{border: 1px  solid var(--color--gray); aspect-ratio: 1/1; position: relative;}
+.scheduleArea .calendar > ol > li.active{border: 5px solid var(--color--blue); }
+.scheduleArea .calendar > ol > li > span{ font-size: 14px; right: 15px; top: 15px; position: absolute; color: var(--color--gray); font-weight: 500;}
+.scheduleArea .calendar > p{font-size: 18px; text-align: center; margin-bottom: 150px; font-weight: 400;}
 
-/* ScheduleArea */
-
-.scheduleArea > h2 {font-size: 0.1px; line-height: -9999px;}
-
-
-/* 캘린더 컨테이너 */
-.custom-calendar {width: 1442px;background-color: black;margin-bottom: 70px; border: 0;}
-.react-calendar__navigation__arrow.react-calendar__navigation__next-button{width: 50px; cursor: pointer; background: url('../../public/images/player/arrow_next.png') no-repeat center / auto ;}
-.react-calendar__navigation__arrow.react-calendar__navigation__prev-button{width: 50px; cursor: pointer; background: url('../../public/images/player/arrow_prev.png') no-repeat center / auto ;}
-/* 캘린더 최상단  */
-.react-calendar__navigation{flex-grow: 0 !important;  height: 100px; font-size: 34px; margin: 0; display: flex; align-items: center; justify-content: center;}
-/* 타이틀 크기 조절 */
-.custom-calendar > div > button > span {display: block; padding-inline: 20px; font-weight: 600;}
-/* 각 날짜 */
-.custom-calendar .react-calendar__tile {position: relative; width: 205px !important; height: 205px !important; display: flex; align-items: center; justify-content: center;  border: 1px solid var(--color--gray); position: relative;}
-/* 각 날짜 focus , hover 상황 custom */
-.custom-calendar .react-calendar__month-view__days > button:focus{   border: 3px solid var(--color--blue) !important; } 
-.custom-calendar .react-calendar__month-view__days > button:hover{   border: 3px solid var(--color--blue) !important;  background-color: black !important; }
-/* 각 날짜 (일) 위치 오른쪽 상단으로 이동 */
-.react-calendar__month-view__days > button > abbr {  position: absolute;  top:5px;  right:5px;}
-/* click  이벤트로 선택된 날짜 */
-.react-calendar__tile--active { border: 3px solid var(--color--blue) !important; /* 선택된 날짜의 테두리를 파란색으로 */   background-color: unset !important; /* 배경색 제거 */ }
-/* 오늘 날짜 custom 효과 */
-.react-calendar__tile--now {  border: 3px solid var(--color--blue) !important; /* 오늘 날짜의 테두리를 파란색으로 */  background-color: unset !important; /* 배경색 제거 */}
-/* 요일 표시 custom */
-.react-calendar__month-view__weekdays__weekday { box-sizing: border-box;  height: 82px; /* 요일 표시 행의 높이 */  display: flex;  align-items: center;  justify-content: center;  border: 1px solid var(--color--gray);}
-/* 요일 텍스트의 밑줄 제거 */
-.react-calendar__month-view__weekdays__weekday abbr {  text-decoration: none;}
-/* 주말 텍스트 기본 red 에서 white로 변경 */
-.react-calendar__month-view__days__day--weekend {  color : var(--color--white)}
-/* 스케줄 내부 스케줄 내용 정렬 */
-.schedule-list {display: flex; align-items: center; justify-content: flex-start;}
-/* 타일 내부 텍스트 위치 및 크기 */
-.react-calendar__tile span{ color: var(--color--gray); font-size: 16px; position: absolute; display: block; bottom: 5px ; left: 5px;}
-
-.custom-calendar + h3 { text-align: center; font-size: 18px; margin-bottom: 150px;}

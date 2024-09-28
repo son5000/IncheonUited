@@ -7,7 +7,6 @@ export default function Banner ({aniWidth}) {
     const location = useLocation();
     const firstLocation = location.pathname.split('/')[1];
     const categoris = data.bannerCategoris[firstLocation];
-    console.log(categoris);
     
 
     return (
