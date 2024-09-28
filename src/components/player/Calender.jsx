@@ -72,7 +72,7 @@ export default function Calendar () {
       </ul>
       <ol>
         {calendarTiles.map((el,index)=> 
-           <li className={format(el,'MM-dd') === format(today,'MM-dd') ? 'active' : '' } key={index}><span>{format(el,'d')}</span></li>
+           <li className={isSameDay(today,el) && 'active' } key={index}><span>{format(el,'d')}</span></li>
         )}
       </ol>
       <p>※ 훈련 일정 및 장소 등은 사전 공지 없이 변경될 수 있습니다..</p>
