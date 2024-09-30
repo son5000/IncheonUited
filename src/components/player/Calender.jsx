@@ -31,20 +31,6 @@ export default function Calendar () {
 
   const daysInMonth = getDaysInMonth(currentDate);
 
-<<<<<<< HEAD
-  // 만약 이번달\ 1일의 시작요일이 '일요일' 아니라면 
-  // 저번달의 데이터의 뒤에서부터 startDayOfWeek의 값만큼 가져와 새로 배열을 생성한다.
-  // subDays() 함수에 이번달 시작날의 데이터에서 , startDayOfWeek - index 값만큼을
-  // 순차적으로 계산해 가장 오래전 날짜부터 배열에 앞으로 넣는다.
-
-  // 이부분에서 지속적인 오류를 맞이했는데 이유가 뭐였냐면
-  // startDayOfWeek 7이라면 빈배열을 return 해야하는데 그렇지 못하는것이다.
-  // 왜일까 계속 코드를 수정해봤는데 
-  // format함수는 string 으로 값을 바꿔준다 . 그런데 내가 코드를
-  // const preMonthDays = startDayOfWeek !== 7 이렇게 number 로 작성하고 비교하니
-  // 계속 빈배열을 생성해주지 못하고 있던것이다..
-=======
->>>>>>> 1e5ce30f8602761cadf10523afbb26b83c41f4b2
   const preMonthDays = startDayOfWeek !== '7' ? [...Array(startDayOfWeek)].map((_,index)=> {
     return subDays(startDate,startDayOfWeek - index);
   }) : [];
@@ -86,10 +72,6 @@ export default function Calendar () {
       </ul>
       <ol>
         {calendarTiles.map((el,index)=> 
-<<<<<<< HEAD
-        // isSameDay 함수를 활용해 오늘날짜와 날짜값이 같은 타일에는 active class를 부여했다.
-=======
->>>>>>> 1e5ce30f8602761cadf10523afbb26b83c41f4b2
            <li className={isSameDay(today,el) && 'active' } key={index}><span>{format(el,'d')}</span></li>
         )}
       </ol>

@@ -460,6 +460,13 @@
 .proArea > ul > li > ul > li > p {width: 100%; top: 10%; left: 10%; font-size: 28px; position: absolute; font-weight: 600; }
 .proArea > ul > li > ul > li > p > span { padding-left: 10px; color: var(--color--gray);}
 
+.proArea > ul > li > ul > li .popup-OverLay {display: none;}
+.proArea .popup-OverLay.active{display: block;}
+
+
+
+
+
 .scheduleArea > h2{font-size: 0.1px; text-indent: -9999px;}
 .scheduleArea .calendar{width: 100%;}
 .scheduleArea .calendar > .nav {text-align: center; position: relative; margin-bottom: 70px; display: flex; align-items: center; justify-content: center;}
