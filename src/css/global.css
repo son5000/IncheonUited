@@ -1,10 +1,8 @@
-#root{background-color: var(--color--black);}
-
 
 /* Header */
-header{font-size:18px; padding-top:35px; padding-bottom:15px ; width:100%; color:var(--color--white); position:fixed;  z-index: 9999;}
+header{background-color: rgba(0, 0,0, var(--header--opacity)); font-size:18px; padding-top:35px; padding-bottom:15px ; width:100%; color:var(--color--white); position:fixed;  z-index: 9999;}
 header:hover{background-color: var(--color--black);}
-header:hover::after{height: 120px; width:100%; content:''; display:block; position:absolute; background-color:rgba(14, 13, 13, 0.8);}
+header:hover::after{height: 120px; width:100%; content:''; display:block; position:absolute; background-color:rgba(14, 13, 13, 0.8);top: 130px;}
 header > div{display:flex; align-items:center;}
 header > div > h1 {width:20.53% ; margin-right:2.43%;}
 header > div > h1 > a{display:inline-block;}
@@ -13,7 +11,7 @@ header > div > nav {width:54.23%; box-sizing:border-box;}
 header > div > nav > ul{display:flex; align-items:flex-start; justify-content:space-between; position:relative;}
 header > div > nav > ul > li{line-height: 22px; }
 header > div > nav > ul > li:hover{color: var(--color--blue2); font-weight: 700; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 5px;}
-header > div > nav > ul > li > ul{width: 100%; padding-top: 60px; padding-bottom: 20px; gap:35px; line-height: 20px; display: none; position: absolute; z-index: 1; flex-wrap: wrap; left: 0;font-weight: 300;}
+header > div > nav > ul > li > ul{width: 100%; padding-top: 66.5px; padding-bottom: 20px; gap:35px; line-height: 20px; display: none; position: absolute; z-index: 1; flex-wrap: wrap; left: 0;font-weight: 300;}
 header > div > nav > ul > li:hover > ul{color: var(--color--white); display: flex;}
 header > div > nav > ul > li:hover > ul > li:hover{color: var(--color--blue2);cursor: pointer;}
 header > div > div{width: 9.02%; display: flex; font-size: 16px; color: var(--color--gray); justify-content: space-between; margin-left: auto; font-weight: 300;}

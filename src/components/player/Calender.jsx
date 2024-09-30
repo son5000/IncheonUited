@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { format, addMonths, subMonths, getDaysInMonth, startOfMonth, addDays,subDays,endOfMonth } from 'date-fns';
+import { format, addMonths, subMonths, getDaysInMonth, startOfMonth, addDays,subDays,endOfMonth ,isSameDay} from 'date-fns';
 import { ko } from 'date-fns/locale';
 
 
@@ -43,6 +43,13 @@ export default function Calendar () {
   // 저번달의 데이터의 뒤에서부터 startDayOfWeek의 값만큼 가져와 새로 배열을 생성한다.
   // subDays() 함수에 이번달 시작날의 데이터에서 , startDayOfWeek - index 값만큼을
   // 순차적으로 계산해 가장 오래전 날짜부터 배열에 앞으로 넣는다.
+
+  // 이부분에서 지속적인 오류를 맞이했는데 이유가 뭐였냐면
+  // startDayOfWeek 7이라면 빈배열을 return 해야하는데 그렇지 못하는것이다.
+  // 왜일까 계속 코드를 수정해봤는데 
+  // format함수는 string 으로 값을 바꿔준다 . 그런데 내가 코드를
+  // const preMonthDays = startDayOfWeek !== 7 이렇게 number 로 작성하고 비교하니
+  // 계속 빈배열을 생성해주지 못하고 있던것이다..
   const preMonthDays = startDayOfWeek !== '7' ? [...Array(startDayOfWeek)].map((_,index)=> {
     return subDays(startDate,startDayOfWeek - index);
   }) : [];
@@ -96,9 +103,8 @@ export default function Calendar () {
       </ul>
       <ol>
         {calendarTiles.map((el,index)=> 
-        // 오늘에 해당하는 타일에는 border효과를 주기위해 타일의 값과 today 변수를 비교해서 active클래스를 넣어주었다.
-        // format 으로 값을 변경해준 이유는 안의 값이 초단위의 값까지 가지고 있어 비교하는데 오류가 생겼다.
-           <li className={format(el,'MM-dd') === format(today,'MM-dd') ? 'active' : '' } key={index}><span>{format(el,'d')}</span></li>
+        // isSameDay 함수를 활용해 오늘날짜와 날짜값이 같은 타일에는 active class를 부여했다.
+           <li className={isSameDay(today,el) && 'active' } key={index}><span>{format(el,'d')}</span></li>
         )}
       </ol>
       <p>※ 훈련 일정 및 장소 등은 사전 공지 없이 변경될 수 있습니다..</p>

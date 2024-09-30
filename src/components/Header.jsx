@@ -17,7 +17,7 @@ export default function Header() {
 
 
   return (
-      <header style={{backgroundColor:`rgba(0,0,0,${opacityValue}`}}>
+      <header style={{'--header--opacity':opacityValue}}>
       {/* 헤더 */}
         <div className="size1442">
         {/* 메인 로고 H1 */}
@@ -30,10 +30,10 @@ export default function Header() {
         <nav>
           <ul>
             <li>
-              <Link to={'club/introduction'}>CLUB</Link>
+              <Link to={"club/introduction"}>CLUB</Link>
               <ul>
                 <li>
-                  <Link to={'club/introduction'}>구단소개</Link>
+                  <Link to={"club/introduction"}>구단소개</Link>
                 </li>
                 <li>
                   <Link to={"club/greeting"}>인사말</Link>
@@ -44,16 +44,16 @@ export default function Header() {
               </ul>
             </li>
             <li>
-              <Link to={'player/coachingstaff'}>PLAYER</Link>
+              <Link to={"player/coachingstaff"}>PLAYER</Link>
               <ul>
                 <li>
-                  <Link to={'player/coachingstaff'}>코칭/지원스태프</Link>
+                  <Link to={"player/coachingstaff"}>코칭/지원스태프</Link>
                 </li>
                 <li>
-                  <Link to={'player/pro'}>프로</Link>
+                  <Link to={"player/pro"}>프로</Link>
                 </li>
                 <li>
-                  <Link to={'player/schedule'}>선수단 일정</Link>
+                  <Link to={"player/schedule"}>선수단 일정</Link>
                 </li>
               </ul>
             </li>

@@ -12,18 +12,18 @@ export default function History () {
     return(
       <PageBox aniWidth={'25%'} >
         <section className="historyArea">
-            <h3><span>2003'</span> 창단</h3>
+            <h2><span>2003'</span> 창단</h2>
             <img src="/images/club/histroy01.png" alt="인천유나이티드 관중석 사진" />
             <ol>
               {history.map((el,index) => 
               <li key={index}>
                 <span>{el.year}</span>
-                <p>
+                <ul>
                   <strong>{el.title}</strong>
                   {text[index].map((el,index)=>
-                  <span key={index}>{el}</span>
+                  <li key={index}>{el}</li>
                   )}
-                </p>  
+                </ul>  
               </li>
               )}
             </ol>

@@ -20,7 +20,7 @@ export default function Parking () {
                         <p>출차전용</p>
                     </li>
                     <li>
-                        <p>VIP, SKYBOX, 기자, 언론인진행관계자, 아레나컨벤션</p>
+                        <p> <span style={{fontWeight:'500'}}>VIP, SKYBOX, </span>기자, 언론인진행관계자, 아레나컨벤션</p>
                     </li>
                     <li>
                         <p>경기관람객 차량출입구</p>

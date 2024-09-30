@@ -10,10 +10,8 @@ import Greeting from "./page/Club/greeting/greeting";
 import Stadium from "./page/Club/stadium/stadium";
 import Parking from "./page/Club/stadium/parking";
 import Seat from "./page/Club/stadium/seat";
-import Player from "./page/Player/coachingStaff";
 import Pro from "./page/Player/pro";
 import Schedule from "./page/Player/schedule";
-import Club from "./page/Club/club";
 import CoachingStaff from "./page/Player/coachingStaff";
 import '../src/css/import.css'
 
@@ -25,8 +23,7 @@ export default function Root() {
           <Route path="/" element={<App />}>
             <Route index  element={<Home />} />
             <Route path="club">
-              <Route index element={<Club />} />
-              <Route path="introduction" element={<Introduction />} />
+              <Route index path="introduction" element={<Introduction />} />
               <Route path="introduction/vision" element={<Vision />}/>
               <Route path="introduction/tel" element={<Organization />}/>
               <Route path="introduction/emblem" element={<Emblem />}/>
@@ -37,8 +34,7 @@ export default function Root() {
               <Route path="stadium/seat" element={<Seat />}/>
             </Route>
             <Route path="player">
-              <Route index element={<Player />} />
-              <Route path="coachingstaff" element={<CoachingStaff />} />
+              <Route index path="coachingstaff" element={<CoachingStaff />} />
               <Route path="pro" element={<Pro />} />
               <Route path="schedule" element={<Schedule />} />
             </Route>

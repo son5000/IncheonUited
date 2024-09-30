@@ -180,14 +180,14 @@
             {"text":"선수단 일정","link":"/player/schedule"}
         ]
     },
-    "introductionTabs":[
+    "introduction":[
         {"text":"구단소개","link":"/club/introduction"},
         {"text":"비전 2033","link":"/club/introduction/vision"},
         {"text":"조직도 연락처","link":"/club/introduction/tel"},
         {"text":"엠블럼, 마스코트","link":"/club/introduction/emblem"},
         {"text":"연혁 2003년 창단","link":"/club/introduction/history"}
     ],
-    "stadiumTabs":[
+    "stadium":[
         {"text":"찾아오시는 길","link":"/club/stadium"},
         {"text":"주차장 안내","link":"/club/stadium/parking"},
         {"text":"좌석 안내","link":"/club/stadium/seat"}
