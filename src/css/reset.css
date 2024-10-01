@@ -81,7 +81,7 @@ body{ color: var(--color--white);}
 
 .size1442{ max-width: 1442px; margin-inline: auto;}
 .size1080{ max-width: 1080px; margin-inline: auto;}
-
+.size1560{ max-width: 1560px; margin-inline: auto; }
 [class^='hStyle']{ font-weight: 900; font-size: 50px;}
 
 [class$='Italic']{ font-style: italic;}
