@@ -4,7 +4,7 @@ import PageBox from '../../../components/club/PageBox';
 export default function Vision (){
     return(
 <PageBox aniWidth={'10%'}>
-    <div className='visionArea'>
+    <section className='visionArea'>
         <img src="/images/club/vision01.png" alt="인천유나이티드 구단소개 이미지('Break through the limits 한계를 돌파하라!"/>
         <h3>한국프로스포츠 시장의 구조적 한계</h3>
         <ol>
@@ -93,7 +93,7 @@ export default function Vision (){
                      제한된 예산과 시간을 효율적으로 활용하여 <b>한계를 극복하는 구단!</b></p></li>
             </ol>
         </div>
-    </div>
+    </section>
  </PageBox>
     ) 
 }

@@ -76,7 +76,7 @@ div[class$="page"]{width: 100%;}
 }
 body{ color: var(--color--white);}
 
-* { font-family: var(--font--Roboto), var(--font--Suit); font-size: inherit;}
+* { font-family: var(--font--Roboto), var(--font--Suit); font-size: inherit; letter-spacing:0.0001px;}
 
 
 .size1442{ max-width: 1442px; margin-inline: auto;}
