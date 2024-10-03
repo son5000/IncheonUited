@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 export default function App () {
 
     const Location = useLocation();
-    const firstLocation = Location.pathname.split('/')[1];
+    const firstLocation = Location.pathname.split('/')[1] || 'main';
 
     return (
         <>
