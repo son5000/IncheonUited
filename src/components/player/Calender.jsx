@@ -51,7 +51,7 @@ export default function Calendar () {
   return (
     <>
     <div className="calendar">
-      <div className="nav">
+      <div className="navigator">
         <div>
             <span>경기일정</span>
             <span>오늘</span>

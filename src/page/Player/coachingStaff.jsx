@@ -18,7 +18,7 @@ export default function CoachingStaff () {
         <section className="coachingStaffArea size1442">
             <h2>코칭/지원스태프 프로필</h2>
             <div>
-                <img src="/images/player/coach.jpg" alt="" />
+                <img src="/images/player/coach.jpg" alt="인천유나이티드 감독" />
                 <div>
                     <button onClick={()=>setIsCoachShow(true)} className={isCoachShow ? 'active' : ''}>프로필</button>
                     <button onClick={()=>setIsCoachShow(false)} className={!isCoachShow ? 'active' : ''}>약력</button>
