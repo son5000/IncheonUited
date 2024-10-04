@@ -1,17 +1,51 @@
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState, useRef } from 'react';
+
+const Slider = () => {
+  const [currentIndex, setCurrentIndex] = useState(true);
+  const sliderRef = useRef(null);
+
+  const items = ['Item 1', 'Item 2', 'Item 3']; // 슬라이드 요소
+
+  const handleClick = () => {
+
+    if(currentIndex){
+        const scrollAmount = sliderRef.current.clientWidth / 1;
+        sliderRef.current.scrollLeft += scrollAmount;
+        console.log(scrollAmount);
+      setCurrentIndex(false)
+      return
+    }
+    
+
+    setCurrentIndex(true);
+
+    const scrollAmount = sliderRef.current.clientWidth / 1;
+    sliderRef.current.scrollLeft -= scrollAmount;
+    console.log(scrollAmount);
+  };
+
+  return (
+    <div className="matchSchedule" ref={sliderRef}>
+      <div className="itemBox" style={{ transform: `translateX(${currentIndex}*50%)` }}>
+        {items.map((item, index) => (
+          <div
+            className="item" 
+            key={index}
+            onClick={() => handleClick(index)} // 클릭 시 슬라이드 이동
+          >
+          {`slide ${index + 1}`}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+
+
 
 
 export default function LeagueAndMatch() {
-  const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-  };
  
   return (
     <div className="leagueAndMatch">
@@ -78,19 +112,7 @@ export default function LeagueAndMatch() {
           </tbody>
         </table>
       </div> 
-      <div className="matchSlide-container">
-        <Slider {...settings}>
-          <div className="slide-item">
-            <div></div>
-          </div>
-          <div className="slide-item">
-            <div></div>
-          </div>
-          <div className="slide-item">
-            <div></div>
-          </div>
-        </Slider>
-      </div> 
+      <Slider />
     </div>
   );
 }
