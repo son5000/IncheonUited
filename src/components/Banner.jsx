@@ -10,7 +10,7 @@ export default function Banner ({aniWidth}) {
     
 
     return (
-        <div style={{'--ani--width': aniWidth }} className="banner club">  
+        <div style={{'--ani--width': aniWidth }} className="banner">  
             <ul className="size1442">
                 {categoris.map((el,index) => <li key={index}><NavLink to={el.link}>{el.text}</NavLink></li>)}
             </ul> 

@@ -683,3 +683,87 @@
   }
 } 
 
+/* matchCenter */
+
+.matchCenterPage > .banner{background: url(../../public/images/matchCenter/matchCenter_banner_img.png) no-repeat center / cover}
+
+/* gameSchedule */
+.btn-checkBox{
+  display: block; width: 74px; height: 32px; background-repeat: no-repeat; background-size: auto; background-position: right; text-align: right; position: relative; cursor: pointer;
+  &::before{height: 32px; width: 32px; content: ''; border: 2px solid var(--color--gray); border-radius: 5px; display:block; position: absolute; left: 0; top: 0; box-sizing: border-box;}
+          &.active::before{border: 2px solid var(--color--blue); background: url(../../public/images/matchCenter/check_icon.png) no-repeat center / auto;}
+}
+
+.gameScheduleArea{
+  > .categori{display: flex; align-items: flex-start; justify-content: space-between; width: 100%;
+    > div {display: flex; gap: 30px; width: 400px; margin-bottom: 70px;
+        > button.btn-checkBox {
+          &:nth-of-type(2){background-image: url(../../public/images/matchCenter/logo_match_kleague_white.png);}
+          &:nth-of-type(3){background-image: url(../../public/images/matchCenter/logo_match_koreacup.png);}
+          &:nth-of-type(4){background-image: url(../../public/images/matchCenter/logo_match_afc.png);}
+        }
+      }
+    > ul{
+       font-size: 24px; width: 13.87%; display: flex; gap: 35px; justify-content: space-between;
+       > li{display: flex; gap: 13px; position: relative; width: 50%; line-height: 50px; overflow: hidden; cursor: pointer;
+          &::after{content: url(../../public/images/matchCenter/▼-1.png);}
+          &:hover{overflow: unset;}
+        ol{position: absolute; top: 50px; font-size: 22px; 
+            > li:hover{color: var(--color--blue); cursor: pointer; }
+          }
+        }
+      }
+    }
+  > .games{ margin-bottom: 150px; width: 100%;
+    > p {text-align: center; border-block: 1px solid var(--color--gray); line-height: 60px; text-transform: uppercase;
+    }
+    > ol { width: 100%;
+      > li{width: 100%; height: 256px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color--gray); position: relative;
+        > span { position: absolute; left: 0; top: 25px;width: 40px; height: 40px; background-color: var(--color--white); display: flex; align-items: center; justify-content: center; border-radius: 100%;}
+        > div:nth-of-type(1){ width: 27%;
+          > p {font-size: 20px; margin-bottom: 20px; padding-top: 60px;}
+          > small { font-size: 16px; display: block; margin-bottom: 35px; }
+          > mark { line-height: 23px; font-size: 16px;  color: var(--color--gray); background-color: transparent; display: block; font-weight: 600; display: flex;
+            &::before{content: url(../../public/images/matchCenter/map_icon.png); display: inline-block; margin-right: 5px;}            
+          }       
+        }
+        > div:nth-of-type(2){
+          width: 44%;display: flex; gap: 3%; justify-content: space-around; align-items: center; font-size: 32px; font-weight: 600;
+          > strong {width: 130px; text-align: center;}
+          > span{ height: 130px; width: 130px; display: block; background-color: var(--color--blodGray); display: flex; align-items: center; justify-content: center; border-radius: 100%;}
+        }
+        >ul {display: flex; width: 27%; align-items: center; justify-content: center; gap: 30px;
+          > * {border: 1px solid var(--color--white); line-height: 36px; padding-inline: 15px; border-radius: 5px;}
+        }
+      }
+    }
+  }
+}
+
+
+/* ranking */
+
+.rankingArea {
+  > div{ display: flex; align-items: center; margin-bottom: 70px;
+    > div { display: flex; align-items: center; gap: 20px;
+        > button:nth-of-type(1) {background-image: url(../../public/images/matchCenter/logo_match_kleague_white.png);}
+        > button:nth-of-type(2) {background-image: url(../../public/images/matchCenter/logo_match_koreacup.png);}
+      }
+    > ul {margin-left: auto; margin-right: 35px; width: 110px; line-height: 30px; height: 30px; position: relative; overflow: hidden; text-align: center; cursor: pointer;
+      &:hover{overflow: unset;}      
+      > div:nth-of-type(1):after{content: url(../../public/images/matchCenter/▼-1.png);display: inline-block; margin-left: 20px; position: absolute;}
+      > div:nth-of-type(2){
+        > li:hover{color: var(--color--blue);}
+      } 
+    }
+    > p {color : var(--color--gray);}
+  }
+  > p {margin-bottom: 35px;}
+  > table{ width: 100%; text-align: center; line-height: 55px; margin-bottom: 150px;
+    tr { border-block: 1px solid var(--color--gray);
+    > td:nth-of-type(2) { position: relative;
+        > img {position: absolute; left: 25%; top:50%; transform: translate(-50% , -50%) ;}
+      }
+    }
+  }
+}

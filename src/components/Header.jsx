@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Header() {
 
+export default function Header() {
   const [opacityValue , setOpacityValue ] = useState(0);
   function onScroll(){
   const scrollValue = window.scrollY;
@@ -58,13 +58,13 @@ export default function Header() {
               </ul>
             </li>
             <li>
-              <a href="###">MATCH CENTER</a>
+              <Link to={"matchCenter/gameSchedule"}>MATCH CENTER</Link>
               <ul>
                 <li>
-                  <a href="###">경기일정/결과</a>
+                  <Link to={"matchCenter/gameSchedule"}>경기일정/결과</Link>
                 </li>
                 <li>
-                  <a href="###">순위표</a>
+                  <Link to={"matchCenter/ranking"}>순위표</Link>
                 </li>
               </ul>
             </li>

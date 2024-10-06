@@ -13,6 +13,8 @@ import Seat from "./page/Club/stadium/seat";
 import Pro from "./page/Player/pro";
 import Schedule from "./page/Player/schedule";
 import CoachingStaff from "./page/Player/coachingStaff";
+import GameSchedule from "./page/MatchCenter/gameSchedule";
+import Rangking from "./page/MatchCenter/ranking";
 import '../src/css/import.css'
 
 
@@ -37,6 +39,10 @@ export default function Root() {
               <Route index path="coachingstaff" element={<CoachingStaff />} />
               <Route path="pro" element={<Pro />} />
               <Route path="schedule" element={<Schedule />} />
+            </Route>
+            <Route path="matchCenter">
+            <Route index path="gameSchedule" element={<GameSchedule />}/>
+            <Route path="ranking" element={<Rangking />}/>
             </Route>
           </Route>
         </Routes>
