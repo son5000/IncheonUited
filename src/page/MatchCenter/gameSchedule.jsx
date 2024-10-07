@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Banner from "../../components/Banner"
 import { addMonths,format } from 'date-fns';
+import Banner from "../../components/Banner"
 import data from '../../data.json';
 
 
@@ -8,15 +8,26 @@ const CATEGORI = ['ALL','K-LEAGUE','KOREA-CUP','CHAMPIONS LEAGUE']
 
 export default function GameSchedule () {
 
-    const [active , setActive] = useState('ALL');
-    
+
+        const games = data.games;
+
+        const [selectedGameType, setSelectedGameType] = useState('ALL');
+        const feed = games.map((el)=> {
+            return(
+            el[Object.keys(el)].filter((i)=> {
+                return selectedGameType === 'ALL' || i.gameType === selectedGameType ;
+            })
+        )})
+        
+        
+
     return (
         <>
         <Banner aniWidth={'50%'} />
         <section className="gameScheduleArea size1442">
             <div className="categori">
                 <div>
-                    {CATEGORI.map((el,index)=> <button onClick={() => setActive(el)} className={el === active ? 'btn-checkBox active' : 'btn-checkBox'}>{index === 0 && 'ALL'}</button>)}
+                    {CATEGORI.map((el,index)=> <button onClick={() => setSelectedGameType(el)} className={el === selectedGameType ? 'btn-checkBox active' : 'btn-checkBox'}>{index === 0 && 'ALL'}</button>)}
                 </div>
                 <ul>
                     <li>
@@ -40,7 +51,7 @@ export default function GameSchedule () {
                     </li>
                 </ul>
             </div>
-            <Games />
+            <Games data={feed}  />
         </section>
         </>
     )
@@ -49,26 +60,26 @@ export default function GameSchedule () {
 
 
 
-function Games (){
+function Games ({data}){
 
     const date = new Date(2024,2,1);
     const currentYear = format(date,'yyyy');
-    const games = data.games;
+
+
     
 
     return (
         <>
             {
-                games.map((el,index) => {                   
-                    
+                data.map((el,index) => {                                      
                     return (<div className="games">
                         <p>{index+3}월 {currentYear} {format(addMonths(date,index),'MMMM')}</p>
                         <ol>
-                            {el[index+3].map((i,index) => {
+                            {el.map((i,index) => {
                                 return(
                                     <li key={index}>
                                         <span>
-                                            <img src={i.gameType} alt="대회아이콘" />
+                                            <img src={i.gameSymbol} alt="대회아이콘" />
                                         </span>
                                         <div>
                                             <p>{i.date}</p>
@@ -77,9 +88,9 @@ function Games (){
                                         </div>
                                         <div>
                                             <strong>{i.homeTeam}</strong>
-                                            <span><img src={i.homeTeamImg} alt="" /></span>
+                                            <span><img src={`/images/matchCenter/schedul_icon_${i.homeTeam}.png`} alt="" /></span>
                                             <b>{i.result}</b>
-                                            <span><img src={i.awayTeamImg} alt="" /></span>
+                                            <span><img src={`/images/matchCenter/schedul_icon_${i.awayTeam}.png`} alt="" /></span>
                                             <strong>{i.awayTeam}</strong>
                                         </div>
                                         <ul>

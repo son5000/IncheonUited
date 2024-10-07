@@ -202,7 +202,7 @@
             {"image":"/images/club/vision_icon02.png","text":"광고스폰서 유치의 한계"}   
     ],
     "history":[
-        {"year":"2023","title":"인천, 한계를 돌파하라","text":["하나원큐 K리그 1 2023 파이널 A 진출 최종 순위 5위","제르소 하나원큐 K리그 1 2023 베스트 11 미드필더 부문 수상","창단 첫 AFC 아시아챔피언스리그(ACL) 참가(G조 3위, 4승 2패)"]},
+        {"year":"2023","title":"인천, 한계를 돌파하라","text":["하나원큐 K리그 1 2023 파이널 A 진출 최종 순위 5위","제르소 하나원큐 K리그 1 2023 베스트 11 미드필더 부문 수상","창단 첫 CHAMPIONS LEAGUE 아시아챔피언스리그(ACL) 참가(G조 3위, 4승 2패)"]},
         {"year":"2022","title":"인천축구시대","text":["구단 창단 첫 ACL(아시아챔피언스리그) 진출","구단 창단 첫 ACL(아시아챔피언스리그) 진출","인천경찰청과 지역 실종자 찾기 합동 캠페인 'RE:United' 진행","하나원큐 K리그 1 2022 통합 4위"]},
         {"year":"2021","title":"인천축구시대","text":["캐치프레이즈 ‘2021 인천축구시대’ 사용","스페셜올림픽 K리그 유니파이드컵 첫 번째 승리자(B조 1위) 수상","하나원큐 K리그 1 2021 통합 8위"]},
         {"year":"2020","title":"인천축구시대","text":["구단 마스코트 '유티' 리뉴얼","캐치프레이즈 ‘2020 인천축구시대’ 사용","임완섭 감독 취임","조성환 감독 취임","U-18 대건고 문체부장관배 및 전국체전 준우승","인천유나이티드 소재 다큐멘터리 영화 '비상2020' 제작","하나원큐 K리그 1 2020 통합 11위"]},
@@ -259,7 +259,7 @@
         },
         {"id":"9","name":"피민혁","englishName":"PI MIN HYUCK","image":"/images/player/staff_09.png",
             "profile":{"position":"선수트레이너","birthData":"1991년 12월 15일","schoolOfOrigin":"단국대"},
-            "briefHistory":{"LeadershipExperience":{"year":["2015","2016","2017~2018","2021~현재"],"text":["단국대학교 축구부 의무트레이너","제주유나이티드 재활트레이너","제주유나이티드 U18 재활트레이너","인천유나이티드 선수트레이너"]},"playerCareer":{"year":[null],"text":["대한선수트레이너협회(R-KATA)정회원","대한스포츠의학회 정회원","대한축구협회 AFC C급 지도자 자격증"]}}
+            "briefHistory":{"LeadershipExperience":{"year":["2015","2016","2017~2018","2021~현재"],"text":["단국대학교 축구부 의무트레이너","제주유나이티드 재활트레이너","제주유나이티드 U18 재활트레이너","인천유나이티드 선수트레이너"]},"playerCareer":{"year":[null],"text":["대한선수트레이너협회(R-KATA)정회원","대한스포츠의학회 정회원","대한축구협회 CHAMPIONS LEAGUE C급 지도자 자격증"]}}
         },
         {"id":"10","name":"진도형","englishName":"JIN DO HYEONG","image":"/images/player/staff_10.png",
             "profile":{"position":"선수트레이너","birthData":"1996년 3월 24일","schoolOfOrigin":"인하대"},
@@ -271,7 +271,7 @@
         },
         {"id":"12","name":"김민석","englishName":"KIM MIN SUK","image":"/images/player/staff_12.png",
             "profile":{"position":"팀매니저","birthData":"1991년 4월 13일","schoolOfOrigin":"호남대"},
-            "briefHistory":{"LeadershipExperience":{"year":["2010~2016","2019~2020","2021~현재"],"text":["수원삼성블루윙즈 통역 및 지도자","제주유나이티드 팀매니저 및 통역","인천유나이티드 팀매니저 및 통역"]},"playerCareer":{"year":[null],"text":["AFC / KFA 'B' License","AFC / KFA 'C' License"]}}
+            "briefHistory":{"LeadershipExperience":{"year":["2010~2016","2019~2020","2021~현재"],"text":["수원삼성블루윙즈 통역 및 지도자","제주유나이티드 팀매니저 및 통역","인천유나이티드 팀매니저 및 통역"]},"playerCareer":{"year":[null],"text":["CHAMPIONS LEAGUE / KFA 'B' License","CHAMPIONS LEAGUE / KFA 'C' License"]}}
         },
         {"id":"13","name":"조용히","englishName":"CHO YONG HEE","image":"/images/player/staff_13.png",
             "profile":{"position":"장비담당관","birthData":"1991년 12월 20일","schoolOfOrigin":"인하대"},
@@ -385,80 +385,81 @@
          },
     "games":[
             {"3":[
-                {"result":"0:1", "gameType":"/images/matchCenter/logo_match_kleague.png","date":"3월2일(토) 16:30","round":"1라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"수원 FC","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_suwonFc.png"},
-                {"result":"0:0", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"3월10일(일) 16:00","round":"2라운드","stadium":"상암월드컵경기장","homeTeam":"서울","awayTeam":"인천","homeTeamImg":"/images/matchCenter/schedul_icon_seoul.png","awayTeamImg":"/images/matchCenter/schedul_icon_incheon.png"},
-                {"result":"3:3", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"3월17일(일) 16:30","round":"3라운드","stadium":"울산문수축구경기장","homeTeam":"울산","awayTeam":"인천","homeTeamImg":"/images/matchCenter/schedul_icon_ulsan.png","awayTeamImg":"/images/matchCenter/schedul_icon_incheon.png"},
-                {"result":"2:0", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"3월30일(토) 14:00","round":"4라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대전","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_daejeon.png"}  
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png","date":"3월2일(토) 16:30","round":"1라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"수원FC"},
+                {"gameType":"K-LEAGUE", "result":"0:0", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"3월10일(일) 16:00","round":"2라운드","stadium":"상암월드컵경기장","homeTeam":"서울","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"3:3", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"3월17일(일) 16:30","round":"3라운드","stadium":"울산문수축구경기장","homeTeam":"울산","awayTeam":"인천"},
+                {"gameType":"KOREA-CUP", "result":"2:0", "gameSymbol":"/images/matchCenter/logo_match_koreacup.png", "date":"3월30일(토) 14:00","round":"4라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대전"}  
             ]},
             {"4":[
-                {"result":"2:3", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"4월 3일(수) 19:30","round":"5라운드","stadium":"광주축구전용경기장","homeTeam":"광주","awayTeam":"인천","homeTeamImg":"/images/matchCenter/schedul_icon_gwangju.png","awayTeamImg":"/images/matchCenter/schedul_icon_incheon.png"},
-                {"result":"0:1", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"4월 6일(토) 16:30","round":"6라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"제주","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_jeju.png"},
-                {"result":"1:1", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"4월 14일(일) 16:30","round":"7라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대구","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_daegu.png"},
-                {"result":"1:0", "gameType":"/images/matchCenter/logo_match_koreacup.png", "date":"4월 17일(수) 19:00","round":"null","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"김해시청","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_kimhae.png"},
-                {"result":"4:1", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"4월 21일(일) 14:00","round":"8라운드","stadium":"춘천송암스포츠타운","homeTeam":"강원","awayTeam":"인천","homeTeamImg":"/images/matchCenter/schedul_icon_gangwon.png","awayTeamImg":"/images/matchCenter/schedul_icon_incheon.png"},
-                {"result":"0:0", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"4월 28일(일) 14:00","round":"9라운드","stadium":"포항스틸야드","homeTeam":"포항","awayTeam":"인천","homeTeamImg":"/images/matchCenter/schedul_icon_pohang.png","awayTeamImg":"/images/matchCenter/schedul_icon_incheon.png"}
+                {"gameType":"K-LEAGUE", "result":"2:3", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"4월 3일(수) 19:30","round":"5라운드","stadium":"광주축구전용경기장","homeTeam":"광주","awayTeam":"인천"},
+                {"gameType":"CHAMPIONS LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_afc.png", "date":"4월 6일(토) 16:30","round":"6라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"제주"},
+                {"gameType":"K-LEAGUE", "result":"1:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"4월 14일(일) 16:30","round":"7라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대구"},
+                {"gameType":"KOREA-CUP", "result":"1:0", "gameSymbol":"/images/matchCenter/logo_match_koreacup.png", "date":"4월 17일(수) 19:00","round":"null","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"김해시청"},
+                {"gameType":"K-LEAGUE", "result":"4:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"4월 21일(일) 14:00","round":"8라운드","stadium":"춘천송암스포츠타운","homeTeam":"강원","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:0", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"4월 28일(일) 14:00","round":"9라운드","stadium":"포항스틸야드","homeTeam":"포항","awayTeam":"인천"}
             ]},
             {"5":[
-                {"result":"2:3", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"5월 1일(수) 19:00","round":"10라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"김천","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_kimcheon.png"},
-                {"result":"0:1", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"5월 5일(일) 16:30","round":"11라운드","stadium":"김천종합운동장","homeTeam":"김천","awayTeam":"인천","homeTeamImg":"/images/matchCenter/schedul_icon_kimcheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_incheon.png"},
-                {"result":"1:1", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"5월 11일(토) 16:30","round":"12라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"서울","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_seoul.png"},
-                {"result":"1:0", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"5월 18일(토) 16:30","round":"13라운드","stadium":"대전월드컵경기장","homeTeam":"대전","awayTeam":"인천","homeTeamImg":"/images/matchCenter/schedul_icon_daejeon.png","awayTeamImg":"/images/matchCenter/schedul_icon_incheon.png"},
-                {"result":"4:1", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"5월 25일(토) 19:00","round":"14라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"광주","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_gwangju.png"},
-                {"result":"0:0", "gameType":"/images/matchCenter/logo_match_kleague.png", "date":"5월 29일(수) 19:30","round":"15라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"울산","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_ulsan.png"}  
+                {"gameType":"K-LEAGUE", "result":"2:3", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"5월 1일(수) 19:00","round":"10라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"김천"},
+                {"gameType":"CHAMPIONS LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_afc.png", "date":"5월 5일(일) 16:30","round":"11라운드","stadium":"김천종합운동장","homeTeam":"김천","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"1:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"5월 11일(토) 16:30","round":"12라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"서울"},
+                {"gameType":"K-LEAGUE", "result":"1:0", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"5월 18일(토) 16:30","round":"13라운드","stadium":"대전월드컵경기장","homeTeam":"대전","awayTeam":"인천"},
+                {"gameType":"KOREA-CUP", "result":"4:1", "gameSymbol":"/images/matchCenter/logo_match_koreacup.png", "date":"5월 25일(토) 19:00","round":"14라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"광주"},
+                {"gameType":"K-LEAGUE", "result":"0:0", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"5월 29일(수) 19:30","round":"15라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"울산"}  
             ]},
             {"6":[
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"6월 1일(토)", "round":"16라운드","stadium":"수원종합운동장","homeTeam":"수원","awayTeam":"인천","homeTeamImg":"/images/matchCenter/schedul_icon_suwonFc.png","awayTeamImg":"/images/matchCenter/schedul_icon_incheon.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"6월 16일(일)","round":"17라운드","stadium":"전주월드컵경기장","homeTeam":"전주","awayTeam":"인천","homeTeamImg":"/images/matchCenter/schedul_icon_jeonbuk.png","awayTeamImg":"/images/matchCenter/schedul_icon_incheon.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"6월 19일(수)","round":"18라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"김천","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_kimcheon.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"6월 23일(일)","round":"19라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"포항","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_pohang.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"6월 27일(수)","round":"20라운드","stadium":"제주월드컵경기장","homeTeam":"제주","awayTeam":"인천","homeTeamImg":"/images/matchCenter/schedul_icon_jeju.png","awayTeamImg":"/images/matchCenter/schedul_icon_incheon.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"6월 30일(일)","round":"21라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"강원","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_gangwon.png"}   
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"6월 1일(토)", "round":"16라운드","stadium":"수원종합운동장","homeTeam":"수원FC","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"6월 16일(일)","round":"17라운드","stadium":"전주월드컵경기장","homeTeam":"전북","awayTeam":"인천"},
+                {"gameType":"CHAMPIONS LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_afc.png","date":"6월 19일(수)","round":"18라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"김천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"6월 23일(일)","round":"19라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"포항"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"6월 27일(수)","round":"20라운드","stadium":"제주월드컵경기장","homeTeam":"제주","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"6월 30일(일)","round":"21라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"강원"}
             ]},
             {"7":[
-                {"gameType":"/images/matchCenter/logo_match_kleague.png","date":"3월2일(토) 16:30","round":"1라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"수원 FC","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_suwonFc.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"3월10일(일) 16:00","round":"2라운드","stadium":"상암월드컵경기장","homeTeam":"서울","awayTeam":"인천","homeTeamImg":"/images/matchCenter/schedul_icon_seoul.png","awayTeamImg":"/images/matchCenter/schedul_icon_incheon.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"3월17일(일) 16:30","round":"3라운드","stadium":"울산문수축구경기장","homeTeam":"울산","awayTeam":"인천","homeTeamImg":"/images/matchCenter/schedul_icon_ulsan.png","awayTeamImg":"/images/matchCenter/schedul_icon_incheon.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"3월30일(토) 14:00","round":"4라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대전","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":"/images/matchCenter/schedul_icon_daejeon.png"}  
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"7월2일(토) 16:30","round":"22라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"수원FC"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"7월10일(일) 16:00","round":"23라운드","stadium":"상암월드컵경기장","homeTeam":"서울","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"7월17일(일) 16:30","round":"24라운드","stadium":"울산문수축구경기장","homeTeam":"울산","awayTeam":"인천"},
+                {"gameType":"CHAMPIONS LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_afc.png", "date":"7월30일(토) 14:00","round":"25라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대전"}
             ]},
             {"8":[
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""}  
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"8월3일","round": "26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"서울"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"8월13일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"제주","awayTeam":"인천"},
+                {"gameType":"CHAMPIONS LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_afc.png", "date":"8월15일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"울산"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"8월23일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"강원","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"8월28일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대전"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"8월30일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대구"}
             ]},
             {"9":[
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"}
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"9월3일","round": "26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"서울"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"9월13일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"제주","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"9월15일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"울산"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"9월23일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"강원","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"9월28일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대전"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"9월30일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대구"}
+               
             ]},
             {"10":[
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"}
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"10월3일","round": "26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"서울"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"10월13일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"제주","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"10월15일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"울산"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"10월23일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"강원","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"10월28일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대전"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"10월30일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대구"}
             ]},
             {"11":[
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"}
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"11월3일","round": "26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"서울"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"11월13일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"제주","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"11월15일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"울산"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"11월23일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"강원","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"11월28일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대전"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"11월30일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대구"}
             ]},
             {"12":[
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"","homeTeamImg":"/images/matchCenter/schedul_icon_incheon.png","awayTeamImg":""},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"},
-                {"gameType":"/images/matchCenter/logo_match_kleague.png", "date":"","round":"","stadium":"","homeTeam":"","awayTeam":"인천","homeTeamImg":"","awayTeamImg":"/images/matchCenter/schedul_icon_inchoen.png"}
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"12월3일","round": "26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"서울"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"12월13일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"제주","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"12월15일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"울산"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"12월23일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"강원","awayTeam":"인천"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"12월28일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대전"},
+                {"gameType":"K-LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"12월30일","round":"26라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대구"}
             ]}
     ],                  
     
