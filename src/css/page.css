@@ -708,7 +708,7 @@
        > li{display: flex; gap: 13px; position: relative; width: 50%; line-height: 50px; overflow: hidden; cursor: pointer;
           &::after{content: url(../../public/images/matchCenter/▼-1.png);}
           &:hover{overflow: unset;}
-        ol{position: absolute; top: 50px; font-size: 22px; 
+        ol{position: absolute; top: 50px; font-size: 22px; z-index: 1; text-align: center; width: 100%;
             > li:hover{color: var(--color--blue); cursor: pointer; }
           }
         }

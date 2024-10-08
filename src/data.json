@@ -394,7 +394,7 @@
                 {"gameType":"K-LEAGUE", "result":"2:3", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"4월 3일(수) 19:30","round":"5라운드","stadium":"광주축구전용경기장","homeTeam":"광주","awayTeam":"인천"},
                 {"gameType":"CHAMPIONS LEAGUE", "result":"0:1", "gameSymbol":"/images/matchCenter/logo_match_afc.png", "date":"4월 6일(토) 16:30","round":"6라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"제주"},
                 {"gameType":"K-LEAGUE", "result":"1:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"4월 14일(일) 16:30","round":"7라운드","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"대구"},
-                {"gameType":"KOREA-CUP", "result":"1:0", "gameSymbol":"/images/matchCenter/logo_match_koreacup.png", "date":"4월 17일(수) 19:00","round":"null","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"김해시청"},
+                {"gameType":"KOREA-CUP", "result":"1:0", "gameSymbol":"/images/matchCenter/logo_match_koreacup.png", "date":"4월 17일(수) 19:00","round":"","stadium":"인천축구전용경기장","homeTeam":"인천","awayTeam":"김해시청"},
                 {"gameType":"K-LEAGUE", "result":"4:1", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"4월 21일(일) 14:00","round":"8라운드","stadium":"춘천송암스포츠타운","homeTeam":"강원","awayTeam":"인천"},
                 {"gameType":"K-LEAGUE", "result":"0:0", "gameSymbol":"/images/matchCenter/logo_match_kleague.png", "date":"4월 28일(일) 14:00","round":"9라운드","stadium":"포항스틸야드","homeTeam":"포항","awayTeam":"인천"}
             ]},
