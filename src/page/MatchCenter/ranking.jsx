@@ -5,29 +5,27 @@ import data from "../../data.json"
 
 
 export default function Rangking () {
-
-    const rankTableData = data["k-leagueRankTable"];
     const date = new Date();
-    const [isCategori , setisCategori] = useState('true');
-
+    const currentYear = format(date,'yyyy');
+    const YEARS =[currentYear,currentYear-1,currentYear-2,currentYear-3,currentYear-4];
+    
+    const rankTableData = data["k-leagueRankTable"];
+    const [selectedGameType , setSelectedGameType] = useState('true');
+    const [selectedYear , setSelectedYear] = useState(currentYear);
     return (
         <>
         <Banner aniWidth={'100%'} />
         <section className="rankingArea size1442">
             <div>
                 <div>
-                    <button onClick={()=> setisCategori(true)} className={isCategori ? 'btn-checkBox active' : 'btn-checkBox'}></button>
-                    <button onClick={()=> setisCategori(false)} className={!isCategori ? 'btn-checkBox active' : 'btn-checkBox'}></button>
+                    <button onClick={()=> setSelectedGameType(true)} className={selectedGameType ? 'btn-checkBox active' : 'btn-checkBox'}></button>
+                    <button onClick={()=> setSelectedGameType(false)} className={!selectedGameType ? 'btn-checkBox active' : 'btn-checkBox'}></button>
                 </div>     
                 <ul>
-                    <div>2024</div>
-                    <div>
-                        <li>2024</li>
-                        <li>2023</li>
-                        <li>2022</li>
-                        <li>2021</li>
-                        <li>2020</li>
-                    </div>
+                    <li>{selectedYear}</li>
+                        <ol>
+                            {YEARS.map((el,index)=> <li key={index} onClick={()=> setSelectedYear(el)}>{el}</li>)}                          
+                        </ol>
                 </ul>
                 <p>
                     기준 : {format(date,'yyyy년MM월dd일')} 
@@ -51,7 +49,7 @@ export default function Rangking () {
                 </thead>
                 <tbody>
                     {rankTableData.map((el) => {
-                        return (<tr>
+                        return (<tr key={el.id}>
                             <td>{el["순위"]}</td>
                             <td><img src={`/images/matchCenter/${el["클럽"]}.png`} alt={`${el["클럽"]}로고 이미지`} />{el["클럽"]}</td>
                             <td>{el["승점"]}</td>
