@@ -15,6 +15,18 @@ import Schedule from "./page/Player/schedule";
 import CoachingStaff from "./page/Player/coachingStaff";
 import GameSchedule from "./page/MatchCenter/gameSchedule";
 import Rangking from "./page/MatchCenter/ranking";
+import Announcement from "./page/FanZone/announcement";
+import CheeringGrounds from "./page/FanZone/cheeringGrounds";
+import CheerSong from "./page/FanZone/cheerSong";
+import Gallery from "./page/FanZone/gallery";
+import Magazine from "./page/FanZone/magazine";
+import News from "./page/FanZone/news";
+import Promotion from "./page/FanZone/promotion";
+import QandA from "./page/FanZone/questionsAndAnswers";
+import UtdReporter from "./page/FanZone/utdReporter";
+import Vod from "./page/FanZone/vod";
+import LostItem from "./page/FanZone/lostItem";
+import Event from "./page/FanZone/event";
 import '../src/css/import.css'
 
 
@@ -43,6 +55,20 @@ export default function Root() {
             <Route path="matchCenter">
             <Route index path="gameSchedule" element={<GameSchedule />}/>
             <Route path="ranking" element={<Rangking />}/>
+            </Route>
+            <Route path="fanZone">
+              <Route index path="announcement" element={<Announcement />} />
+              <Route  path="cheeringGrounds" element={<CheeringGrounds />} />
+              <Route  path="cheerSong" element={<CheerSong />} />
+              <Route  path="gallery" element={<Gallery />} />
+              <Route  path="magazine" element={<Magazine />} />
+              <Route  path="news" element={<News />} />
+              <Route  path="promotion" element={<Promotion />} />
+              <Route  path="q&a" element={<QandA />} />
+              <Route  path="utdReporter" element={<UtdReporter />} />
+              <Route  path="vod" element={<Vod />} />
+              <Route  path="lostItem" element={<LostItem />} />
+              <Route  path="event" element={<Event />} />
             </Route>
           </Route>
         </Routes>

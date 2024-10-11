@@ -69,18 +69,20 @@ export default function Header() {
               </ul>
             </li>
             <li>
-              <a href="###">FANZONE</a>
+              <Link to={"fanZone/announcement"}>FANZONE</Link>
               <ul>
-                <li>공지사항</li>
-                <li>구단뉴스</li>
-                <li>UTD기자단</li>
-                <li>VOD</li>
-                <li>갤러리</li>
-                <li>공식매거진</li>
-                <li>홍보물</li>
-                <li>응원가</li>
-                <li>응원마당</li>
-                <li>질문과 담변</li>
+                <Link to={"fanZone/announcement"}>공지사항</Link>
+                <Link to={"fanZone/news"}>구단뉴스</Link>
+                <Link to={"fanZone/utdReporter"}>UTD기자단</Link>
+                <Link to={"fanZone/vod"}>VOD</Link>
+                <Link to={"fanZone/gallery"}>갤러리</Link>
+                <Link to={"fanZone/magazine"}>공식매거진</Link>
+                <Link to={"fanZone/promotion"}>홍보물</Link>
+                <Link to={"fanZone/cheerSong"}>응원가</Link>
+                <Link to={"fanZone/cheeringGrounds"}>응원마당</Link>
+                <Link to={"fanZone/q&a"}>질문과 답변</Link>
+                <Link to={"fanZone/event"}>이벤트</Link>
+                <Link to={"fanZone/lostItem"}>분실물</Link>
               </ul>
             </li>
             <li>
