@@ -16,6 +16,7 @@ export default function Rangking () {
         <>
         <Banner aniWidth={'100%'} />
         <section className="rankingArea size1442">
+        <h2 className="hiddenH2">리그순위</h2>
             <div>
                 <div>
                     <button onClick={()=> setSelectedGameType(true)} className={selectedGameType ? 'btn-checkBox active' : 'btn-checkBox'}></button>

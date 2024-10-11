@@ -48,6 +48,7 @@ const monthFiltering = selectedMonth === '전체' ? gameTypeFiltering : gameType
         <>
         <Banner aniWidth={'50%'} />
         <section className="gameScheduleArea size1442">
+            <h2 className="hiddenH2">경기일정</h2>
             <div className="categori">
                 <div>
                     {CATEGORI.map((el,index)=> < button key={index} onClick={() => setSelectedGameType(el)} className={el === selectedGameType ? 'btn-checkBox active' : 'btn-checkBox'}>{index === 0 && 'ALL'}</button>)}

@@ -71,18 +71,42 @@ export default function Header() {
             <li>
               <Link to={"fanZone/announcement"}>FANZONE</Link>
               <ul>
-                <Link to={"fanZone/announcement"}>공지사항</Link>
-                <Link to={"fanZone/news"}>구단뉴스</Link>
-                <Link to={"fanZone/utdReporter"}>UTD기자단</Link>
-                <Link to={"fanZone/vod"}>VOD</Link>
-                <Link to={"fanZone/gallery"}>갤러리</Link>
-                <Link to={"fanZone/magazine"}>공식매거진</Link>
-                <Link to={"fanZone/promotion"}>홍보물</Link>
-                <Link to={"fanZone/cheerSong"}>응원가</Link>
-                <Link to={"fanZone/cheeringGrounds"}>응원마당</Link>
-                <Link to={"fanZone/q&a"}>질문과 답변</Link>
-                <Link to={"fanZone/event"}>이벤트</Link>
-                <Link to={"fanZone/lostItem"}>분실물</Link>
+                <li>
+                  <Link to={"fanZone/announcement"}>공지사항</Link>
+                </li>
+                <li>
+                  <Link to={"fanZone/news"}>구단뉴스</Link> 
+                </li>
+                <li>
+                  <Link to={"fanZone/utdReporter"}>UTD기자단</Link>
+                </li>
+                <li>
+                  <Link to={"fanZone/vod"}>VOD</Link>
+                </li>
+                <li>
+                  <Link to={"fanZone/gallery"}>갤러리</Link>
+                </li>
+                <li>
+                  <Link to={"fanZone/magazine"}>공식매거진</Link>
+                </li>
+                <li>
+                  <Link to={"fanZone/promotion"}>홍보물</Link>
+                </li>
+                <li>
+                  <Link to={"fanZone/cheerSong"}>응원가</Link>
+                </li>
+                <li>
+                  <Link to={"fanZone/cheeringGrounds"}>응원마당</Link>
+                </li>
+                <li>
+                  <Link to={"fanZone/q&a"}>질문과 답변</Link>
+                </li>
+                <li>
+                  <Link to={"fanZone/event"}>이벤트</Link>
+                </li>
+                <li>
+                  <Link to={"fanZone/lostItem"}>분실물</Link>
+                </li>
               </ul>
             </li>
             <li>

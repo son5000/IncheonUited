@@ -91,3 +91,6 @@ body{ color: var(--color--white);}
 .a-after::after{ display: inline; content: ""; width: 25px; aspect-ratio: 1/1; background: url(../../public/images/main/link_icon_01.png) no-repeat center / auto; background-color: white; border-radius: 100%; position: absolute; transform: translate(-50%,-50%); top: 50%; right: 5%;}
 
 .bg-color-blue {display:inline-block; background-color:var(--color--blue); color: var(--color--white); padding-inline:20px; border-radius:30px; font-size:18px; font-weight:600; }
+
+.hiddenH2 {font-size: 0.1px; text-indent: -9999px;}
+

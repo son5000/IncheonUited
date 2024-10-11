@@ -771,12 +771,38 @@
 
 /* fanZone */
 
+/* banner */
 .fanZonePage .banner {background-image: url(../../public/images/fanZone/fanZone_banner.png);}
+
+/* moduleCSS */
+
+.year-search-box {margin-bottom: 30px; display: flex; justify-content: right; gap: 20px; align-items: center; font-size: 18px;
+  > *{ background-color: #262626;}
+    > div { position: relative; width: 30.51%; border-radius: 10px;
+      > button{background: url(../../public/images/fanZone/icon.png) no-repeat center /auto; height: 26px; width: 27px; position: absolute; right: 5%; top: 25% ; cursor: pointer;}
+      > input{line-height: 65px; width: 100%; color: var(--color--white); position: relative; background-color: #262626; border-radius: 10px; box-sizing: border-box; padding-inline: 25px;}
+    } 
+
+    > ul {width: 14.56%; border: 2px solid #262626; cursor: pointer;  padding-inline: 25px; line-height: 65px; border-radius: 10px; box-sizing: border-box;
+      &:hover{ border: 2px solid var(--color--white);
+        > li{ overflow: unset;}
+      }
+      > li{height: 65px; overflow: hidden; position: relative; 
+          > ol {display: flex; width: 460px; aspect-ratio: 1/1; background-color: #262626; z-index: 1; position: absolute; left: -25px; top: 67px; flex-wrap: wrap; border-radius: 10px;
+            > li {width: 25%; display: flex; align-items: center; justify-content: center;
+              > span {width: 70px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; border-radius: 100%;
+                &:hover{background-color: var(--color--gray);}
+                }
+            }
+          } 
+      }
+  }
+}
 
 /* vod */
 
 .vodArea {
-  > ul{width: 100%; 
+  > ul{width: 100%; margin-bottom: 50px;
     > li { width: 100%; display: flex; flex-direction: column; align-items: center; cursor: pointer;
         &:nth-of-type(1){
           > p {border-top: 1px solid var(--color--gray);}
@@ -795,5 +821,24 @@
         }
       }
   }
+  > a {display: block; max-width: 185px; border: 1px solid var(--color--white); box-sizing: border-box; line-height: 65px; font-size: 18px; margin: 0 auto; text-align: center; border-radius: 10px; margin-bottom: 150px;}
 
+}
+
+/* gallaryArea */
+
+.gallaryArea{
+  > ul{grid-template-columns: repeat(3,1fr); display: grid; gap: 30px; width: 100%; margin-bottom: 150px;
+    > li {position: relative; cursor: pointer;
+      > a {
+        &:hover{
+          > p{display: block;}
+        }
+        > img{ width: 100%; display: block;}
+        > p{display: none; position: absolute ;bottom: 0; left: 0; font-size: 14px; background-color: var(--color--blodGray); width: calc(100%); line-height: 40px;
+          > span{margin-left: 15px;}
+        }
+      }
+    }
+  }
 }

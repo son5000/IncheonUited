@@ -11,6 +11,7 @@ export default function Vod(){
         <>
         <Banner aniWidth={"30%"} />
         <section className="size1442 vodArea">
+            <h2 className="hiddenH2">유튜브동영상리스트</h2>
             <ul>
                 {vedios.map((el,index)=> {
                     return (   
@@ -21,6 +22,8 @@ export default function Vod(){
                     )
                 })}
             </ul>
+
+            <a target="_blank" rel="noreferrer noopener" href="https://www.youtube.com/channel/UCGA9gUrYCb4hRk_wHBzB_nQ">더보기</a>
         </section>
         </>
     )
