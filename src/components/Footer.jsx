@@ -47,11 +47,11 @@ export default function Footer (){
                       <li> 뉴스<Link href="###">UTD기자단 뉴스</Link></li>
                       <li><Link href="###">VOD</Link></li>
                       <li><Link href="###">갤러리</Link></li>
-                      <li> 매거진<Link href="###">식 매거진</Link></li>
+                      <li> <Link href="###">공식 매거진</Link></li>
                       <li><Link href="###">홍보물</Link></li>
                       <li><Link href="###">응원가</Link></li>
                       <li><Link href="###">응원마당</Link></li>
-                      <li> 답변<Link href="###">질문과 답변</Link></li>
+                      <li> <Link href="###">질문과 답변</Link></li>
                   </ol>
               </li>
               <li>

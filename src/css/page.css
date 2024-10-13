@@ -694,7 +694,7 @@
           &.active::before{border: 2px solid var(--color--blue); background: url(../../public/images/matchCenter/check_icon.png) no-repeat center / auto;}
 }
 
-.gameScheduleArea{
+.gameScheduleArea{margin-bottom: 150px;
   > .categori{display: flex; align-items: flex-start; justify-content: space-between; width: 100%;
     > div {display: flex; gap: 30px; width: 400px; margin-bottom: 70px;
         > button.btn-checkBox {
@@ -714,7 +714,7 @@
         }
       }
     }
-  > .games{ margin-bottom: 150px; width: 100%;
+  > .games{ width: 100%;
     > p {text-align: center; border-block: 1px solid var(--color--gray); line-height: 60px; text-transform: uppercase;
     }
     > ol { width: 100%;
@@ -774,20 +774,21 @@
 /* banner */
 .fanZonePage .banner {background-image: url(../../public/images/fanZone/fanZone_banner.png);}
 
-/* moduleCSS */
+/* module */
 
-.year-search-box {margin-bottom: 30px; display: flex; justify-content: right; gap: 20px; align-items: center; font-size: 18px;
+.year-search-box {margin-bottom: 35px; display: flex; justify-content: right; gap: 20px; align-items: center; font-size: 18px;
   > *{ background-color: #262626;}
     > div { position: relative; width: 30.51%; border-radius: 10px;
       > button{background: url(../../public/images/fanZone/icon.png) no-repeat center /auto; height: 26px; width: 27px; position: absolute; right: 5%; top: 25% ; cursor: pointer;}
-      > input{line-height: 65px; width: 100%; color: var(--color--white); position: relative; background-color: #262626; border-radius: 10px; box-sizing: border-box; padding-inline: 25px;}
+      > input{line-height: 62px; width: 100%; color: var(--color--white); position: relative; background-color: #262626; border-radius: 10px; box-sizing: border-box; padding-inline: 25px;}
     } 
 
     > ul {width: 14.56%; border: 2px solid #262626; cursor: pointer;  padding-inline: 25px; line-height: 65px; border-radius: 10px; box-sizing: border-box;
       &:hover{ border: 2px solid var(--color--white);
         > li{ overflow: unset;}
       }
-      > li{height: 65px; overflow: hidden; position: relative; 
+      > li{height: 65px; overflow: hidden; position: relative;
+        &::after{content: url(../../public/images/fanZone/ico_calendar.png); display: block; position: absolute; top: 60%; right: 0; transform: translate(-50% ,-50%);}
           > ol {display: flex; width: 460px; aspect-ratio: 1/1; background-color: #262626; z-index: 1; position: absolute; left: -25px; top: 67px; flex-wrap: wrap; border-radius: 10px;
             > li {width: 25%; display: flex; align-items: center; justify-content: center;
               > span {width: 70px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; border-radius: 100%;
@@ -796,6 +797,30 @@
             }
           } 
       }
+  }
+}
+
+.boardList { width: 100%; margin-bottom: 45px;
+  > li {font-size: 18px; line-height: 65px; color: var(--color--gray); border: 1px solid var(--color--white); border-radius: 10px; display: flex; align-items: center;}
+  > ol {
+    > li {line-height: 63px; border-bottom: 1px solid var(--color--gray);
+      > a{display: flex; align-items: center;}
+    }
+  }
+  li , a { text-align: center;
+    > span{width: 16.64%;}
+    > p {width: 49.93%;}
+  }
+  & + div {max-width: 300px; margin-inline: auto; margin-bottom: 145px; display: flex; align-items: center; justify-content: space-between;
+    > button {text-indent: -9999px; width: 7px; height: 12px; background-repeat: no-repeat; background-position: center; background-size: auto; cursor: pointer;
+      &:nth-of-type(1){background-image: url("../../public/images/fanZone/prev_btn.png");}
+      &:nth-of-type(2){background-image: url("../../public/images/fanZone/next_btn.png");}
+    }
+    > ol {font-size: 18px; gap: 15px; display: flex; align-items: center; justify-content:space-between; color: var(--color--gray); 
+      > li {cursor: pointer;}
+      > li:hover{color: white;}
+      > li.active{text-decoration: underline; color: white; text-underline-position : under;}
+    }
   }
 }
 
@@ -820,10 +845,18 @@
           + li > p {border-top: 1px solid var(--color--gray);}
         }
       }
+    }
+    > a {display: block; max-width: 185px; border: 1px solid var(--color--white); box-sizing: border-box; line-height: 65px; font-size: 18px; margin: 0 auto; text-align: center; border-radius: 10px; margin-bottom: 150px;}
+    
   }
-  > a {display: block; max-width: 185px; border: 1px solid var(--color--white); box-sizing: border-box; line-height: 65px; font-size: 18px; margin: 0 auto; text-align: center; border-radius: 10px; margin-bottom: 150px;}
 
-}
+
+/* announcement */
+
+.announcementArea{margin-bottom: 150px;}
+
+
+
 
 /* gallaryArea */
 
@@ -842,3 +875,100 @@
     }
   }
 }
+
+
+/* magazineArea */
+
+.magazineArea{
+  > ul {display: flex; align-items: center; justify-content: flex-start; width: 100%; flex-wrap: wrap; gap: 2.08%;
+    > li {width: 23.44%; position: relative; font-size: 14px;
+      > a {
+        > span {position: absolute; top: 0; line-height: 30px; display: block; padding-inline: 12px; background-color: var(--color--black); }
+        > img {margin-bottom: 25px; display: block; width: 100%;}
+        > p {margin-bottom: 50px;}
+      }
+    }
+  }
+}
+
+
+/* cheearSongArea */
+
+.cheearSongArea { margin-bottom: 150px;
+ > ul {width: 100%;
+    > li {font-size: 18px; width: 100%; cursor: pointer; position: relative;
+      &::after{content: url(../../public/images/fanZone/arrow-up.png); width: 26px; height: 14px; position: absolute; display: block; top: 35px; right: 5%; transform: translate(-50%,-50%);}
+      &.active{
+        &::after{content: url(../../public/images/fanZone/arrow_down.png);}
+        &:not(:first-of-type){margin-top: 25px;}
+        > p {color: var(--color--white); border-radius: 10px; border: 1px solid var(--color--white);}
+        > div{display: block;
+          &:nth-last-of-type(1){border-bottom: 1px solid var(--color--white);}
+        }
+      }
+      > p{ padding-inline: 25px; height: 70px; border-block: 1px solid var(--color--white); display: flex; align-items: center; color: var(--color--gray);
+        &::before{content: url("../../public/images/fanZone/sound_icon.png"); width: 21px; height: 21px; display: block; margin-right: 25px;}
+        > button {background: url("../../public/images/fanZone/musicPlay_icon.png") no-repeat center / cover; width: 21px; height: 21px; margin-left: 25px; cursor: pointer;
+          &.playing{background-image: url(../../public/images/fanZone/ico_cheersong_stop.png);}
+        }
+      }
+      > div {padding: 25px; line-height: 25px; display: none;
+        > p:nth-last-of-type(1){margin-bottom: 35px;}
+        > button { display: block; margin-left: auto; line-height: 32px; padding-left: 15px; padding-right: 38px; border: 1px solid var(--color--white); border-radius: 10px; position: relative;
+          &::after{content: url(../../public/images/fanZone/downLoad_icon.png); position: absolute; height: 13px; width: 7px; right: 10%; }
+        }
+      }
+    }
+  }
+}
+
+
+/* cheeringGrounds */
+
+.cheeringGroundsArea{
+  > .boardList + div{margin-bottom: 50px;}
+  > button {display: block; margin-left: auto; margin-bottom: 150px;
+    > a {line-height: 65px; font-size: 18px; padding-inline: 70px; border: 1px solid var(--color--white); display: block; border-radius: 10px;}
+  }
+}
+
+/* event */
+ .subEventArea{ margin-bottom: 100px;
+      > div.year-search-box{
+        > ul {
+        > li {
+          ol{left: -175%;}
+        }
+      }
+    }
+    > ul{width: 100%; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 2%;
+      > li{width: 47%; margin-bottom: 50px;
+        > a {
+          > img{display: block; width: 100%; margin-bottom: 30px;}
+          > mark{font-size: 18px; background-color: var(--color--gray); color: var(--color--white); line-height: 36px; padding-inline: 16px; display: inline-block; border-radius: 20px; margin-bottom: 35px;}
+          > p {font-size: 24px; margin-bottom: 17px;}
+          > small {font-size: 14px;}
+        }
+      }
+    }
+  }
+
+
+  /* lostItem */
+
+  .lostItemtArea{
+    > ul {width: 100%; display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 2%;
+      > li {width: 32%; margin-bottom: 50px; position: relative;
+        a {
+            &:hover{
+             >  p {display: block;}
+            }
+            > img {width: 100%; display: block;}
+            > p { position: absolute; width: 100%; bottom: 0%; line-height: 40px; background-color: var(--color--blodGray);left: 0; display: none;
+              &::before{content: '';width: 15px; height: 10px; display: inline-block;}
+              &::after{content: url(../../public/images/fanZone/lostItem_arrow.png); width: 14px; height: 9; display: inline-block; margin-left: 50% }
+            }  
+          }
+        }
+      }
+  }

@@ -17,7 +17,7 @@ export default function Vod(){
                     return (   
                     <li onClick={() => setActive(index)} key={index} className={index === active ? "active" : ""}>
                         <p>{el.title}</p>
-                        <iframe src={el.src} title={el.title}></iframe>
+                        {index === active && <iframe src={el.src} title={el.title}></iframe>}
                     </li>
                     )
                 })}
