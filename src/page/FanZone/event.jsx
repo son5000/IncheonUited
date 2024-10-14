@@ -11,10 +11,11 @@ export default function Event(){
     const [selectedYear,setSelectedYear] = useState(2024)
     const handleClick = (index) =>  setSelectedYear(index);
 
+    
     return (
         <>
         <Banner aniWidth={"90%"} />
-        <section className="subEventArea size1442">
+        <section className="eventArea size1442">
             <h2 className="hiddenH2">이벤트</h2>
             <YearSearchBox handleClick={handleClick} SelectedYear={selectedYear} />
             <ul>

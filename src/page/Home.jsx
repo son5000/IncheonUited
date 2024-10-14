@@ -1,12 +1,9 @@
-// Banner 슬라이드 컴포넌트
 import MainSlide  from "../components/main/MainSlide";
-// INFU MATCH 컴포넌트
 import LeagueAndMatch from "../components/main/LeagueAndMatch";
-// Blue market product 컴포넌트
-import Product from "../components/main/Product";
-// InfuFeeds 컴포넌트
 import FeedSlide from "../components/main/FeedSlide";
+import data from '../data.json';
 
+const  products = data.products;
 
 export default function Home() {
 
@@ -25,7 +22,18 @@ export default function Home() {
         <section className="marketArea size1442">
           <h2 className="hStyle">INCHEON UNITED BLUE MARKET</h2>
           <a className="a-after" href="###">블루마켓 바로가기</a>
-          <Product />
+          <ul>
+            {products.map((el)=>{
+              return(
+                <li key={el.id} herf="###">
+                  <a href="###">
+                    <img src={el.image} alt={el.title} />
+                    <p>{el.title}</p>
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
         </section>
 
         {/* IUFC FEEDS */}

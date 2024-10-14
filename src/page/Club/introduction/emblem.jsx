@@ -5,6 +5,7 @@ export default function Emblem () {
     return(
       <PageBox aniWidth={'20%'} >
         <section className="emblemArea">
+            <h2 className="hiddenH2">인천유나이티드 엠블럼</h2>
                 <figure>
                     <figcaption>
                         <mark className="bg-color-blue">EMBLEM</mark>

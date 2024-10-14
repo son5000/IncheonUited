@@ -28,18 +28,18 @@ export default function BoardList (){
 
     return (
         <>
-        {secondLocation !== 'cheeringGrounds' ? 
-        <ul className="boardList">
-            {<li><span>구분</span><p>제목</p><span>작성일</span><span>조회수</span></li>}
-            <ol>
-                {DATA.map((el,index) => <li key={index}><Link><span>{el.type}</span><p>{el.title}</p><span>{el.date}</span><span>{el.views}</span></Link></li>)}
-            </ol>
-        </ul>
-        :
+        {secondLocation === 'cheeringGrounds' ? 
         <ul className="boardList">
             {<li><span>NO</span><span>구분</span><p>제목</p><span>작성자</span><span>작성일</span><span>조회수</span></li>}
             <ol>
                 {DATA.map((el,index) => <li key={index}><Link><span>{el.id}</span><span>{el.type}</span><p>{el.title}</p><span>{el.author}</span><span>{el.date}</span><span>{el.views}</span></Link></li>)}
+            </ol>
+        </ul>
+            :
+        <ul className="boardList">
+            {<li><span>구분</span><p>제목</p><span>작성일</span><span>조회수</span></li>}
+            <ol>
+                {DATA.map((el,index) => <li key={index}><Link><span>{el.type}</span><p>{el.title}</p><span>{el.date}</span><span>{el.views}</span></Link></li>)}
             </ol>
         </ul>
         }
@@ -47,7 +47,7 @@ export default function BoardList (){
         <div>
             <button onClick={handlePrevBtn}>prev</button>
             <ol>
-                {pageNation.map((el) => <li key={el} onClick={() => setIsPageNation(el)} className={isPageNation === el && "active"}>{el}</li>)}
+                {pageNation.map((el) => <li key={el} onClick={() => setIsPageNation(el)} className={isPageNation === el ? "active" : ''}>{el}</li>)}
             </ol>
             <button onClick={handleNextBtn}>next</button>
         </div>

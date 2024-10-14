@@ -2,6 +2,7 @@ import { useState } from "react";
 import { format } from 'date-fns';
 import Banner from "../../components/Banner"
 import data from '../../data.json';
+import SelectedBox from "../../components/matchCenter/SelectedBox"
 
 
 const CATEGORI = ['ALL','K-LEAGUE','KOREA-CUP','CHAMPIONS LEAGUE']
@@ -16,12 +17,11 @@ const games = data.games;
 const currentYear = format(date,'yyyy');
 // 연도 셀렉트 카테고리의 값을 현재 년도의 기준으로 배열 생성
 const YEARS =[currentYear,currentYear-1,currentYear-2,currentYear-3,currentYear-4];
-const [selectedYear , setselectedYear] = useState(currentYear);
+const [selectedYear , setSelectedYear] = useState(currentYear);
 //월 셀렉트 카테고리를 gamse 데이터의 프로퍼티값이 월별로 나뉘어져있기때문에 key값으로 배열 생성
 const MONTHS = games.map((el)=> Object.keys(el));
 const [selectedMonth , setSlectedMonth] = useState('전체');
 const [selectedGameType, setSelectedGameType] = useState('ALL');
-
 
 // 불러온 games 의 데이터 구조가 월단위의 큰 객체 => 월별데이터 배열 => 객체
 // 구조로 돼있기 때문에 가장 깊숙히 들어있는 값에 따라서 filtering 하기 위해서
@@ -44,33 +44,23 @@ const gameTypeFiltering = games.map((el) => {
 const monthFiltering = selectedMonth === '전체' ? gameTypeFiltering : gameTypeFiltering.filter(obj => obj.hasOwnProperty(selectedMonth));
 
 
-    return (
-        <>
+const dropProps ={
+    YEARS,
+    selectedYear,
+    setSelectedYear,
+    MONTHS,
+    selectedMonth,
+    setSlectedMonth,
+    selectedGameType,
+    setSelectedGameType,
+    CATEGORI
+}
+return (
+    <>
         <Banner aniWidth={'50%'} />
         <section className="gameScheduleArea size1442">
             <h2 className="hiddenH2">경기일정</h2>
-            <div className="categori">
-                <div>
-                    {CATEGORI.map((el,index)=> < button key={index} onClick={() => setSelectedGameType(el)} className={el === selectedGameType ? 'btn-checkBox active' : 'btn-checkBox'}>{index === 0 && 'ALL'}</button>)}
-                </div>
-                <ul>
-                    <li>
-                        {selectedYear}
-                        <ol>
-                            {YEARS.map((el) => <li onClick={()=> setselectedYear(el)} key={el}>{el}</li>)}
-                        </ol>
-                    </li>
-                    <li>
-                        {selectedMonth}
-                        <ol>
-                            {/* 월별 선택에는 전체선택자가 항목이 있기때문에 selectedMonth 값이*/}
-                            {/* '전체가 아닌 특정 월로 설정되어 있다면 li에 첫번째로 '전체'선택항목을 추가로 넣어줌 */}
-                            {selectedMonth !== '전체' && <li onClick={()=> setSlectedMonth('전체')}>전체</li>}
-                            {MONTHS.map((el)=> <li onClick={()=> setSlectedMonth(el)} key={el}>{`${el}월`}</li>)}
-                        </ol>
-                    </li>
-                </ul>
-            </div>
+                <SelectedBox props={dropProps} />
             <Games data={monthFiltering} currentYear={currentYear}  />
         </section>
         </>
@@ -95,10 +85,11 @@ function Games ({data,currentYear}){
                             {el[Object.keys(el)].map((i) => {
                                 return(
                                     <li key={i.date}>
-                                        <span>
-                                            <img src={i.gameSymbol} alt="대회아이콘" />
-                                        </span>
+                                        {/* 뒷배경색 때문에 */}
                                         <div>
+                                            <span> 
+                                                <img src={i.gameSymbol} alt="대회아이콘" />
+                                            </span>
                                             <p>{i.date}</p>
                                             <small>{i.round}</small>
                                             <mark>{i.stadium}</mark>
@@ -110,11 +101,11 @@ function Games ({data,currentYear}){
                                             <span><img src={`/images/matchCenter/schedul_icon_${i.awayTeam}.png`} alt={`${i.homeTeam} 심볼 이미지`} /></span>
                                             <strong>{i.awayTeam}</strong>
                                         </div>
-                                        <ul>
-                                            <li><a href="###">리뷰</a></li>
-                                            <li><a href="###">VOD</a></li>
-                                            <li><a href="###">사진</a></li>
-                                        </ul>
+                                        <div>
+                                            <a href="###">리뷰</a>
+                                            <a href="###">VOD</a>
+                                            <a href="###">사진</a>
+                                        </div>
                                     </li>)
                                 })}
                         </ol>

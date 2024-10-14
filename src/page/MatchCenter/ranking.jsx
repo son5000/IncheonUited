@@ -2,36 +2,33 @@ import { useState } from "react"
 import { format } from 'date-fns';
 import Banner from "../../components/Banner"
 import data from "../../data.json"
+import SelectedBox from "../../components/matchCenter/SelectedBox";
 
 
 export default function Rangking () {
     const date = new Date();
     const currentYear = format(date,'yyyy');
     const YEARS =[currentYear,currentYear-1,currentYear-2,currentYear-3,currentYear-4];
-    
+    const TODAY = format(date,'yyyy년MM월dd일');
     const rankTableData = data["k-leagueRankTable"];
     const [selectedGameType , setSelectedGameType] = useState('true');
     const [selectedYear , setSelectedYear] = useState(currentYear);
+
+    const dropProps ={
+        YEARS,
+        selectedYear,
+        setSelectedYear,
+        selectedGameType,
+        setSelectedGameType,
+        TODAY
+    }
+
     return (
         <>
         <Banner aniWidth={'100%'} />
         <section className="rankingArea size1442">
         <h2 className="hiddenH2">리그순위</h2>
-            <div>
-                <div>
-                    <button onClick={()=> setSelectedGameType(true)} className={selectedGameType ? 'btn-checkBox active' : 'btn-checkBox'}></button>
-                    <button onClick={()=> setSelectedGameType(false)} className={!selectedGameType ? 'btn-checkBox active' : 'btn-checkBox'}></button>
-                </div>     
-                <ul>
-                    <li>{selectedYear}</li>
-                        <ol>
-                            {YEARS.map((el,index)=> <li key={index} onClick={()=> setSelectedYear(el)}>{el}</li>)}                          
-                        </ol>
-                </ul>
-                <p>
-                    기준 : {format(date,'yyyy년MM월dd일')} 
-                </p>
-            </div>
+            <SelectedBox props={dropProps} />
             <p>하나은행 K리그1 2024</p>
             <table>
                 <thead>
