@@ -55,6 +55,7 @@ const dropProps ={
     setSelectedGameType,
     CATEGORI
 }
+
 return (
     <>
         <Banner aniWidth={'50%'} />
