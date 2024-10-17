@@ -1,9 +1,7 @@
-/* mainPage */
 
-.mainPage{
-    /* mainSlide */
-    .mainSlide-container { width: 100%; padding-top: 130px; margin-bottom: 330px; position: relative; 
-        .slideList { width: 100%; } 
+
+/* mainSlide */
+.mainPage .mainSlide-container { width: 100%; padding-top: 130px; margin-bottom: 330px; position: relative; 
         .slick-prev:before, .slick-next:before { display: none; } 
         .slick-arrow { z-index: -1; left: 1%; } 
          button { bottom: -105px; width: 16px; height: 18px; position: absolute; background-size: cover; background-repeat: no-repeat; background-position: center; cursor: pointer; } 
@@ -19,8 +17,27 @@
         } 
         .slide-item > img { width: 100%; } 
         .slick-track::after { display: none; } 
-    }
+}
 
+.ticketMembershipPage .mainSlide-container{max-width: 760px; aspect-ratio: 760/535; margin-inline: auto; position: relative;
+  button{height: 110px; width: 57px; cursor: pointer; position: absolute; z-index: 9999; transform: translate(-50%,-50%); top: 50%;}
+  .btn-prev {  left: -8%; background-image: url('../../public/images/ticketMembership/_-1.png'); } 
+  .btn-next { right: -16%; background-image: url('../../public/images/ticketMembership/_.png'); } 
+  .slide-item { 
+  > div { margin-inline: 20px; padding-block: 150px; background-color: var(--color--blodGray); border-radius: 30px;
+      > p{display: flex; align-items: center; justify-content: space-evenly; font-size: 24px; font-weight: 600; margin-bottom: 60px;
+        > b {font-weight: 900; font-size: 34px; color: var(--color--gray);}
+      }
+      > time {display: block; text-align: center; margin-bottom: 20px; font-size: 18px; font-weight: 400;}
+      > mark {font-size: 18px; font-weight: 600; display: flex; color: var(--color--gray); text-align: center; background-color: transparent; align-items: center; justify-content: center;
+        &::before{content: ''; display: inline-block; width: 13px; height: 19px; margin-right: 10px; background: url(../../public/images/ticketMembership/map_icon.png) no-repeat center / auto; }
+      }
+    }
+  } 
+  
+}
+      
+.mainPage{
     /* matchSlide */
     .matchArea{
         .leagueAndMatch { width: 100%; gap: 2.08%; display: flex; align-items: flex-start; justify-content: flex-start; position: relative; 
@@ -96,8 +113,14 @@
 .playerPage > .banner {background-image: url(../../public/images/player/player_Banner.png);}
 .matchCenterPage > .banner{background: url(../../public/images/matchCenter/matchCenter_banner_img.png) no-repeat center / cover}
 .fanZonePage .banner {background-image: url(../../public/images/fanZone/fanZone_banner.png);}
+.ticketMembershipPage .banner{background-image: url(../../public/images/ticketMembership/ticketMembership_banner.png);}
 
 /* banner => all subPage */
+
+@keyframes dynamicWidth{
+  0%{width: 0px;}
+  100%{width: var(--ani--width);}
+}
 .banner{ width:100%; height:950px; margin-bottom:150px; display:flex; align-items:flex-end; background-repeat: no-repeat; background-position: center; background-size: cover;
     & + div,&+section{margin-bottom: 150px;}
     > ul { width: 100%; font-size:18px; color:#666666; position:relative; display:flex; flex-grow:1; justify-content:flex-start; gap:3%;
@@ -124,9 +147,32 @@
       }
     }
 }
-@keyframes dynamicWidth{
-  0%{width: 0px;}
-  100%{width: var(--ani--width);}
+
+/* seatInformation : club => seat , ticket/membership => buytickets  */
+
+.seat {width: 100%;
+  > img { display: block; width: 100%; margin-bottom: 150px; }
+  > ul {
+    width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 20px;
+    > li {
+    font-size: 22px; width: 23.75%; padding-bottom: 55px; font-weight: 300;
+    > p::before { content: ''; display: block; width: 50px; height: 50px; margin-bottom: 25px; }
+    &:nth-of-type(1) > p::before { background-color: #f7de77; }
+    &:nth-of-type(2) > p::before { background-color: #f3981b; }
+    &:nth-of-type(3) > p::before { background-color: #74bd55; }
+    &:nth-of-type(4) > p::before { background-color: #009944; }
+    &:nth-of-type(5) > p::before { background-color: #d84533; }
+    &:nth-of-type(6) > p::before { background-color: #e5600f; }
+    &:nth-of-type(7) > p::before { background-color: #ef8787; }
+    &:nth-of-type(8) > p::before { background-color: #727171; }
+    &:nth-of-type(9) > p::before { background-color: #f5b62f; }
+    &:nth-of-type(10) > p::before { background-color: #e84091; }
+    &:nth-of-type(11) > p::before { background-color: #74298b; }
+    &:nth-of-type(12) > p::before { background-color: #009491; }
+    &:nth-of-type(13) > p::before { background-color: #7dcef4; }
+    &:nth-of-type(14) > p::before { background-color: #5a3c35; }
+   }
+  }
 }
 
 
@@ -207,13 +253,13 @@
 /* fanZone : yearSearchBox,boardList  */
 
 .boardList { width: 100%; margin-bottom: 45px;
-    > li {font-size: 18px; line-height: 65px; color: var(--color--gray); border: 1px solid var(--color--white); border-radius: 10px; display: flex; align-items: center;}
+    > div {font-size: 18px; line-height: 65px; color: var(--color--gray); border: 1px solid var(--color--white); border-radius: 10px; display: flex; align-items: center;}
     > ol {
     > li {line-height: 63px; border-bottom: 1px solid var(--color--gray);
       > a{display: flex; align-items: center;}
     }
   }
-  li , a { text-align: center;
+  div , a { text-align: center;
     > span{width: 16.64%;}
     > p {width: 49.93%;}
   }

@@ -1,4 +1,4 @@
-import React, { useRef,useState } from 'react';
+import React, { useRef,useState} from 'react';
 import Banner from "../../components/Banner"
 import data from "../../data.json"
 
@@ -6,7 +6,8 @@ const cheerSongs = data.cheerSong;
 
 export default function CheerSong(){
 
-const [isActive , setIsActive] = useState(0)
+const [isActive , setIsActive] = useState(Array(cheerSongs.length).fill(false));
+
 
 // 현재 재생중인 곡을 저장해두기위한 state 생성
 const [currentSong, setCurrentSong] = useState(null);
@@ -22,33 +23,49 @@ const audioRef = useRef(null);
 // ref의 current 프로퍼티 즉 audio에 접근해서 audio에 play(); 함수 실행 < 곡 재생.
 // setCurrentSong(mp3) 재생중인 음악을 currentSong 값으로 mp3의 파일경로를 넣어준다.
 function playMusic (mp3) {
-    if (currentSong === mp3) {
-        audioRef.current.pause();
-        setCurrentSong(null);
-      } else {
-        audioRef.current.src = mp3;
-        audioRef.current.play();
-        setCurrentSong(mp3);
-      }
+        if (currentSong === mp3) {
+            audioRef.current.pause();
+            setCurrentSong(null);
+          } else {
+            audioRef.current.src = mp3;
+            audioRef.current.play();
+            setCurrentSong(mp3);}
 };
+
+function handleClick(index) {
+let temp = isActive.slice();
+if(temp[index]){
+    temp[index] = false;
+    audioRef.current.pause();
+    return setIsActive(temp);
+}
+temp[index] = true;
+return setIsActive(temp);
+}
+
+
+
+
     return (
         <>
         <Banner aniWidth={"65%"} />
         <section className="cheearSongArea size1442">
             <h2 className="hiddenH2">응원가</h2>
-            <ul>{cheerSongs.map((el,index) => {
+            <div>{cheerSongs.map((el,index) => {
                 return (
-                    <li onClick={() => setIsActive(index)} key={index} className={index === isActive && "active"}>
-                    <p>{el.title}
-                        <button className={currentSong === el.mp3 && "playing"} onClick={()=> playMusic(el.mp3)}></button>
+                    <details onClick={() => handleClick(index)} key={index} className={isActive[index] && "active"}>
+                    <summary>{el.title}
+                        <button className={currentSong === el.mp3 && "playing"} onClick={(e)=> {
+                            e.stopPropagation();
+                            playMusic(el.mp3)}}></button>
                         <audio ref={audioRef}></audio>
-                    </p>
+                    </summary>
                     <div>{!el.text ? "가사가 없습니다." : 
                         el.text.map((i,index)=> { return (i ? <p key={index}>{i}</p> : <br key={index} />)})}
                         <button>응원가 다운받기</button>
                     </div>
-                    </li>)})}                
-            </ul>
+                    </details>)})}                
+            </div>
         </section>
         </>
     )

@@ -1,5 +1,15 @@
 
 {  
+    "mainDefaultSlide":[
+        {"id":"1","src":"/images/main/main_slide_img_1.png"},
+        {"id":"2","src":"/images/main/main_slide_img_2.png"},
+        {"id":"3","src":"/images/main/main_slide_img_3.png"}
+    ],
+    "subDefaultSlide":[
+        {"id":"1","src":"/images/main/main_slide_img_1.png"},
+        {"id":"2","src":"/images/main/main_slide_img_2.png"},
+        {"id":"3","src":"/images/main/main_slide_img_3.png"}
+    ],
     "products": [
     {
         "id":1,
@@ -196,6 +206,12 @@
             {"text":"질문과답변","link":"/fanZone/q&a"},
             {"text":"이벤트","link":"/fanZone/event"},
             {"text":"분실물","link":"/fanZone/lostItem"}
+        ],
+        "ticketMembership":[
+            {"text":"티켓 구매","link":"/ticketMembership/buyTickets"},
+            {"text":"멤버쉽/시즌권/예매권북 구매","link":"/ticketMembership/buyMembership"},
+            {"text":"단체관람","link":"/ticketMembership/groupTour"},
+            {"text":"FAQ","link":"/ticketMembership/frequentlyQ&A"}
         ]
     },
     "introduction":[
@@ -207,8 +223,8 @@
     ],
     "stadium":[
         {"text":"찾아오시는 길","link":"/club/stadium"},
-        {"text":"주차장 안내","link":"/club/stadium/parking"},
-        {"text":"좌석 안내","link":"/club/stadium/seat"}
+        {"text":"주차장 안내","link":"/club/stadium/parkingInformation"},
+        {"text":"좌석 안내","link":"/club/stadium/seatInformation"}
     ],
     "vision":[
             {"image":"/images/club/vision_icon01.png","text":"중계권 수익 발생의 한계"},

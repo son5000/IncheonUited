@@ -1,6 +1,6 @@
 /* Header */
 
-header{background-color: rgba(0, 0,0, var(--header--opacity)); font-size:18px; padding-top:35px; padding-bottom:15px ; width:100%; color:var(--color--white); position:fixed;  z-index: 9999;
+header{background-color: rgba(0, 0,0, var(--header--opacity)); font-size:18px; padding-top:35px; padding-bottom:15px ; width:100vw; color:var(--color--white); position:fixed;  z-index: 9999;
     &:hover{background-color: var(--color--black);}
      > div{display:flex; align-items:center;
         > h1 {width:20.53% ; margin-right:2.43%;

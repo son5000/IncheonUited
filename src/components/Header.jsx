@@ -110,16 +110,19 @@ export default function Header() {
               </ul>
             </li>
             <li>
-              <a href="###">TICKET / MEMBERSHIP</a>
+              <Link to={"ticketMembership/buyTickets"}>TICKET / MEMBERSHIP</Link>
               <ul>
                 <li>
-                  <a href="###">티켓 구매</a>
+                  <Link to={"ticketMembership/buyTickets"}>티켓 구매</Link>
                 </li>
                 <li>
-                  <a href="###">멤버쉽/시즌권/예매권북 구매</a>
+                  <Link to={"ticketMembership/buyMembership"}>멤버쉽/시즌권/예매권북 구매</Link>
                 </li>
                 <li>
-                  <a href="###">FAQ</a>
+                  <Link to={"ticketMembership/groupTour"}>단체 관람</Link>
+                </li>
+                <li>
+                  <Link to={"ticketMembership/frequentlyQ&A"}>FAQ</Link>
                 </li>
               </ul>
             </li>
