@@ -200,10 +200,8 @@
             {"text":"VOD","link":"/fanZone/vod"},
             {"text":"갤러리","link":"/fanZone/gallery"},
             {"text":"공식매거진","link":"/fanZone/magazine"},
-            {"text":"홍보물","link":"/fanZone/promotion"},
             {"text":"응원가","link":"/fanZone/cheerSong"},
             {"text":"응원마당","link":"/fanZone/cheeringGrounds"},
-            {"text":"질문과답변","link":"/fanZone/q&a"},
             {"text":"이벤트","link":"/fanZone/event"},
             {"text":"분실물","link":"/fanZone/lostItem"}
         ],

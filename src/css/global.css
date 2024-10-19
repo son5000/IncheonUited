@@ -1,28 +1,63 @@
-/* Header */
 
-header{background-color: rgba(0, 0,0, var(--header--opacity)); font-size:18px; padding-top:35px; padding-bottom:15px ; width:100vw; color:var(--color--white); position:fixed;  z-index: 9999;
-    &:hover{background-color: var(--color--black);}
-     > div{display:flex; align-items:center;
-        > h1 {width:20.53% ; margin-right:2.43%;
-             > a{display:inline-block;
-                 > img{width:100%;}
-            }
-        }
-        > nav {width:54.23%; box-sizing:border-box;
-            > ul{display:flex; align-items:flex-start; justify-content:space-between; position:relative;
-                 > li{line-height: 22px; 
-                    &:hover{color: var(--color--blue2); font-weight: 700; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 5px;}
-                    > ul{width: 100%; padding-top: 66.5px; padding-bottom: 20px; gap:35px; line-height: 20px; display: none; position: absolute; z-index: 1; flex-wrap: wrap; left: 0;font-weight: 300;}
-                    &:hover > ul{color: var(--color--white); display: flex;
-                        > li:hover{color: var(--color--blue2);cursor: pointer;}
-                    }
+/* Header */
+@media ( width > 640px)  {
+    header{font-size: 18px; background-color: rgba(0, 0,0, var(--header--opacity)); padding-top:35px; padding-bottom:15px ; width:100%; color:var(--color--white); position:fixed;  z-index: 100;
+        &:hover{background-color: var(--color--black);}
+        > div{display:flex; align-items:center;
+            > h1 {width:20.53% ; margin-right:2.43%;
+                > a{display:inline-block;
+                    > img{width:100%;}
                 }
-            }
-            &:hover::after{height: 120px; width:100%; content:''; display:block; position:absolute; background-color:rgba(14, 13, 13, 0.8);top: 130px; left: 0;}
-        }
-          > div{width: 9.02%; display: flex; font-size: 16px; color: var(--color--gray); justify-content: space-between; margin-left: auto; font-weight: 300;}
+             }
+             > nav {width:50.23%; box-sizing:border-box; margin-right: 10%;
+                     > ul{display:flex; align-items:flex-start; justify-content:space-between; position:relative;
+                         > li{line-height: 22px; 
+                             &:hover{color: var(--color--blue2); font-weight: 700; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 5px;}
+                             > ul{width: 100%; padding-top: 66.5px; padding-bottom: 20px; gap:35px; line-height: 20px; display: none; position: absolute; z-index: 1; flex-wrap: wrap; left: 0;font-weight: 300;}
+                             &:hover > ul{color: var(--color--white); display: flex;
+                                 > li:hover{color: var(--color--blue2);cursor: pointer;}
+                                }
+                            }
+                        }
+                     &:hover::after{height: 120px; width:100%; content:''; display:block; position:absolute; background-color:rgba(14, 13, 13, 0.8);top: 130px; left: 0;}
+             }
+             > div{ width: 20%; font-size: 16px; color: var(--color--gray); font-weight: 300;
+                 > a:nth-of-type(2) { padding-inline: 20px;}
+             }
+        }   
     }
 }
+
+@media ( width <= 640px){
+    header{font-size: 14px; background-color: rgba(0, 0,0, var(--header--opacity)); padding-bottom:15px ; width:100%; color:var(--color--white); position:fixed;  z-index: 100;
+        > div {flex-direction: column; flex-wrap: wrap; display: flex;
+            > h1 {
+                a  > img {display: block; }
+            }
+            nav { width: 34px; height: 26px; display: inline-block; background: url(../../public/images/main/hamburgerMenu.png) no-repeat center / auto; position: absolute; right: 3%; top: 50%; transform: translate(-50%,-50%); cursor: pointer; z-index: 200;
+                > * {display: none;}
+                &.active { height: 200vh; position: absolute; transform: translate(0,0); top: 0; right: 0; width: 70%; background-color:#353232;
+                    > * {display: block; }
+                    > ul { padding-top: 30px; width: 100%; padding-inline: 5%;
+                        > li { line-height: 30px; overflow: hidden; height: 30px; font-size: 14px; font-weight: 600;
+                            &.active{height: auto; 
+                                > ul { font-size: 10px; font-weight: 400;
+                                    > li:nth-last-of-type(1) { border-bottom: 2px solid linen};
+                                }
+                            }
+                            > a {
+                                &.active {color: var(--color--blue);}
+                            }
+                        }
+                    }
+                 }
+            }
+        }
+    }
+}
+
+
+
 
 
 /* Quick SNS  */

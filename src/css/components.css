@@ -178,7 +178,7 @@
 
 /* player : calendar => schedulePage */
 
-.scheduleArrea{
+.scheduleArea{
     .calendar{width: 100%;
         > .navigator {text-align: center; position: relative; margin-bottom: 70px; display: flex; align-items: center; justify-content: center;
             > div{gap: 35px; position: absolute; left: 0; display: flex; 
