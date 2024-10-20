@@ -19,7 +19,7 @@
                                 }
                             }
                         }
-                     &:hover::after{height: 120px; width:100%; content:''; display:block; position:absolute; background-color:rgba(14, 13, 13, 0.8);top: 130px; left: 0;}
+                &:hover::after{height: 120px; width:100%; content:''; display:block; position:absolute; background-color:rgba(14, 13, 13, 0.8);top: 128px; left: 0;}
              }
              > div{ width: 20%; font-size: 16px; color: var(--color--gray); font-weight: 300;
                  > a:nth-of-type(2) { padding-inline: 20px;}
@@ -28,7 +28,13 @@
     }
 }
 
+@keyframes hamburgerMenu {
+    0% {width: 0px;}
+    100% {width: 70%;}
+}
+
 @media ( width <= 640px){
+
     header{font-size: 14px; background-color: rgba(0, 0,0, var(--header--opacity)); padding-bottom:15px ; width:100%; color:var(--color--white); position:fixed;  z-index: 100;
         > div {flex-direction: column; flex-wrap: wrap; display: flex;
             > h1 {
@@ -36,7 +42,7 @@
             }
             nav { width: 34px; height: 26px; display: inline-block; background: url(../../public/images/main/hamburgerMenu.png) no-repeat center / auto; position: absolute; right: 3%; top: 50%; transform: translate(-50%,-50%); cursor: pointer; z-index: 200;
                 > * {display: none;}
-                &.active { height: 200vh; position: absolute; transform: translate(0,0); top: 0; right: 0; width: 70%; background-color:#353232;
+                &.active {animation: hamburgerMenu; animation-fill-mode: forwards; animation-duration: 1.5s;  height: 200vh; position: absolute; transform: translate(0,0); top: 0; right: 0; background-color:#353232cb;
                     > * {display: block; }
                     > ul { padding-top: 30px; width: 100%; padding-inline: 5%;
                         > li { line-height: 30px; overflow: hidden; height: 30px; font-size: 14px; font-weight: 600;
