@@ -44,7 +44,7 @@ export default function Home() {
 
         {/* GALLERY */}
         <section className="galleryArea size1080">
-          <h2>Gallery</h2>
+          <h2 className="hiddenH2">Gallery</h2>
           <ul>
             <li>
               <h3 className="hStyle">PHOTO</h3>

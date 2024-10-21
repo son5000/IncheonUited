@@ -33,8 +33,10 @@ export default function MainSlide() {
     const slideData = data.mainDefaultSlide;
     return (
     <div className="mainSlide-container">
-        <button className="btn-next" onClick={next}></button>
+      <div className="btnBox">
         <button className="btn-prev" onClick={previous}></button>
+        <button className="btn-next" onClick={next}></button>
+      </div>
         <Slider className="slideList" {...settings} ref={slickRef}>
           {/* {slideData ||} */}
           {slideData && slideData.map((el) => <div key={el.id} className="slide-item"><img src={el.src} alt="메인 슬라이드 이미지1번"/></div>)}

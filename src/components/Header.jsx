@@ -86,7 +86,7 @@ export default function Header() {
         <div className="size1442">
         {/* 메인 로고 H1 */}
         <h1>
-          <Link to={'/'} className="header">
+          <Link to={'/'}>
             <img src="/images/main/Main_logo_header.png" alt="인천유나이티드 로고" />
           </Link>
         </h1>
@@ -189,8 +189,7 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <div>
-
+        <div className={OpenHamburgerMenu ? "active" : ""}>
           <a href="###">LOGIN</a>
           <a href="###">JOIN US</a>
         </div>

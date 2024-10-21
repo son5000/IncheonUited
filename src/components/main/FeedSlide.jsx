@@ -18,10 +18,21 @@ export default function FeedSlide () {
   const next = useCallback(() => slickRef.current.slickNext(), []);
 
   const settings = {
+    autoplay : false,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    arrows:false,
+    responsive:[
+      {
+        breakpoint:640,
+        settings:{
+          slidesToShow:2
+        }
+      }
+    ]
   };
 
   const [ListActive,setListActive] = useState('ALL')
@@ -43,7 +54,7 @@ export default function FeedSlide () {
       {newFeed.map((el,index)=> {
         return (
           <div className="slide-item" key={index}>
-              <div >
+              <div>
                 <img src={el.image} alt={el.title} />
                 <p><strong>{(el.categori === 'NOTICE' ? '공지사항' :  `${el.categori}`)}</strong>I {el.text}</p>
               </div>
