@@ -1,12 +1,12 @@
 @media (width <= 640px){
 
 .quickSns {display: none;}
-
-[class$="Page"] > section {padding-inline: 30px;}
-
+[class$="Page"] {padding-inline: 30px;}
+section {margin-bottom: 150px;}
 h2 {font-size: 35px;}
 
-    /* leagueAndMatch */
+
+  /* leagueAndMatch */
   .matchArea{
     .leagueAndMatch { 
         &::after{height: 5px; content: ''; width: 100%; display: block; background-color: var(--color--gray); margin-top: 25px;}
@@ -153,12 +153,120 @@ h2 {font-size: 35px;}
         } 
       }
 
-}
+      
+      /* Sub page start ! */
+      
+/* Club */
+  .clubPage { padding-top: 30px;
+    h2:not([class]) {font-size: 25px; margin-bottom: 30px; line-height: 30px;}
+    /* Introduction */
+    .introductionArea{
+      > img { display: block; width: 100%; }
+  };
+  
+  /* Greeting */
+  .greetingArea{
+      > h2 {margin: 0;}
+      > ul {display: none;}
+      > div {
+        > h3 {font-size: 25px; line-height: 30px; padding-top: 50px;}
+        &:nth-of-type(2){
+          h3::before{content: '대표이사 인사말'; display: block; margin-bottom: 50px;}
+        }
+        > div {margin-bottom: 50px; display: flex; align-items: flex-start;width: 100%; flex-wrap: wrap;
+          > img { width: 100%;}
+          > div {width: 100%;
+            > span{font-size: 24px; margin-bottom: 33px; color: var(--color--blue); display: block; font-weight: 600;}
+            p{
+              &:nth-of-type(1){ color: var(--color--gray); font-size: 25px; font-weight: 600; display: block; margin-bottom: 50px;}
+              > span{ color: var(--color--white);}
+              &:not(:first-of-type){line-height:25px;}
+              &:not(:first-of-type,:last-of-type){margin-bottom: 10px;}
+            }
+            > strong {font-size: 20px; margin-bottom: 15px; font-weight: 400; display: block; }
+          }
+        }
+        > p {line-height: 20px;
+          &:not(:last-of-type){margin-bottom: 10px;}
+        }
+    }
+  }
 
+  /* stadiumArea */
+  .stadiumArea{
+    > h3{font-size: 24px; color: var(--color--blue); margin-bottom: 30px;}
+    p {font-size: 14px; line-height: 25px; margin-bottom: 35px;}
+    > img {display: block;margin-bottom: 35px; width: 100%;}
+    > ul {display: flex; width: 100%; justify-content: space-between; flex-wrap: wrap;
+      > li {width: 100%; 
+        > strong{font-size: 24px; font-weight: 600; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--color--gray); display: block; 
+          &::before{content: ''; display: inline-block; width: 34px; height: 30px; background-repeat: no-repeat; background-position: center; background-size: auto; margin-right: 15px; }
+        }
+        &:nth-of-type(1) > strong::before{background-image: url('../../public/images/club/stadium-icon-02.png');}
+        &:nth-of-type(2) > strong::before{background-image: url('../../public/images/club/stadium-icon-01.png');}
+        &:nth-of-type(3) > strong::before{background-image: url('../../public/images/club/stadium-icon-03.png');}
+      }
+    }
+    > a { border: 1px solid var(--color--gray); cursor: pointer; display: inline-block; font-size: 14px;
+      > span{display: flex; align-items: center; justify-content: flex-start; padding-block: 20px; gap: 5px; width: 100%; padding-inline: 10px;
+        &::before{height: 18px; width: 18px; display: inline-block; background: url(../../public/images/club/map-btn-01.png) no-repeat center/ contain;}
+        &::after{ display: inline-block; width: 35px;  height: 35px; content: ''; background: url(../../public/images/club/kakaomap.png) no-repeat center/ contain;}
+      }
+    }
+  } 
+  
+  /* parkingArea */
+  .parkingArea {
+    h3 {font-size: 24px; margin-bottom: 30px;&:nth-of-type(1) { color: var(--color--blue); }}
+    > p { font-size: 18px; line-height: 25px; margin-bottom: 70px; }
+    > img { display: block; width: 100%; }
+    > ul:nth-of-type(1) {
+      gap: 2%; width: 100%; margin-bottom: 150px; flex-wrap: wrap; display: flex; justify-content: flex-start; align-items: center;
+      > li {
+        width: 31.67%; font-weight: 600;
+        &:nth-of-type(1) { color: #b94a15; > p::before { content: url('../../public/images/club/parking_icon_01.jpg'); } }
+        &:nth-of-type(2) { color: #d18302; > p::before { content: url('../../public/images/club/parking_icon_02.jpg'); } }
+        &:nth-of-type(3) { color: #544fa3; > p::before { content: url('../../public/images/club/parking_icon_03.jpg'); } }
+        &:nth-of-type(4) { color: #cb3117; font-weight: 400; > p::before { content: url('../../public/images/club/parking_icon_04.jpg'); } }
+        &:nth-of-type(5) { color: #2d2792; > p::before { content: url('../../public/images/club/parking_icon_05.jpg'); } }
+        > p::before { width: 100%; padding-top: 68px; padding-bottom: 34px; margin-bottom: 30px; display: block; border-bottom: 1px solid var(--color--gray); }}
+      }
+      > ul:nth-of-type(2) {
+        display: flex; width: 100%; align-items: flex-start; justify-content: space-between; margin-bottom: 150px;
+        > li {
+          width: 31.67%;
+          > img { display: block; width: 100%; margin-bottom: 35px; }
+          > strong {
+            width: 100%; font-size: 24px; font-weight: 600; height: 45px; margin-bottom: 34px; gap: 14px; display: flex; align-items: center;
+            &::before { width: 45px; height: 45px; }
+            &:nth-of-type(1) { color: #544fa3; &::before { content: url('../../public/images/club/parking_icon_06.jpg'); display: inline-block; } }
+            &:nth-of-type(2), &:nth-of-type(3) { color: #d55518; &::before { content: url('../../public/images/club/parking_icon_07.jpg'); display: inline-block; } }
+            &:nth-of-type(3) { &::before { content: url('../../public/images/club/parking_icon_08.jpg'); } }
+          }
+          > p { line-height: 25px; font-size: 16px; font-weight: 400; }}
+        }
+        > div {
+          font-size: 18px; display: flex; align-items: center; justify-content: space-between; padding-inline: 50px; padding-block: 30px; border: 1px solid var(--color--gray); box-sizing: border-box;
+          > ul > li {
+        display: flex;
+        &:not(:last-of-type) { margin-bottom: 20px; }
+        &::before { content: url('../../public/images/club/parking_bus.png'); display: inline-block; margin-right: 15px; }
+        &:nth-last-of-type(1)::before { content: url('../../public/images/club/parking_train.png'); }}
+        > div {
+          display: flex; gap: 50px; text-align: center;
+          > span {
+            > img { margin-bottom: 20px; }
+            > p { line-height: 25px; font-weight: 400; > span { color: var(--color--gray); } }
+          }}
+        }
+      }
+
+      
+    }  
+  
 
 /* player */
 
-@media (width <= 640px) {
   .playerPage{
         /* CoachingStaff */
     .coachingStaffArea { 
@@ -194,7 +302,7 @@ h2 {font-size: 35px;}
       }
       > h3 {font-size: 24px; margin-bottom: 70px;}
       > ul {width: 100%; justify-content: space-between; display: flex;  flex-wrap: wrap;  align-items: center; margin-bottom: 50px; gap: 5%;
-        > li {flex-direction: column; padding-block: 75px; width: 45%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; text-align: center; position: relative;
+        > li {flex-direction: column; padding-block: 75px; width: 45%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; 
           > img {width: 100%;}
           &:hover > img {filter: blur(5px); -webkit-filter: blur(5px);}
           &:hover > button {display: block; cursor: pointer;}
@@ -209,7 +317,7 @@ h2 {font-size: 35px;}
           > .popup-Content { align-items: center; justify-content: center; height: 100vh; padding-top: 250px; width: 100vw; padding-inline: 30px; margin: 0 auto;  flex-wrap: wrap;  display: flex; background-color: var(--color--black); position: relative; overflow: scroll;
             > button {  top: 300px; right: 40px; aspect-ratio: 1/1; width: 40px; height: 40px; border: 1px solid var(--color--gray); border-radius: 100%; text-indent: -9999px; font-size: 0.1px; position: absolute; display: inline-block; background: url(../../public/images/player/m_→.png) no-repeat center / auto; cursor: pointer; }
             > div {width: 100%; 
-                   > img {object-fit: contain;}
+              > img {object-fit: contain;}
                    > div {width: 100%; margin-bottom: 50px; display: flex;
                       > button {width: 50%; display: block;}
                   }
@@ -227,10 +335,10 @@ h2 {font-size: 35px;}
                         > button {font-size: 24px; font-weight: 600; width: 50%; line-height: 60px; cursor: pointer; border: 1px solid var(--color--gray);
                           &.active {background-color: var(--color--gray);}
                         }
+                      }
+                    }
                   }
                 }
-              }
-          }
         }
     }
   }
