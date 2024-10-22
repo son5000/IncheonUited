@@ -72,6 +72,8 @@ div[class$="page"]{width: 100%;}
   
   --header--opacity: 0;
   --ani--width : 5%;
+
+  --boarder--bottom: 0;
 }
 body{ color: var(--color--white);}
 

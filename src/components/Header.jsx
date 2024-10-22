@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export default function Header() {
+
+  const location = useLocation();
+
+  const firstLocation = location.pathname.split('/')[1];
 
   const [opacityValue , setOpacityValue ] = useState(0);
 
@@ -80,17 +85,22 @@ export default function Header() {
     }
   }
 
+  const style = {
+    '--header--opacity':opacityValue,
+    '--boarder--bottom': firstLocation ? '1px solid #666666' : '',
+  }
+
   return (
-      <header style={{'--header--opacity':opacityValue}}>
+      <header style={style}>
       {/* 헤더 */}
         <div className="size1442">
         {/* 메인 로고 H1 */}
         <h1>
           <Link to={'/'}>
-            <img src="/images/main/Main_logo_header.png" alt="인천유나이티드 로고" />
+            
           </Link>
         </h1>
-        {/*  메인 네비게이션 Nav */}
+        {firstLocation && (<span>{firstLocation.toUpperCase()}</span>)}
         <nav ref={hamburgerMenuRef} onClick={() => handleHamburger()} className={OpenHamburgerMenu ? "active" : ""}>
           <ul>
             <li className={isActive[0] ? "active" : ""}>

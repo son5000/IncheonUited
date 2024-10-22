@@ -334,182 +334,184 @@
 
 
 /* player */
+@media (width > 640px){
 
-.playerPage{
-
-    /* CoachingStaff */
-    .coachingStaffArea {
-    > h2 {height: 0.1px; text-indent: -9999px;} 
-    > div { width: 100%; gap: 10%; display: flex;align-items: flex-start; padding-inline: 50px; margin-bottom: 150px; flex-wrap: wrap;
-      > * {width: 41.61%;}
-      > div { font-size: 24px;
-      > button {width: 50%; height: 62px; cursor: pointer; box-sizing: border-box; border: 1px solid var(--color--gray);
-        &.active{background-color: var(--color--gray);}
-      }
-    }
-    .coachProfile,.coachBriefHistory {padding-top: 150px;}
-    .coachProfile{
-      > span {margin-bottom: 25px; color: var(--color--blue); display: block;}
-      > strong{line-height: 35px; display: block; margin-bottom: 35px;
-        > span{ color: var(--color--gray);}
-      }
-      > ul{
-        > li{font-size: 18px; line-height: 75px;display: flex; font-weight: 400;
-          > span{width: 90px; margin-right: 50px; color: var(--color--gray);}
+  .playerPage{
+      /* CoachingStaff */
+      .coachingStaffArea {
+      > h2 {height: 0.1px; text-indent: -9999px;} 
+      > div { width: 100%; gap: 10%; display: flex;align-items: flex-start; margin-bottom: 150px; flex-wrap: wrap;
+        > * {width: 41.61%;}
+        > div { font-size: 24px;
+          > button {width: 50%; height: 62px; cursor: pointer; box-sizing: border-box; border: 1px solid var(--color--gray);
+            &.active{background-color: var(--color--gray);}
+          }
+        }
+        .coachProfile,.coachBriefHistory {padding-top: 150px;}
+        .coachProfile{
+          > span {margin-bottom: 25px; color: var(--color--blue); display: block;}
+          > strong{line-height: 35px; display: block; margin-bottom: 35px;
+            > span{ color: var(--color--gray);}
+          }
+          > ul{
+          > li{font-size: 18px; line-height: 75px;display: flex; font-weight: 400;
+            > span{width: 90px; margin-right: 50px; color: var(--color--gray);}
+          }
+        } 
+      } 
+      .coachBriefHistory{
+        > strong {font-size: 34px; line-height: 45px; margin-bottom: 70px; display: block;} 
+        > ul {font-size: 18px; line-height: 40px; font-weight: 400; 
+          > li {display: flex; gap: 30px; 
+            > span {width:90px; color: var(--color--gray);}
+            > div > p > span {width: 170px; display: inline-block;}
+          }
         }
       } 
-    } 
-    .coachBriefHistory{
-      > strong {font-size: 34px; line-height: 45px; margin-bottom: 70px; display: block;} 
-      > ul {font-size: 18px; line-height: 40px; font-weight: 400; 
-        > li {display: flex; gap: 30px; 
-          > span {width:90px; color: var(--color--gray);}
-          > div > p > span {width: 170px; display: inline-block;}
+    }
+    > h3 {font-size: 24px; margin-bottom: 70px;}
+    > ul {width: 100%; justify-content: space-evenly; display: flex;  flex-wrap: wrap;  align-items: center; margin-bottom: 50px;
+      > li {flex-direction: column; padding-block: 75px; width: 30%; box-sizing: border-box; flex-grow: 0;display: flex; align-items: center; justify-content: center; text-align: center; position: relative;
+        > img {width: 100%; display: block;}
+        &:hover > img {filter: blur(5px); -webkit-filter: blur(5px);}
+        &:hover > button {display: block; cursor: pointer;}
+        > button {font-size: 18px; width: 185px; line-height: 65px; border: 1px solid var(--color--white); position: absolute;border-radius: 10px; display: none;}
+        > p {font-size: 34px; line-height: 45px; font-weight: 600; bottom: 5%; position: absolute;  
+          > span {color: var(--color--gray);}
         }
       }
-    } 
-  }
-  > h3 {font-size: 24px; margin-bottom: 70px;}
-  > ul {width: 100%; justify-content: space-evenly; display: flex;  flex-wrap: wrap;  align-items: center; margin-bottom: 50px;
-    > li {flex-direction: column; padding-block: 75px; flex-basis: 480px; box-sizing: border-box; flex-grow: 0;display: flex; align-items: center; justify-content: center; text-align: center; position: relative;
-      &:hover > img {filter: blur(5px); -webkit-filter: blur(5px);}
-      &:hover > button {display: block; cursor: pointer;}
-      > button {font-size: 18px; width: 185px; line-height: 65px; border: 1px solid var(--color--white); position: absolute;border-radius: 10px; display: none;}
-      > p {font-size: 34px; line-height: 45px; font-weight: 600; bottom: 5%; position: absolute;  
-        > span {color: var(--color--gray);}
+      >  div {display: flex; position: absolute}
+      > .popup-OverLay { position: fixed; top: 0;  left: 0; width: 100%; height: 100%; background-color:rgba(0, 0, 0, 0.904); display: none; justify-content: center; align-items: center; z-index: 9999;
+        &.active{display: flex;}
+        > .popup-Content {gap: 10%; padding-top: 100px; box-sizing: border-box;  padding-inline:100px; display: flex; width: 75%;   background-color: var(--color--black); position: relative;
+          > button {  top: 40px; right: 40px; width: 65px; height: 65px; border: 1px solid var(--color--gray); border-radius: 100%; text-indent: -9999px; font-size: 0.1px; position: absolute; display: inline-block; background: url(../../public/images/player/closeBtn.png) no-repeat center / auto; cursor: pointer; }
+          > img {width: 40%;object-fit: contain}
+          > div {width: 50%; height: 642px;
+            > div {width: 100%; margin-bottom: 140px;}
+            > p {font-size: 34px; font-weight: 600;  margin-bottom: 60px;
+              > span {margin-left: 20px; color: var(--color--gray);}
+                }
+                > ul {
+                  > li { font-size: 16px; font-weight: 500; display: flex; align-items: flex-start; justify-content: flex-start; line-height: 30px;
+                    > span {color: var(--color--gray); width: 100px; display: inline-block; margin-right: 50px;}
+                    > div {display: flex; justify-content: space-between;}
+                    > div > p:nth-of-type(1){margin-right: 30px;}
+                  }
+                } 
+                > div{
+                      > button {font-size: 24px; font-weight: 600; width: 50%; line-height: 60px; cursor: pointer; border: 1px solid var(--color--gray);
+                        &.active {background-color: var(--color--gray);}
+                      }
+                    }
+                  }
+                }
+        }
       }
     }
-    >  div {display: flex; position: absolute}
-    > .popup-OverLay { position: fixed; top: 0;  left: 0; width: 100%; height: 100%; background-color:rgba(0, 0, 0, 0.904); display: none; justify-content: center; align-items: center; z-index: 9999;
-      &.active{display: flex;}
-      > .popup-Content {gap: 10%; padding-top: 100px; box-sizing: border-box;  padding-inline: 10%; display: flex; width: 75%; background: url(../../public/images/player/bg_coach_profile.png) no-repeat left 5% top 10% / auto;  background-color: var(--color--black); position: relative;
-        > button {  top: 40px; right: 40px; width: 65px; height: 65px; border: 1px solid var(--color--gray); border-radius: 100%; text-indent: -9999px; font-size: 0.1px; position: absolute; display: inline-block; background: url(../../public/images/player/closeBtn.png) no-repeat center / auto; cursor: pointer; }
-        > img {width: 40%;}
-        > div {width: 50%;
-               > div {width: 100%; margin-bottom: 140px;}
-               > p {font-size: 34px; font-weight: 600;  margin-bottom: 60px;
-                > span {margin-left: 20px; color: var(--color--gray);}
-              }
-              > ul {
-                > li { font-size: 18px; font-weight: 500; display: flex; align-items: flex-start; justify-content: flex-start; line-height: 40px;
-                  > span {color: var(--color--gray); width: 100px; display: inline-block; margin-right: 50px;}
-                  > div {display: flex; justify-content: space-between;}
-                      > div > p:nth-of-type(1){margin-right: 30px;}
-                    }
-                  } 
-                  > div{
-                    > button {font-size: 24px; font-weight: 600; width: 50%; line-height: 60px; cursor: pointer; border: 1px solid var(--color--gray);
-                      &.active {background-color: var(--color--gray);}
-                    }
-              }
-            }
-          }
-      }
-    }
-  }
 
-  /* ProArea */
-  .proArea {
-    > h2 {font-size: 0.1px; text-indent: -9999px;}
-    > div { width: 100%; gap: 50px ; margin-bottom: 150px; display: flex; justify-content: flex-start; align-items: center; 
-      > button {font-size: 18px; cursor: pointer; font-weight: 400; 
-        &.active {color: var(--color--blue);}
+    /* ProArea */
+    .proArea {
+      > h2 {font-size: 0.1px; text-indent: -9999px;}
+      > div { width: 100%; gap: 50px ; margin-bottom: 150px; display: flex; justify-content: flex-start; align-items: center; 
+        > button {font-size: 18px; cursor: pointer; font-weight: 400; 
+          &.active {color: var(--color--blue);}
+        }
       }
-    }
-    > ul {width: 100%;
-      > li { width: 100%;
+      > ul {width: 100%;
+        > li { width: 100%;
           > p {font-size:24px; font-weight: 600; margin-bottom: 70px; letter-spacing: 3px;}
           > ul { width: 100%; gap: 5%; flex-wrap: wrap; display: flex; align-items: center; 
-            > li { padding-inline: 10px; min-width: 350px; width: 30%; padding-bottom: 150px;  box-sizing: border-box; position: relative;
-              > img { width: 100%;}
-              > div {padding-top: 40px; width: 100%; gap: 30px; color: var(--color--gray); display: flex; align-items: center; justify-content: flex-start;
-                > span{font-size: 100px; font-weight: 900;}
-                > p {font-size: 28px; font-weight: 600; line-height: 40px;
-                  > span {color: var(--color--white);}
+              > li { padding-inline: 10px; min-width: 350px; width: 30%; padding-bottom: 150px;  box-sizing: border-box; position: relative;
+                > img { width: 100%;}
+                > div {padding-top: 40px; width: 100%; gap: 30px; color: var(--color--gray); display: flex; align-items: center; justify-content: flex-start;
+                  > span{font-size: 100px; font-weight: 900;}
+                  > p {font-size: 28px; font-weight: 600; line-height: 40px;
+                    > span {color: var(--color--white);}
+                  }
                 }
-              }
-              > button {font-size: 18px; width: 185px; line-height: 65px; border: 1px solid var(--color--white); position: absolute;border-radius: 10px; transform: translate(-50% , -50%); left: 50%; top: 35%; display: none;}
-              &:hover > img {filter: blur(5px); -webkit-filter: blur(5px);}
-              &:hover > button {display: block; cursor: pointer;}
-              > span > img {display: block; width: 100%;}
-              > p {width: 100%; top: 10%; left: 10%; font-size: 28px; position: absolute; font-weight: 600; 
-                > span { padding-left: 10px; color: var(--color--gray);}
+                > button {font-size: 18px; width: 185px; line-height: 65px; border: 1px solid var(--color--white); position: absolute;border-radius: 10px; transform: translate(-50% , -50%); left: 50%; top: 35%; display: none;}
+                &:hover > img {filter: blur(5px); -webkit-filter: blur(5px);}
+                &:hover > button {display: block; cursor: pointer;}
+                > span > img {display: block; width: 100%;}
+                > p {width: 100%; top: 10%; left: 10%; font-size: 28px; position: absolute; font-weight: 600; 
+                  > span { padding-left: 10px; color: var(--color--gray);}
+                }
               }
             }
           }
       }
-    }
-    .popup-Overlay{ left: 0; position: absolute ; width: 100vw; height: 100vh; overflow-y: auto;  background-color:var(--color--black); color: var(--color--white); z-index: 9999;
-      > .popup-contents{
-        > div:nth-of-type(1) { width: 100%; padding-top:50px; margin: 0 auto; justify-content: space-evenly; align-items: center; display: flex; color: var(--color--white); margin-bottom: 50px; position: relative; 
-          > button {top: 100px; right: 10%; width: 65px; height: 65px; border: 1px solid var(--color--gray); border-radius: 100%; text-indent: -9999px; font-size: 0.1px; position: absolute; display: inline-block; background: url(../../public/images/player/closeBtn.png) no-repeat center / auto; cursor: pointer; }
-          > img {width: 33.3%; aspect-ratio: 314/355;}
-        > div { width: 33.3%;
-          > p {display: flex; align-items: center; margin-bottom: 50px;
-            > span {margin-right: 15px; font-size: 100px; font-weight: 900; color: var(--color--gray);}
-            > b {font-size: 28px; font-weight: 600; line-height: 40px;
-              > span {color:var(--color--gray);}
-            }
-          }
-             > 
-             ul{
-               &:nth-of-type(1) { width: 100%; display: flex; padding-left:40px; gap: 85px; margin-bottom: 35px;
-                li{
-                  &::before{margin-right: 10px ; position: absolute; left: -40px; top: 0; }
-                  &:nth-of-type(1)::before{content: url(../../public/images/player/pro_popup_icon_001.jpg);}
-                  &:nth-of-type(2)::before{content: url(../../public/images/player/pro_popup_icon_002.jpg);}
-                  &:nth-of-type(3)::before{content: url(../../public/images/player/pro_popup_icon_003.jpg);}
-                }
+      .popup-Overlay{ left: 0; position: absolute ; width: 100vw; height: 100vh; overflow-y: auto;  background-color:var(--color--black); color: var(--color--white); z-index: 9999;
+        > .popup-contents{
+          > div:nth-of-type(1) { width: 100%; padding-top:50px; margin: 0 auto; justify-content: space-evenly; align-items: center; display: flex; color: var(--color--white); margin-bottom: 50px; position: relative; 
+            > button {top: 100px; right: 10%; width: 65px; height: 65px; border: 1px solid var(--color--gray); border-radius: 100%; text-indent: -9999px; font-size: 0.1px; position: absolute; display: inline-block; background: url(../../public/images/player/closeBtn.png) no-repeat center / auto; cursor: pointer; }
+            > img {width: 33.3%; aspect-ratio: 314/355;}
+            > div { width: 33.3%;
+              > p {display: flex; align-items: center; margin-bottom: 50px;
+              > span {margin-right: 15px; font-size: 100px; font-weight: 900; color: var(--color--gray);}
+              > b {font-size: 28px; font-weight: 600; line-height: 40px;
+                > span {color:var(--color--gray);}
               }
-              &:nth-of-type(2){
-                > li {height: 50px; margin-bottom: 25px; display: flex; align-items: center; color: var(--color--white); width: 100%;
-                  > span { width: 125px;  font-size: 18px; font-weight: 500; color: var(--color--gray);}
+            }
+            > 
+            ul{
+              &:nth-of-type(1) { width: 100%; display: flex; padding-left:40px; gap: 85px; margin-bottom: 35px;
+                  li{
+                    &::before{margin-right: 10px ; position: absolute; left: -40px; top: 0; }
+                    &:nth-of-type(1)::before{content: url(../../public/images/player/pro_popup_icon_001.jpg);}
+                    &:nth-of-type(2)::before{content: url(../../public/images/player/pro_popup_icon_002.jpg);}
+                    &:nth-of-type(3)::before{content: url(../../public/images/player/pro_popup_icon_003.jpg);}
+                  }
+                }
+                &:nth-of-type(2){
+                  > li {height: 50px; margin-bottom: 25px; display: flex; align-items: center; color: var(--color--white); width: 100%;
+                    > span { width: 125px;  font-size: 18px; font-weight: 500; color: var(--color--gray);}
                     &::before{margin-right: 25px; display: block; width: 50px ; height: 50px; border-radius: 5px; }
                     &:nth-of-type(1)::before{content: url(../../public/images/player/pro_popup_icon2_01.jpg);}
                     &:nth-of-type(2)::before{content: url(../../public/images/player/pro_popup_icon2_02.jpg);}
                     &:nth-of-type(3)::before{content: url(../../public/images/player/pro_popup_icon2_03.jpg);}
+                    }
+                  } 
+                  &:nth-of-type(2) > li:nth-of-type(4)::before{content: url(../../public/images/player/pro_popup_icon2_04.jpg);}
+                  > li{font-size: 18px; color: var(--color--gray); font-weight: 600; position: relative;
+                    > strong {line-height: 120px; display: block; font-size: 100px; color: var(--color--white);}
                   }
-                } 
-                &:nth-of-type(2) > li:nth-of-type(4)::before{content: url(../../public/images/player/pro_popup_icon2_04.jpg);}
-                > li{font-size: 18px; color: var(--color--gray); font-weight: 600; position: relative;
-                  > strong {line-height: 120px; display: block; font-size: 100px; color: var(--color--white);}
                 }
                 }
               }
-            }
-       > p {font-size: 24px ; font-weight: 600; margin-bottom: 45px;}
-       > table {padding-top: 45px; padding-bottom: 30px;  margin-bottom: 150px; width: 100%; background-color: var(--color--blodGray); border-radius: 20px; text-align: center;
-        > thead > tr > th {padding-block: 40px; color: var(--color--gray);}
-        &:nth-of-type(1){
-          > thead > tr > th {font-size: 22px;}
-          > tbody > tr > td {font-size: 50px; font-weight: 600; padding-bottom: 40px; color: var(--color--blue);}
-        } 
-      }
-      > div:nth-of-type(2){ margin-bottom: 45px; display: flex; width: 100%;
-         > p{ font-size: 24px; font-weight: 600; }
-         > div {margin-left: auto; font-size: 18px; gap: 40px; display: flex; 
-          > button.active{color: var(--color--blue);}
+              > p {font-size: 24px ; font-weight: 600; margin-bottom: 45px;}
+         > table {padding-top: 45px; padding-bottom: 30px;  margin-bottom: 150px; width: 100%; background-color: var(--color--blodGray); border-radius: 20px; text-align: center;
+          > thead > tr > th {padding-block: 40px; color: var(--color--gray);}
+          &:nth-of-type(1){
+            > thead > tr > th {font-size: 22px;}
+            > tbody > tr > td {font-size: 50px; font-weight: 600; padding-bottom: 40px; color: var(--color--blue);}
+          } 
+        }
+        > div:nth-of-type(2){ margin-bottom: 45px; display: flex; width: 100%;
+           > p{ font-size: 24px; font-weight: 600; }
+           > div {margin-left: auto; font-size: 18px; gap: 40px; display: flex; 
+            > button.active{color: var(--color--blue);}
+          }
+        }
+         > table:nth-of-type(2) {height: 2220px;}
         }
       }
-       > table:nth-of-type(2) {height: 2220px;}
-      }
-    }
-  } 
+    } 
 
-  /* ScheduleArea */
-  .scheduleArea {
-    > h2{font-size: 0.1px; text-indent: -9999px;}
-  } 
+    /* ScheduleArea */
+    .scheduleArea {
+      > h2{font-size: 0.1px; text-indent: -9999px;}
+    } 
+  }
+
 }
-
 /* matchCenter */
 
 .matchCenterPage{
-
+  
   /* gameSchedule */
   
   .gameScheduleArea{
-      > .games { width: 100%;
+    > .games { width: 100%;
         > p {text-align: center; border-block: 1px solid var(--color--gray); line-height: 60px; text-transform: uppercase;
       }
       > ol { width: 100%;

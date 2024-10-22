@@ -1,13 +1,36 @@
 
 
 /* mainSlide */
-.mainPage .mainSlide-container { width: 100%; padding-top: 130px; margin-bottom: 330px; position: relative;
-      .btnBox{  position: absolute; bottom: -100px; display: flex; padding-left: 80%; gap: 20px; align-items: center;
-        button { width: 16px; height: 18px;background-size: cover; background-repeat: no-repeat; background-position: center; cursor: pointer; } 
-          .btn-prev { background-image: url('../../public/images/main/bannerprev.png'); } 
-          .btn-next { background-image: url('../../public/images/main/bannernext.png'); } 
+
+@media (width > 640px){
+  .mainPage .mainSlide-container { width: 100%; margin-bottom: 180px; position: relative;
+    .btnBox{  position: absolute; bottom: -100px; display: flex; padding-left: 80%; gap: 20px; align-items: center;
+      button { width: 16px; height: 18px;background-size: cover; background-repeat: no-repeat; background-position: center; cursor: pointer; } 
+      .btn-prev { background-image: url('../../public/images/main/bannerprev.png'); } 
+      .btn-next { background-image: url('../../public/images/main/bannernext.png'); } 
+    }
+    .slick-dots { width: 100%; bottom: -85px; text-align: center; height: 15px;
+      button{display: none;}
+      > li { margin: 0; width: 50px; height: 3px; background-color: var(--color--white); position: relative;
+        &.slick-active { background-color: #0061c6; } 
+        &:nth-of-type(1)::before { width: 15px; height: 15px; position: absolute; left: -35px; top: -5px; display: inline; content: '01'; color: white; } 
+        &:nth-last-of-type(1)::after { width: 15px; height: 15px; right: -35px; top: -5px; display: inline; content: '03'; color: white; position: absolute; } 
+      } 
+    } 
+        .slide-item > img { width: 100%; } 
+        .slick-track::after { display: none; } 
       }
-        .slick-dots { width: 100%; bottom: -85px; text-align: center; height: 15px; 
+}
+
+
+@media (width <= 640px){
+  .mainPage .mainSlide-container { width: 100%; margin-bottom: 180px; position: relative;
+    .btnBox{  position: absolute; bottom: -100px; display: flex; padding-left: 80%; gap: 20px; align-items: center;
+      button { width: 16px; height: 18px;background-size: cover; background-repeat: no-repeat; background-position: center; cursor: pointer; } 
+      .btn-prev { background-image: url('../../public/images/main/bannerprev.png'); } 
+      .btn-next { background-image: url('../../public/images/main/bannernext.png'); } 
+    }
+    .slick-dots { width: 100%; bottom: -85px; text-align: center; height: 15px; 
           > li { position: relative; margin: 0; width: 50px; height: 3px; background-color: var(--color--white); 
             &.slick-active { background-color: #0061c6; } 
             &:nth-of-type(1)::after { width: 15px; height: 15px; position: absolute; left: -35px; top: -5px; display: inline; content: '01'; color: white; } 
@@ -16,8 +39,9 @@
         } 
         .slide-item > img { width: 100%; } 
         .slick-track::after { display: none; } 
+      }
 }
-
+      
 .ticketMembershipPage .mainSlide-container{max-width: 760px; aspect-ratio: 760/535; margin-inline: auto; position: relative;
   button{height: 110px; width: 57px; cursor: pointer; position: absolute; z-index: 9999; transform: translate(-50%,-50%); top: 50%;}
   .btn-prev {  left: -8%; background-image: url('../../public/images/ticketMembership/_-1.png'); } 
@@ -120,33 +144,62 @@
   0%{width: 0px;}
   100%{width: var(--ani--width);}
 }
-.banner{ width:100%; height:950px; margin-bottom:150px; display:flex; align-items:flex-end; background-repeat: no-repeat; background-position: center; background-size: cover;
-    & + div,&+section{margin-bottom: 150px;}
-    > ul { width: 100%; font-size:18px; color:#666666; position:relative; display:flex; flex-grow:1; justify-content:flex-start; gap:3%;
-      > li{ cursor:pointer; z-index:1; font-weight: 500;
-        &:nth-of-type(1):before{ animation: dynamicWidth; animation-duration: 1s; animation-fill-mode: forwards;  z-index: 1; content:''; height :3px; bottom:0; display:block; background-color:var(--color--blue); position:absolute;}
-        &:nth-of-type(1):after{content:''; width:100%; height :3px; bottom:0; display:block; background-color:var(--color--white); position:absolute;}
-        > a {line-height: 84px;
-          &.active{color: var(--color--white);}
+@media (width > 640px){
+    .banner{ width:100%; height:950px; margin-bottom:150px; display:flex; align-items:flex-end; background-repeat: no-repeat; background-position: center; background-size: cover;
+      & + div,&+section{margin-bottom: 150px;}
+      > ul { width: 100%; font-size:18px; color:#666666; position:relative; display:flex; flex-grow:1; justify-content:flex-start; gap:3%;
+        > li{ cursor:pointer; z-index:1; font-weight: 500;
+          &:nth-of-type(1):before{ animation: dynamicWidth; animation-duration: 1s; animation-fill-mode: forwards;  z-index: 1; content:''; height :3px; bottom:0; display:block; background-color:var(--color--blue); position:absolute;}
+          &:nth-of-type(1):after{content:''; width:100%; height :3px; bottom:0; display:block; background-color:var(--color--white); position:absolute;}
+          > a {line-height: 84px;
+            &.active{color: var(--color--white);}
+          }
         }
       }
-    }
-    /* club : pageBox => introductionPage,stadiumPage  */
+      /* club : pageBox => introductionPage,stadiumPage  */
       & + div {
         h2{ font-size:60px; line-height:75px; margin-bottom:148px;}
-      > div{ display:flex; justify-content:space-between;
-         > aside{width: 16.64% ; font-size:16px; display:flex; flex-direction:column; justify-content:flex-start; gap: 30px; color:var(--color--gray);
-           > button{ text-align: left; line-height: 36px; font-weight: 500; width: 100%;
-             > a{width: 100%; height: 100%; display: block;
-              &.active{color: var(--color--white);}
+        > div{ display:flex; justify-content:space-between;
+          > aside{width: 16.64% ; font-size:16px; display:flex; flex-direction:column; justify-content:flex-start; gap: 30px; color:var(--color--gray);
+            > button{ text-align: left; line-height: 36px; font-weight: 500; width: 100%;
+               > a{width: 100%; height: 100%; display: block;
+                &.active{color: var(--color--white);}
+              }
             }
+            & + *{width: 83.22%;}
           }
-          & + *{width: 83.22%;}
         }
       }
-    }
+  }
 }
-
+@media (width <= 640px){
+    .banner{ width:100%; height:950px; margin-bottom:150px; display:flex; align-items:flex-end; background-repeat: no-repeat; background-position: center; background-size: cover;
+      & + div,&+section{margin-bottom: 150px;}
+      > ul { width: 100%; font-size:18px; color:#666666; position:relative; display:flex; flex-grow:1; justify-content:flex-start; gap:3%;
+        > li{ cursor:pointer; z-index:1; font-weight: 500;
+          &:nth-of-type(1):before{ animation: dynamicWidth; animation-duration: 1s; animation-fill-mode: forwards;  z-index: 1; content:''; height :3px; bottom:0; display:block; background-color:var(--color--blue); position:absolute;}
+          &:nth-of-type(1):after{content:''; width:100%; height :3px; bottom:0; display:block; background-color:var(--color--white); position:absolute;}
+          > a {line-height: 84px;
+            &.active{color: var(--color--white);}
+          }
+        }
+      }
+      /* club : pageBox => introductionPage,stadiumPage  */
+      & + div {
+        h2{ font-size:60px; line-height:75px; margin-bottom:148px;}
+        > div{ display:flex; justify-content:space-between;
+          > aside{width: 16.64% ; font-size:16px; display:flex; flex-direction:column; justify-content:flex-start; gap: 30px; color:var(--color--gray);
+            > button{ text-align: left; line-height: 36px; font-weight: 500; width: 100%;
+               > a{width: 100%; height: 100%; display: block;
+                &.active{color: var(--color--white);}
+              }
+            }
+            & + *{width: 83.22%;}
+          }
+        }
+      }
+  }
+}
 /* seatInformation : club => seat , ticket/membership => buytickets  */
 
 .seat {width: 100%;

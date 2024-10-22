@@ -5,10 +5,9 @@
         &:hover{background-color: var(--color--black);}
         > div{display:flex; align-items:center;
             > h1 {width:20.53% ; margin-right:2.43%;
-                > a{display:inline-block;
-                    > img{width:100%;}
-                }
+                > a{height: 77px; width: 100%; display:block; background:url(../../public/images/main/Main_logo_header.png) no-repeat left / contain;}
              }
+             > span {display: none;}
              > nav {width:50.23%; box-sizing:border-box;
                      > ul{display:flex; align-items:flex-start; justify-content:space-between; position:relative;
                          > li{line-height: 22px; 
@@ -29,7 +28,7 @@
 
 @keyframes hamburgerMenu {
     0% {width: 0px;}
-    100% {width: 70%;}
+    100% {width: 80%;}
 }
 @keyframes hamburgerMenuLogin {
     0% {right: 0; color: transparent; }
@@ -37,16 +36,15 @@
 }
 
 @media ( width <= 640px){
-    header{font-size: 14px; background-color: rgba(0, 0,0, var(--header--opacity)); padding-bottom:15px ; width:100%; color:var(--color--white); position:sticky; top: 0;  z-index: 100; padding-top:35px;
-        > div {display: flex; width: 100%; 
-            > h1 { 
-                a  {
-                    > img {display: block; }
-                } 
+    header{font-size: 14px; background-color:var(--color--black); padding-bottom:15px ; width:100%; color:var(--color--white); position:sticky; top: 0;  z-index: 100; padding-top:15px; border-bottom: var(--boarder--bottom);
+        > div {display: flex; width: 100%; align-items: center; font-size: 25px; font-weight: 600; 
+            > h1 { width: 100%;
+               > a { height: 82px; max-width: 60px; display: block; background:url(../../public/images/main/icon_인천.png) no-repeat left / auto;} 
             }
-            nav { width: 34px; height: 26px; display: inline-block; background: url(../../public/images/main/hamburgerMenu.png) no-repeat center / auto; position: absolute; right: 0; top: 75px; transform: translate(-50%,-50%); cursor: pointer; z-index: 200; 
+            span{position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+            nav { width: 34px; height: 26px; display: inline-block; background: url(../../public/images/main/hamburgerMenu.png) no-repeat center / auto; position: absolute; right: 0; top: 60px; transform: translate(-50%,-50%); cursor: pointer; z-index: 200; 
                 > * {display: none;}
-                &.active {width: 70vw; animation: hamburgerMenu; animation-fill-mode: forwards; animation-duration: 1.5s;  height: 200vh; position: absolute; transform: translate(0,0); top: 0; background-color:#353232cb;
+                &.active {animation: hamburgerMenu; animation-fill-mode: forwards; animation-duration: 1.5s;  height: 200vh; position: absolute; transform: translate(0,0); top: 0; background-color:#353232cb;
                     > * {display: block; }
                     > ul { padding-top: 60px; padding-inline: 7%;
                         > li { line-height: 30px; overflow: hidden; height: 30px; font-size: 14px; font-weight: 600; width: 50%;
@@ -62,8 +60,10 @@
                     }
                  }
                 }
-                > div {display: none;
-                    &.active {width: auto; animation-fill-mode: forwards; animation-name: hamburgerMenuLogin; animation-duration: 2.5s; display: block; position:absolute;z-index: 300; display: flex; gap: 5vw; top: 30px; justify-content: flex-end;}                    
+                > div {display: none; font-size: 14px; font-weight: 400;
+                    &.active {width: auto; animation-fill-mode: forwards; animation-name: hamburgerMenuLogin; animation-duration: 2.5s; display: block; position:absolute;z-index: 300; display: flex; gap: 5vw; top: 35px; justify-content: flex-end;
+                     > a:hover {color: var(--color--blue);}
+                    }                    
                 }
             }
     }
@@ -88,32 +88,31 @@
 
 
 /* Footer */
-
-@media (width > 640){
+@media (width > 640px){
 
     footer{
         > div:nth-of-type(1) {background-color: var(--color--blodGray);
-             > div {padding-block: 50px; font-size: 16px;
-                > h2 {margin-bottom: 50px;
-                    > img {height: 100px;}
+         > div {padding-block: 50px; font-size: 16px;
+             > h2 {margin-bottom: 50px;
+                > img {height: 100px;}
+            }
+            > ul {display: flex; justify-content: space-between;
+                > li{line-height: 32px;text-indent: 33px; color: #999999;border-left: 1px solid var(--color--gray);
+                    > ol {color: var(--color--white);}
                 }
-                > ul {display: flex; justify-content: space-between;
-                    > li{line-height: 32px;text-indent: 33px; color: #999999;border-left: 1px solid var(--color--gray);
-                         > ol {color: var(--color--white);}
-                        }
-                    }
-                }
+            }
+        }
         }
         > div:nth-of-type(2) {padding-block: 50px; font-weight: 300; color: #bbbbbb;display: flex; flex-wrap: wrap; justify-content: space-between;
-                > address {width: 41.7%;line-height: 25px; font-style: normal;
+            > address {width: 41.7%;line-height: 25px; font-style: normal;
                  > button {padding: 5px;border-radius: 5px;background-color: #161616;cursor: pointer;}
                 }
-                > div {width: 20%; padding-top: 45px;
-                    > p {text-align: right; margin-bottom: 30px;color: #999999;}
-                    > ul {display: flex; justify-content: space-between; align-items: center;
-                        > li {width: 43px;aspect-ratio: 1 /1; border: 1px solid #979797; border-radius: 100%;
-                            &:nth-child(1) {background: url(../../public/images/main/footer_sns_01.png) no-repeat center / auto;}
-                            &:nth-child(2) {background: url(../../public/images/main/footer_sns_02.png) no-repeat center / auto;}
+             > div {width: 20%; padding-top: 45px;
+                 > p {text-align: right; margin-bottom: 30px;color: #999999;}
+                 > ul {display: flex; justify-content: space-between; align-items: center;
+                     > li {width: 43px;aspect-ratio: 1 /1; border: 1px solid #979797; border-radius: 100%;
+                       &:nth-child(1) {background: url(../../public/images/main/footer_sns_01.png) no-repeat center / auto;}
+                       &:nth-child(2) {background: url(../../public/images/main/footer_sns_02.png) no-repeat center / auto;}
                        &:nth-child(3) {background: url(../../public/images/main/footer_sns_03.png) no-repeat center / auto;}
                        &:nth-child(4) {background: url(../../public/images/main/footer_sns_04.png) no-repeat center / auto;}
                        &:nth-child(5) {background: url(../../public/images/main/footer_sns_05.png) no-repeat center / auto;}
@@ -127,38 +126,28 @@
     }
 }
 
-@media (width <= 640){
+@media (width <= 640px){
 
-    footer{
-        > div:nth-of-type(1) {background-color: var(--color--blodGray);
-             > div {padding-block: 50px; font-size: 16px;
-                > h2 {margin-bottom: 50px;
-                    > img {height: 100px;}
-                }
-                > ul {display: flex; justify-content: space-between;
-                    > li{line-height: 32px;text-indent: 33px; color: #999999;border-left: 1px solid var(--color--gray);
-                         > ol {color: var(--color--white);}
-                        }
-                    }
-                }
-        }
-        > div:nth-of-type(2) {padding-block: 50px; font-weight: 300; color: #bbbbbb;display: flex; flex-wrap: wrap; justify-content: space-between;
-                > address {width: 41.7%;line-height: 25px; font-style: normal;
+    footer{padding-inline: 30px;
+        > div:nth-of-type(1) {display: none;}
+        > div:nth-of-type(2) {padding-block: 50px; font-weight: 300; color: #bbbbbb;display:flex; font-size: 16px; flex-wrap: wrap;
+            > * {width: 100%;}
+            > address {order: 1; width:100%;line-height: 25px; font-style: normal;
                  > button {padding: 5px;border-radius: 5px;background-color: #161616;cursor: pointer;}
                 }
-                > div {width: 20%; padding-top: 45px;
-                    > p {text-align: right; margin-bottom: 30px;color: #999999;}
-                    > ul {display: flex; justify-content: space-between; align-items: center;
-                        > li {width: 43px;aspect-ratio: 1 /1; border: 1px solid #979797; border-radius: 100%;
-                            &:nth-child(1) {background: url(../../public/images/main/footer_sns_01.png) no-repeat center / auto;}
-                            &:nth-child(2) {background: url(../../public/images/main/footer_sns_02.png) no-repeat center / auto;}
+             > div {order: 3; width: 100%; padding-top: 45px; 
+                 > p {text-align: center; margin-bottom: 30px;color: #999999;}
+                 > ul { display: flex; justify-content: space-evenly; align-items: center; width: 60%; margin-inline: auto;
+                     > li {width: 43px;aspect-ratio: 1 /1; border: 1px solid #979797; border-radius: 100%;
+                       &:nth-child(1) {background: url(../../public/images/main/footer_sns_01.png) no-repeat center / auto;}
+                       &:nth-child(2) {background: url(../../public/images/main/footer_sns_02.png) no-repeat center / auto;}
                        &:nth-child(3) {background: url(../../public/images/main/footer_sns_03.png) no-repeat center / auto;}
                        &:nth-child(4) {background: url(../../public/images/main/footer_sns_04.png) no-repeat center / auto;}
                        &:nth-child(5) {background: url(../../public/images/main/footer_sns_05.png) no-repeat center / auto;}
                        > a {width: 100%; height:100%; text-indent: -9999px; display: block;}
                     }
                 }
-                &:nth-of-type(2) {font-size: 16px; flex-basis: 100% ;gap: 35px; display: flex;}
+                &:nth-of-type(2) {order: 2; font-size: 16px; flex-basis: 100% ;gap: 35px; display: flex;}
                 &:nth-of-type(2) a:hover {font-weight: 600; color: var(--color--blue);}
             }
         }
