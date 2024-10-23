@@ -38,7 +38,7 @@
 @media ( width <= 640px){
     header{font-size: 14px; background-color:var(--color--black); padding-bottom:15px ; width:100%; color:var(--color--white); position:sticky; top: 0;  z-index: 100; padding-top:15px; border-bottom: var(--boarder--bottom);
         > div {display: flex; width: 100%; align-items: center; font-size: 25px; font-weight: 600; 
-            > h1 { width: 100%;
+            > h1 { width: 100%; padding-left: 5%;
                > a { height: 82px; max-width: 60px; display: block; background:url(../../public/images/main/icon_인천.png) no-repeat left / auto;} 
             }
             span{position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}

@@ -11,9 +11,15 @@ export default function Pro () {
     const newFeed = isCategori === '전체' ? playersData : playersData.filter((el) => el.categori === isCategori);
     const [isPopup,setIsPopup] = useState ('');
     const [currentScrollY , setCurrentScrollY] = useState(0);
-
+    const [isMobile,setIsMobile] = useState(window.innerWidth <= 640);
+    const handleResize = () => {
+        setIsMobile(window.innerWidth <= 640);
+    }
 
     useEffect(() => {
+
+        window.addEventListener('resize',handleResize);
+        handleResize();
         if(isPopup){
             setCurrentScrollY(window.scrollY);
             document.body.style.overflow = 'hidden';
@@ -22,20 +28,17 @@ export default function Pro () {
         }
         return () => {
             document.body.style.overflow = 'auto';
+            window.removeEventListener('resize',handleResize);
         };
         
     },[isPopup]);
-
 
     return(
         <>
           <Banner aniWidth={'50%'}/>
           <section className="size1442 proArea">
             <h2>프로 선수들 프로필</h2>
-            <div>
-                <button onClick={() => setIsCategori('전체')} className={isCategori === '전체' ? 'active' : ''}>전체</button>
-                {playersData.map((el,index) => <button className={isCategori === el.categori ? 'active' : ''} onClick={() => setIsCategori(el.categori)} key={index}>{el.categori}</button>)}
-            </div>
+            <TabMenu isMobile={isMobile} isCategori={isCategori} setIsCategori={setIsCategori} playersData={playersData} />
             <ul>
                 {newFeed.map((el,index) => 
                 <li key={index}>
@@ -75,7 +78,7 @@ export default function Pro () {
                             {/* 2. css display none */}
                             {/* 기존에 toggle class방식으로 display none , active => display block */}
                             {/* css 코드도 줄였다. */}
-                            {isPopup === i.name && <Popup key={i.id} scrollPosition={currentScrollY} data={i}  handlePopupClose={() => setIsPopup('')} />}
+                            {isPopup === i.name && <Popup key={i.id} scrollPosition={currentScrollY} data={i} isMobile={isMobile}  handlePopupClose={() => setIsPopup('')} />}
                             </>
                         )}
                     </ul>
@@ -88,6 +91,30 @@ export default function Pro () {
 
     )
 }
+
+
+function TabMenu ({isMobile,isCategori,playersData,setIsCategori}) {
+
+    const menuList  = playersData.map((el) => el.categori);
+    
+    if(isMobile){
+        menuList.unshift('전체')
+        return (
+            <div>
+                <button className='active'>{isCategori}</button>
+                {menuList.map((el,index) => <button onClick={() => setIsCategori(el)} key={index}>{el}</button>)}
+            </div>
+        )
+    }
+    return (
+        <div>
+            <button onClick={() => setIsCategori('전체')} className={isCategori === '전체' ? 'active' : ''}>전체</button>
+            {menuList.map((el,index) => <button className={isCategori === el ? 'active' : ''} onClick={() => setIsCategori(el)} key={index}>{el}</button>)}
+        </div>
+    )
+}
+
+
 
 /* proArea 의 선수프로필의 popup 을 만드는데 발생했던 에러사항 */
 
@@ -115,7 +142,7 @@ export default function Pro () {
 
 
 
-function Popup ({data,handlePopupClose,scrollPosition}) {
+function Popup ({data,handlePopupClose,scrollPosition,isMobile}) {
     
 return (
          <div style={{top : scrollPosition}} className="popup-Overlay">
@@ -142,115 +169,124 @@ return (
                     </div>
                 </div>
                 <p>통산기록</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>출장</th>
-                            <th>득점</th>
-                            <th>도움</th>
-                            <th>슈팅</th>
-                            <th>파울</th>
-                            <th>경고</th>
-                            <th>퇴장</th>
-                            <th>실점</th>
-                            <th>자책</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>16</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>20</td>
-                            <td>0</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div className="playerTable">       
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>출장</th>
+                                <th>득점</th>
+                                <th>도움</th>
+                                <th>슈팅</th>
+                                <th>파울</th>
+                                <th>경고</th>
+                                <th>퇴장</th>
+                                <th>실점</th>
+                                <th>자책</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>16</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>20</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div>
                     <p>경기별기록</p>
+                    {
+                    !isMobile &&
                     <div>
                         <button className="active">2024년</button>
                         <button>2033년</button>
                         <button>2022년</button>
                     </div>
+                    }
                 </div>
-                <table> 
-                    <thead>
-                        <tr>
-                            <th>일시</th>
-                            <th>대회명</th>
-                            <th>소속팀</th>
-                            <th>상대팀</th>
-                            <th>출장</th>
-                            <th>교체</th>
-                            <th>득점</th>
-                            <th>도움</th>
-                            <th>파울&#40;C/S&#41;</th>
-                            <th>오프사이드</th>
-                            <th>슈팅&#40;S/T&#41;</th>
-                            <th>PK&#40;S/F&#41;</th>
-                            <th>경고</th>
-                            <th>실점</th>
-                            <th>자책</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div className="playerTable">
+                    <table> 
+                        <thead>
+                            <tr>
+                                <th>일시</th>
+                                <th>대회명</th>
+                                <th>소속팀</th>
+                                <th>상대팀</th>
+                                <th>출장</th>
+                                <th>교체</th>
+                                <th>득점</th>
+                                <th>도움</th>
+                                <th>파울&#40;C/S&#41;</th>
+                                <th>오프사이드</th>
+                                <th>슈팅&#40;S/T&#41;</th>
+                                <th>PK&#40;S/F&#41;</th>
+                                <th>경고</th>
+                                <th>실점</th>
+                                <th>자책</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <p>시즌별 기록</p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>대회명</th>
-                            <th>소속팀</th>
-                            <th>시즌</th>
-                            <th>출장</th>
-                            <th>득점</th>
-                            <th>도움</th>
-                            <th>슈팅</th>
-                            <th>파울</th>
-                            <th>경고</th>
-                            <th>퇴장</th>
-                            <th>실점</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div className="playerTable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>대회명</th>
+                                <th>소속팀</th>
+                                <th>시즌</th>
+                                <th>출장</th>
+                                <th>득점</th>
+                                <th>도움</th>
+                                <th>슈팅</th>
+                                <th>파울</th>
+                                <th>경고</th>
+                                <th>퇴장</th>
+                                <th>실점</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <article className="size1560">
                     {/*  슬라이드 들어가야함 */}

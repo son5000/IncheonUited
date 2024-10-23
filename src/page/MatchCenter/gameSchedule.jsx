@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { format } from 'date-fns';
 import Banner from "../../components/Banner"
 import data from '../../data.json';
@@ -72,7 +72,6 @@ return (
 
 
 function Games ({data,currentYear}){
-
     return (
         <>
             {

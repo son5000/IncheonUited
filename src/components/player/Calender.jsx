@@ -1,11 +1,24 @@
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import { format, addMonths, subMonths, getDaysInMonth, startOfMonth, addDays,subDays,endOfMonth ,isSameDay} from 'date-fns';
 import { ko } from 'date-fns/locale';
 
 
 export default function Calendar () {
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
+
+  const handleResize = () => {
+      setIsMobile(window.innerWidth <= 640)
+  }
+
+  useEffect(() => {
+      window.addEventListener('resize',handleResize)
+      handleResize()
+      return () =>{
+          window.removeEventListener('resize',handleResize)
+      } 
+  },[])
   const WEEKS = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
-  
 
   const today = new Date(); 
 
@@ -44,7 +57,14 @@ export default function Calendar () {
     return addDays(endOfMonth(currentDate), index + 1) 
   })
 
-  const calendarTiles = [...preMonthDays,...currentMonthDays,...nextMonthDays];
+
+  let calendarTiles = null;
+
+  if(isMobile){
+     calendarTiles = [...currentMonthDays];  
+  } else{
+     calendarTiles = [...preMonthDays,...currentMonthDays,...nextMonthDays];
+  }
 
 
 
@@ -67,12 +87,14 @@ export default function Calendar () {
             <button onClick={handleNextMonth}></button>
         </p>
       </div>
-      <ul>
+      { !isMobile &&
+        <ul>
          {WEEKS.map((el,index) => <li key={index}>{el}</li> )}
-      </ul>
+        </ul>
+      }
       <ol>
         {calendarTiles.map((el,index)=> 
-           <li className={isSameDay(today,el) && 'active' } key={index}><span>{format(el,'d')}</span></li>
+           <li className={isSameDay(today,el) && 'active' } key={index}><span>{!isMobile ? format(el,'d') : (`${format(el,'yyyy-MM-dd')} (${format(el, 'EE', { locale: ko })})`)}</span></li>
         )}
       </ol>
       <p>※ 훈련 일정 및 장소 등은 사전 공지 없이 변경될 수 있습니다..</p>

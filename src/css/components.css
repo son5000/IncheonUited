@@ -230,38 +230,42 @@
 
 /* player : calendar => schedulePage */
 
-.scheduleArea{
+@media(width > 640px){
+  .scheduleArea{
     .calendar{width: 100%;
-        > .navigator {text-align: center; position: relative; margin-bottom: 70px; display: flex; align-items: center; justify-content: center;
-            > div{gap: 35px; position: absolute; left: 0; display: flex; 
+      > .navigator {text-align: center; position: relative; margin-bottom: 70px; display: flex; align-items: center; justify-content: center;
+        > div{gap: 35px; position: absolute; left: 0; display: flex; 
               > span{display: flex; align-items: center;
-              &:nth-of-type(1)::before{margin-right: 10px; content: url('../../public/images/player/square_gray.png'); width: 30px; height: 30px; display: inline-block;}
+                &:nth-of-type(1)::before{margin-right: 10px; content: url('../../public/images/player/square_gray.png'); width: 30px; height: 30px; display: inline-block;}
               &:nth-of-type(2)::before{margin-right: 10px; content: url('../../public/images/player/square_blue.png'); width: 30px; height: 30px; display: inline-block;}
-              }
-              }  
-              > p {font-size: 34px; font-weight: 600; width: 300px; height: 35px; display: flex; align-items: center; justify-content: space-evenly;
-                  > button {width: 18px; height: 35px; cursor: pointer;
-                      &:nth-of-type(1){background: url('../../public/images/player/prevbtn.png') no-repeat center / auto;}
+              } 
+        }  
+          > p {font-size: 34px; font-weight: 600; width: 300px; height: 35px; display: flex; align-items: center; justify-content: space-evenly;
+            > button {width: 18px; height: 35px; cursor: pointer;
+              &:nth-of-type(1){background: url('../../public/images/player/prevbtn.png') no-repeat center / auto;}
                       &:nth-of-type(2){background: url('../../public/images/player/nextbtn.png') no-repeat center / auto;}
-                  }
             }
-        }
-        > ul{width: 100%; display: grid; grid-template-columns: repeat(7,1fr); line-height: 80px; text-align: center; color: var(--color--gray);
-              > li {border: 1px  solid var(--color--gray); border-top: 2px solid var(--color--gray) ;}
-        }
-        > ol {margin-bottom: 70px; display: grid; grid-template-columns: repeat(7,1fr);
+          }
+      }
+              > ul{width: 100%; display: grid; grid-template-columns: repeat(7,1fr); line-height: 80px; text-align: center; color: var(--color--gray);
+                > li {border: 1px  solid var(--color--gray); border-top: 2px solid var(--color--gray) ;}
+              }
+      > ol {margin-bottom: 70px; display: grid; grid-template-columns: repeat(7,1fr);
               > li{border: 1px  solid var(--color--gray); aspect-ratio: 1/1; position: relative;
                 &.active{border: 5px solid var(--color--blue); }
                 > span{ font-size: 14px; right: 15px; top: 15px; position: absolute; color: var(--color--gray); font-weight: 500;}
-            }
-        }
-        > p{font-size: 18px; text-align: center; margin-bottom: 150px; font-weight: 400;}
+              }
+      }
+            > p{font-size: 18px; text-align: center; margin-bottom: 150px; font-weight: 400;}
     }
+  }
 }
 
 /* matchCenter : selectedBox => gameSchedulePage , rankingPage */
 
-.selectedBox{display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 70px;
+@media (width > 640px){
+
+  .selectedBox{display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 70px;
     .btn-checkBox{
         display: block; width: 74px; height: 32px; background-repeat: no-repeat; background-size: auto; background-position: right; text-align: right; position: relative; cursor: pointer;
         &::before{height: 32px; width: 32px; content: ''; border: 2px solid var(--color--gray); border-radius: 5px; display:block; position: absolute; left: 0; top: 0; box-sizing: border-box;}
@@ -269,37 +273,81 @@
       }
       > div:nth-of-type(1){gap: 20px; display: flex; align-items: center;}
       > div:nth-of-type(2){
-          font-size: 24px; display: flex; gap: 3%; justify-content: space-between;
-          > div{display: flex; gap: 13px; position: relative; width: 100px; line-height: 50px; overflow: hidden; cursor: pointer;
+        font-size: 24px; display: flex; gap: 3%; justify-content: space-between;
+        > div{display: flex; gap: 13px; position: relative; width: 100px; line-height: 50px; overflow: hidden; cursor: pointer;
           &::after{content: url(../../public/images/matchCenter/▼-1.png);}
           &:hover{overflow: unset;
             > span {background-color: var(--color--blodGray); border-radius: 5px;}
-            }
-            > span{position: absolute; top: 50px; font-size: 18px; z-index: 1; text-align: center; width: 100%;
-                 button {display: block; width: 100%; line-height: 40px;}
-                 button:hover{color: var(--color--blue); cursor: pointer;}
-                }
-            }
+          }
+          > span{position: absolute; top: 50px; font-size: 18px; z-index: 1; text-align: center; width: 100%;
+            button {display: block; width: 100%; line-height: 40px;}
+            button:hover{color: var(--color--blue); cursor: pointer;}
+          }
         }
+      }
     }
-.gameScheduleArea {
-    .selectedBox{
+    .gameScheduleArea {
+      .selectedBox{
         > div:nth-of-type(1) {
-              > button:nth-of-type(2){background-image: url(../../public/images/matchCenter/logo_match_kleague_white.png);}
-              > button:nth-of-type(3){background-image: url(../../public/images/matchCenter/logo_match_koreacup.png);}
-              > button:nth-of-type(4){background-image: url(../../public/images/matchCenter/logo_match_afc.png);}
+          > button:nth-of-type(2){background-image: url(../../public/images/matchCenter/logo_match_kleague_white.png);}
+          > button:nth-of-type(3){background-image: url(../../public/images/matchCenter/logo_match_koreacup.png);}
+          > button:nth-of-type(4){background-image: url(../../public/images/matchCenter/logo_match_afc.png);}
             }
+          }
         }
-}
-.rankingArea {
-    .selectedBox{
-        > div:nth-of-type(1) { 
-            > button:nth-of-type(1) {background-image: url(../../public/images/matchCenter/logo_match_kleague_white.png);}
-            > button:nth-of-type(2) {background-image: url(../../public/images/matchCenter/logo_match_koreacup.png);}
+        .rankingArea {
+          .selectedBox{
+            > div:nth-of-type(1) { 
+              > button:nth-of-type(1) {background-image: url(../../public/images/matchCenter/logo_match_kleague_white.png);}
+              > button:nth-of-type(2) {background-image: url(../../public/images/matchCenter/logo_match_koreacup.png);}
           }
         > div:nth-of-type(2) {margin-left: auto;}
         > small {color : var(--color--gray);}
     }
+  }
+}
+
+@media (width <= 640px){
+
+  .selectedBox{display: flex; align-items: center; justify-content: space-between; width: 100%; margin-block: 35px; flex-direction: column; 
+    .btn-checkBox{display: block; width: 74px; height: 32px; background-repeat: no-repeat; background-size: auto; background-position: right; text-align: right; position: relative; cursor: pointer;
+        &::before{height: 32px; width: 32px; content: ''; border: 2px solid var(--color--gray); border-radius: 5px; display:block; position: absolute; left: 0; top: 0; box-sizing: border-box;}
+        &.active::before{border: 2px solid var(--color--blue); background: url(../../public/images/matchCenter/check_icon.png) no-repeat center / auto;}
+      }
+      > div:nth-of-type(1){gap: 20px; display: flex; align-items: center;}
+      > div:nth-of-type(2){ order: -1; margin-bottom: 15px;
+        font-size: 24px; display: flex; gap: 3%; justify-content: space-between;
+        > div{display: flex; gap: 13px; position: relative; width: 100px; line-height: 50px; overflow: hidden; cursor: pointer;
+          &::after{content: url(../../public/images/matchCenter/▼-1.png);}
+          &:hover{overflow: unset;
+            > span {background-color: var(--color--blodGray); border-radius: 5px;}
+          }
+          > span{position: absolute; top: 50px; font-size: 18px; z-index: 1; text-align: center; width: 100%;
+            button {display: block; width: 100%; line-height: 40px;}
+            button:hover{color: var(--color--blue); cursor: pointer;}
+          }
+        }
+      }
+    }
+    .gameScheduleArea {
+      .selectedBox{
+        > div:nth-of-type(1) {
+          > button:nth-of-type(2){background-image: url(../../public/images/matchCenter/logo_match_kleague_white.png);}
+          > button:nth-of-type(3){background-image: url(../../public/images/matchCenter/logo_match_koreacup.png);}
+          > button:nth-of-type(4){background-image: url(../../public/images/matchCenter/logo_match_afc.png);}
+            }
+          }
+        }
+        .rankingArea {
+          .selectedBox{
+            > div:nth-of-type(1) { 
+              > button:nth-of-type(1) {background-image: url(../../public/images/matchCenter/logo_match_kleague_white.png);}
+              > button:nth-of-type(2) {background-image: url(../../public/images/matchCenter/logo_match_koreacup.png);}
+          }
+        > div:nth-of-type(2) {margin-left: auto;}
+        > small {color : var(--color--gray);}
+    }
+  }
 }
 
 /* fanZone : yearSearchBox,boardList  */
