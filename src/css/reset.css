@@ -72,12 +72,12 @@ div[class$="page"]{width: 100%;}
   
   --header--opacity: 0;
   --ani--width : 5%;
-
+  --menu--display : "none";
   --boarder--bottom: 0;
 }
 body{ color: var(--color--white);}
 
-* { font-family:"Roboto","SUIT-Regular"; font-size: inherit; letter-spacing:0.0001px;}
+* { font-family:"Roboto","SUIT-Regular"; font-size: inherit; letter-spacing:0.0001px; word-break: break-all; }
 
 
 .size1442{ max-width: 1442px; margin-inline: auto;} 

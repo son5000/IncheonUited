@@ -127,9 +127,9 @@
   };
 
   /* Vision */
-  .mark-bg-blue{position: relative; border-bottom: 20px solid var(--color--blue); display: block;}
-  .mark-bg-blue::before{ height: 20px; width:80%; background-color:var(--color--blue); top:50%; left:0; z-index:0; display:block; content:''; position: absolute; z-index: -1;}
   .visionArea { color: var(--color--white);
+    .mark-bg-blue{position: relative;}
+    .mark-bg-blue::after{background-color: var(--color--blue);position: absolute; height: 20px; content: ''; display: block; width: 100%; transform: translate(0,-50%); top: 75%; z-index: -1;}
     > *:not(:last-child, h3){ margin-bottom: 150px;}
     > img{  display:block; width:100%;}
     h3 { font-size: 34px; font-weight: 600;}
@@ -144,7 +144,7 @@
     > div:nth-of-type(1){ width:100%; display:flex; align-items:center; justify-content:space-between;
       > img { width: 50%;}
       > div { width:44%; font-size:34px;  display:flex; flex-direction:column; justify-content:center; font-weight:600; 
-        > p {line-height: 45px; position: relative; z-index:0;} 
+        > p {line-height: 45px; position: relative; z-index:0; display: inline-block;} 
         > p:nth-child(1){margin-bottom: 50px;}
       }
     }
@@ -153,13 +153,13 @@
       > h3 { margin-bottom: 40px;position: relative; z-index: 1;}
       > p {color: var(--color--blue); margin-bottom: 70px;}
       > p::before { width: 14px; height:14px; margin-right:2px; display:inline-block; background-color:var(--color--blue);  content:''; border-radius:100%;}
-      > ol {counter-reset: listNumber; width:100%; border-top:2px solid var(--color--gray); border-bottom:2px solid  var(--color--gray);
-        > li {width: 100%; height:107px; gap:15.42%; counter-increment: listNumber; display:flex; align-items:center;
+      > ol {counter-reset: listNumber; border-top:2px solid var(--color--gray); border-bottom:2px solid  var(--color--gray);
+        > li {width: 100%; height:107px; counter-increment: listNumber; display:flex; align-items:center;
           &:not(:last-of-type){border-bottom: solid 1px var(--color--gray);}
-          > div{width:33%; display:flex; align-items:center;
+          > div{ display:flex; align-items:center; width: 40%;
             &::before{content:'0'counter(listNumber); font-size:34px;  margin-right:8px; color:var(--color--gray); font-weight:900;}
-            > mark {margin-right: 14px; line-height: 40px;}
-            > strong {font-size: 20px; color: var(--color--blue);}
+            > mark {margin-right: 14px; line-height: 40px; white-space: nowrap;}
+            > strong {font-size: 20px; color: var(--color--blue); margin-right: 10px;}
           }
           > p { font-weight:300; line-height:25px; position:relative;
             &::before{top:0; left:-7px; position:absolute; content:'-';}
@@ -185,6 +185,7 @@
       > span{padding-top: 50px;  display: block;  color: var(--color--gray);}
       &:nth-of-type(1){margin-bottom: 70px;}
     }
+    img{display: block; width: 100%;}
   } 
   
   /* Emblem */
@@ -210,10 +211,10 @@
       > h2 { font-size: 70px; font-weight: 600; margin-bottom: 70px;
       > span { color: var(--color--blue);}
     }
-    > img {display: block;}
+    > img {display: block; width: 100%;}
     > ol{ width: 100%; position: relative;
       &::after {content: ''; height: 100%; width: 1px; background-color: var(--color--gray); position: absolute; display: block; top: 0; left: 225px;}
-      > li{padding-top: 70px; width: 100%; display: flex; justify-content: flex-start; align-items:flex-start ;
+      > li{padding-top: 70px; width: 100%; display: flex;  justify-content: flex-start; align-items:flex-start ;
         > span { width: 15.60%; margin-right: 150px; font-size: 70px; font-weight: 600; position: relative;
           &::after{content: ''; display: block; width: 10px; height: 10px; background-color: var(--color--blue); position: absolute; border-radius: 100%; left: 225px; z-index: 1; top:50%; transform: translate(-50%,-50%); }}
           > ul { font-size: 18px; line-height:25px;
@@ -559,12 +560,13 @@
 
 /* fanZone */
 
-.fanZonePage{
+@media (width > 640px) {
 
-/* vod */
-.vodArea {
-  > ul{width: 100%; margin-bottom: 50px;
-    > li { width: 100%; display: flex; flex-direction: column; align-items: center; cursor: pointer;
+  .fanZonePage{
+    /* vod */
+    .vodArea {
+      > ul{width: 100%; margin-bottom: 50px;
+        > li { width: 100%; display: flex; flex-direction: column; align-items: center; cursor: pointer;
       &:nth-of-type(1){
         > p {border-top: 1px solid var(--color--gray);}
       }
@@ -574,7 +576,7 @@
       }
       > iframe {width: 100%; aspect-ratio: 1390/815; display: none;}
       &.active{ padding-top: 25px;
-          > p {border: 1px solid var(--color--gray); border-radius: 10px;
+        > p {border: 1px solid var(--color--gray); border-radius: 10px;
             &::before{content: url(../../public/images/fanZone/ico_vod_play_on.png);}
           }
           > iframe {display: block;}
@@ -584,7 +586,7 @@
     }
     > a {display: block; max-width: 185px; border: 1px solid var(--color--white); box-sizing: border-box; line-height: 65px; font-size: 18px; margin: 0 auto; text-align: center; border-radius: 10px; margin-bottom: 150px;}
   }
-
+  
   /* announcement */
   .announcementArea{margin-bottom: 150px;}
 
@@ -639,7 +641,7 @@
             &.playing{background-image: url(../../public/images/fanZone/ico_cheersong_stop.png);}
           }
         }
-        > div {padding: 25px; line-height: 25px;
+        > div {padding: 25px; line-height: 25px; 
           > p:nth-last-of-type(1){margin-bottom: 35px;}
           > button { display: block; margin-left: auto; line-height: 32px; padding-left: 15px; padding-right: 38px; border: 1px solid var(--color--white); border-radius: 10px; position: relative;
             &::after{content: url(../../public/images/fanZone/downLoad_icon.png); position: absolute; height: 13px; width: 7px; right: 10%; }
@@ -656,14 +658,14 @@
       > a {line-height: 65px; font-size: 18px; padding-inline: 70px; border: 1px solid var(--color--white); display: block; border-radius: 10px;}
     }
   }
-
+  
   /* event */
   .eventArea{ 
     > div.year-search-box{
       > ul {
         > li {
-            ol{left: -175%;}
-          }
+          ol{left: -175%;}
+        }
         }
       }
       > ul{width: 100%; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 2%;
@@ -677,14 +679,14 @@
         }
       }
     }
-  
-  /* lostItem */
-  .lostItemtArea{
-    > ul {width: 100%; display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 2%;
-      > li {width: 32%; margin-bottom: 40px; position: relative;
-        a {
-          &:hover{
-            >  p {display: block;}
+    
+    /* lostItem */
+    .lostItemtArea{
+      > ul {width: 100%; display: flex; align-items: center; justify-content: flex-start; flex-wrap: wrap; gap: 2%;
+        > li {width: 32%; margin-bottom: 40px; position: relative;
+          a {
+            &:hover{
+              >  p {display: block;}
             }
             > img {width: 100%; display: block;}
             > p { position: absolute; width: 100%; bottom: 0%; line-height: 40px; background-color: var(--color--blodGray);left: 0; display: none;
@@ -697,13 +699,15 @@
     }
 }
 
-/* ticketMembership */
+@media (width > 640px){
 
-.ticketMembershipPage{
-  h2 {color: var(--color--blue); font-size: 60px; font-weight: 600; margin-bottom: 150px; text-align: center;}
-  .ticketsTitleBox{ margin-bottom: 50px; text-align: center;
-    > img{margin-bottom: 70px;}
-    > p {font-size: 34px; font-weight: 600; margin-bottom: 40px;}
+  /* ticketMembership */
+  
+  .ticketMembershipPage{
+    h2 {color: var(--color--blue); font-size: 60px; font-weight: 600; margin-bottom: 150px; text-align: center;}
+    .ticketsTitleBox{ margin-bottom: 50px; text-align: center;
+      > img{margin-bottom: 70px;}
+      > p {font-size: 34px; font-weight: 600; margin-bottom: 40px;}
   }
   .ticktetsNoteBox{ border: 1px solid var(--color--gray) ; padding-bottom: 20px;
     > strong {display: inline-block; margin-bottom: 34px; font-size: 20px ; font-weight: 600; line-height: 40px; padding-inline: 10px; background-color: var(--color--gray);}
@@ -747,15 +751,15 @@
       &:nth-of-type(1){margin-bottom: 30px;}
     }
     > ul {display: flex; width: 100%; align-items: center; justify-content: space-between;
-     > li {width: 24%; 
-      &:nth-of-type(1) a {background-image: url(../../public/images/ticketMembership/경기관람안내_1.png);}
-      &:nth-of-type(2) a {background-image: url(../../public/images/ticketMembership/경기관람안내_2.png);}
-      &:nth-of-type(3) a {background-image: url(../../public/images/ticketMembership/경기관람안내_3.png);}
-      &:nth-of-type(4) a {background-image: url(../../public/images/ticketMembership/경기관람안내_4.png);}
-      > a { width: 100%; aspect-ratio: 248/165; display: block; background-repeat: no-repeat; background-position: center; background-size: auto; position: relative;
+      > li {width: 24%; 
+        &:nth-of-type(1) a {background-image: url(../../public/images/ticketMembership/경기관람안내_1.png);}
+        &:nth-of-type(2) a {background-image: url(../../public/images/ticketMembership/경기관람안내_2.png);}
+        &:nth-of-type(3) a {background-image: url(../../public/images/ticketMembership/경기관람안내_3.png);}
+        &:nth-of-type(4) a {background-image: url(../../public/images/ticketMembership/경기관람안내_4.png);}
+        > a { width: 100%; aspect-ratio: 248/165; display: block; background-repeat: no-repeat; background-position: center; background-size: auto; position: relative;
           > span {position: absolute; left: 5%; top: 10%;  line-height: 34px; border: 1px solid var(--color--white); border-radius:20px;padding-inline: 10px; font-size: 14px;}
         }
-       }
+      }
     }
     > div:nth-of-type(6) {display: flex; align-items: flex-start; justify-content: space-between; width: 100%;
       > div:nth-of-type(1) { width: 49%;  box-sizing: border-box;
@@ -764,27 +768,27 @@
             &:nth-of-type(1) {padding-top: 35px;}
             & + p {margin-bottom: 30px;}
             > strong {font-size: 34px; font-weight: 900; }
-            }
+          }
           > a {font-size: 20px; font-weight: 600; padding-inline: 20px; line-height: 36px; border: 1px solid var(--color--white); border-radius: 20px;
-              &::after{content: ''; width: 15px; height: 10px; display: inline-block; background: url(../../public/images/ticketMembership/arrow.png); margin-left: 10px;}
-            }
-          } 
-      }
-      > div:nth-of-type(2) {width: 49%; 
-        > div{ display: flex; align-items: center; justify-content: space-between; 
-             > a {width: 49%;  max-width: 248px; aspect-ratio: 248/240; background-repeat: no-repeat; background-size: cover; background-position: center; border-radius: 10px;
+            &::after{content: ''; width: 15px; height: 10px; display: inline-block; background: url(../../public/images/ticketMembership/arrow.png); margin-left: 10px;}
+          }
+        } 
+        }
+        > div:nth-of-type(2) {width: 49%; 
+          > div{ display: flex; align-items: center; justify-content: space-between; 
+            > a {width: 49%;  max-width: 248px; aspect-ratio: 248/240; background-repeat: no-repeat; background-size: cover; background-position: center; border-radius: 10px;
               &:nth-of-type(1) {background-image: url(../../public/images/ticketMembership/좌석안내비디오.png);}
               &:nth-of-type(2) {background-image: url(../../public/images/ticketMembership/경기장\ 반입\ 절차.png);}
             }
           }
         }
+      }
     }
-  }
-
-
-  /* groupTourArea */
-  .groupTourArea { 
-    > *:not(h3) {margin-bottom: 150px;}
+    
+    
+    /* groupTourArea */
+    .groupTourArea { 
+      > *:not(h3) {margin-bottom: 150px;}
     > table { width: 100%;  margin: 20px 0; font-size: 18px; text-align: center; 
       caption {text-align: left; font-size: 40px; color: var(--color--blue); font-weight: 600; margin-bottom: 35px;}
       thead tr:nth-of-type(1) {background-color: var(--color--gray); font-weight: 600;}
@@ -793,8 +797,8 @@
         > th:nth-of-type(odd){background-color: #444444;}
       }
       th,td {line-height: 60px; border: 1px solid var(--color--white); vertical-align: middle;
-      &:nth-of-type(1) { border-left: 0;}
-      &:nth-last-of-type(1) {border-right: 0;}
+        &:nth-of-type(1) { border-left: 0;}
+        &:nth-last-of-type(1) {border-right: 0;}
       }
     }
     > strong {color: var(--color--blue); text-align: right; display: block;line-height: 25px; font-weight: 400;}
@@ -807,17 +811,17 @@
       }
     }
     > div:nth-of-type(5) {background-color: var(--color--blue); max-width: 535px; padding-block: 35px; padding-inline: 25px; border-radius: 10px;
-       > p {font-size: 24px; font-weight: 600; display: flex; justify-content: space-between; margin-bottom: 50px;
+      > p {font-size: 24px; font-weight: 600; display: flex; justify-content: space-between; margin-bottom: 50px;
         > strong {font-weight: 900; font-size: 34px;}  
       }
       > div {display: flex; align-items: center; gap: 18px; justify-content: flex-start;
         > a {border: 1px solid var(--color--white); line-height: 36px; padding-inline: 20px; border-radius: 20px;
           &::after{content: ''; width: 15px; height: 10px; display: inline-block; background: url(../../public/images/ticketMembership/arrow.png); margin-left: 10px;}          
-         }
+        }
       }
     }
   }
-
+  
   /* membership */
   .buyMembershipArea { 
     &:last-child{margin-bottom: 150px;}
@@ -828,20 +832,22 @@
     }
     > img {display: block; width: 100%;}
   }
-
+  
   /* FAQ */
   .frequentlyQandAArea {
     > h2 {font-size: 40px; font-size: 600; color: var(--color--white); text-align: left; margin-bottom: 35px;}
     > details {border: 1px solid var(--color--gray);
       &:not(:nth-last-of-type(1)){border-bottom: 0;}
-      > summary {line-height: 113px; list-style-type: none; color: var(--color--gray); padding-inline: 35px; cursor: pointer;
+      > summary {line-height: 113px; list-style-type: none; color: var(--color--gray); padding-inline: 35px; cursor: pointer; 
         &.active{color: var(--color--blue);}
         &::before {content: 'Q.'; margin-right: 20px;}
-        }
-      > div { border-top: 1px solid var(--color--gray); padding-block: 50px; line-height: 25px; background-color: var(--color--blodGray); position: relative;
-        > p {padding-left: 75px;  font-size: 15x;}
+      }
+      > div { border-top: 1px solid var(--color--gray); padding-block: 50px; line-height: 25px;  background-color: var(--color--blodGray); position: relative; width: 100%;
+        > p {padding-left: 75px;  font-size: 15x; }
         &::before {content: 'A.'; margin-right: 20px; display: inline; position: absolute; left: 35px;}   
       }
     }
   }
+}
+}
 }

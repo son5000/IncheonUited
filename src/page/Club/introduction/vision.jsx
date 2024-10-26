@@ -1,7 +1,27 @@
+import { useState,useEffect } from 'react';
 import PageBox from '../../../components/club/PageBox';
 
 
+
 export default function Vision (){
+
+
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
+    
+    const handleResize = () => {
+        setIsMobile(window.innerWidth <= 640)
+    }
+    
+    useEffect(() => {
+        window.addEventListener('resize',handleResize)
+        handleResize()
+        return () =>{
+            window.removeEventListener('resize',handleResize)
+        } 
+    },[])
+
+
+
     return(
 <PageBox aniWidth={'10%'}>
     <section className='visionArea'>
@@ -37,9 +57,9 @@ export default function Vision (){
             <img src="/images/club/vision_graph.png" alt="선수단 인건비 비교표" />
             <div>
                 <p> <span className="mark-bg-blue">시민구단 인천유나이티드의</span> 한계</p>
-                <p>현재 K리그 1상위 구단 전북,<br />
-                울산의 경우<br />
-                <strong>매년 2배 이상의<br />
+                <p>현재 K리그 1상위 구단 전북, {!isMobile && <br />}
+                 울산의 경우<br />
+                <strong>매년 2배 이상의{!isMobile && <br />}
                 선수단 인건비 지출</strong> 
                 </p>
             </div>

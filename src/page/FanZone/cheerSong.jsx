@@ -54,7 +54,7 @@ return setIsActive(temp);
             <div>{cheerSongs.map((el,index) => {
                 return (
                     <details onClick={() => handleClick(index)} key={index} className={isActive[index] && "active"}>
-                    <summary>{el.title}
+                    <summary className={isActive[index] && "active"}>{el.title}
                         <button className={currentSong === el.mp3 && "playing"} onClick={(e)=> {
                             e.stopPropagation();
                             playMusic(el.mp3)}}></button>

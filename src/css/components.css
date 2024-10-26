@@ -2,6 +2,8 @@
 
 /* mainSlide */
 
+/* mainSlide */
+
 @media (width > 640px){
   .mainPage .mainSlide-container { width: 100%; margin-bottom: 180px; position: relative;
     .btnBox{  position: absolute; bottom: -100px; display: flex; padding-left: 80%; gap: 20px; align-items: center;
@@ -10,11 +12,13 @@
       .btn-next { background-image: url('../../public/images/main/bannernext.png'); } 
     }
     .slick-dots { width: 100%; bottom: -85px; text-align: center; height: 15px;
-      button{display: none;}
+      button{display: none;
+        &::before{display: none;}
+      }
       > li { margin: 0; width: 50px; height: 3px; background-color: var(--color--white); position: relative;
         &.slick-active { background-color: #0061c6; } 
-        &:nth-of-type(1)::before { width: 15px; height: 15px; position: absolute; left: -35px; top: -5px; display: inline; content: '01'; color: white; } 
-        &:nth-last-of-type(1)::after { width: 15px; height: 15px; right: -35px; top: -5px; display: inline; content: '03'; color: white; position: absolute; } 
+        &:nth-of-type(1)::before { position: absolute; left: -35px; top: -5px; display: inline; content: '01'; color: white; } 
+        &:nth-last-of-type(1)::after { right: -35px; top: -5px; display: inline; content: '03'; color: white; position: absolute;  } 
       } 
     } 
         .slide-item > img { width: 100%; } 
@@ -26,15 +30,17 @@
 @media (width <= 640px){
   .mainPage .mainSlide-container { width: 100%; margin-bottom: 180px; position: relative;
     .btnBox{  position: absolute; bottom: -100px; display: flex; padding-left: 80%; gap: 20px; align-items: center;
-      button { width: 16px; height: 18px;background-size: cover; background-repeat: no-repeat; background-position: center; cursor: pointer; } 
+      button { width: 16px; height: 18px;background-size: cover; background-repeat: no-repeat; background-position: center; cursor: pointer; 
+        &::before{display: none;}
+      } 
       .btn-prev { background-image: url('../../public/images/main/bannerprev.png'); } 
       .btn-next { background-image: url('../../public/images/main/bannernext.png'); } 
     }
     .slick-dots { width: 100%; bottom: -85px; text-align: center; height: 15px; 
           > li { position: relative; margin: 0; width: 50px; height: 3px; background-color: var(--color--white); 
             &.slick-active { background-color: #0061c6; } 
-            &:nth-of-type(1)::after { width: 15px; height: 15px; position: absolute; left: -35px; top: -5px; display: inline; content: '01'; color: white; } 
-            &:nth-last-of-type(1)::after { width: 15px; height: 15px; right: -35px; top: -5px; display: inline; content: '03'; color: white; position: absolute; } 
+            &:nth-of-type(1)::after { position: absolute; left: -35px; top: -5px; display: inline; content: '01'; color: white; } 
+            &:nth-last-of-type(1)::after { right: -35px; top: -5px; display: inline; content: '03'; color: white; position: absolute; } 
           } 
         } 
         .slide-item > img { width: 100%; } 
@@ -184,21 +190,16 @@
           }
         }
       }
-      /* club : pageBox => introductionPage,stadiumPage  */
-      & + div {
-        h2{ font-size:60px; line-height:75px; margin-bottom:148px;}
-        > div{ display:flex; justify-content:space-between;
-          > aside{width: 16.64% ; font-size:16px; display:flex; flex-direction:column; justify-content:flex-start; gap: 30px; color:var(--color--gray);
-            > button{ text-align: left; line-height: 36px; font-weight: 500; width: 100%;
-               > a{width: 100%; height: 100%; display: block;
-                &.active{color: var(--color--white);}
-              }
-            }
-            & + *{width: 83.22%;}
-          }
-        }
+    }
+    .clubSubTabs { display: flex; flex-direction: column; overflow:hidden; margin-bottom: 65px; border: 1px solid var(--color--white); box-sizing: border-box;
+      > button { line-height: 60px; cursor: pointer; box-sizing: border-box; height: 60px; padding-inline: 25px; text-align: left;
+        &:nth-of-type(1) {color: var(--color--blue);}
+        &:not(:first-of-type){display: var(--menu--display);}
+        &:not(:first-of-type):hover {color: var(--color--blue);}
+        &:not(:last-of-type){border-bottom: 1px solid white;}
+        > a {display: block; width: 100%; height: 60px;}
       }
-  }
+    }
 }
 /* seatInformation : club => seat , ticket/membership => buytickets  */
 
@@ -309,7 +310,7 @@
 
 @media (width <= 640px){
 
-  .selectedBox{display: flex; align-items: center; justify-content: space-between; width: 100%; margin-block: 35px; flex-direction: column; 
+  .gameScheduleArea .selectedBox{display: flex; align-items: center; justify-content: space-between; width: 100%; margin-block: 35px; flex-direction: column; 
     .btn-checkBox{display: block; width: 74px; height: 32px; background-repeat: no-repeat; background-size: auto; background-position: right; text-align: right; position: relative; cursor: pointer;
         &::before{height: 32px; width: 32px; content: ''; border: 2px solid var(--color--gray); border-radius: 5px; display:block; position: absolute; left: 0; top: 0; box-sizing: border-box;}
         &.active::before{border: 2px solid var(--color--blue); background: url(../../public/images/matchCenter/check_icon.png) no-repeat center / auto;}
@@ -329,6 +330,27 @@
         }
       }
     }
+    .rankingArea .selectedBox{display: flex; align-items: center; justify-content: center; width: 100%; margin-block: 35px; flex-wrap: wrap;
+    .btn-checkBox{display: block; width: 74px; height: 32px; background-repeat: no-repeat; background-size: auto; background-position: right; text-align: right; position: relative; cursor: pointer;
+        &::before{height: 32px; width: 32px; content: ''; border: 2px solid var(--color--gray); border-radius: 5px; display:block; position: absolute; left: 0; top: 0; box-sizing: border-box;}
+        &.active::before{border: 2px solid var(--color--blue); background: url(../../public/images/matchCenter/check_icon.png) no-repeat center / auto;}
+      }
+      > div:nth-of-type(1){gap: 20px; display: flex; align-items: center; order: 3; width: 100%; justify-content: center; padding-top: 10px;}
+      > div:nth-of-type(2){ order: 1; margin-right: 15px;
+        font-size: 24px; display: flex; gap: 3%; justify-content: space-between;
+        > div{display: flex; gap: 13px; position: relative; width: 100px; line-height: 50px; overflow: hidden; cursor: pointer;
+          &::after{content: url(../../public/images/matchCenter/▼-1.png);}
+          &:hover{overflow: unset;
+            > span {background-color: var(--color--blodGray); border-radius: 5px;}
+          }
+          > span{position: absolute; top: 50px; font-size: 18px; z-index: 1; text-align: center; width: 100%;
+            button {display: block; width: 100%; line-height: 40px;}
+            button:hover{color: var(--color--blue); cursor: pointer;}
+          }
+        }
+      }
+      > small {order: 2;}
+    }
     .gameScheduleArea {
       .selectedBox{
         > div:nth-of-type(1) {
@@ -340,46 +362,76 @@
         }
         .rankingArea {
           .selectedBox{
-            > div:nth-of-type(1) { 
+            > div:nth-of-type(1) {
               > button:nth-of-type(1) {background-image: url(../../public/images/matchCenter/logo_match_kleague_white.png);}
               > button:nth-of-type(2) {background-image: url(../../public/images/matchCenter/logo_match_koreacup.png);}
           }
-        > div:nth-of-type(2) {margin-left: auto;}
-        > small {color : var(--color--gray);}
+            > small {color : var(--color--gray);}
     }
   }
 }
 
 /* fanZone : yearSearchBox,boardList  */
-
-.boardList { width: 100%; margin-bottom: 45px;
-    > div {font-size: 18px; line-height: 65px; color: var(--color--gray); border: 1px solid var(--color--white); border-radius: 10px; display: flex; align-items: center;}
-    > ol {
-    > li {line-height: 63px; border-bottom: 1px solid var(--color--gray);
-      > a{display: flex; align-items: center;}
+@media (width > 640px){
+    .boardList { width: 100%; margin-bottom: 45px;
+      > div {font-size: 18px; line-height: 65px; color: var(--color--gray); border: 1px solid var(--color--white); border-radius: 10px; display: flex; align-items: center;}
+      > ol {
+        > li {line-height: 63px; border-bottom: 1px solid var(--color--gray);
+          > a{display: flex; align-items: center;}
+        }
+      }
+    div , a { text-align: center;
+      > span{width: 16.64%;}
+      > p {width: 49.93%;}
+    }
+    & + div {max-width: 300px; margin-inline: auto; margin-bottom: 145px; display: flex; align-items: center; justify-content: space-between;
+      > button {text-indent: -9999px; width: 7px; height: 12px; background-repeat: no-repeat; background-position: center; background-size: auto; cursor: pointer;
+        &:nth-of-type(1){background-image: url("../../public/images/fanZone/prev_btn.png");}
+        &:nth-of-type(2){background-image: url("../../public/images/fanZone/next_btn.png");}
+      }
+      > ol {font-size: 18px; gap: 15px; display: flex; align-items: center; justify-content:space-between; color: var(--color--gray); 
+        > li {cursor: pointer;}
+        > li:hover{color: white;}
+        > li.active{text-decoration: underline; color: white; text-underline-position : under;}
+      }
     }
   }
-  div , a { text-align: center;
-    > span{width: 16.64%;}
-    > p {width: 49.93%;}
-  }
-  & + div {max-width: 300px; margin-inline: auto; margin-bottom: 145px; display: flex; align-items: center; justify-content: space-between;
-    > button {text-indent: -9999px; width: 7px; height: 12px; background-repeat: no-repeat; background-position: center; background-size: auto; cursor: pointer;
-      &:nth-of-type(1){background-image: url("../../public/images/fanZone/prev_btn.png");}
-      &:nth-of-type(2){background-image: url("../../public/images/fanZone/next_btn.png");}
-    }
-    > ol {font-size: 18px; gap: 15px; display: flex; align-items: center; justify-content:space-between; color: var(--color--gray); 
-      > li {cursor: pointer;}
-      > li:hover{color: white;}
-      > li.active{text-decoration: underline; color: white; text-underline-position : under;}
+}
+@media (width <= 640px){
+    .boardList { width: 100%; margin-bottom: 45px;
+      > ol {
+        > li {border-bottom: 1px solid var(--color--gray); height: 90px; display: flex; align-items: center;
+          &:first-of-type{border-top: 1px solid var(--color--gray);}
+          > a{display: flex; align-items: center; flex-wrap: wrap;
+            > p {width: 100%; margin-bottom: 10px;}
+            > span:nth-of-type(1){
+              &::after{content: '|'; margin-left: 12px; margin-right: 25px; color: var(--color--gray); }
+            }
+            > .division{
+              &::after{content: '|'; margin-left: 12px; margin-right: 25px; color: var(--color--gray); }
+            }
+          }
+        }
+      }
+    & + div {max-width: 300px; margin-inline: auto; margin-bottom: 145px; display: flex; align-items: center; justify-content: space-between;
+      > button {text-indent: -9999px; width: 7px; height: 12px; background-repeat: no-repeat; background-position: center; background-size: auto; cursor: pointer;
+        &:nth-of-type(1){background-image: url("../../public/images/fanZone/prev_btn.png");}
+        &:nth-of-type(2){background-image: url("../../public/images/fanZone/next_btn.png");}
+      }
+      > ol {font-size: 18px; gap: 15px; display: flex; align-items: center; justify-content:space-between; color: var(--color--gray); 
+        > li {cursor: pointer;}
+        > li:hover{color: white;}
+        > li.active{text-decoration: underline; color: white; text-underline-position : under;}
+      }
     }
   }
 }
 
-.year-search-box {margin-bottom: 35px; display: flex; justify-content: right; gap: 20px; align-items: center; font-size: 18px;
+@media (width > 640px){
+  .year-search-box {margin-bottom: 35px; display: flex; justify-content: right; gap: 20px; align-items: center; font-size: 18px;
     > *{ background-color: #262626;}
     > div { position: relative; width: 30.51%; border-radius: 10px;
-        > button{background: url(../../public/images/fanZone/icon.png) no-repeat center /auto; height: 26px; width: 27px; position: absolute; right: 5%; top: 25% ; cursor: pointer;}
+      > button{background: url(../../public/images/fanZone/icon.png) no-repeat center /auto; height: 26px; width: 27px; position: absolute; right: 5%; top: 25% ; cursor: pointer;}
         > input{line-height: 62px; width: 100%; color: var(--color--white); position: relative; background-color: #262626; border-radius: 10px; box-sizing: border-box; padding-inline: 25px;}
       } 
       
@@ -397,6 +449,31 @@
             }
           } 
         }
-    }
+      }
+    } 
 }
-
+@media (width <= 640px){
+  .year-search-box {margin-block: 20px; display: flex; gap: 20px; align-items: center; 
+    > *{ background-color: #262626;}
+    > div { position: relative; width: 48%; border-radius: 10px; 
+      > button{background: url(../../public/images/fanZone/icon.png) no-repeat center /auto; height: 26px; width: 27px; position: absolute; right: 5%; top: 25% ; cursor: pointer;}
+        > input{line-height: 62px; width: 100%; color: var(--color--white); position: relative; background-color: #262626; border-radius: 10px; box-sizing: border-box; padding-inline: 25px;}
+      } 
+      
+      > ul {width: 48%; border: 2px solid #262626; cursor: pointer;  padding-inline: 25px; line-height: 65px; border-radius: 10px; box-sizing: border-box;
+        &:hover{ border: 2px solid var(--color--white);
+          > li{ overflow: unset;}
+        }
+        > li{height: 65px; overflow: hidden; position: relative;
+          &::after{content: url(../../public/images/fanZone/ico_calendar.png); display: block; position: absolute; top: 60%; right: 0; transform: translate(-50% ,-50%);}
+          > ol {display: flex; width: 350px; aspect-ratio: 1/1; background-color: #262626; z-index: 1; position: absolute; left: -25px; top: 67px; flex-wrap: wrap; border-radius: 10px;
+            > li {width: 25%; display: flex; align-items: center; justify-content: center;
+              > span {font-size: 14px; line-height: 50px; width: 50px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; border-radius: 100%;
+                &:hover{background-color: var(--color--gray);}
+              }
+            }
+          } 
+        }
+      }
+    } 
+}

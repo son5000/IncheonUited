@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import { useLocation } from "react-router-dom"
 import data from "../../data.json"
 
@@ -10,6 +10,7 @@ export default function BoardList (){
     const DATA = data[secondLocation];
     const [isPageNation,setIsPageNation] = useState(1)
     const pageNation =  [1,2,3,4,5];
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
     
     const handlePrevBtn = () => {
         if(isPageNation === 1){
@@ -23,6 +24,48 @@ export default function BoardList (){
         return;
         }
         setIsPageNation(isPageNation + 1);
+    }
+
+
+    const handleResize = () => {
+        setIsMobile(window.innerWidth <= 640)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize',handleResize)
+        handleResize()
+        return () =>{
+            window.removeEventListener('resize',handleResize)
+        } 
+    },[])
+
+    if(isMobile){
+
+        return (
+            <>
+            {secondLocation === 'cheeringGrounds' ? 
+            <div className="boardList">
+                <ol>
+                    {DATA.map((el,index) => <li key={index}><Link><p>{el.title}</p><span>{el.author}</span><span className="division">{el.date}</span><span>{el.views}</span></Link></li>)}
+                </ol>
+            </div>
+                :
+            <div className="boardList">
+                <ol>
+                    {DATA.map((el,index) => <li key={index}><Link><p>{el.title}</p><span>{el.date}</span><span>{el.views}</span></Link></li>)}
+                </ol>
+            </div>
+            }
+    
+            <div>
+                <button onClick={handlePrevBtn}>prev</button>
+                <ol>
+                    {pageNation.map((el) => <li key={el} onClick={() => setIsPageNation(el)} className={isPageNation === el ? "active" : ''}>{el}</li>)}
+                </ol>
+                <button onClick={handleNextBtn}>next</button>
+            </div>
+            </>
+        )
     }
 
 

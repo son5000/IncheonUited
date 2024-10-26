@@ -49,7 +49,7 @@ export default function Rangking () {
                     {rankTableData.map((el) => {
                         return (<tr key={el.id}>
                             <td>{el["순위"]}</td>
-                            <td><img src={`/images/matchCenter/${el["클럽"]}.png`} alt={`${el["클럽"]}로고 이미지`} />{el["클럽"]}</td>
+                            <td><img src={`/images/matchCenter/${el["클럽"]}.png`} alt={`${el["클럽"]}로고 이미지`} /><span>{el["클럽"]}</span></td>
                             <td>{el["승점"]}</td>
                             <td>{el["승"]}</td>
                             <td>{el["무"]}</td>
