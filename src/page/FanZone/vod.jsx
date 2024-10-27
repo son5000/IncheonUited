@@ -16,7 +16,9 @@ export default function Vod(){
                 {vedios.map((el,index)=> {
                     return (   
                     <li onClick={() => setActive(index)} key={index} className={index === active ? "active" : ""}>
-                        <p>{el.title}</p>
+                        <div>
+                            <p>{el.title}</p>
+                        </div>
                         {index === active && <iframe src={el.src} title={el.title}></iframe>}
                     </li>
                     )

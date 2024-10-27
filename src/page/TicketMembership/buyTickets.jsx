@@ -37,7 +37,7 @@ export default function BuyTickets (){
                 </thead>
                 <tbody>
                     <tr>
-                        <td rowspan="2">S석/텐석 2층 (Expert석)</td>
+                        <td rowSpan="2">S석/텐석 2층 (Expert석)</td>
                         <td>정규라운드</td>
                         <td>13,000원</td>
                         <td>6,500원</td>
@@ -48,7 +48,7 @@ export default function BuyTickets (){
                         <td>7,500원</td>
                     </tr>
                     <tr>
-                        <td rowspan="2">E석 1층 (Exciting석)</td>
+                        <td rowSpan="2">E석 1층 (Exciting석)</td>
                         <td>정규라운드</td>
                         <td>14,000원</td>
                         <td>7,000원</td>
@@ -59,7 +59,7 @@ export default function BuyTickets (){
                         <td>8,000원</td>
                     </tr>
                     <tr>
-                        <td rowspan="2">W석 2층 (Win석)</td>
+                        <td rowSpan="2">W석 2층 (Win석)</td>
                         <td>정규라운드</td>
                         <td>21,000원</td>
                         <td>10,500원</td>
@@ -70,7 +70,7 @@ export default function BuyTickets (){
                         <td>11,500원</td>
                     </tr>
                     <tr>
-                        <td rowspan="2">W석 1층 (Win석)</td>
+                        <td rowSpan="2">W석 1층 (Win석)</td>
                         <td>정규라운드</td>
                         <td>20,000원</td>
                         <td>10,000원</td>
@@ -81,7 +81,7 @@ export default function BuyTickets (){
                         <td>11,000원</td>
                     </tr>
                     <tr>
-                        <td rowspan="2">W2~W5 구역 (World Class석)</td>
+                        <td rowSpan="2">W2~W5 구역 (World Class석)</td>
                         <td>정규라운드</td>
                         <td>21,000원</td>
                         <td>10,500원</td>
@@ -251,7 +251,7 @@ export default function BuyTickets (){
             <p>*본인 좌석 외 다른 좌석으로 이동 또는 착석 불가합니다.</p>
             <p>*원정팀 MD 상품을 착용하고 원정석 이외 구역에 착석했을 경우, 경고 및 퇴장 조치됩니다.</p>
         </div>
-        <h4>경기관람 안내</h4>
+        <span>경기관람 안내</span>
         <ul>
             <li><Link><span>홈 경기 행사안내</span></Link></li>
             <li><Link><span>예매권북 이용방법</span></Link></li>
@@ -260,7 +260,7 @@ export default function BuyTickets (){
         </ul>
         <div>
             <div>
-                <h4>고객센터</h4>
+                <span>고객센터</span>
                 <div>
                     <p>티켓문의 <strong>1588-7890</strong></p>
                     <p>Call center for foreigners <strong>1644-3850</strong></p>
@@ -268,7 +268,7 @@ export default function BuyTickets (){
                 </div>
             </div>
             <div>
-                <h4>티켓정보</h4>
+                <span>티켓정보</span>
                 <div>
                     <Link></Link>
                     <Link></Link>

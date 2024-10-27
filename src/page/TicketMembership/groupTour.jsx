@@ -18,9 +18,9 @@ export default  function GroupTour (){
                 <caption>▶단체관람</caption>
                 <thead>
                     <tr>
-                        <th rowspan="2">구역</th>
-                        <th colspan="2">정규라운드</th>
-                        <th colspan="2">파이널라운드</th>
+                        <th rowSpan="2">구역</th>
+                        <th colSpan="2">정규라운드</th>
+                        <th colSpan="2">파이널라운드</th>
                     </tr>
                     <tr>
                         <th>정상가</th>

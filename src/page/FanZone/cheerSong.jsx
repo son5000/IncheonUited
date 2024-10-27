@@ -53,14 +53,14 @@ return setIsActive(temp);
             <h2 className="hiddenH2">응원가</h2>
             <div>{cheerSongs.map((el,index) => {
                 return (
-                    <details onClick={() => handleClick(index)} key={index} className={isActive[index] && "active"}>
+                    <details onClick={() => handleClick(index)} key={index}>
                     <summary className={isActive[index] && "active"}>{el.title}
                         <button className={currentSong === el.mp3 && "playing"} onClick={(e)=> {
                             e.stopPropagation();
                             playMusic(el.mp3)}}></button>
                         <audio ref={audioRef}></audio>
                     </summary>
-                    <div>{!el.text ? "가사가 없습니다." : 
+                    <div onClick={(e) => e.stopPropagation()}>{!el.text ? "가사가 없습니다." : 
                         el.text.map((i,index)=> { return (i ? <p key={index}>{i}</p> : <br key={index} />)})}
                         <button>응원가 다운받기</button>
                     </div>

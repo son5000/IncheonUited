@@ -4,7 +4,7 @@
 
 /* mainSlide */
 
-@media (width > 640px){
+@media (width > 1120px){
   .mainPage .mainSlide-container { width: 100%; margin-bottom: 180px; position: relative;
     .btnBox{  position: absolute; bottom: -100px; display: flex; padding-left: 80%; gap: 20px; align-items: center;
       button { width: 16px; height: 18px;background-size: cover; background-repeat: no-repeat; background-position: center; cursor: pointer; } 
@@ -27,7 +27,7 @@
 }
 
 
-@media (width <= 640px){
+@media (width <= 1120px){
   .mainPage .mainSlide-container { width: 100%; margin-bottom: 180px; position: relative;
     .btnBox{  position: absolute; bottom: -100px; display: flex; padding-left: 80%; gap: 20px; align-items: center;
       button { width: 16px; height: 18px;background-size: cover; background-repeat: no-repeat; background-position: center; cursor: pointer; 
@@ -66,13 +66,13 @@
   
 }
 
-@media (width > 640px) {
+@media (width > 1120px) {
 
   .mainPage{
     /* matchSlide */
     .matchArea{
       .leagueAndMatch { width: 100%; gap: 2.08%; display: flex; align-items: flex-start; justify-content: flex-start; position: relative; 
-        > .league-table { box-sizing: border-box; width: 31.90%; aspect-ratio: 460/469; background-color: #161616; border-radius: 20px; border: 5px inset rgba(252, 252, 253, 0.719); padding-block: 50px; padding-inline: 40px; display: flex; align-items: center; 
+        > .league-table {  box-sizing: border-box; width: 31.90%; aspect-ratio: 460/469; background-color: #161616; border-radius: 20px; border: 5px inset rgba(252, 252, 253, 0.719); padding-block: 50px; padding-inline: 40px; display: flex; align-items: center; 
           &:hover { animation: slideBound 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1 backwards; } 
           > table { width: 100%; text-align: center; line-height: 45px; 
             > caption { font-size: 24px; font-weight: 600; text-align: left; margin-bottom: 30px; padding-left: 20px; } 
@@ -125,6 +125,7 @@
         }
     }
 }
+
       
       /* league ranking table animation */
 @keyframes slideBound{
@@ -150,7 +151,7 @@
   0%{width: 0px;}
   100%{width: var(--ani--width);}
 }
-@media (width > 640px){
+@media (width > 1120px){
     .banner{ width:100%; height:950px; margin-bottom:150px; display:flex; align-items:flex-end; background-repeat: no-repeat; background-position: center; background-size: cover;
       & + div,&+section{margin-bottom: 150px;}
       > ul { width: 100%; font-size:18px; color:#666666; position:relative; display:flex; flex-grow:1; justify-content:flex-start; gap:3%;
@@ -178,7 +179,7 @@
       }
   }
 }
-@media (width <= 640px){
+@media (width <= 1120px){
     .banner{ width:100%; height:950px; margin-bottom:150px; display:flex; align-items:flex-end; background-repeat: no-repeat; background-position: center; background-size: cover;
       & + div,&+section{margin-bottom: 150px;}
       > ul { width: 100%; font-size:18px; color:#666666; position:relative; display:flex; flex-grow:1; justify-content:flex-start; gap:3%;
@@ -202,36 +203,63 @@
     }
 }
 /* seatInformation : club => seat , ticket/membership => buytickets  */
-
-.seat {width: 100%;
-  > img { display: block; width: 100%; margin-bottom: 150px; }
-  > ul {
-    width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 20px;
-    > li {
-    font-size: 22px; width: 23.75%; padding-bottom: 55px; font-weight: 300;
-    > p::before { content: ''; display: block; width: 50px; height: 50px; margin-bottom: 25px; }
-    &:nth-of-type(1) > p::before { background-color: #f7de77; }
-    &:nth-of-type(2) > p::before { background-color: #f3981b; }
-    &:nth-of-type(3) > p::before { background-color: #74bd55; }
-    &:nth-of-type(4) > p::before { background-color: #009944; }
-    &:nth-of-type(5) > p::before { background-color: #d84533; }
-    &:nth-of-type(6) > p::before { background-color: #e5600f; }
-    &:nth-of-type(7) > p::before { background-color: #ef8787; }
-    &:nth-of-type(8) > p::before { background-color: #727171; }
-    &:nth-of-type(9) > p::before { background-color: #f5b62f; }
-    &:nth-of-type(10) > p::before { background-color: #e84091; }
-    &:nth-of-type(11) > p::before { background-color: #74298b; }
-    &:nth-of-type(12) > p::before { background-color: #009491; }
-    &:nth-of-type(13) > p::before { background-color: #7dcef4; }
-    &:nth-of-type(14) > p::before { background-color: #5a3c35; }
-   }
+@media(width > 1120px){
+  .seat {width: 100%;
+    > img { display: block; width: 100%; margin-bottom: 150px; }
+    > ul {
+      width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 20px;
+      > li {
+        font-size: 22px; width: 23.75%; padding-bottom: 55px; font-weight: 300;
+        > p::before { content: ''; display: block; width: 50px; height: 50px; margin-bottom: 25px; }
+        &:nth-of-type(1) > p::before { background-color: #f7de77; }
+        &:nth-of-type(2) > p::before { background-color: #f3981b; }
+        &:nth-of-type(3) > p::before { background-color: #74bd55; }
+        &:nth-of-type(4) > p::before { background-color: #009944; }
+        &:nth-of-type(5) > p::before { background-color: #d84533; }
+        &:nth-of-type(6) > p::before { background-color: #e5600f; }
+        &:nth-of-type(7) > p::before { background-color: #ef8787; }
+        &:nth-of-type(8) > p::before { background-color: #727171; }
+        &:nth-of-type(9) > p::before { background-color: #f5b62f; }
+        &:nth-of-type(10) > p::before { background-color: #e84091; }
+        &:nth-of-type(11) > p::before { background-color: #74298b; }
+        &:nth-of-type(12) > p::before { background-color: #009491; }
+        &:nth-of-type(13) > p::before { background-color: #7dcef4; }
+        &:nth-of-type(14) > p::before { background-color: #5a3c35; }
+      }
+    }
+  }
+}
+@media(width <= 1120px){
+  .seat {width: 100%;
+    > img { display: block; width: 100%; margin-bottom: 150px; }
+    > ul {
+      width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 20px;
+      > li {
+        font-size: 18px; width: 40%; padding-bottom: 55px; font-weight: 300;
+        > p::before { content: ''; display: block; width: 50px; height: 50px; margin-bottom: 25px; }
+        &:nth-of-type(1) > p::before { background-color: #f7de77; }
+        &:nth-of-type(2) > p::before { background-color: #f3981b; }
+        &:nth-of-type(3) > p::before { background-color: #74bd55; }
+        &:nth-of-type(4) > p::before { background-color: #009944; }
+        &:nth-of-type(5) > p::before { background-color: #d84533; }
+        &:nth-of-type(6) > p::before { background-color: #e5600f; }
+        &:nth-of-type(7) > p::before { background-color: #ef8787; }
+        &:nth-of-type(8) > p::before { background-color: #727171; }
+        &:nth-of-type(9) > p::before { background-color: #f5b62f; }
+        &:nth-of-type(10) > p::before { background-color: #e84091; }
+        &:nth-of-type(11) > p::before { background-color: #74298b; }
+        &:nth-of-type(12) > p::before { background-color: #009491; }
+        &:nth-of-type(13) > p::before { background-color: #7dcef4; }
+        &:nth-of-type(14) > p::before { background-color: #5a3c35; }
+      }
+    }
   }
 }
 
 
 /* player : calendar => schedulePage */
 
-@media(width > 640px){
+@media(width > 1120px){
   .scheduleArea{
     .calendar{width: 100%;
       > .navigator {text-align: center; position: relative; margin-bottom: 70px; display: flex; align-items: center; justify-content: center;
@@ -264,7 +292,7 @@
 
 /* matchCenter : selectedBox => gameSchedulePage , rankingPage */
 
-@media (width > 640px){
+@media (width > 1120px){
 
   .selectedBox{display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 70px;
     .btn-checkBox{
@@ -308,7 +336,7 @@
   }
 }
 
-@media (width <= 640px){
+@media (width <= 1120px){
 
   .gameScheduleArea .selectedBox{display: flex; align-items: center; justify-content: space-between; width: 100%; margin-block: 35px; flex-direction: column; 
     .btn-checkBox{display: block; width: 74px; height: 32px; background-repeat: no-repeat; background-size: auto; background-position: right; text-align: right; position: relative; cursor: pointer;
@@ -372,7 +400,7 @@
 }
 
 /* fanZone : yearSearchBox,boardList  */
-@media (width > 640px){
+@media (width > 1120px){
     .boardList { width: 100%; margin-bottom: 45px;
       > div {font-size: 18px; line-height: 65px; color: var(--color--gray); border: 1px solid var(--color--white); border-radius: 10px; display: flex; align-items: center;}
       > ol {
@@ -397,7 +425,7 @@
     }
   }
 }
-@media (width <= 640px){
+@media (width <= 1120px){
     .boardList { width: 100%; margin-bottom: 45px;
       > ol {
         > li {border-bottom: 1px solid var(--color--gray); height: 90px; display: flex; align-items: center;
@@ -427,7 +455,7 @@
   }
 }
 
-@media (width > 640px){
+@media (width > 1120px){
   .year-search-box {margin-bottom: 35px; display: flex; justify-content: right; gap: 20px; align-items: center; font-size: 18px;
     > *{ background-color: #262626;}
     > div { position: relative; width: 30.51%; border-radius: 10px;
@@ -435,7 +463,7 @@
         > input{line-height: 62px; width: 100%; color: var(--color--white); position: relative; background-color: #262626; border-radius: 10px; box-sizing: border-box; padding-inline: 25px;}
       } 
       
-      > ul {width: 14.56%; border: 2px solid #262626; cursor: pointer;  padding-inline: 25px; line-height: 65px; border-radius: 10px; box-sizing: border-box;
+      > ul {width: 210px; border: 2px solid #262626; cursor: pointer;  padding-inline: 25px; line-height: 65px; border-radius: 10px; box-sizing: border-box;
         &:hover{ border: 2px solid var(--color--white);
           > li{ overflow: unset;}
         }
@@ -452,7 +480,7 @@
       }
     } 
 }
-@media (width <= 640px){
+@media (width <= 1120px){
   .year-search-box {margin-block: 20px; display: flex; gap: 20px; align-items: center; 
     > *{ background-color: #262626;}
     > div { position: relative; width: 48%; border-radius: 10px; 
@@ -466,7 +494,7 @@
         }
         > li{height: 65px; overflow: hidden; position: relative;
           &::after{content: url(../../public/images/fanZone/ico_calendar.png); display: block; position: absolute; top: 60%; right: 0; transform: translate(-50% ,-50%);}
-          > ol {display: flex; width: 350px; aspect-ratio: 1/1; background-color: #262626; z-index: 1; position: absolute; left: -25px; top: 67px; flex-wrap: wrap; border-radius: 10px;
+          > ol {display: flex; width: 350px; aspect-ratio: 1/1; background-color: #262626; z-index: 1; position: absolute; left: -27px; top: 67px; flex-wrap: wrap; border-radius: 10px;
             > li {width: 25%; display: flex; align-items: center; justify-content: center;
               > span {font-size: 14px; line-height: 50px; width: 50px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; border-radius: 100%;
                 &:hover{background-color: var(--color--gray);}

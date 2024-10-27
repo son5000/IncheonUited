@@ -5,10 +5,10 @@ import { ko } from 'date-fns/locale';
 
 export default function Calendar () {
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1120);
 
   const handleResize = () => {
-      setIsMobile(window.innerWidth <= 640)
+      setIsMobile(window.innerWidth <= 1120)
   }
 
   useEffect(() => {

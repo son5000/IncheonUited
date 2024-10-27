@@ -10,7 +10,7 @@ export default function BoardList (){
     const DATA = data[secondLocation];
     const [isPageNation,setIsPageNation] = useState(1)
     const pageNation =  [1,2,3,4,5];
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 1120);
     
     const handlePrevBtn = () => {
         if(isPageNation === 1){
@@ -28,7 +28,7 @@ export default function BoardList (){
 
 
     const handleResize = () => {
-        setIsMobile(window.innerWidth <= 640)
+        setIsMobile(window.innerWidth <= 1120)
     }
 
     useEffect(() => {

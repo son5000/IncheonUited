@@ -11,9 +11,9 @@ export default function Pro () {
     const newFeed = isCategori === '전체' ? playersData : playersData.filter((el) => el.categori === isCategori);
     const [isPopup,setIsPopup] = useState ('');
     const [currentScrollY , setCurrentScrollY] = useState(0);
-    const [isMobile,setIsMobile] = useState(window.innerWidth <= 640);
+    const [isMobile,setIsMobile] = useState(window.innerWidth <= 840);
     const handleResize = () => {
-        setIsMobile(window.innerWidth <= 640);
+        setIsMobile(window.innerWidth <= 840);
     }
 
     useEffect(() => {

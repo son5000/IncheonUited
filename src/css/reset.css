@@ -59,7 +59,7 @@ button {
 
 div[class$="page"]{width: 100%;}
 
-/* 주요 색상 변수 */
+/* 주요 변수 */
 :root {
   --color--black: #000000;
   --color--white: #ffffff;
@@ -83,16 +83,16 @@ body{ color: var(--color--white);}
 .size1442{ max-width: 1442px; margin-inline: auto;} 
 .size1080{ max-width: 1080px; margin-inline: auto;}
 .size1560{ max-width: 1560px; margin-inline: auto; }
-@media (width > 640px){
+@media (width > 1120px){
   [class^='hStyle']{ font-weight: 900; font-size: 50px; }
 }
-@media (width <= 640px){
+@media (width <= 1120px){
   [class^='hStyle']{ font-weight: 900; font-size: 30px; }
 }
 
 [class$='Italic']{ font-style: italic;}
 
-.a-before::before{ content: ""; background-color: var(--color--blodGray); width: 30px; height: 30px; border-radius: 100%; background-image: url(../../public/images/main/link_icon_02.png); background-repeat: no-repeat; background-size: auto; background-position: center; transform: translate(-50%,-50%); position: absolute; left:8%; top: 50%;}
+.a-before::before{ content: ""; background-color: var(--color--blodGray); width: 30px; height: 30px; border-radius: 100%; background-image: url(../../public/images/main/link_icon_02.png); background-repeat: no-repeat; background-size: auto; background-position: center; transform: translate(-50%,-50%); position: absolute; left:50px; top: 50%;}
 
 .a-after::after{ display: inline; content: ""; width: 25px; aspect-ratio: 1/1; background: url(../../public/images/main/link_icon_01.png) no-repeat center / auto; background-color: white; border-radius: 100%; position: absolute; transform: translate(-50%,-50%); top: 50%; right: 0;}
 

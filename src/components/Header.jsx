@@ -30,7 +30,7 @@ export default function Header() {
   // 반전연산자를 사용해서 false 값 즉, 햄버거메뉴의 자식혹은 자기자신이 아닌 요소를 클릭했으니 false를 return =>  반전연사자를 통해 
   // true 가 된다. && 엔퍼센드 연산자로 양쪽 조건을 모두 만족하면 
   // 햄버거의 현재상태를 초기화 , 햄버거 내부의 메뉴들의 active 상태도 초기화한다.
-    if(window.innerWidth <= 680){
+    if(window.innerWidth <= 1120){
       if(hamburgerMenuRef.current && !hamburgerMenuRef.current.contains(e.target)){
         setOpenHamburgerMenu(false);
         setisActive(Array(5).fill(null));
@@ -39,7 +39,7 @@ export default function Header() {
   }
 
   const handleHamburger = () =>  {
-    if(window.innerWidth <= 680 && !OpenHamburgerMenu){
+    if(window.innerWidth <= 1120 && !OpenHamburgerMenu){
       return  setOpenHamburgerMenu(true);
     }
     return 
@@ -72,7 +72,7 @@ export default function Header() {
   // 다시 클릭했을때 이동이 되게 끔 설계했다.
   // 그래서 true 값일때 state 값이 false 바뀌면서 그때 link로의 이동이 발생한다.
 
-    if(window.innerWidth <= 680){
+    if(window.innerWidth <= 1120){
       let temp = isActive.slice();
       if(temp[index]){
         temp[index] =false;

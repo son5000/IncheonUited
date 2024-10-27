@@ -27,7 +27,13 @@ export default function FeedSlide () {
     arrows:false,
     responsive:[
       {
-        breakpoint:640,
+        breakpoint:1120,
+        settings:{
+          slidesToShow:3
+        }
+      },
+      {
+        breakpoint:840,
         settings:{
           slidesToShow:2
         }

@@ -60,7 +60,7 @@ export default function MainSlide() {
                   <img src="/images/ticketMembership/K21.png" alt="강원FC 엠블럼" />
                   <span>강원FC</span>
                 </p>
-                <time datetime="2024-10-06/15:00">10월 06일 (일) 15:00</time>
+                <time dateTime="2024-10-06/15:00">10월 06일 (일) 15:00</time>
                 <mark>인천축구전용경기장</mark>
               </div>
             </div>
@@ -73,7 +73,7 @@ export default function MainSlide() {
                   <img src="/images/ticketMembership/K21.png" alt="강원FC 엠블럼" />
                   <span>강원FC</span>
                 </p>
-                <time datetime="2024-10-06/15:00">10월 06일 (일) 15:00</time>
+                <time dateTime="2024-10-06/15:00">10월 06일 (일) 15:00</time>
                 <mark>인천축구전용경기장</mark>
               </div>
             </div>
@@ -86,7 +86,7 @@ export default function MainSlide() {
                   <img src="/images/ticketMembership/K21.png" alt="강원FC 엠블럼" />
                   <span>강원FC</span>
                 </p>
-                <time datetime="2024-10-06/15:00">10월 06일 (일) 15:00</time>
+                <time dateTime="2024-10-06/15:00">10월 06일 (일) 15:00</time>
                 <mark>인천축구전용경기장</mark>
               </div>
             </div>
