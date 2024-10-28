@@ -481,19 +481,19 @@
     } 
 }
 @media (width <= 1120px){
-  .year-search-box {margin-block: 20px; display: flex; gap: 20px; align-items: center; 
+  .year-search-box {margin-block: 20px; display: flex; gap: 20px; align-items: center; justify-content: flex-end;
     > *{ background-color: #262626;}
     > div { position: relative; width: 48%; border-radius: 10px; 
       > button{background: url(../../public/images/fanZone/icon.png) no-repeat center /auto; height: 26px; width: 27px; position: absolute; right: 5%; top: 25% ; cursor: pointer;}
         > input{line-height: 62px; width: 100%; color: var(--color--white); position: relative; background-color: #262626; border-radius: 10px; box-sizing: border-box; padding-inline: 25px;}
       } 
       
-      > ul {width: 48%; border: 2px solid #262626; cursor: pointer;  padding-inline: 25px; line-height: 65px; border-radius: 10px; box-sizing: border-box;
+      > ul {width: 48%; max-width: 210px; border: 2px solid #262626; cursor: pointer;  padding-inline: 25px; line-height: 65px; border-radius: 10px; box-sizing: border-box;
         &:hover{ border: 2px solid var(--color--white);
           > li{ overflow: unset;}
         }
         > li{height: 65px; overflow: hidden; position: relative;
-          &::after{content: url(../../public/images/fanZone/ico_calendar.png); display: block; position: absolute; top: 60%; right: 0; transform: translate(-50% ,-50%);}
+          &::after{content: url(../../public/images/fanZone/ico_calendar.png); display: block; position: absolute; top: 60%; right: -7%; transform: translate(-50% ,-50%);}
           > ol {display: flex; width: 350px; aspect-ratio: 1/1; background-color: #262626; z-index: 1; position: absolute; left: -27px; top: 67px; flex-wrap: wrap; border-radius: 10px;
             > li {width: 25%; display: flex; align-items: center; justify-content: center;
               > span {font-size: 14px; line-height: 50px; width: 50px; aspect-ratio: 1/1; display: flex; align-items: center; justify-content: center; border-radius: 100%;

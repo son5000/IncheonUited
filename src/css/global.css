@@ -60,8 +60,12 @@
     0% {right: 0; color: transparent; }
     100% {right: 10%; color: white;}
 }
+@keyframes loginBox {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
 
-@media ( width <= 1120px){
+@media ( 505px < width <= 1120px){
     header{font-size: 14px; background-color:var(--color--black); padding-bottom:15px ; width:100%; color:var(--color--white); position:sticky; top: 0;  z-index: 100; padding-top:15px; border-bottom: var(--boarder--bottom);
         > div {display: flex; width: 100%; align-items: center; font-size: 25px; font-weight: 600; 
             > h1 { width: 100%; padding-left: 5%;
@@ -70,26 +74,54 @@
             span{position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
             nav { width: 34px; height: 26px; display: inline-block; background: url(../../public/images/main/hamburgerMenu.png) no-repeat center / auto; position: absolute; right: 0; top: 60px; transform: translate(-50%,-50%); cursor: pointer; z-index: 200; 
                 > * {display: none;}
-                &.active {animation: hamburgerMenu; animation-fill-mode: forwards; animation-duration: 1.5s;  height: 200vh; position: absolute; transform: translate(0,0); top: 0; background-color:#353232cb;
+                &.active {animation: hamburgerMenu; animation-fill-mode: forwards; animation-duration: 1s;  height: 100vh; position: absolute; transform: translate(0,0); top: 0; background-color:#222222d7; background-image: none; cursor: unset;
+                    > div:nth-of-type(1){ animation: loginBox;  animation-timing-function: cubic-bezier(1,.02,.39,1.07);  animation-fill-mode: forwards; animation-duration: 1.2s; background-color: #161616e3; height: 180px;  font-size: 22px; font-weight: 300; display: flex; align-items: center; justify-content: center; gap: 18px; border-bottom: 1px solid var(--color--gray); 
+                        > a { line-height: 55px; box-sizing: border-box; border: 1px solid var(--color--gray); padding-inline: 40px; border-radius: 30px; color: var(--color--gray); display: block; white-space: nowrap;}
+                    }
                     > * {display: block; }
-                    > ul { padding-top: 60px; padding-inline: 7%;
-                        > li { line-height: 30px; overflow: hidden; height: 30px; font-size: 14px; font-weight: 600; width: 50%;
-                            &.active{height: auto; 
-                                > ul { font-size: 10px; font-weight: 400;
-                                    > li:nth-last-of-type(1) { border-bottom: 2px solid linen};
+                    > .quickSns {display: flex;}
+                    > ul:nth-of-type(1) { height: 100vh; width: calc(50% - 25px); padding-left: 25px; border-right: 1px  solid var(--color--gray); padding-top: 30px; background-color: #161616e3; font-size: 16px; position: relative;
+                        > li { line-height: 40px; overflow: hidden; font-weight: 400;  height: 40px;
+                            &.active{height: auto; overflow: unset;
+                                > a{color: var(--color--blue);}
+                                > ul { font-size: 14px; position: absolute; z-index: 9999; right: -60%; top: 30px; width: 50%; 
+                                    > li:hover { color: var(--color--blue);}
                                 }
-                            }
-                            > a {
-                                &.active {color: var(--color--blue);}
                             }
                         }
                     }
                  }
                 }
-                > div {display: none; font-size: 14px; font-weight: 400;
-                    &.active {width: auto; animation-fill-mode: forwards; animation-name: hamburgerMenuLogin; animation-duration: 2.5s; display: block; position:absolute;z-index: 300; display: flex; gap: 5vw; top: 35px; justify-content: flex-end;
-                     > a:hover {color: var(--color--blue);}
-                    }                    
+            }
+    }
+
+}
+@media ( width <= 505px){
+    header{font-size: 14px; background-color:var(--color--black); padding-bottom:15px ; width:100%; color:var(--color--white); position:sticky; top: 0;  z-index: 100; padding-top:15px; border-bottom: var(--boarder--bottom);
+        > div {display: flex; width: 100%; align-items: center; font-size: 25px; font-weight: 600; 
+            > h1 { width: 100%; padding-left: 5%;
+               > a { height: 82px; max-width: 60px; display: block; background:url(../../public/images/main/icon_인천.png) no-repeat left / auto;} 
+            }
+            span{position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+            nav { width: 34px; height: 26px; display: inline-block; background: url(../../public/images/main/hamburgerMenu.png) no-repeat center / auto; position: absolute; right: 0; top: 60px; transform: translate(-50%,-50%); cursor: pointer; z-index: 200; 
+                > * {display: none;}
+                &.active {animation: hamburgerMenu; animation-fill-mode: forwards;  animation-duration: 1.5s;  height: 100vh; position: absolute; transform: translate(0,0); top: 0; background-color:#222222d7; background-image: none; cursor: unset;
+                    > div:nth-of-type(1){animation: loginBox; animation-timing-function: cubic-bezier(1,.02,.39,1.07); animation-fill-mode: forwards; animation-duration: 1.5s;  background-color: #161616e3; height: 180px;  font-size: 16px; font-weight: 300; display: flex; align-items: center; justify-content: center; gap: 18px; border-bottom: 1px solid var(--color--gray); 
+                        > a {line-height: 35px; box-sizing: border-box; border: 1px solid var(--color--gray); padding-inline: 20px; border-radius: 30px; color: var(--color--gray); display: block; white-space: nowrap;}
+                    }
+                    > * {display: block; }
+                    > .quickSns {display: flex;}
+                    > ul:nth-of-type(1) { height: 100vh; width: 100%;  padding-left: 25px; padding-top: 30px; background-color: #161616e3; font-size: 20px; position: relative;
+                        > li { line-height: 30px; overflow: hidden; font-weight: 300;  height: 30px;width: 100%;
+                            &.active{height: auto; overflow: unset;
+                                > a{color: var(--color--blue);}
+                                > ul { font-size: 14px; z-index: 9999; right: -60%; top: 30px; width: 50%;  
+                                    > li:hover { color: var(--color--blue);}
+                                }
+                            }
+                        }
+                    }
+                 }
                 }
             }
     }
@@ -101,7 +133,7 @@
 
 
 /* Quick SNS  */
-@media (width > 1520px){
+@media (width > 1120px){
 .quickSns {max-width: 103px; right: calc(53px); top: 450px;gap: 9px; position: fixed; display: flex; flex-direction: column; z-index: 9999;
      > li {background-color: var(--color--black) ; width: 103px; aspect-ratio: 1/1; border-radius: 100%; border: 3px solid var(--color--blue2); box-sizing: border-box;
          > a{display: block; width: 100%; height: 100%; text-indent: -9999px;}
@@ -111,9 +143,17 @@
     }
 }
 }
-@media (width <= 1520px){
-.quickSns {display: none;}
+@media (width <= 1120px){
+.quickSns { right: calc(53px); bottom: 60px; left: 20px; gap: 9px;  position: fixed; display: flex;  z-index: 9999; justify-content: flex-start;
+     > li { 
+         > a{display: block; text-indent: -9999px; width: 50px; aspect-ratio: 1/1;}
+        &:nth-child(1) > a {background: url(../../public/images/main/quick_icon-01.png) no-repeat center / auto;}
+        &:nth-child(2) > a {background: url(../../public/images/main/quick_icon-02.png) no-repeat center / auto;}
+        &:nth-child(3) > a {background: url(../../public/images/main/quick_icon-03.png) no-repeat center / auto;}
+    }
 }
+}
+
 
 
 
@@ -168,7 +208,7 @@
                 }
              > div {order: 3; width: 100%; padding-top: 45px; 
                  > p {text-align: center; margin-bottom: 30px;color: #999999;}
-                 > ul { display: flex; justify-content: space-evenly; align-items: center; width: 60%; margin-inline: auto;
+                 > ul { display: flex; justify-content: center; gap: 15px; align-items: center; width: 60%; margin-inline: auto;
                      > li {width: 43px;aspect-ratio: 1 /1; border: 1px solid #979797; border-radius: 100%;
                        &:nth-child(1) {background: url(../../public/images/main/footer_sns_01.png) no-repeat center / auto;}
                        &:nth-child(2) {background: url(../../public/images/main/footer_sns_02.png) no-repeat center / auto;}

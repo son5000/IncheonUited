@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import { format } from 'date-fns';
 import Banner from "../../components/Banner"
 import data from '../../data.json';
@@ -95,11 +95,19 @@ function Games ({data,currentYear}){
                                             <mark>{i.stadium}</mark>
                                         </div>
                                         <div>
-                                            <strong>{i.homeTeam}</strong>
-                                            <span><img src={`/images/matchCenter/schedul_icon_${i.homeTeam}.png`} alt={`${i.homeTeam} 심볼 이미지`} /></span>
-                                            <b>{i.result}</b>
-                                            <span><img src={`/images/matchCenter/schedul_icon_${i.awayTeam}.png`} alt={`${i.homeTeam} 심볼 이미지`} /></span>
-                                            <strong>{i.awayTeam}</strong>
+                                            <span>
+                                                <strong>{i.homeTeam}</strong>
+                                                <span>
+                                                    <img src={`/images/matchCenter/schedul_icon_${i.homeTeam}.png`} alt={`${i.homeTeam} 심볼 이미지`} />
+                                                </span>
+                                            </span>
+                                            {i.result}
+                                            <span>
+                                                <span>
+                                                    <img src={`/images/matchCenter/schedul_icon_${i.awayTeam}.png`} alt={`${i.homeTeam} 심볼 이미지`} />
+                                                </span>
+                                                <strong>{i.awayTeam}</strong>
+                                            </span>
                                         </div>
                                         <div>
                                             <a href="###">리뷰</a>

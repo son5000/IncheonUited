@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import QuickSns from "../../src/components/QuickSns";
 export default function Header() {
 
   const location = useLocation();
@@ -18,6 +18,20 @@ export default function Header() {
     return () => window.removeEventListener("scroll",onScroll);
   },[]);
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1120);
+
+  const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1120)
+  }
+
+  useEffect(() => {
+      window.addEventListener('resize',handleResize)
+      handleResize()
+      return () =>{
+          window.removeEventListener('resize',handleResize)
+      } 
+  },[])
+
   // 햄버거메뉴가 열렸을때 요소노드의 바깥 부분 CLICK이벤트 발생시 파악하기 위한 Ref 생성
   const hamburgerMenuRef = useRef();
   // 햄버거메뉴의 바깥요소를 click 했을때 메뉴를 닫히게 실행 할 함수.
@@ -30,7 +44,7 @@ export default function Header() {
   // 반전연산자를 사용해서 false 값 즉, 햄버거메뉴의 자식혹은 자기자신이 아닌 요소를 클릭했으니 false를 return =>  반전연사자를 통해 
   // true 가 된다. && 엔퍼센드 연산자로 양쪽 조건을 모두 만족하면 
   // 햄버거의 현재상태를 초기화 , 햄버거 내부의 메뉴들의 active 상태도 초기화한다.
-    if(window.innerWidth <= 1120){
+    if(isMobile){
       if(hamburgerMenuRef.current && !hamburgerMenuRef.current.contains(e.target)){
         setOpenHamburgerMenu(false);
         setisActive(Array(5).fill(null));
@@ -39,7 +53,7 @@ export default function Header() {
   }
 
   const handleHamburger = () =>  {
-    if(window.innerWidth <= 1120 && !OpenHamburgerMenu){
+    if(isMobile  && !OpenHamburgerMenu){
       return  setOpenHamburgerMenu(true);
     }
     return 
@@ -57,7 +71,7 @@ export default function Header() {
       document.removeEventListener('mousedown',clickHamburgerOutSide);
     }
     return () => document.removeEventListener('mousedown',clickHamburgerOutSide);
-  },[OpenHamburgerMenu])
+  })
 
   // 햄버거 메뉴안의 각각의 서브메뉴의 active를 위한  state
   const [isActive,setisActive] = useState(Array(5).fill(false));
@@ -71,16 +85,14 @@ export default function Header() {
   // active가 들어가있는 최상위 요소는 preventDefault 로 한번 이동을 막고
   // 다시 클릭했을때 이동이 되게 끔 설계했다.
   // 그래서 true 값일때 state 값이 false 바뀌면서 그때 link로의 이동이 발생한다.
-
-    if(window.innerWidth <= 1120){
-      let temp = isActive.slice();
-      if(temp[index]){
-        temp[index] =false;
-        return setisActive(temp)
+    if(isMobile){
+      let temp = Array(5).fill(false);
+      if(isActive[index]){
+        return setisActive(temp);
       }
-      e.preventDefault();
       temp[index] = true;
-      return setisActive(temp)
+      e.preventDefault();
+      return setisActive(temp);
     }
   }
 
@@ -101,9 +113,15 @@ export default function Header() {
         </h1>
         {firstLocation && (<span>{firstLocation.toUpperCase()}</span>)}
         <nav ref={hamburgerMenuRef} onClick={() => handleHamburger()} className={OpenHamburgerMenu ? "active" : ""}>
+          { isMobile && 
+          <div>
+              <Link>LOGIN</Link>
+              <Link>JOIN US</Link>
+          </div>
+          }
           <ul>
             <li className={isActive[0] ? "active" : ""}>
-              <Link onClick={(e) => handleMenuOpen(0,e)} className={isActive[0] ? "active" : ""} to={"club/introduction"}>CLUB</Link>
+              <Link onClick={(e) => handleMenuOpen(0,e)} to={"club/introduction"}>CLUB</Link>
               <ul>
                 <li>
                   <Link to={"club/introduction"}>구단소개</Link>
@@ -117,7 +135,7 @@ export default function Header() {
               </ul>
             </li>
             <li className={isActive[1] ? "active" : ""} >
-              <Link onClick={(e) => handleMenuOpen(1,e)} className={isActive[1] ? "active" : ""}  to={"player/coachingstaff"}>PLAYER</Link>
+              <Link onClick={(e) => handleMenuOpen(1,e)}  to={"player/coachingstaff"}>PLAYER</Link>
               <ul>
                 <li>
                   <Link to={"player/coachingstaff"}>코칭/지원스태프</Link>
@@ -131,7 +149,7 @@ export default function Header() {
               </ul>
             </li>
             <li className={isActive[2] ? "active" : ""}>
-              <Link onClick={(e) => handleMenuOpen(2,e)} className={isActive[2] ? "active" : ""} to={"matchCenter/gameSchedule"}>MATCH CENTER</Link>
+              <Link onClick={(e) => handleMenuOpen(2,e)}  to={"matchCenter/gameSchedule"}>MATCH CENTER</Link>
               <ul>
                 <li>
                   <Link to={"matchCenter/gameSchedule"}>경기일정/결과</Link>
@@ -142,7 +160,7 @@ export default function Header() {
               </ul>
             </li>
             <li  className={isActive[3] ? "active" : ""}>
-              <Link onClick={(e) => handleMenuOpen(3,e)} className={isActive[3] ? "active" : ""} to={"fanZone/announcement"}>FANZONE</Link>
+              <Link onClick={(e) => handleMenuOpen(3,e)}  to={"fanZone/announcement"}>FANZONE</Link>
               <ul>
                 <li>
                   <Link to={"fanZone/announcement"}>공지사항</Link>
@@ -177,7 +195,7 @@ export default function Header() {
               </ul>
             </li>
             <li className={isActive[4] ? "active" : ""}>
-              <Link onClick={(e) => handleMenuOpen(4,e)} className={isActive[4] ? "active" : ""} to={"ticketMembership/buyTickets"}>TICKET / MEMBERSHIP</Link>
+              <Link onClick={(e) => handleMenuOpen(4,e)}  to={"ticketMembership/buyTickets"}>TICKET / MEMBERSHIP</Link>
               <ul>
                 <li>
                   <Link to={"ticketMembership/buyTickets"}>티켓 구매</Link>
@@ -197,12 +215,18 @@ export default function Header() {
               <a href="###">BLUE MARKET</a>
             </li>
           </ul>
+          {isMobile && <QuickSns />}
         </nav>
-        <div className={OpenHamburgerMenu ? "active" : ""}>
+        { !isMobile &&
+          <div>
           <a href="###">LOGIN</a>
           <a href="###">JOIN US</a>
         </div>
+        }
     </div>
       </header>
   );
 }
+
+
+

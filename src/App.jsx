@@ -1,3 +1,4 @@
+import { useState,useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -8,10 +9,24 @@ export default function App () {
     const Location = useLocation();
     const firstLocation = Location.pathname.split('/')[1] || 'main';
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 1120);
+
+    const handleResize = () => {
+        setIsMobile(window.innerWidth <= 1120)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize',handleResize)
+        handleResize()
+        return () =>{
+            window.removeEventListener('resize',handleResize)
+        } 
+    },[])
+
     return (
         <>
          <Header />
-         <QuickSns />
+         { !isMobile && <QuickSns />}
          <div className={firstLocation+'Page'}>
          <Outlet />
          </div>

@@ -8,7 +8,6 @@ export default  function FrequentlyQandA (){
     
     function handleClick (index) {
         let temp = isActive.slice();
-        console.log(temp);
         if(temp[index]){
             temp[index] = false;
             return setIsActive(temp);
