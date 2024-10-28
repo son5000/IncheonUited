@@ -75,8 +75,8 @@
             nav { width: 34px; height: 26px; display: inline-block; background: url(../../public/images/main/hamburgerMenu.png) no-repeat center / auto; position: absolute; right: 0; top: 60px; transform: translate(-50%,-50%); cursor: pointer; z-index: 200; 
                 > * {display: none;}
                 &.active {animation: hamburgerMenu; animation-fill-mode: forwards; animation-duration: 1s;  height: 100vh; position: absolute; transform: translate(0,0); top: 0; background-color:#222222d7; background-image: none; cursor: unset;
-                    > div:nth-of-type(1){ animation: loginBox;  animation-timing-function: cubic-bezier(1,.02,.39,1.07);  animation-fill-mode: forwards; animation-duration: 1.2s; background-color: #161616e3; height: 180px;  font-size: 22px; font-weight: 300; display: flex; align-items: center; justify-content: center; gap: 18px; border-bottom: 1px solid var(--color--gray); 
-                        > a { line-height: 55px; box-sizing: border-box; border: 1px solid var(--color--gray); padding-inline: 40px; border-radius: 30px; color: var(--color--gray); display: block; white-space: nowrap;}
+                    > div:nth-of-type(1){  background-color: #161616e3; height: 180px;  font-size: 22px; font-weight: 300; display: flex; align-items: center; justify-content: center; gap: 18px; border-bottom: 1px solid var(--color--gray); 
+                        > a { animation: loginBox;  animation-timing-function: cubic-bezier(1,.02,.39,1.07);  animation-fill-mode: forwards; animation-duration: 1.2s; line-height: 55px; box-sizing: border-box; border: 1px solid var(--color--gray); padding-inline: 40px; border-radius: 30px; color: var(--color--gray); display: block; white-space: nowrap;}
                     }
                     > * {display: block; }
                     > .quickSns {display: flex;}
@@ -106,16 +106,16 @@
             nav { width: 34px; height: 26px; display: inline-block; background: url(../../public/images/main/hamburgerMenu.png) no-repeat center / auto; position: absolute; right: 0; top: 60px; transform: translate(-50%,-50%); cursor: pointer; z-index: 200; 
                 > * {display: none;}
                 &.active {animation: hamburgerMenu; animation-fill-mode: forwards;  animation-duration: 1.5s;  height: 100vh; position: absolute; transform: translate(0,0); top: 0; background-color:#222222d7; background-image: none; cursor: unset;
-                    > div:nth-of-type(1){animation: loginBox; animation-timing-function: cubic-bezier(1,.02,.39,1.07); animation-fill-mode: forwards; animation-duration: 1.5s;  background-color: #161616e3; height: 180px;  font-size: 16px; font-weight: 300; display: flex; align-items: center; justify-content: center; gap: 18px; border-bottom: 1px solid var(--color--gray); 
-                        > a {line-height: 35px; box-sizing: border-box; border: 1px solid var(--color--gray); padding-inline: 20px; border-radius: 30px; color: var(--color--gray); display: block; white-space: nowrap;}
+                    > div:nth-of-type(1){  background-color: #161616e3; height: 120px;  font-size: 16px; font-weight: 300; display: flex; align-items: center; justify-content: center; gap: 18px; border-bottom: 1px solid var(--color--gray); 
+                        > a {animation: loginBox;  animation-timing-function: cubic-bezier(1,.02,.39,1.07);  animation-fill-mode: forwards; animation-duration: 1.2s; line-height: 35px; box-sizing: border-box; border: 1px solid var(--color--gray); padding-inline: 20px; border-radius: 30px; color: var(--color--gray); display: block; white-space: nowrap;}
                     }
                     > * {display: block; }
                     > .quickSns {display: flex;}
                     > ul:nth-of-type(1) { height: 100vh; width: 100%;  padding-left: 25px; padding-top: 30px; background-color: #161616e3; font-size: 20px; position: relative;
-                        > li { line-height: 30px; overflow: hidden; font-weight: 300;  height: 30px;width: 100%;
+                        > li { line-height: 50px; overflow: hidden; font-weight: 300;  height: 50px;width: 100%;
                             &.active{height: auto; overflow: unset;
                                 > a{color: var(--color--blue);}
-                                > ul { font-size: 14px; z-index: 9999; right: -60%; top: 30px; width: 50%;  
+                                > ul { font-size: 14px; z-index: 9999; padding-left: 15px;  width: 50%; line-height: 30px; 
                                     > li:hover { color: var(--color--blue);}
                                 }
                             }
