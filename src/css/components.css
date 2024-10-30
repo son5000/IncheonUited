@@ -66,7 +66,7 @@
   
 }
 
-@media (width > 1120px) {
+@media (width > 1510px) {
 
   .mainPage{
     /* matchSlide */
@@ -124,6 +124,41 @@
           } 
         }
     }
+}
+
+@media (width <= 1510px){
+   /* leagueAndMatch */
+   .matchArea{
+    .leagueAndMatch { display: flex; flex-direction: column; align-items: center;
+      > .league-table { max-width: 450px; margin-bottom: 30px; box-sizing: border-box; width: 100%; aspect-ratio: 1/1; background-color: #161616; border-radius: 20px; border: 5px inset rgba(252, 252, 253, 0.719); padding-block: 25px; padding-inline: 20px; display: flex; align-items: center; 
+        &:hover { animation: slideBound 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1 backwards; } 
+        > table { width: 100%; text-align: center; line-height: 45px; 
+          > caption { font-size: 24px; font-weight: 600; text-align: left; margin-bottom: 30px; padding-left: 20px; } 
+          > * > tr { color: var(--color--gray); font-size: 16px; font-weight: 500; } 
+          > tbody {
+            > tr{
+              > *:nth-last-child(1) { color: var(--color--white); } 
+              &:nth-last-of-type(1) { border: 3px solid var(--color--blue); } 
+              &:nth-of-type(1) > td:nth-of-type(2)::before { content: url(../../public/images/main/leagueTable_jeju.icon.png); } 
+              &:nth-of-type(2) > td:nth-of-type(2)::before { content: url(../../public/images/main/leagueTable_daejeon.icon.png); } 
+              &:nth-of-type(3) > td:nth-of-type(2)::before { content: url(../../public/images/main/leagueTable_junbuk.icon.png); } 
+              &:nth-of-type(4) > td:nth-of-type(2)::before { content: url(../../public/images/main/leagueTable_daegu.icon.png); } 
+                    &:nth-of-type(5) > td:nth-of-type(2)::before { content: url(../../public/images/main/leagueTable_incheon.icon.png); } 
+                    td:nth-of-type(2) { position: relative; width: 45px; text-align: right; 
+                      &::before { content: url(../../public/images/main/leagueTable_junbuk.icon.png); margin-right: 5px; position: absolute; transform: translate(-50%, -50%); left: 0%; top: 55%; } 
+                    } 
+                  } 
+                }
+              } 
+            } 
+      }
+      .slide-container { width: 100%; overflow: hidden;
+        .slide-track{width: 100%;  display: flex;  gap: 3%; margin-bottom: 30px; align-items: center; justify-content: center; flex-direction: column; gap: 30px;
+          .slide {max-width: 450px; width: 100%; flex-shrink: 0; aspect-ratio: 460/469; text-align: center; box-sizing: border-box; background-color: #161616; cursor: pointer; border-radius: 20px;
+          }
+        }
+      }
+  }
 }
 
       

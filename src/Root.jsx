@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes ,Route } from "react-router-dom";
 import App from "./App";
 import Home from "./page/Home";
+import Login from "./page/Login";
+import JoinUs from "./page/JoinUs";
 import Introduction from "./page/Club/introduction/introduction";
 import Vision from "./page/Club/introduction/vision";
 import Organization from "./page/Club/introduction/organization";
@@ -30,6 +32,7 @@ import BuyTickets from "./page/TicketMembership/buyTickets";
 import BuyMembership from "./page/TicketMembership/buyMembership";
 import GroupTour from "./page/TicketMembership/groupTour";
 import FrequentlyQandA from "./page/TicketMembership/frequentlyQandA"
+
 
 export default function Root() {
   return (
@@ -74,6 +77,10 @@ export default function Root() {
               <Route  path ="buyMembership" element={<BuyMembership />} />
               <Route  path ="groupTour" element={<GroupTour />} />
               <Route  path ="frequentlyQ&A" element={<FrequentlyQandA />} />
+            </Route>
+            <Route path="Login">
+              <Route index element ={<Login />} />
+              <Route path="joinUs" element={<JoinUs />} />
             </Route>
           </Route>
         </Routes>

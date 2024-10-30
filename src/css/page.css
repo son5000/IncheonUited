@@ -693,12 +693,11 @@
         > li {width: 32%; margin-bottom: 40px; position: relative;
           a {
             &:hover{
-              >  p {display: block;}
+              >  p {display: flex; justify-content: space-between;}
             }
             > img {width: 100%; display: block;}
-            > p { position: absolute; width: 100%; bottom: 0%; line-height: 40px; background-color: var(--color--blodGray);left: 0; display: none;
-              &::before{content: '';width: 15px; height: 10px; display: inline-block;}
-              &::after{content: url(../../public/images/fanZone/lostItem_arrow.png); width: 14px; height: 9; display: inline-block; margin-left: 50% }
+            > p { position: absolute; width: calc(100% - 15px); bottom: 0%; line-height: 40px; background-color: var(--color--blodGray);left: 0; display: none; padding-left: 15px;
+              &::after{content: url(../../public/images/fanZone/lostItem_arrow.png); width: 14px; height: 9; display: inline-block; padding-right: 15px;}
             }  
           }
         }

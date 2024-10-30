@@ -219,8 +219,8 @@ export default function Header() {
         </nav>
         { !isMobile &&
           <div>
-          <a href="###">LOGIN</a>
-          <a href="###">JOIN US</a>
+          <Link to={"login"}>LOGIN</Link>
+          <Link to={"login/joinUs"}>JOIN US</Link>
         </div>
         }
     </div>
