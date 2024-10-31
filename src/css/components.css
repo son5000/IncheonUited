@@ -126,6 +126,7 @@
     }
 }
 
+
 @media (width <= 1510px){
    /* leagueAndMatch */
    .matchArea{
@@ -159,6 +160,26 @@
         }
       }
   }
+
+   /* feedSlide */
+   .feedArea { padding-inline: 30px;
+     > .tap-container { width: 100%; margin-bottom: 48px; display: flex; justify-content: flex-start; align-items: center; gap: 3%;  flex-wrap: wrap;
+       > .tap-item { font-size: 18px; font-weight: 400; cursor: pointer; 
+         &.active { color: var(--color--blue); } 
+       } 
+     } 
+     > .feedSlide-container { position: relative; width: 100%; 
+       > button { width: 30px; height: 30px; background-position: center; background-repeat: no-repeat; border-radius: 100%; position: absolute; z-index: 100; cursor: pointer; transform: translate(-50%,-50%); } 
+       /* custom Arrow */
+       > .btn-next { background: url(../../public/images/main/_.png) no-repeat center / cover; top: 35%; right: -2%} 
+       > .btn-prev { background: url(../../public/images/main/_-1.png) no-repeat center / cover; top: 35%; ;} 
+       .slide-item > div { margin: 0 10px; padding: 0; border-radius: 20px; box-sizing: border-box; display: flex; flex-direction: column; 
+         img { display: block; width: 100%; margin-bottom: 20px; border-radius: 20px 20px 0 0; background-color: #161616; } 
+         p { width: 100%; font-size: 16px; line-height: 20px; max-width: 340px; font-weight: 400; display: inline-block; } 
+         strong { margin-right: 5px; text-transform: capitalize; display: inline; color: #ffea00; } 
+       } 
+     } 
+   }
 }
 
       

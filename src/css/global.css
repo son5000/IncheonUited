@@ -228,51 +228,103 @@
 
 /* Login */
 
-.loginPage{
-    padding-top: 30px;
-    margin-bottom: 150px;
+.loginPage{ padding-top: 70px;margin-bottom: 150px;
+    > section {max-width: 580px; padding: 0; margin: 0 auto; }
     h2 {margin-bottom: 30px; font-size: 34px; text-align: center;}
     h2 + p {  font-size: 20px;  margin-bottom: 50px; text-align: center; color: var(--color--gray); }
-}
-
-.loginArea {
-    > p {text-align: center; color: var(--color--gray);}
-    > form { max-width: 570px; width: 100%; margin: 0 auto; font-size: 18px; margin-bottom: 35px;
-      > * {width: 100%; display: block;}
-      > input , button {border-radius: 10px;}
-      > label {color: var(--color--gray);margin-bottom: 18px;}
-      > input {background-color: #262626; width: calc(100% - 40px); margin-bottom: 50px; line-height: 64px; padding-inline: 20px; color: white; font-weight: 300;}
-      > button {line-height: 64px; background-color: var(--color--blue);}
+    mark {color: var(--color--blue); background-color: transparent;}
+    .scroll_layout{ overflow-y: scroll;
+        &::-webkit-scrollbar { width: 5px;}
+        &::-webkit-scrollbar-track{background-color: #444444;}
+        &::-webkit-scrollbar-thumb{ background-color: #999999; border-radius: 20px;}
     }
-    > p:nth-of-type(2) { margin-bottom: 20px; font-weight: 200; font-size: 16px;
-        > a {color: var(--color--blue); text-decoration: underline;text-underline-position: under; }
-    }
-    > p:nth-of-type(3) {display: flex; align-items: center; justify-content: center; gap: 40px;
-        > a:hover{color: var(--color--white);}
-    }
-
-}
-
-.joinUsArea {
-    > * {max-width: 580px; width: 100%; margin: 0 auto; }
-     details { 
-        > summary {line-height: 63px; border-bottom: 1px solid var(--color--gray); list-style: none; 
-            > button {background: url(../../public/images/main/joinUs_check.png) no-repeat center / auto ; width: 20px; aspect-ratio: 1/1; text-indent: -9999px; background-color: #262626; margin-right: 10px; border-radius: 100%; 
-                &.active {background-color: var(--color--blue);}
-            }
-            > mark {color: var(--color--blue); background-color: transparent;  }
-        }
-        > div {
-            background-color: #262626; max-height: 390px; overflow-y: scroll; font-size: 14px; line-height: 30px; padding-inline: 25px; font-weight: 300;
-            &::-webkit-scrollbar { width: 5px;}
-            &::-webkit-scrollbar-track{background-color: #444444;}
-            &::-webkit-scrollbar-thumb{ background-color: #999999; border-radius: 20px;}
-        }
-    }
-    > p:nth-of-type(2) {text-align: center; margin-top: 50px; display: flex; justify-content: space-between; align-items: center;
-        > a {line-height: 65px; border-radius: 10px;
+    .link_box {text-align: center; margin-top: 50px; display: flex; justify-content: space-between; align-items: center; 
+        > a {line-height: 65px; border-radius: 10px; cursor: pointer; 
             &:nth-of-type(1) {width: 38%; background-color: #262626;}
-            &:nth-of-type(2) {width: 58%; background-color: var(--color--blue);}
+            &:nth-of-type(2) {width: 58%; background-color: var(--color--blue); }
+            & + button {width: 58%; background-color: #262626; line-height: 65px; border-radius: 10px; cursor: pointer; }
         }
+    }
+    
+    .loginArea {
+        > p {text-align: center; color: var(--color--gray);}
+        > form { max-width: 570px; width: 100%; margin: 0 auto; font-size: 18px; margin-bottom: 35px;
+            > * {width: 100%; display: block;}
+            > input , button {border-radius: 10px;}
+            > label {color: var(--color--gray);margin-bottom: 18px;}
+            > input {background-color: #262626; width: calc(100% - 40px); margin-bottom: 50px; line-height: 64px; padding-inline: 20px; color: white; font-weight: 300;}
+            > button {line-height: 64px; background-color: var(--color--blue);}
+        }
+        > p:nth-of-type(2) { margin-bottom: 20px; font-weight: 200; font-size: 16px;
+            > a {color: var(--color--blue); text-decoration: underline;text-underline-position: under; }
+        }
+        > p:nth-of-type(3) {display: flex; align-items: center; justify-content: center; gap: 40px;
+            > a:hover{color: var(--color--white);}
+        }
+
+    }
+
+    .joinUsArea {
+        details { 
+            > summary {line-height: 63px; border-bottom: 1px solid var(--color--gray); list-style: none;  cursor: pointer;
+                > button {background: url(../../public/images/main/joinUs_check.png) no-repeat center / auto ; width: 20px; aspect-ratio: 1/1; text-indent: -9999px; background-color: #262626; margin-right: 10px; border-radius: 100%;  cursor: pointer; 
+                    &.active {background-color: var(--color--blue);}
+                }
+                > mark {color: var(--color--blue); background-color: transparent;  }
+            }
+            > div {background-color: #262626; max-height: 390px;font-size: 14px; line-height: 30px; padding-inline: 25px; font-weight: 300; }
+        }
+    }
+
+    .certificationArea {
+        > div{display: flex; align-items: center; justify-content: space-between; gap: 30px;
+            > a {font-size: 18px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; flex-direction: column; width: 50%; max-width: 275px;  border: 2px solid var(--color--gray); aspect-ratio: 1/1; border-radius: 10px; gap: 20px; 
+                &:nth-of-type(1)::before{content: url(../../public/images/main/phoneImg.png);}
+                &:nth-of-type(2)::before{content: url(../../public/images/main/ipinImg.png);}
+            } 
+        }
+    }
+
+    .memberInformationArea {
+        form{ color: var(--color--gray); width: 100%;
+            > label, > p {font-size: 18px; margin-bottom: 16px; display: block;}
+            input,ul{font-size: 16px; line-height: 65px; background-color: #262626; border-radius: 10px; padding-left: 15px; color: var(--color--white);}
+            > div.input_box {display: flex; justify-content: space-between; gap: 15px; margin-bottom: 16px;
+                &:nth-of-type(1) {margin-bottom: 40px;}
+                > input , > p {width: calc(70% - 15px);}
+                > p {line-height: 65px; background-color: #262626; border-radius: 10px; padding-left: 15px;}
+                > button {width: 30%; max-width: 150px; border: 1px solid var(--color--white); border-radius: 10px; color: var(--color--white);} 
+            }
+            > input { width: calc(100% - 15px); margin-bottom: 16px;
+                &:nth-of-type(2){margin-bottom:50px;}
+            }
+            > small {display: block; font-size: 14px; line-height: 26px; margin-bottom: 44px;
+                &:last-of-type{margin-bottom: 16px;}
+            }
+            > span {display: inline-block; margin-bottom: 44px; line-height: 26px;}
+            p { 
+                > mark{color: var(--color--blue); background-color: transparent;}
+            }
+            > ul {width: calc(100% - 30px); padding-inline: 15px; color: var(--color--gray); margin-bottom: 16px; display: flex; justify-content: space-between;
+                &::after{content: url('../../public/images/fanZone/arrow_down.png');}
+                > li {height: 65px; line-height: 65px; 
+    
+                }
+            }
+            > div.check_box{ display: flex; gap: 15px; margin-bottom: 10px;
+                > button { display: flex; align-items: center; justify-content: center;
+                    &::before{content: ''; display: inline-block; background: url(../../public/images/main/joinUs_check.png) no-repeat center / auto ; width: 20px; aspect-ratio: 1/1; text-indent: -9999px; background-color: #262626; margin-right: 10px; border-radius: 100%;  cursor: pointer;}
+                }        
+            }
+            > p:last-of-type { max-height: 300px; font-size: 14px; background-color: #262626 ; color: var(--color--white); font-weight: 300; padding-inline: 25px; margin-bottom: 50px; line-height: 20px;}
+            > div:last-of-type{color: var(--color--white);}
+        }
+    }
+
+    .registrationCompleteArea{
+        > h2 {
+            &::before{content: url(../../public/images/main/Complete_check_img.png); display: block; margin-bottom: 25px;}
+        }
+        > p {line-height: 30px;}
     }
 }

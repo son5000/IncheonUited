@@ -1,8 +1,11 @@
 import { BrowserRouter, Routes ,Route } from "react-router-dom";
 import App from "./App";
 import Home from "./page/Home";
-import Login from "./page/Login";
-import JoinUs from "./page/JoinUs";
+import Login from "./page/Login/Login";
+import JoinUs from "./page/Login/JoinUs";
+import Certification from "./page/Login/Certification"
+import MemberInformation from "./page/Login/MemberInformation"
+import RegistrationComplete from "./page/Login/Registrationcomplete"
 import Introduction from "./page/Club/introduction/introduction";
 import Vision from "./page/Club/introduction/vision";
 import Organization from "./page/Club/introduction/organization";
@@ -81,6 +84,9 @@ export default function Root() {
             <Route path="Login">
               <Route index element ={<Login />} />
               <Route path="joinUs" element={<JoinUs />} />
+              <Route path="joinUs/Certification" element={<Certification />} />
+              <Route path="joinUs/Certification/MemberInformation" element={<MemberInformation />} />
+              <Route path="joinUs/Certification/MemberInformation/RegistrationComplete" element={<RegistrationComplete />} />
             </Route>
           </Route>
         </Routes>

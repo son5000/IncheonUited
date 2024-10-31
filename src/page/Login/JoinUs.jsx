@@ -1,14 +1,30 @@
+import { useState } from "react"
 import {Link} from "react-router-dom"
 
 export default function JoinUs () {
+
+    const [isChecked , setIsChecked] = useState(Array(3).fill(false));
+
+    function clickCheckBtn (a) {
+        if(a < 3){
+            let temp = [...isChecked]
+            temp[a] = !temp[a];
+            return setIsChecked(temp);
+        } else {
+            setIsChecked(Array(3).fill(true));
+        }
+
+    }
+
+
 
     return (
         <section className="joinUsArea">
             <h2>회원가입</h2>
             <p>가입 약관에 동의해주세요.</p>
             <details>
-                <summary><button className="active">체크박스</button>이용약관 <mark>(필수)</mark></summary>
-                <div>
+                <summary><button className={isChecked[0] ? "active" : ""} onClick={() => clickCheckBtn(0)}>체크박스</button>이용약관 <mark>(필수)</mark></summary>
+                <div className="scroll_layout">
                 <br />
                 <strong>제 1 장 총 칙</strong><br />
                 제 1 조 (목적)<br />
@@ -166,8 +182,8 @@ export default function JoinUs () {
                 </div>
             </details>
             <details>
-                <summary><button>체크박스</button>개인정보 수집 및 이용에 대한 안내 <mark>(필수)</mark></summary>
-                <div>
+                <summary><button className={isChecked[1] ? "active" : ""} onClick={() => clickCheckBtn(1)}>체크박스</button>개인정보 수집 및 이용에 대한 안내 <mark>(필수)</mark></summary>
+                <div className="scroll_layout">
                 <br />
                 □ 개인정보의 수집 및 이용 동의<br />
                 ㈜인천유나이티드는 귀하께서 인천유나이티드 홈페이지(www.incheonutd.com)의 이용약관의 내용에 대해 「동의한다」 버튼 또는 「동의하지 않는다」 버튼을 클릭할 수 있는 절차를 마련하여, 「동의한다」 버튼을 클릭하면 개인정보 수집에 대해 동의한 것으로 간주합니다.<br />
@@ -201,8 +217,8 @@ export default function JoinUs () {
                 </div>
             </details>
             <details>
-                <summary><button>체크박스</button>개인정보 처리위탁 안내 <mark>(필수)</mark></summary>
-                <div>
+                <summary><button className={isChecked[2] ? "active" : ""} onClick={() => clickCheckBtn(2)}>체크박스</button>개인정보 처리위탁 안내 <mark>(필수)</mark></summary>
+                <div className="scroll_layout">
                 <br />
                 (주)인천유나이티드(이후 "회사")는 개인정보를 개인정보처리방침에서 고지한 개인정보 처리위탁(제3자 제공) 범위 내에서 제공하며, 정보 주체의 사전 동의없이 범위를 초과하여 위탁 혹은 제3자에게 제공하지 않습니다.<br />
                 <br />
@@ -225,9 +241,9 @@ export default function JoinUs () {
                 <br />
                 </div>
             </details>
-            <p>
+            <p className="link_box">
                 <Link>취소</Link>
-                <Link>모두 동의하고 가입하기</Link>
+                {isChecked[0] && isChecked[1] && isChecked[2] ? <Link to={"Certification"}>모두 동의하고 가입하기</Link> : <button onClick={() => clickCheckBtn(3)} >모두 동의하고 가입하기</button>}
             </p>
         </section>
     )

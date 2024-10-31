@@ -115,8 +115,8 @@ export default function Header() {
         <nav ref={hamburgerMenuRef} onClick={() => handleHamburger()} className={OpenHamburgerMenu ? "active" : ""}>
           { isMobile && 
           <div>
-              <Link>LOGIN</Link>
-              <Link>JOIN US</Link>
+          <Link to={"login"}>LOGIN</Link>
+          <Link to={"login/joinUs"}>JOIN US</Link>
           </div>
           }
           <ul>

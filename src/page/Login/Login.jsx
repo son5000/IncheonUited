@@ -6,14 +6,14 @@ export default function Login () {
                 <h2>LOGIN</h2>
                 <p>인천유나이티드 홈페이지 방문을 환영합니다!</p>
                 <form action="">
-                    <label htmlFor="">아이디</label>
-                    <input type="text" />
-                    <label htmlFor="">비밀번호</label>
-                    <input type="password" />
+                    <label htmlFor="userId">아이디</label>
+                    <input id='userId' type="text" />
+                    <label htmlFor="userPassword">비밀번호</label>
+                    <input id='userPassword' type="password" />
                     <button type="submit">로그인</button>
                 </form>
                 <p>
-                    회원 가입하시면 다양한 부가서비스를 받으실 수 있습니다. <Link>회원가입</Link>
+                    회원 가입하시면 다양한 부가서비스를 받으실 수 있습니다. <Link to={"joinUs"}>회원가입</Link>
                 </p>
                 <p>
                     <Link>아이디찾기</Link>|
