@@ -1,6 +1,6 @@
 import Banner from "../../components/Banner";
 import { Link } from "react-router-dom";
-import MainSlide from "../../components/main/MainSlide";
+import NextMatchSlide from "../../components/ticketMembership/NextMatchSlide";
 import { Seat } from "../Club/stadium/seatInformation";
 export default function BuyTickets (){
 
@@ -18,7 +18,7 @@ export default function BuyTickets (){
                 <Link>티켓취소 안내</Link>
                 <Link>스마트티켓 이용방법</Link>
             </div>
-            <MainSlide />
+            <NextMatchSlide />
              <h3>경기장 좌석도/좌석뷰</h3>
              <p>
              -인천유나이티드 홈 경기장의 좌석 종류와 입장게이트는 아래와 같습니다. <br />

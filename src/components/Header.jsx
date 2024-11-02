@@ -108,7 +108,7 @@ export default function Header() {
         {/* 메인 로고 H1 */}
         <h1>
           <Link to={'/'}>
-            
+            인천유나이티드 공식 홈페이지
           </Link>
         </h1>
         {firstLocation && (<span>{firstLocation.toUpperCase()}</span>)}

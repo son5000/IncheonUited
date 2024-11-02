@@ -23,14 +23,15 @@ export default function App () {
         } 
     },[])
 
+
     return (
         <>
-         <Header />
-         { !isMobile && <QuickSns />}
+         {firstLocation !== "managementTeam" && <Header />}
+         { !isMobile && firstLocation !== "managementTeam" && <QuickSns />}
          <div className={firstLocation+'Page'}>
-         <Outlet />
+            <Outlet />
          </div>
-         <Footer />
+         {firstLocation !== "managementTeam" && <Footer />}
         </>
     )
 }

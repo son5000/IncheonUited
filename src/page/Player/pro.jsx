@@ -11,9 +11,9 @@ export default function Pro () {
     const newFeed = isCategori === '전체' ? playersData : playersData.filter((el) => el.categori === isCategori);
     const [isPopup,setIsPopup] = useState ('');
     const [currentScrollY , setCurrentScrollY] = useState(0);
-    const [isMobile,setIsMobile] = useState(window.innerWidth <= 840);
+    const [isMobile,setIsMobile] = useState(window.innerWidth <= 1120);
     const handleResize = () => {
-        setIsMobile(window.innerWidth <= 840);
+        setIsMobile(window.innerWidth <= 1120);
     }
 
     useEffect(() => {
@@ -95,14 +95,18 @@ export default function Pro () {
 
 function TabMenu ({isMobile,isCategori,playersData,setIsCategori}) {
 
+    const [isActive , setIsActive] = useState(false);
     const menuList  = playersData.map((el) => el.categori);
     
     if(isMobile){
         menuList.unshift('전체')
         return (
             <div>
-                <button className='active'>{isCategori}</button>
-                {menuList.map((el,index) => <button onClick={() => setIsCategori(el)} key={index}>{el}</button>)}
+                <button className={isActive ? "active" : ""} onClick={() => (setIsActive(true))}>{isCategori}</button>
+                {menuList.map((el,index) => <button onClick={(e) => {setIsCategori(el)
+                    setIsActive(!isActive)
+                }
+                } key={index}>{el}</button>)}
             </div>
         )
     }
@@ -118,14 +122,6 @@ function TabMenu ({isMobile,isCategori,playersData,setIsCategori}) {
 
 /* proArea 의 선수프로필의 popup 을 만드는데 발생했던 에러사항 */
 
-/* popup의 구성을 뒷배경을 가려주고 , 내부의 컨텐츠을 가운데에 자리 잡게해줄 수 있는 */
-/* popup-overlay 를 만들고 그안에 contents div 를 만들었다. */
-/* popup이 생성되는 위치를 유저가 보고있는 화면에 표시되게 만들고 싶었는데 */
-/* 단순히 vw , vh 를 쓰는것만으로는 해결이 되지 않았다. */
-/* state 로 scroll값을 변경해줄 변수를 만들었고 */
-/* state의 값으로 popup-overlay의 top 값을 설정해주었다. */
-
-/* 이다음 과정에서 두번째 문제가 발생하는데 */
 /* 팝업안에서  scroll 이 동작하는데 오류가 있었다. */
 /* 팝업 내부에서는 바깥의 scroll 이 동작을 하면 안되고 */
 /* 내부의 컨텐츠의 양이 많아서 내부의 scroll만 표시되고 동작이 되야하는 것이다. */
@@ -142,10 +138,10 @@ function TabMenu ({isMobile,isCategori,playersData,setIsCategori}) {
 
 
 
-function Popup ({data,handlePopupClose,scrollPosition,isMobile}) {
+function Popup ({data,handlePopupClose,isMobile}) {
     
 return (
-         <div style={{top : scrollPosition}} className="popup-Overlay">
+         <div  className="popup-Overlay">
             <div className="popup-contents size1560">
                 <div>
                     <button onClick={() => handlePopupClose()}>버튼</button>

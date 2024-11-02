@@ -6,6 +6,8 @@ import JoinUs from "./page/Login/JoinUs";
 import Certification from "./page/Login/Certification"
 import MemberInformation from "./page/Login/MemberInformation"
 import RegistrationComplete from "./page/Login/Registrationcomplete"
+import ManagerLogin from "./page/ManagementTeam/ManagerLogin"
+import ManagerMain from "./page/ManagementTeam/ManagerMain"
 import Introduction from "./page/Club/introduction/introduction";
 import Vision from "./page/Club/introduction/vision";
 import Organization from "./page/Club/introduction/organization";
@@ -87,6 +89,10 @@ export default function Root() {
               <Route path="joinUs/Certification" element={<Certification />} />
               <Route path="joinUs/Certification/MemberInformation" element={<MemberInformation />} />
               <Route path="joinUs/Certification/MemberInformation/RegistrationComplete" element={<RegistrationComplete />} />
+            </Route>
+            <Route path="managementTeam">
+              <Route path="login" element ={<ManagerLogin />} />
+              <Route path="main" element ={<ManagerMain />} />
             </Route>
           </Route>
         </Routes>

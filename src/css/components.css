@@ -48,23 +48,6 @@
       }
 }
       
-.ticketMembershipPage .mainSlide-container{max-width: 760px; aspect-ratio: 760/535; margin-inline: auto; position: relative;
-  button{height: 110px; width: 57px; cursor: pointer; position: absolute; z-index: 9999; transform: translate(-50%,-50%); top: 50%;}
-  .btn-prev {  left: -8%; background-image: url('../../public/images/ticketMembership/_-1.png'); } 
-  .btn-next { right: -16%; background-image: url('../../public/images/ticketMembership/_.png'); } 
-  .slide-item { 
-  > div { margin-inline: 20px; padding-block: 150px; background-color: var(--color--blodGray); border-radius: 30px;
-      > p{display: flex; align-items: center; justify-content: space-evenly; font-size: 24px; font-weight: 600; margin-bottom: 60px;
-        > b {font-weight: 900; font-size: 34px; color: var(--color--gray);}
-      }
-      > time {display: block; text-align: center; margin-bottom: 20px; font-size: 18px; font-weight: 400;}
-      > mark {font-size: 18px; font-weight: 600; display: flex; color: var(--color--gray); text-align: center; background-color: transparent; align-items: center; justify-content: center;
-        &::before{content: ''; display: inline-block; width: 13px; height: 19px; margin-right: 10px; background: url(../../public/images/ticketMembership/map_icon.png) no-repeat center / auto; }
-      }
-    }
-  } 
-  
-}
 
 @media (width > 1510px) {
 
@@ -561,3 +544,75 @@
       }
     } 
 }
+
+/* ticket membership => 다음경기 slide */
+@media(width > 975px){
+  .ticketMembershipPage .nextMatch_slide{max-width: 760px; aspect-ratio: 760/535; margin-inline: auto; position: relative;
+    button{height: 110px; width: 57px; cursor: pointer; position: absolute; z-index: 9999; transform: translate(-50%,-50%); top: 50%;}
+    .btn-prev {  left: -8%; background-image: url('../../public/images/ticketMembership/_-1.png'); } 
+    .btn-next { right: -16%; background-image: url('../../public/images/ticketMembership/_.png'); } 
+    .slide-item { 
+      > div { margin-inline: 20px; padding-block: 150px; background-color: var(--color--blodGray); border-radius: 30px;
+        > div{display: flex; align-items: center; justify-content: center; gap: 7%; margin-bottom: 60px; font-size: 60px; font-weight: 900; color: var(--color--gray);
+          > span {display: flex; align-items: center; gap: 20px; font-size: 35px; font-weight: 600; color: var(--color--white); margin: 0;}
+        }
+        > time {display: block; text-align: center; margin-bottom: 20px; font-size: 18px; font-weight: 400;}
+        > mark {font-size: 18px; font-weight: 600; display: flex; color: var(--color--gray); text-align: center; background-color: transparent; align-items: center; justify-content: center;
+          &::before{content: ''; display: inline-block; width: 13px; height: 19px; margin-right: 10px; background: url(../../public/images/ticketMembership/map_icon.png) no-repeat center / auto; }
+        }
+      }
+    } 
+  }
+}
+
+@media(width <= 975px){
+  .ticketMembershipPage .nextMatch_slide{max-width: 760px; aspect-ratio: 535/535; margin-inline: auto; position: relative;
+    button{height: 110px; width: 57px; cursor: pointer; position: absolute; z-index: 9999; transform: translate(-50%,-50%); top: 50%;}
+    .btn-prev { top: 250px;  left: 0; background-image: url('../../public/images/ticketMembership/_-1.png'); } 
+    .btn-next { top: 250px; right: -50px; background-image: url('../../public/images/ticketMembership/_.png'); } 
+    .slide-item { 
+      > div { margin-inline: 20px; padding-block: 150px; background-color: var(--color--blodGray); border-radius: 30px;
+        > div{display: flex; align-items: center; justify-content: space-evenly;  font-size: 60px; font-weight: 900; color: var(--color--gray);
+          > span {display: flex;  flex-direction: column; height: 200px; font-size: 35px; font-weight: 600; color: var(--color--white); align-items: center; gap: 20px; margin: 0;
+            > img {max-height: 120px; }
+            strong{white-space: nowrap;}
+          }
+          > span:nth-of-type(1){
+            > img{order: 1;}
+            > strong {order: 2;}
+          }
+        }
+        > time {display: block; text-align: center; margin-bottom: 20px; font-size: 18px; font-weight: 400;}
+        > mark {font-size: 18px; font-weight: 600; display: flex; color: var(--color--gray); text-align: center; background-color: transparent; align-items: center; justify-content: center;
+          &::before{content: ''; display: inline-block; width: 13px; height: 19px; margin-right: 10px; background: url(../../public/images/ticketMembership/map_icon.png) no-repeat center / auto; }
+        }
+      }
+    } 
+  }
+}
+
+/* 관리자페이지 레이아웃 */
+.managementTeamPage { 
+  > div:first-of-type{ display: flex; justify-content: space-between; padding-inline: 30px; align-items: center; border-bottom: 2px solid #262626; padding-block: 10px;
+    > a:nth-of-type(1){background:url(../../public/images/main/icon_인천.png) no-repeat center / auto; display: block; height: 90px; text-indent: -9999px; width: 100px;}
+    > a:nth-of-type(2) {line-height: 40px; border: 2px solid var(--color--blue); padding-inline: 10px; border-radius: 10px;}}
+  > div:nth-of-type(2){ display: flex; 
+    > aside {  font-size: 16px;
+      > ul { cursor: pointer; width: 150px; text-indent: 30px;
+        > li{line-height: 60px; height: 60px; overflow: hidden; border-bottom: 1px solid #262626;
+          > ul {font-size: 14px; line-height: 40px;
+          }
+          &:hover{height: auto; color: var(--color--blue); font-size: 18px;
+            > ul {color: var(--color--white);
+              > li:hover {color: dodgerblue;}
+            }
+          }
+        }
+      }
+    }
+    > section {height: 1000px; background-color: #161616; border-left: 1px solid #262626;}
+  }
+
+}
+
+

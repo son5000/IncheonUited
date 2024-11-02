@@ -1,12 +1,39 @@
+import { useState } from "react";
 import { Link } from "react-router-dom"
+import data from "../../data.json"
+
+const playerList = [];
+
+data.pro["players"].forEach((el) => {
+    el.profile.forEach((i) => {
+        playerList.push(i.name);
+    })
+});
+
+const jobList = data.userJobSelectList;
+
 
 export default function MemberInformation () {
+
+    const [isActive,setIsActive] = useState(Array(4).fill(null));
+    const [isLikePlayer,setIsLikePlayer] = useState('좋아하는 선수를 선택하세요.');
+    const [isSelectedJob,setIsSelectedJob] = useState('직업을 선택하세요.');
+
+    function handleActive (index) {
+        let temp = [...isActive];
+        temp[index] = !temp[index]
+        return setIsActive(temp);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
 
     return (
         <section className="memberInformationArea">
             <h2>회원 정보 입력</h2>
             <p>입력 항목을 정확히 기입해 주세요</p>
-            <form action="">
+            <form onSubmit={handleSubmit} action="">
             <label htmlFor="userId">아이디</label>
             <div className="input_box">
                 <input id="userId" type="text" placeholder="아이디를 입력하세요"/>
@@ -30,22 +57,31 @@ export default function MemberInformation () {
                 ※우편번호 검색은 지역 구분용으로 주소 외 우편번호만 저장됩니다.
             </small>
             <p>좋아하는 선수 <mark>(필수)</mark></p>
-            <ul>
-                <li>
-                    좋아하는 선수를 선택하세요.
-                    <ul></ul>
-                </li>
-            </ul>
+            <div className="selectBox">
+                <p onClick={() => handleActive(0)} className={isActive[0] ? "active" : ""}>
+                    {isLikePlayer}
+                </p>
+                    <ul className={isActive[0] ? "active scroll_layout" : "scroll_layout"}>
+                        {playerList.map((el,index) => <li onClick={() => {setIsLikePlayer(el)
+                         handleActive(0)
+                        }
+                        } key={index}>{el}</li> )}
+                    </ul>
+            </div>
             <small>
                 ※좋아하는 선수를 입력하시면 해당 선수와 관련된 이벤트, 쿠폰을 제공합니다.
             </small>
             <p>직업 <mark>(선택)</mark></p>
-            <ul>
-                <li>
-                    직업을 선택하세요.
-                    <ul></ul>
-                </li>
-            </ul>
+            <div className="selectBox">
+                <p onClick={() => handleActive(1)} className={isActive[1] ? "active" : ""}>
+                    {isSelectedJob}
+                </p>
+                    <ul className={isActive[1] ? "active scroll_layout" : "scroll_layout"}>
+                        {jobList.map((el) => <li onClick={() => {setIsSelectedJob(el)
+                            handleActive(1)
+                        }}>{el}</li>)}
+                    </ul>
+            </div>
             <small>
                 ※직업을 선택하시면 직업군별 할인, 타겟팅 이벤트에 참여하실 수 있습니다.<br />
                 (예시) 보건 및 의료종사자인 경우 "코로나19로 고생하신 의료종사자에게 입장권을 제공합니다" 등의<br />
@@ -53,8 +89,10 @@ export default function MemberInformation () {
             </small>
             <p>결혼 여부 <mark>(선택)</mark></p>
             <div className="check_box">
-                <button>미혼</button>
-                <button>기혼</button>
+                <button onClick={() => handleActive(2)} className={!isActive[2] ? "active" : ""}>미혼</button>
+                 <span>미혼</span>
+                <button  onClick={() => handleActive(2)} className={isActive[2] ? "active" : ""} >기혼</button>
+                <span>기혼</span>
             </div>
             <small>
                 ※결혼 여부를 선택해주시면 여부에 따라 할인, 이벤트에 참여하실 수 있습니다.<br />
@@ -63,8 +101,10 @@ export default function MemberInformation () {
             </small>
             <p>광고성 정보 수신동의 <mark>(선택)</mark></p>
             <div className="check_box">
-                <button>동의</button>
-                <button>비동의</button>
+                <button onClick={() => handleActive(3)} className={!isActive[3] ? "active" : ""}>동의</button>
+                <span>동의</span>
+                <button onClick={() => handleActive(3)} className={isActive[3] ? "active" : ""} >비동의</button>
+                <span>비동의</span>
             </div>
             <small>
             ※광고성 정보 수신 동의를 하지 않으실 경우 경기정보, 시즌권 혜택, 이벤트 당첨 여부, 할인 쿠폰,<br />

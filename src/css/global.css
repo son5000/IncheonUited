@@ -4,8 +4,8 @@
     header{ font-size: 18px; background-color: rgba(0, 0,0, var(--header--opacity)); padding-top:35px; padding-bottom:15px ;color:var(--color--white); position:sticky;  z-index: 100; width: 100%; top: 0;
         &:hover{background-color: var(--color--black);}
         > div{display:flex; align-items:center;
-            > h1 {width:20.53% ; margin-right:2.43%;
-                > a{height: 77px; width: 100%; display:block; background:url(../../public/images/main/Main_logo_header.png) no-repeat left / contain;}
+            > h1 {width:20.53% ; margin-right:2.43%; 
+                > a{height: 77px; width: 100%; display:block; background:url(../../public/images/main/Main_logo_header.png) no-repeat left / contain; text-indent: -9999px;}
              }
              > span {display: none;}
              > nav {width:50.23%; box-sizing:border-box;
@@ -31,7 +31,7 @@
         &:hover{background-color: var(--color--black);}
         > div{display:flex; align-items:center; padding-inline: 30px; position: relative;
             > h1 {width:20.53% ; margin-right:2.43%;
-                > a{height: 77px; width: 100%; display:block; background:url(../../public/images/main/Main_logo_header.png) no-repeat left / contain;}
+                > a{height: 77px; width: 100%; display:block; background:url(../../public/images/main/Main_logo_header.png) no-repeat left / contain; text-indent: -9999px;}
              }
              > span {display: none;}
              > nav {width:50.23%; box-sizing:border-box; min-width: 670px;
@@ -69,7 +69,7 @@
     header{font-size: 14px; background-color:var(--color--black); padding-bottom:15px ; width:100%; color:var(--color--white); position:sticky; top: 0;  z-index: 100; padding-top:15px; border-bottom: var(--boarder--bottom);
         > div {display: flex; width: 100%; align-items: center; font-size: 25px; font-weight: 600; 
             > h1 { width: 100%; padding-left: 5%;
-               > a { height: 82px; max-width: 60px; display: block; background:url(../../public/images/main/icon_인천.png) no-repeat left / auto;} 
+               > a { height: 82px; max-width: 60px; display: block; background:url(../../public/images/main/icon_인천.png) no-repeat left / auto; text-indent: -9999px;} 
             }
             span{position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
             nav { width: 34px; height: 26px; display: inline-block; background: url(../../public/images/main/hamburgerMenu.png) no-repeat center / auto; position: absolute; right: 0; top: 60px; transform: translate(-50%,-50%); cursor: pointer; z-index: 200; 
@@ -100,9 +100,9 @@
     header{font-size: 14px; background-color:var(--color--black); padding-bottom:15px ; width:100%; color:var(--color--white); position:sticky; top: 0;  z-index: 100; padding-top:15px; border-bottom: var(--boarder--bottom);
         > div {display: flex; width: 100%; align-items: center; font-size: 25px; font-weight: 600; 
             > h1 { width: 100%; padding-left: 5%;
-               > a { height: 82px; max-width: 60px; display: block; background:url(../../public/images/main/icon_인천.png) no-repeat left / auto;} 
+               > a { height: 82px; max-width: 60px; display: block; background:url(../../public/images/main/icon_인천.png) no-repeat left / auto; text-indent: -9999px;}  
             }
-            span{position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+            span{position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-size: 18px;}
             nav { width: 34px; height: 26px; display: inline-block; background: url(../../public/images/main/hamburgerMenu.png) no-repeat center / auto; position: absolute; right: 0; top: 60px; transform: translate(-50%,-50%); cursor: pointer; z-index: 200; 
                 > * {display: none;}
                 &.active {animation: hamburgerMenu; animation-fill-mode: forwards;  animation-duration: 1.5s;  height: 100vh; position: absolute; transform: translate(0,0); top: 0; background-color:#222222d7; background-image: none; cursor: unset;
@@ -261,12 +261,16 @@
         > p:nth-of-type(3) {display: flex; align-items: center; justify-content: center; gap: 40px;
             > a:hover{color: var(--color--white);}
         }
-
     }
 
     .joinUsArea {
         details { 
-            > summary {line-height: 63px; border-bottom: 1px solid var(--color--gray); list-style: none;  cursor: pointer;
+            > summary {line-height: 63px; border-bottom: 1px solid var(--color--gray); list-style: none;  cursor: pointer; display: flex; align-items: center;
+                &::after{content: url('../../public/images/fanZone/arrow_down.png');  display: inline-block; margin-left: auto;}
+                &.active{
+                    color: var(--color--white);
+                    &::after{content: url('../../public/images/fanZone/arrow-up.png');}
+                }
                 > button {background: url(../../public/images/main/joinUs_check.png) no-repeat center / auto ; width: 20px; aspect-ratio: 1/1; text-indent: -9999px; background-color: #262626; margin-right: 10px; border-radius: 100%;  cursor: pointer; 
                     &.active {background-color: var(--color--blue);}
                 }
@@ -288,7 +292,7 @@
     .memberInformationArea {
         form{ color: var(--color--gray); width: 100%;
             > label, > p {font-size: 18px; margin-bottom: 16px; display: block;}
-            input,ul{font-size: 16px; line-height: 65px; background-color: #262626; border-radius: 10px; padding-left: 15px; color: var(--color--white);}
+            input,details{font-size: 16px; line-height: 65px; background-color: #262626; border-radius: 10px; padding-left: 15px; color: var(--color--white);}
             > div.input_box {display: flex; justify-content: space-between; gap: 15px; margin-bottom: 16px;
                 &:nth-of-type(1) {margin-bottom: 40px;}
                 > input , > p {width: calc(70% - 15px);}
@@ -305,15 +309,24 @@
             p { 
                 > mark{color: var(--color--blue); background-color: transparent;}
             }
-            > ul {width: calc(100% - 30px); padding-inline: 15px; color: var(--color--gray); margin-bottom: 16px; display: flex; justify-content: space-between;
-                &::after{content: url('../../public/images/fanZone/arrow_down.png');}
-                > li {height: 65px; line-height: 65px; 
-    
+            > .selectBox {width: calc(100% - 30px); padding-inline: 15px; color: var(--color--gray); margin-bottom: 16px; display: flex; justify-content: space-between;  cursor: pointer; position: relative; background-color: #262626; border-radius: 10px;
+                > p {height: 65px; line-height: 65px;  width: 100%;  list-style: none; display: flex; justify-content: space-between; font-size: 18px; 
+                    &::after{content: url('../../public/images/fanZone/arrow_down.png');}
+                    &.active{
+                        color: var(--color--white);
+                        &::after{content: url('../../public/images/fanZone/arrow-up.png');}
+                    }
+                }
+                > ul{ display: none; position: absolute; top: 70px; left: 0; width: 100%; max-height: 333px; z-index: 999; overflow-y: scroll; padding: 0; cursor: pointer; color: var(--color--white); background-color: #262626; border-radius: 10px;
+                    &.active{display: block;}
+                    > li{line-height: 45px; text-indent: 23px;
+                        &:hover{background-color: var(--color--gray);}
+                    }
                 }
             }
             > div.check_box{ display: flex; gap: 15px; margin-bottom: 10px;
-                > button { display: flex; align-items: center; justify-content: center;
-                    &::before{content: ''; display: inline-block; background: url(../../public/images/main/joinUs_check.png) no-repeat center / auto ; width: 20px; aspect-ratio: 1/1; text-indent: -9999px; background-color: #262626; margin-right: 10px; border-radius: 100%;  cursor: pointer;}
+                > button { display: block; width: 20px; height: 20px; background: url(../../public/images/main/joinUs_check.png) no-repeat center / auto ; background-color: #262626; text-indent: -9999px; border-radius: 100%; cursor: pointer;
+                    &.active{background-color: var(--color--blue);}
                 }        
             }
             > p:last-of-type { max-height: 300px; font-size: 14px; background-color: #262626 ; color: var(--color--white); font-weight: 300; padding-inline: 25px; margin-bottom: 50px; line-height: 20px;}
@@ -328,3 +341,4 @@
         > p {line-height: 30px;}
     }
 }
+

@@ -1,5 +1,5 @@
 import Banner from "../../components/Banner"
-import MainSlide from "../../components/main/MainSlide";
+import NextMatchSlide from "../../components/ticketMembership/NextMatchSlide";
 import {Link} from "react-router-dom"
 export default  function GroupTour (){
 
@@ -13,7 +13,7 @@ export default  function GroupTour (){
                 <p>단체관람</p>
                 <h2>단체관람 안내해드립니다.</h2>
             </div>
-            <MainSlide />
+            <NextMatchSlide />
              <table>
                 <caption>▶단체관람</caption>
                 <thead>

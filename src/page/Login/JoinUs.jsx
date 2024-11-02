@@ -2,13 +2,20 @@ import { useState } from "react"
 import {Link} from "react-router-dom"
 
 export default function JoinUs () {
-
+    const [isActive , setIsActive] = useState(Array(3).fill(false));
     const [isChecked , setIsChecked] = useState(Array(3).fill(false));
 
-    function clickCheckBtn (a) {
-        if(a < 3){
+    function clickSummary (index) {
+        let temp = [...isActive];
+        temp[index] = !temp[index];
+        return  setIsActive(temp);
+    }
+
+    function clickCheckBtn (index,e) {
+        if(index < 3){
             let temp = [...isChecked]
-            temp[a] = !temp[a];
+            temp[index] = !temp[index];
+            e.stopPropagation()
             return setIsChecked(temp);
         } else {
             setIsChecked(Array(3).fill(true));
@@ -18,12 +25,13 @@ export default function JoinUs () {
 
 
 
+
     return (
         <section className="joinUsArea">
             <h2>회원가입</h2>
             <p>가입 약관에 동의해주세요.</p>
             <details>
-                <summary><button className={isChecked[0] ? "active" : ""} onClick={() => clickCheckBtn(0)}>체크박스</button>이용약관 <mark>(필수)</mark></summary>
+                <summary onClick={() => clickSummary(0)} className={isActive[0] ? "active" : ""} ><button className={isChecked[0] ? "active" : ""} onClick={(e) => clickCheckBtn(0,e)}>체크박스</button>이용약관 <mark>(필수)</mark></summary>
                 <div className="scroll_layout">
                 <br />
                 <strong>제 1 장 총 칙</strong><br />
@@ -182,7 +190,7 @@ export default function JoinUs () {
                 </div>
             </details>
             <details>
-                <summary><button className={isChecked[1] ? "active" : ""} onClick={() => clickCheckBtn(1)}>체크박스</button>개인정보 수집 및 이용에 대한 안내 <mark>(필수)</mark></summary>
+                <summary onClick={() => clickSummary(1)} className={isActive[1] ? "active" : ""}><button className={isChecked[1] ? "active" : ""} onClick={(e) => clickCheckBtn(1,e)}>체크박스</button>개인정보 수집 및 이용에 대한 안내 <mark>(필수)</mark></summary>
                 <div className="scroll_layout">
                 <br />
                 □ 개인정보의 수집 및 이용 동의<br />
@@ -217,7 +225,7 @@ export default function JoinUs () {
                 </div>
             </details>
             <details>
-                <summary><button className={isChecked[2] ? "active" : ""} onClick={() => clickCheckBtn(2)}>체크박스</button>개인정보 처리위탁 안내 <mark>(필수)</mark></summary>
+                <summary onClick={() => clickSummary(2)} className={isActive[2] ? "active" : ""}><button className={isChecked[2] ? "active" : ""} onClick={(e) => clickCheckBtn(2,e)}>체크박스</button>개인정보 처리위탁 안내 <mark>(필수)</mark></summary>
                 <div className="scroll_layout">
                 <br />
                 (주)인천유나이티드(이후 "회사")는 개인정보를 개인정보처리방침에서 고지한 개인정보 처리위탁(제3자 제공) 범위 내에서 제공하며, 정보 주체의 사전 동의없이 범위를 초과하여 위탁 혹은 제3자에게 제공하지 않습니다.<br />

@@ -1,5 +1,5 @@
 @media (width <= 1120px){
-  [class$="Page"]:not(.mainPage) {
+  [class$="Page"]:not(.mainPage,.managementTeamPage) {
     > div , > section{padding-inline: 30px;}
   }
 .quickSns {display: none;}
@@ -381,7 +381,7 @@ section {margin-bottom: 150px;}
           }
         }
         >  div {display: flex; position: absolute}
-        > .popup-OverLay { position: fixed;  top: 0;  left: 0; width: 100%; height: 100vh; background-color:rgba(0, 0, 0, 0.904); display: none; justify-content: center; align-items: center; z-index: 9999;
+        > .popup-OverLay { position: fixed;  top: 0;  left: 0; width: 100vw; height: 100vh; background-color:rgba(0, 0, 0, 0.904); display: none; justify-content: center; align-items: center; z-index: 9999;
           &.active{display: flex;}
           > .popup-Content { align-items: center; justify-content: center; height: 100vh; padding-top: 250px; width: 100vw; padding-inline: 30px; margin: 0 auto;  flex-wrap: wrap;  display: flex; background-color: var(--color--black); position: relative; overflow: scroll;
             > button {  top: 300px; right: 40px; aspect-ratio: 1/1; width: 40px; height: 40px; border: 1px solid var(--color--gray); border-radius: 100%; text-indent: -9999px; font-size: 0.1px; position: absolute; display: inline-block; background: url(../../public/images/player/m_→.png) no-repeat center / auto; cursor: pointer; }
@@ -415,10 +415,18 @@ section {margin-bottom: 150px;}
       > h2 {font-size: 0.1px; text-indent: -9999px; margin-bottom: 20px;}
       > div { width: 100%; border: 1px solid var(--color--white); margin-bottom: 60px; display: flex; flex-direction: column;
         > button {padding-left: 20px; width: 100%; font-size: 18px; cursor: pointer; font-weight: 400; line-height: 60px;  text-align: left;
-          &:not(:first-of-type){display: none;}
+          &:not(:nth-of-type(1)){display: none;}
           &:not(:nth-of-type(1)):hover{color: var(--color--blue);}
           &:not(:last-of-type){border-bottom: 1px solid var(--color--white);}
           &.active {color: var(--color--blue);}
+          &:first-of-type{
+            &.active{
+              & ~ * {display: block;}
+            }
+          }
+        }
+        &.active{
+          > button {display: block;}
         }
       }
       > ul {width: 100%;
@@ -428,7 +436,7 @@ section {margin-bottom: 150px;}
             > li { flex-direction: column; padding-block: 75px; width: 45%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; 
               > img {width: 100%;aspect-ratio: 250/290;}
                 > div {padding-top: 40px; width: 100%; gap: 15px; color: var(--color--gray); display: flex; align-items: center; justify-content:center;
-                  > span{font-size: 60px; font-weight: 900;}
+                  > span{font-size: 60px; font-weight: 900; white-space: nowrap;}
                   > p {font-size: 18px; font-weight: 600; line-height: 25px; overflow: hidden; white-space: nowrap;
                     > span {color: var(--color--white);}
                   }
@@ -444,9 +452,9 @@ section {margin-bottom: 150px;}
             }
           }
       }
-      .popup-Overlay{ left: 0; position: absolute ; width: 100%; height: 100vh; overflow-y: auto;  background-color:var(--color--black); color: var(--color--white); z-index: 9999;
-        > .popup-contents{ padding-inline: 30px; overflow-x: auto;
-          > div:nth-of-type(1) { width: 100%; padding-top:50px; margin: 0 auto;  align-items: center; display: flex; color: var(--color--white); margin-bottom: 50px; position: relative; flex-wrap: wrap;
+      .popup-Overlay{ left: 0; top: 0; position: fixed; width: 100vw; height: 100vh; overflow-y: scroll;  background-color:var(--color--black); color: var(--color--white); z-index: 9999;
+        > .popup-contents{ padding-inline: 30px;
+          > div:nth-of-type(1) { width: 100%; padding-top:100px; margin: 0 auto;  align-items: center; display: flex; color: var(--color--white);  position: relative; flex-wrap: wrap; 
             > button {  top: 100px; right: 0; aspect-ratio: 1/1; width: 40px; height: 40px; border: 1px solid var(--color--gray); border-radius: 100%; text-indent: -9999px; font-size: 0.1px; position: absolute; display: inline-block; background: url(../../public/images/player/m_→.png) no-repeat center / auto; cursor: pointer; }
             > img {width: 100%; aspect-ratio: 314/355; max-width: 450px; max-height: 520px; display: block; margin: 0 auto;}
             > div { width: 100%;

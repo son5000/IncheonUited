@@ -453,7 +453,7 @@
             }
           }
       }
-      .popup-Overlay{ left: 0; position: absolute ; width: 100vw; height: 100vh; overflow-y: auto;  background-color:var(--color--black); color: var(--color--white); z-index: 9999;
+      .popup-Overlay{ left: 0; top: 0; position: fixed ; width: 100vw; height: 100vh; overflow-y: auto;  background-color:var(--color--black); color: var(--color--white); z-index: 9999;
         > .popup-contents{
           > div:nth-of-type(1) { width: 100%; padding-top:50px; margin: 0 auto; justify-content: space-evenly; align-items: center; display: flex; color: var(--color--white); margin-bottom: 50px; position: relative; 
             > button {top: 100px; right: 10%; width: 65px; height: 65px; border: 1px solid var(--color--gray); border-radius: 100%; text-indent: -9999px; font-size: 0.1px; position: absolute; display: inline-block; background: url(../../public/images/player/closeBtn.png) no-repeat center / auto; cursor: pointer; }
@@ -631,20 +631,14 @@
   .cheearSongArea {
     > div {width: 100%;
       > details {font-size: 18px; width: 100%; cursor: pointer; position: relative; border-bottom: 1px solid var(--color--white);
-        &::after{content: url(../../public/images/fanZone/arrow-up.png); width: 26px; height: 14px; position: absolute; display: block; top: 35px; right: 5%; transform: translate(-50%,-50%);}
-        &.active{ border-bottom: 0;
-          &::after{content: url(../../public/images/fanZone/arrow_down.png);}
-          &:not(:first-of-type){margin-top: 25px;}
-          > summary {color: var(--color--white); border-radius: 10px; border: 1px solid var(--color--white);
-            > button {z-index: 1;}
-          }
-          > div{
-            &:nth-last-of-type(1){border-bottom: 1px solid var(--color--white);}
-          }
-        }
         > summary{ padding-inline: 25px; height: 70px;  display: flex; align-items: center; color: var(--color--gray);
+          &::after{content: url(../../public/images/fanZone/arrow-up.png); width: 26px; height: 14px; position: absolute; display: block; top: 35px; right: 5%; transform: translate(-50%,-50%);}
+          &.active{color: var(--color--white); border-bottom: 1px solid var(--color--white);
+          &::after{content: url(../../public/images/fanZone/arrow_down.png);}
+           div {margin-bottom: 50px;}
+        }
           &::before{content: url("../../public/images/fanZone/sound_icon.png"); width: 21px; height: 21px; display: block; margin-right: 25px;}
-          > button {background: url("../../public/images/fanZone/musicPlay_icon.png") no-repeat center / cover; width: 21px; height: 21px; margin-left: 25px; cursor: pointer; z-index: -1;
+          > button {background: url("../../public/images/fanZone/musicPlay_icon.png") no-repeat center / cover; width: 21px; height: 21px; margin-left: 25px; cursor: pointer; 
             &.playing{background-image: url(../../public/images/fanZone/ico_cheersong_stop.png);}
           }
         }
@@ -853,4 +847,22 @@
     }
   }
 }
+}
+
+
+/* managementTeamPage */
+
+.managementTeamPage {
+  > .loginArea { max-width: 580px;  margin-inline: auto; height: 100vh;
+      h2 {margin-bottom: 30px; font-size: 34px; text-align: center; padding-top: calc((100vh - 432px) / 2);}
+      > form { max-width: 570px; width: 100%; margin: 0 auto; font-size: 18px; margin-bottom: 35px;
+          > * {width: 100%; display: block;}
+          > input , button {border-radius: 10px;}
+          > label {color: var(--color--gray);margin-bottom: 18px;}
+          > input {background-color: #262626; width: calc(100% - 40px); margin-bottom: 50px; line-height: 64px; padding-inline: 20px; color: white; font-weight: 300;}
+          > button {line-height: 64px; background-color: var(--color--blue); cursor: pointer;}
+      }
+  }
+
+
 }
