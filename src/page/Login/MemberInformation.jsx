@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
 import data from "../../data.json"
+import DaumPostcode from "react-daum-postcode";
+import Modal from "react-modal";
 
+
+
+const jobList = data.userJobSelectList;
 const playerList = [];
 
 data.pro["players"].forEach((el) => {
@@ -10,20 +15,108 @@ data.pro["players"].forEach((el) => {
     })
 });
 
-const jobList = data.userJobSelectList;
-
 
 export default function MemberInformation () {
 
-    const [isActive,setIsActive] = useState(Array(4).fill(null));
-    const [isLikePlayer,setIsLikePlayer] = useState('좋아하는 선수를 선택하세요.');
-    const [isSelectedJob,setIsSelectedJob] = useState('직업을 선택하세요.');
 
+
+    const [isValid, setIsValid] = useState(Array(6).fill(true));
+    const [inputId , setInputId] = useState('');
+    const [inputPw , setInputPw] = useState('');
+    const [inputPwCheck , setInputPwCheck] = useState('');
+    const [inputPhone , setInputPhone] = useState('');
+
+    // 아이디 유효성 검사
+    const regexId = /^[a-z0-9]{6,12}$/;
+    function handleChangeId (e) {
+    let validTemp = [...isValid];
+    const idValue = e.target.value;
+    setInputId(idValue);
+    if(regexId.test(idValue)){
+        validTemp[0] = true;
+        setIsValid(validTemp);
+    }else{
+        validTemp[0] = false;
+        setIsValid(validTemp);
+    }
+    }
+
+     // 비밀번호 유효성 검사
+    const regexPw = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{9,12}$/;
+
+    function handleChangePw (e) {
+    const pwValue = e.target.value;
+    setInputPw(pwValue);
+    let validTemp = [...isValid];
+    if(regexPw.test(pwValue)){
+        validTemp[1] = true;
+        setIsValid(validTemp);
+    }else{
+        validTemp[1] = false;
+        setIsValid(validTemp);
+    }
+    }
+    const handleBlurPw = () => {
+           if(!isValid[1])alert(`비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다.`)
+    }
+
+    // 비밀번호 확인
+    function handleChangePwCheck (e) {
+        const pwCheckValue = e.target.value;
+        setInputPwCheck(pwCheckValue);
+        if(inputPw === pwCheckValue){
+            let validTemp = [...isValid];
+            validTemp[2] = true;
+            setIsValid(validTemp);
+        }else{
+            let validTemp = [...isValid];
+            validTemp[2] = false;
+            setIsValid(validTemp);
+        }
+    }
+
+    // 핸드폰 
+
+    const formatPhoneValue = (value) => {
+        const transfromValue = value.replace(/[^0-9]/g, "");
+        if(transfromValue.length <= 3){
+            return transfromValue;
+        }else if(transfromValue <= 7 ){
+            return `${transfromValue.slice(0,3)} - ${transfromValue.slice(3)}`
+        }else {
+             return `${transfromValue.slice(0,3)} - ${transfromValue.slice(3,7)} - ${transfromValue.slice(7,11)}`
+        }
+    }
+
+    function handleChangePhone (e) {
+        const phoneValue = e.target.value;
+        setInputPhone(phoneValue);
+    }
+
+    function handleBlurPhone () {
+        const formattedValue = formatPhoneValue(inputPhone);
+        setInputPhone(formattedValue);
+    }
+
+    // 주소
+    const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태
+    const [address, setAddress] = useState(""); // 선택된 주소
+
+     const openModal = () => {
+       setIsModalOpen(true);
+     };
+    
+    
+    
     function handleActive (index) {
         let temp = [...isActive];
         temp[index] = !temp[index]
         return setIsActive(temp);
     }
+    
+    const [isActive,setIsActive] = useState(Array(4).fill(null));
+    const [isLikePlayer,setIsLikePlayer] = useState('좋아하는 선수를 선택하세요.');
+    const [isSelectedJob,setIsSelectedJob] = useState('직업을 선택하세요.');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -36,22 +129,23 @@ export default function MemberInformation () {
             <form onSubmit={handleSubmit} action="">
             <label htmlFor="userId">아이디</label>
             <div className="input_box">
-                <input id="userId" type="text" placeholder="아이디를 입력하세요"/>
-                <button>중복확인</button>
+                <input onChange={(e) => handleChangeId(e)}  className={isValid[0] ? "" : "active"} value={inputId}  id="userId" type="text" placeholder="6~ 12자 이내 영문 소문자, 숫자 조합"/>
+                <button style={{cursor : isValid && inputId !== '' ? "pointer" : ""}} disabled={!isValid}>중복확인</button>
+                {!isValid[0] && <strong>*유효하지 않은 값입니다. 6~ 12자 이내 영문 소문자, 숫자 조합</strong>}
             </div>
             <label htmlFor="userPassword">비밀번호</label>
-            <input type="password" placeholder="비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다."/>
+            <input onBlur={handleBlurPw} onChange={(e) => handleChangePw(e)} value={inputPw} id="userPassword" type="password" placeholder="비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다."/>
             <small>※허용 특수문자는 !@#$%^*+=- 내에서 사용 가능합니다.</small>
             <label htmlFor="userPasswordCheck">비밀번호 확인</label>
-            <input id="userPasswordCheck" type="password" placeholder="비밀번호를 재 입력하세요." />
+            <input onChange={(e) => handleChangePwCheck(e)} value={inputPwCheck} id="userPasswordCheck" type="password" placeholder="비밀번호를 재 입력하세요." />
             <label htmlFor="userTel">휴대폰 번호</label>
-            <input id="userTel" type="tel" />
-            <span>문자메시지 수신에 동의합니다.</span>
-            <span>문자메시지 수신에 동의하지 않습니다.</span>
+            <input onBlur={handleBlurPhone} onChange={(e) => handleChangePhone(e)} value={inputPhone} id="userTel" type="text" />
+            <span>" - " 을 제외하고 입력해주세요.</span>
             <p>우편번호 <mark>(필수)</mark></p>
             <div className="input_box">
-                <p>우편번호를 검색하세요.</p>
-                <button>우편번호 검색</button>
+                <p>{address === "" ? "우편번호를 검색하세요." : address}</p>
+                <button onClick={openModal}>우편번호 검색</button>
+                <AdressModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} setAddress={setAddress} />
             </div>
             <small>
                 ※우편번호 검색은 지역 구분용으로 주소 외 우편번호만 저장됩니다.
@@ -77,7 +171,7 @@ export default function MemberInformation () {
                     {isSelectedJob}
                 </p>
                     <ul className={isActive[1] ? "active scroll_layout" : "scroll_layout"}>
-                        {jobList.map((el) => <li onClick={() => {setIsSelectedJob(el)
+                        {jobList.map((el,index) => <li key={index} onClick={() => {setIsSelectedJob(el)
                             handleActive(1)
                         }}>{el}</li>)}
                     </ul>
@@ -150,5 +244,34 @@ export default function MemberInformation () {
             </div>
             </form>
         </section>
+    )
+}
+
+Modal.setAppElement("#root");
+
+function AdressModal ({isModalOpen,setIsModalOpen,setAddress}) {
+
+        const handleComplete = (data) => {
+        const fullAddress = data.address; // 도로명 주소
+        const extraAddress = data.bname || data.buildingName ? ` (${data.bname || data.buildingName})` : ""; // 추가 주소 정보
+        setAddress(fullAddress + extraAddress);
+        closeModal(); // 모달 닫기
+      };
+      // 모달 닫기
+      const closeModal = () => {
+        setIsModalOpen(false);
+      };
+    return (
+        <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="주소 검색"
+        style={{
+          overlay: { backgroundColor: "rgba(0, 0, 0, 0.80)", zIndex:"9999" , marginTop:"100px" , },
+          content: { width: "400px", margin: "auto", paddingInline: "10px" , maxHeight : "500px"},
+        }}
+        >
+            <DaumPostcode onComplete={handleComplete} />
+        </Modal>
     )
 }
