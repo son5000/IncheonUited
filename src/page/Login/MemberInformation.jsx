@@ -4,8 +4,6 @@ import data from "../../data.json"
 import DaumPostcode from "react-daum-postcode";
 import Modal from "react-modal";
 
-
-
 const jobList = data.userJobSelectList;
 const playerList = [];
 
@@ -18,105 +16,78 @@ data.pro["players"].forEach((el) => {
 
 export default function MemberInformation () {
 
+    const [formData, setFormData] = useState({
+      userId: '',
+      userPw: '',
+      userPwCheck: '',
+      userPhoneNumber: '',
+      address: '',
+      favoritPlayer: '',
+      selectedJob: '',
+      singleOrMarried:'single',
+      advertisement:'agreement'
+    });
 
-
-    const [isValid, setIsValid] = useState(Array(6).fill(true));
-    const [inputId , setInputId] = useState('');
-    const [inputPw , setInputPw] = useState('');
-    const [inputPwCheck , setInputPwCheck] = useState('');
-    const [inputPhone , setInputPhone] = useState('');
-
-    // 아이디 유효성 검사
-    const regexId = /^[a-z0-9]{6,12}$/;
-    function handleChangeId (e) {
-    let validTemp = [...isValid];
-    const idValue = e.target.value;
-    setInputId(idValue);
-    if(regexId.test(idValue)){
-        validTemp[0] = true;
+    // 유효성 검사 배열 1-ID , 2-PW , 3-PWCHECK , 4-PHONE , 5-ADRESS , 6-FAVORITE PLAYER
+    const [isValid, setIsValid] = useState(Array(6).fill('-'));
+    const validators = {
+        userId : (value) => /^[a-z0-9]{6,12}$/.test(value),
+        userPw : (value) => /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{9,12}$/.test(value),
+        userPwCheck : (value) => value === formData.userPw,
+        userPhoneNumber : (value) => value.length === 13,
+        address : (value) => value !== '',
+        favoritPlayer : (value) => value !== '',
+    }
+    
+    const handleChange = (field, value) => {
+        setFormData({
+          ...formData,
+          [field]: value,
+        });
+        if(field !== 'singleOrMarried' && field !== 'advertisement' && field !== 'selectedJob'){
+        const validTemp = [...isValid];
+        validTemp[Object.keys(validators).indexOf(field)] = validators[field](value);
         setIsValid(validTemp);
-    }else{
-        validTemp[0] = false;
-        setIsValid(validTemp);
-    }
-    }
-
-     // 비밀번호 유효성 검사
-    const regexPw = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{9,12}$/;
-
-    function handleChangePw (e) {
-    const pwValue = e.target.value;
-    setInputPw(pwValue);
-    let validTemp = [...isValid];
-    if(regexPw.test(pwValue)){
-        validTemp[1] = true;
-        setIsValid(validTemp);
-    }else{
-        validTemp[1] = false;
-        setIsValid(validTemp);
-    }
-    }
-    const handleBlurPw = () => {
-           if(!isValid[1])alert(`비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다.`)
-    }
-
-    // 비밀번호 확인
-    function handleChangePwCheck (e) {
-        const pwCheckValue = e.target.value;
-        setInputPwCheck(pwCheckValue);
-        if(inputPw === pwCheckValue){
-            let validTemp = [...isValid];
-            validTemp[2] = true;
-            setIsValid(validTemp);
-        }else{
-            let validTemp = [...isValid];
-            validTemp[2] = false;
-            setIsValid(validTemp);
         }
+      };
+      
+    const handleBlurPw = () => {
+        if(!isValid[1])alert(`비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다.`)
     }
-
+    
     // 핸드폰 
-
+    // 텍스트에 '-' 추가 함수
     const formatPhoneValue = (value) => {
         const transfromValue = value.replace(/[^0-9]/g, "");
         if(transfromValue.length <= 3){
             return transfromValue;
         }else if(transfromValue <= 7 ){
-            return `${transfromValue.slice(0,3)} - ${transfromValue.slice(3)}`
+            return `${transfromValue.slice(0,3)}-${transfromValue.slice(3)}`
         }else {
-             return `${transfromValue.slice(0,3)} - ${transfromValue.slice(3,7)} - ${transfromValue.slice(7,11)}`
+             return `${transfromValue.slice(0,3)}-${transfromValue.slice(3,7)}-${transfromValue.slice(7,11)}`
         }
     }
-
-    function handleChangePhone (e) {
-        const phoneValue = e.target.value;
-        setInputPhone(phoneValue);
-    }
-
+    // 핸드폰 인풋 포커스 아웃 상황일때 텍스트 변환.
     function handleBlurPhone () {
-        const formattedValue = formatPhoneValue(inputPhone);
-        setInputPhone(formattedValue);
+        const formattedValue = formatPhoneValue(formData.userPhoneNumber);
+        handleChange('userPhoneNumber',formattedValue);        
     }
 
     // 주소
+    // react-modal 라이브러리 함수
     const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태
-    const [address, setAddress] = useState(""); // 선택된 주소
-
-     const openModal = () => {
+    const openModal = () => {
        setIsModalOpen(true);
-     };
+     };    
     
-    
-    
+    //  선수 ,직업 선택 css => active class 적용 함수
+    const [isActive,setIsActive] = useState(Array(2).fill(null));
     function handleActive (index) {
         let temp = [...isActive];
         temp[index] = !temp[index]
         return setIsActive(temp);
     }
     
-    const [isActive,setIsActive] = useState(Array(4).fill(null));
-    const [isLikePlayer,setIsLikePlayer] = useState('좋아하는 선수를 선택하세요.');
-    const [isSelectedJob,setIsSelectedJob] = useState('직업을 선택하세요.');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -129,23 +100,23 @@ export default function MemberInformation () {
             <form onSubmit={handleSubmit} action="">
             <label htmlFor="userId">아이디</label>
             <div className="input_box">
-                <input onChange={(e) => handleChangeId(e)}  className={isValid[0] ? "" : "active"} value={inputId}  id="userId" type="text" placeholder="6~ 12자 이내 영문 소문자, 숫자 조합"/>
-                <button style={{cursor : isValid && inputId !== '' ? "pointer" : ""}} disabled={!isValid}>중복확인</button>
+                <input onChange={(e) => handleChange('userId',e.target.value)}  className={isValid[0] ? "" : "active"} value={formData.userId}  id="userId" type="text" placeholder="6~ 12자 이내 영문 소문자, 숫자 조합"/>
+                <button style={{cursor : isValid && formData.userId !== '' ? "pointer" : ""}} disabled={!isValid}>중복확인</button>
                 {!isValid[0] && <strong>*유효하지 않은 값입니다. 6~ 12자 이내 영문 소문자, 숫자 조합</strong>}
             </div>
             <label htmlFor="userPassword">비밀번호</label>
-            <input onBlur={handleBlurPw} onChange={(e) => handleChangePw(e)} value={inputPw} id="userPassword" type="password" placeholder="비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다."/>
+            <input onBlur={handleBlurPw} onChange={(e) => handleChange('userPw',e.target.value)} value={formData.userPw} id="userPassword" type="password" placeholder="비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다."/>
             <small>※허용 특수문자는 !@#$%^*+=- 내에서 사용 가능합니다.</small>
             <label htmlFor="userPasswordCheck">비밀번호 확인</label>
-            <input onChange={(e) => handleChangePwCheck(e)} value={inputPwCheck} id="userPasswordCheck" type="password" placeholder="비밀번호를 재 입력하세요." />
-            <label htmlFor="userTel">휴대폰 번호</label>
-            <input onBlur={handleBlurPhone} onChange={(e) => handleChangePhone(e)} value={inputPhone} id="userTel" type="text" />
+            <input onChange={(e) => handleChange('userPwCheck',e.target.value)} value={formData.userPwCheck} id="userPasswordCheck" type="password" placeholder="비밀번호를 재 입력하세요." />
+            <label htmlFor="userPhoneNumber">휴대폰 번호</label>
+            <input onBlur={() => handleBlurPhone()} onChange={(e) => handleChange('userPhoneNumber',e.target.value)} value={formData.userPhoneNumber} id="userPhoneNumber" type="text" />
             <span>" - " 을 제외하고 입력해주세요.</span>
             <p>우편번호 <mark>(필수)</mark></p>
             <div className="input_box">
-                <p>{address === "" ? "우편번호를 검색하세요." : address}</p>
+                <p>{formData.address === "" ? "우편번호를 검색하세요." : formData.address}</p>
                 <button onClick={openModal}>우편번호 검색</button>
-                <AdressModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} setAddress={setAddress} />
+                <AdressModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} formData={formData} setFormData={setFormData} />
             </div>
             <small>
                 ※우편번호 검색은 지역 구분용으로 주소 외 우편번호만 저장됩니다.
@@ -153,10 +124,10 @@ export default function MemberInformation () {
             <p>좋아하는 선수 <mark>(필수)</mark></p>
             <div className="selectBox">
                 <p onClick={() => handleActive(0)} className={isActive[0] ? "active" : ""}>
-                    {isLikePlayer}
+                    {formData.favoritPlayer === '' ? '좋아하는 선수를 선택하세요.' : formData.favoritPlayer}
                 </p>
                     <ul className={isActive[0] ? "active scroll_layout" : "scroll_layout"}>
-                        {playerList.map((el,index) => <li onClick={() => {setIsLikePlayer(el)
+                        {playerList.map((el,index) => <li onClick={() => {setFormData({...formData,favoritPlayer:el})
                          handleActive(0)
                         }
                         } key={index}>{el}</li> )}
@@ -168,10 +139,10 @@ export default function MemberInformation () {
             <p>직업 <mark>(선택)</mark></p>
             <div className="selectBox">
                 <p onClick={() => handleActive(1)} className={isActive[1] ? "active" : ""}>
-                    {isSelectedJob}
+                    {formData.selectedJob === '' ? '직업을 선택하세요.' : formData.selectedJob} 
                 </p>
                     <ul className={isActive[1] ? "active scroll_layout" : "scroll_layout"}>
-                        {jobList.map((el,index) => <li key={index} onClick={() => {setIsSelectedJob(el)
+                        {jobList.map((el,index) => <li key={index} onClick={() => {setFormData({...formData,selectedJob:el})
                             handleActive(1)
                         }}>{el}</li>)}
                     </ul>
@@ -183,10 +154,14 @@ export default function MemberInformation () {
             </small>
             <p>결혼 여부 <mark>(선택)</mark></p>
             <div className="check_box">
-                <button onClick={() => handleActive(2)} className={!isActive[2] ? "active" : ""}>미혼</button>
-                 <span>미혼</span>
-                <button  onClick={() => handleActive(2)} className={isActive[2] ? "active" : ""} >기혼</button>
-                <span>기혼</span>
+                <label>
+                    <input onChange={(e) => handleChange('singleOrMarried',e.target.value)} type="radio" value="single" name="singleOrMarried" checked={formData.singleOrMarried === 'single'} />
+                    미혼
+                </label>
+                <label>
+                    <input onChange={(e) => handleChange('singleOrMarried',e.target.value)} type="radio" value="married" name="singleOrMarried" checked={formData.singleOrMarried === 'married'} />
+                    기혼
+                </label>
             </div>
             <small>
                 ※결혼 여부를 선택해주시면 여부에 따라 할인, 이벤트에 참여하실 수 있습니다.<br />
@@ -195,10 +170,14 @@ export default function MemberInformation () {
             </small>
             <p>광고성 정보 수신동의 <mark>(선택)</mark></p>
             <div className="check_box">
-                <button onClick={() => handleActive(3)} className={!isActive[3] ? "active" : ""}>동의</button>
-                <span>동의</span>
-                <button onClick={() => handleActive(3)} className={isActive[3] ? "active" : ""} >비동의</button>
-                <span>비동의</span>
+                <label>
+                    <input onChange={(e) => handleChange('advertisement',e.target.value)} type="radio" value="agreement" name="advertisement" checked={formData.advertisement === 'agreement'} />
+                    동의
+                </label>
+                <label>
+                    <input onChange={(e) => handleChange('advertisement',e.target.value)} type="radio" value="disagree" name="advertisement" checked={formData.advertisement === 'disagree'} />
+                    비동의
+                </label>
             </div>
             <small>
             ※광고성 정보 수신 동의를 하지 않으실 경우 경기정보, 시즌권 혜택, 이벤트 당첨 여부, 할인 쿠폰,<br />
@@ -249,12 +228,15 @@ export default function MemberInformation () {
 
 Modal.setAppElement("#root");
 
-function AdressModal ({isModalOpen,setIsModalOpen,setAddress}) {
+function AdressModal ({isModalOpen,setIsModalOpen, formData ,setFormData}) {
 
         const handleComplete = (data) => {
         const fullAddress = data.address; // 도로명 주소
         const extraAddress = data.bname || data.buildingName ? ` (${data.bname || data.buildingName})` : ""; // 추가 주소 정보
-        setAddress(fullAddress + extraAddress);
+        setFormData({
+            ...formData,
+            address : fullAddress + extraAddress
+        });
         closeModal(); // 모달 닫기
       };
       // 모달 닫기

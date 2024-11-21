@@ -295,6 +295,9 @@
             input,details{font-size: 16px; line-height: 65px; background-color: #262626; border-radius: 10px; padding-left: 15px; color: var(--color--white);}
             > div.input_box {display: flex; justify-content: space-between; gap: 15px; margin-bottom: 16px; flex-wrap: wrap;
                 &:nth-of-type(1) {margin-bottom: 40px;}
+                &:nth-of-type(2) { 
+                    > button {cursor: pointer;}
+                }
                 > input , > p {width: calc(70% - 15px);}
                 > p {line-height: 65px; background-color: #262626; border-radius: 10px; padding-left: 15px;}
                 > button { width: 30%; max-width: 150px; border: 1px solid var(--color--white); border-radius: 10px; color: var(--color--white);} 
@@ -326,9 +329,9 @@
                 }
             }
             > div.check_box{ display: flex; gap: 15px; margin-bottom: 10px;
-                > button { display: block; width: 20px; height: 20px; background: url(../../public/images/main/joinUs_check.png) no-repeat center / auto ; background-color: #262626; text-indent: -9999px; border-radius: 100%; cursor: pointer;
-                    &.active{background-color: var(--color--blue);}
-                }        
+                label {display: flex; gap: 5px;
+                    > input {height: 13px; margin: 0;}
+                }
             }
             > p:last-of-type { max-height: 300px; font-size: 14px; background-color: #262626 ; color: var(--color--white); font-weight: 300; padding-inline: 25px; margin-bottom: 50px; line-height: 20px;}
             > div:last-of-type{color: var(--color--white);}
