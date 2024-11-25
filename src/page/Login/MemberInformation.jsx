@@ -28,15 +28,17 @@ export default function MemberInformation () {
       advertisement:'agreement'
     });
 
+    console.log(formData)
+
     // 유효성 검사 배열 1-ID , 2-PW , 3-PWCHECK , 4-PHONE , 5-ADRESS , 6-FAVORITE PLAYER
     const [isValid, setIsValid] = useState(Array(6).fill('-'));
     const validators = {
         userId : (value) => /^[a-z0-9]{6,12}$/.test(value),
         userPw : (value) => /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{9,12}$/.test(value),
         userPwCheck : (value) => value === formData.userPw,
-        userPhoneNumber : (value) => value.length === 13,
-        address : (value) => value !== '',
-        favoritPlayer : (value) => value !== '',
+        userPhoneNumber : (value) => value.length === 13 ? true : false,
+        address : (value) => value !== '' ? true : false,
+        favoritPlayer : (value) => value !== '' ? true : false,
     }
     
     const handleChange = (field, value) => {
@@ -89,9 +91,36 @@ export default function MemberInformation () {
     }
     
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // 기본 form 제출 동작 방지
+        if(isValid.every((el) => el === true)){
+            try {
+                const res = await fetch('http://localhost:5000/signup', {
+                    method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+                credentials: 'include', // 쿠키를 포함하여 요청을 보냄
+              });
+          
+              const data = await res.json();
+              if (res.ok) {
+                alert('회원가입 성공!');
+              } else {
+                  alert(data.message || '회원가입 실패');
+                }
+            } catch (error) {
+                console.error('회원가입 중 오류 발생:', error);
+                alert('회원가입 중 오류가 발생했습니다.');
+            }
+        }else{
+            e.preventDefault();
+            alert('입력정보를 다시 확인해주세요!')
+        }
+      };
+
+      console.log(isValid);
 
     return (
         <section className="memberInformationArea">
@@ -115,8 +144,8 @@ export default function MemberInformation () {
             <p>우편번호 <mark>(필수)</mark></p>
             <div className="input_box">
                 <p>{formData.address === "" ? "우편번호를 검색하세요." : formData.address}</p>
-                <button onClick={openModal}>우편번호 검색</button>
-                <AdressModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} formData={formData} setFormData={setFormData} />
+                <button  onClick={openModal}>우편번호 검색</button>
+                <AdressModal handleChange={handleChange} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} formData={formData} setFormData={setFormData} />
             </div>
             <small>
                 ※우편번호 검색은 지역 구분용으로 주소 외 우편번호만 저장됩니다.
@@ -127,7 +156,7 @@ export default function MemberInformation () {
                     {formData.favoritPlayer === '' ? '좋아하는 선수를 선택하세요.' : formData.favoritPlayer}
                 </p>
                     <ul className={isActive[0] ? "active scroll_layout" : "scroll_layout"}>
-                        {playerList.map((el,index) => <li onClick={() => {setFormData({...formData,favoritPlayer:el})
+                        {playerList.map((el,index) => <li onClick={() => {handleChange('favoritPlayer',el)
                          handleActive(0)
                         }
                         } key={index}>{el}</li> )}
@@ -217,9 +246,9 @@ export default function MemberInformation () {
             귀하는 본 광고성 메시지 수신에 개인정보 수집에 대한 동의를 거부할 권리가 있으며,<br />
             동의를 거부하더라도 별도의 불이익 사항은 없습니다.<br />
             </p>
-            <div className="link_box">
+            <div className="submit_box">
                 <Link>재입력</Link>
-                <Link to={"RegistrationComplete"}>가입하기</Link>
+                <input type="submit" value='가입하기'/>
             </div>
             </form>
         </section>
@@ -228,15 +257,12 @@ export default function MemberInformation () {
 
 Modal.setAppElement("#root");
 
-function AdressModal ({isModalOpen,setIsModalOpen, formData ,setFormData}) {
+function AdressModal ({isModalOpen,setIsModalOpen,handleChange}) {
 
         const handleComplete = (data) => {
         const fullAddress = data.address; // 도로명 주소
         const extraAddress = data.bname || data.buildingName ? ` (${data.bname || data.buildingName})` : ""; // 추가 주소 정보
-        setFormData({
-            ...formData,
-            address : fullAddress + extraAddress
-        });
+        handleChange('address',fullAddress + extraAddress);
         closeModal(); // 모달 닫기
       };
       // 모달 닫기

@@ -335,6 +335,11 @@
             }
             > p:last-of-type { max-height: 300px; font-size: 14px; background-color: #262626 ; color: var(--color--white); font-weight: 300; padding-inline: 25px; margin-bottom: 50px; line-height: 20px;}
             > div:last-of-type{color: var(--color--white);}
+            .submit_box{display: flex; width: 100%; align-items: center; gap: 2%;
+                > * {cursor: pointer;}
+                > a {width: 30%; text-align: center; background-color: #262626; line-height: 67px; border-radius: 10px;}
+                > input { width: 68%;}
+            }
         }
     }
 
