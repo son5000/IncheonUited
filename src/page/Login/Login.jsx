@@ -2,17 +2,37 @@ import { useState } from 'react';
 import { useNavigate , Link } from 'react-router-dom';
 export default function Login () {
 
-    const [inputId,setInputId] = useState('')
-    const [inputPassword,setInputPassword] = useState('')
+    const [userId,setUserId] = useState('')
+    const [userPw,serUserPw] = useState('')
+    const [error , setError] = useState('');
+
 
     const navigate = useNavigate();
-
-
-    const handleSubmit = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-
-        if(inputId && inputPassword){
-            navigate('/')
+        if(userId === '' || userPw === ''){
+            return (alert('아이디와 비밀번호를 입력해 주세요.'))
+        }
+        try{
+            const response = await fetch("http://localhost:5000/login", {
+                method:'POST',
+                headers:{
+                    "Content-Type" : "application/json",
+                },
+                body: JSON.stringify({userId , userPw}),
+                credentials:'include',
+            })
+            const data = await response.json();
+            console.log(data);
+            if(response.ok){
+                localStorage.setItem('userId',userId)
+                // alert(`환영합니다, ${userId} 님 :)`)
+                navigate('/')
+            }else{
+                setError(data.message)
+            }
+        }catch(e){
+            setError("서버 연결에 문제가 발생했습니다.");
         }
     }
 
@@ -20,11 +40,12 @@ export default function Login () {
             <section className="loginArea">
                 <h2>LOGIN</h2>
                 <p>인천유나이티드 홈페이지 방문을 환영합니다!</p>
-                <form onSubmit={(e) => handleSubmit(e)}>
+                <form onSubmit={(e) => handleLogin(e)}>
                     <label htmlFor="userId">아이디</label>
-                    <input value={inputId} onChange={(e) => setInputId(e.target.value)} id='userId' type="text" />
-                    <label htmlFor="userPassword">비밀번호</label>
-                    <input value={inputPassword} onChange={(e) => setInputPassword(e.target.value)} id='userPassword' type="password" />
+                    <input value={userId} onChange={(e) => setUserId(e.target.value)} id='userId' type="text" />
+                    <label htmlFor="userPw">비밀번호</label>
+                    <input value={userPw} onChange={(e) => serUserPw(e.target.value)} id='userPw' type="password" />
+                    {error && <p>{error}</p>}
                     <button type="submit">로그인</button>
                 </form>
                 <p>

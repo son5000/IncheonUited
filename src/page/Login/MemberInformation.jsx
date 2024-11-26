@@ -97,11 +97,11 @@ export default function MemberInformation () {
             try {
                 const res = await fetch('http://localhost:5000/signup', {
                     method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-                credentials: 'include', // 쿠키를 포함하여 요청을 보냄
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                    credentials: 'include', // 쿠키를 포함하여 요청을 보냄
               });
           
               const data = await res.json();
@@ -120,7 +120,6 @@ export default function MemberInformation () {
         }
       };
 
-      console.log(isValid);
 
     return (
         <section className="memberInformationArea">

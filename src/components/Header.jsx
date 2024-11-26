@@ -4,15 +4,40 @@ import { Link } from "react-router-dom";
 import QuickSns from "../../src/components/QuickSns";
 export default function Header() {
 
+  const [Id, setId] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
+  useEffect(() => {
+    // 로그인된 유저 정보를 /me API로 가져오기
+    fetch('http://localhost:5000/session', {
+      method: 'GET',
+      credentials: 'include', // 세션 쿠키를 포함하여 요청
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('로그인 상태가 아닙니다.');
+        }
+      })
+      .then((data) => { setId(data.userId)
+         setIsLoggedIn(true);}) // 로그인한 유저 ID 상태에 저장
+        .catch((error) => {
+        setId(''); // 로그인되지 않은 상태
+        setIsLoggedIn(false)
+      });
+  }, []);
+    
   const location = useLocation();
   const firstLocation = location.pathname.split('/')[1];
 
   const [opacityValue , setOpacityValue ] = useState(0);
-
+  
   function onScroll() {
     const scrollValue = window.scrollY;
     setOpacityValue(Math.min(scrollValue / 500 , 1))    
   }
+
   useEffect(()=> {
     window.addEventListener("scroll",onScroll);
     return () => window.removeEventListener("scroll",onScroll);
@@ -32,18 +57,8 @@ export default function Header() {
       } 
   },[])
 
-  // 햄버거메뉴가 열렸을때 요소노드의 바깥 부분 CLICK이벤트 발생시 파악하기 위한 Ref 생성
   const hamburgerMenuRef = useRef();
-  // 햄버거메뉴의 바깥요소를 click 했을때 메뉴를 닫히게 실행 할 함수.
   const clickHamburgerOutSide = (e) => {
-  // 우선 모바일 전용 함수여야 하기때문에 첫번째 조건문으로 미디어커리를 잡았다.
-  // 680px 보다 width 값이 클때는 아무것도 실행하지 않기 위해서.
-  // 두번째 조건으로 햄버거메뉴 요소 , 그리고 
-  // 클릭이벤트가 직접 발생한 요소가 햄버거메뉴의 내부에 있는 요소인지 판단하는 조건문을 작성했다.
-  // 햄버거요소의 내부에서 클릭이벤트가 발생했냐 아니냐 boolean값으로 나타내는 contains 메소드를 사용.
-  // 반전연산자를 사용해서 false 값 즉, 햄버거메뉴의 자식혹은 자기자신이 아닌 요소를 클릭했으니 false를 return =>  반전연사자를 통해 
-  // true 가 된다. && 엔퍼센드 연산자로 양쪽 조건을 모두 만족하면 
-  // 햄버거의 현재상태를 초기화 , 햄버거 내부의 메뉴들의 active 상태도 초기화한다.
     if(isMobile){
       if(hamburgerMenuRef.current && !hamburgerMenuRef.current.contains(e.target)){
         setOpenHamburgerMenu(false);
@@ -62,8 +77,6 @@ export default function Header() {
   const [OpenHamburgerMenu , setOpenHamburgerMenu] = useState(false);
   // useEffect 함수로 햄버거 바깥요소에 mousedown 이벤트가 일어났을때
   // clickHamburgerOutSide 를 실행하게 한다.
-  // 햄버거의 상태가 열려있는 상태에만 이벤트를 등록하고
-  // 닫힌경우에는 등록한 이벤트를 삭제한다.
   useEffect(()=> {
     if(OpenHamburgerMenu){
       document.addEventListener('mousedown',clickHamburgerOutSide);
@@ -81,10 +94,6 @@ export default function Header() {
     if(!OpenHamburgerMenu){
       return;
     }
-  // 메뉴의 최상위 선택자를 클릭했을때 품고 있는 서브메뉴가 열리게 하기위해
-  // active가 들어가있는 최상위 요소는 preventDefault 로 한번 이동을 막고
-  // 다시 클릭했을때 이동이 되게 끔 설계했다.
-  // 그래서 true 값일때 state 값이 false 바뀌면서 그때 link로의 이동이 발생한다.
     if(isMobile){
       let temp = Array(5).fill(false);
       if(isActive[index]){
@@ -217,11 +226,12 @@ export default function Header() {
           </ul>
           {isMobile && <QuickSns />}
         </nav>
-        { !isMobile &&
-          <div>
-          <Link to={"login"}>LOGIN</Link>
-          <Link to={"login/joinUs"}>JOIN US</Link>
-        </div>
+        { !isMobile && 
+          <div>{isLoggedIn ? 
+          <><Link>{Id}님</Link><Link>LOGOUT</Link></> 
+          : 
+          <><Link to={"login"}>LOGIN</Link> <Link to={"login/joinUs"}>JOIN US</Link></>
+          }</div>
         }
     </div>
       </header>
