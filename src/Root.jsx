@@ -37,65 +37,68 @@ import BuyTickets from "./page/TicketMembership/buyTickets";
 import BuyMembership from "./page/TicketMembership/buyMembership";
 import GroupTour from "./page/TicketMembership/groupTour";
 import FrequentlyQandA from "./page/TicketMembership/frequentlyQandA"
-
+import { UserProvider } from "./contexts/userContext";
 
 export default function Root() {
+
   return (
-    <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />}>
-            <Route index  element={<Home />} />
-            <Route path="club">
-              <Route index path="introduction" element={<Introduction />} />
-              <Route path="introduction/vision" element={<Vision />}/>
-              <Route path="introduction/tel" element={<Organization />}/>
-              <Route path="introduction/emblem" element={<Emblem />}/>
-              <Route path="introduction/history" element={<History />}/>
-              <Route path="greeting" element={<Greeting />}/>
-              <Route path="stadium" element={<Stadium />}/>
-              <Route path="stadium/parkingInformation" element={<ParkingInformation />}/>
-              <Route path="stadium/seatInformation" element={<SeatInformation />}/>
+    <UserProvider>
+      <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />}>
+              <Route index  element={<Home />} />
+              <Route path="club">
+                <Route index path="introduction" element={<Introduction />} />
+                <Route path="introduction/vision" element={<Vision />}/>
+                <Route path="introduction/tel" element={<Organization />}/>
+                <Route path="introduction/emblem" element={<Emblem />}/>
+                <Route path="introduction/history" element={<History />}/>
+                <Route path="greeting" element={<Greeting />}/>
+                <Route path="stadium" element={<Stadium />}/>
+                <Route path="stadium/parkingInformation" element={<ParkingInformation />}/>
+                <Route path="stadium/seatInformation" element={<SeatInformation />}/>
+              </Route>
+              <Route path="player">
+                <Route index path="coachingstaff" element={<CoachingStaff />} />
+                <Route path="pro" element={<Pro />} />
+                <Route path="schedule" element={<Schedule />} />
+              </Route>
+              <Route path="matchCenter">
+              <Route index path="gameSchedule" element={<GameSchedule />}/>
+              <Route path="ranking" element={<Rangking />}/>
+              </Route>
+              <Route path="fanZone">
+                <Route index path="announcement" element={<Announcement />} />
+                <Route  path="cheeringGrounds" element={<CheeringGrounds />} />
+                <Route  path="cheerSong" element={<CheerSong />} />
+                <Route  path="gallery" element={<Gallery />} />
+                <Route  path="magazine" element={<Magazine />} />
+                <Route  path="news" element={<News />} />
+                <Route  path="utdReporter" element={<UtdReporter />} />
+                <Route  path="vod" element={<Vod />} />
+                <Route  path="lostItem" element={<LostItem />} />
+                <Route  path="event" element={<Event />} />
+              </Route>
+              <Route path="ticketMembership">
+                <Route index path ="buyTickets" element={<BuyTickets />} />
+                <Route  path ="buyMembership" element={<BuyMembership />} />
+                <Route  path ="groupTour" element={<GroupTour />} />
+                <Route  path ="frequentlyQ&A" element={<FrequentlyQandA />} />
+              </Route>
+              <Route path="Login">
+                <Route index element ={<Login />} />
+                <Route path="joinUs" element={<JoinUs />} />
+                <Route path="joinUs/Certification" element={<Certification />} />
+                <Route path="joinUs/Certification/MemberInformation" element={<MemberInformation />} />
+                <Route path="joinUs/Certification/MemberInformation/RegistrationComplete" element={<RegistrationComplete />} />
+              </Route>
+              <Route path="managementTeam">
+                <Route path="login" element ={<ManagerLogin />} />
+                <Route path="main" element ={<ManagerMain />} />
+              </Route>
             </Route>
-            <Route path="player">
-              <Route index path="coachingstaff" element={<CoachingStaff />} />
-              <Route path="pro" element={<Pro />} />
-              <Route path="schedule" element={<Schedule />} />
-            </Route>
-            <Route path="matchCenter">
-            <Route index path="gameSchedule" element={<GameSchedule />}/>
-            <Route path="ranking" element={<Rangking />}/>
-            </Route>
-            <Route path="fanZone">
-              <Route index path="announcement" element={<Announcement />} />
-              <Route  path="cheeringGrounds" element={<CheeringGrounds />} />
-              <Route  path="cheerSong" element={<CheerSong />} />
-              <Route  path="gallery" element={<Gallery />} />
-              <Route  path="magazine" element={<Magazine />} />
-              <Route  path="news" element={<News />} />
-              <Route  path="utdReporter" element={<UtdReporter />} />
-              <Route  path="vod" element={<Vod />} />
-              <Route  path="lostItem" element={<LostItem />} />
-              <Route  path="event" element={<Event />} />
-            </Route>
-            <Route path="ticketMembership">
-              <Route index path ="buyTickets" element={<BuyTickets />} />
-              <Route  path ="buyMembership" element={<BuyMembership />} />
-              <Route  path ="groupTour" element={<GroupTour />} />
-              <Route  path ="frequentlyQ&A" element={<FrequentlyQandA />} />
-            </Route>
-            <Route path="Login">
-              <Route index element ={<Login />} />
-              <Route path="joinUs" element={<JoinUs />} />
-              <Route path="joinUs/Certification" element={<Certification />} />
-              <Route path="joinUs/Certification/MemberInformation" element={<MemberInformation />} />
-              <Route path="joinUs/Certification/MemberInformation/RegistrationComplete" element={<RegistrationComplete />} />
-            </Route>
-            <Route path="managementTeam">
-              <Route path="login" element ={<ManagerLogin />} />
-              <Route path="main" element ={<ManagerMain />} />
-            </Route>
-          </Route>
-        </Routes>
-    </BrowserRouter>
+          </Routes>
+      </BrowserRouter>
+    </UserProvider>
   );
 }

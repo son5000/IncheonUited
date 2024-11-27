@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useState  } from 'react';
 import { useNavigate , Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/userContext';
 export default function Login () {
 
+    const { user,login } = useContext(UserContext)
     const [userId,setUserId] = useState('')
     const [userPw,serUserPw] = useState('')
     const [error , setError] = useState('');
 
-
     const navigate = useNavigate();
+
     const handleLogin = async (e) => {
         e.preventDefault();
         if(userId === '' || userPw === ''){
@@ -25,11 +28,12 @@ export default function Login () {
             const data = await response.json();
             console.log(data);
             if(response.ok){
-                localStorage.setItem('userId',userId)
-                // alert(`환영합니다, ${userId} 님 :)`)
+                alert(`환영합니다, ${userId} 님 :)`)
+                login(userId)
+                console.log({ user })
                 navigate('/')
             }else{
-                setError(data.message)
+                setError(data.message) 
             }
         }catch(e){
             setError("서버 연결에 문제가 발생했습니다.");

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link , useNavigate } from "react-router-dom"
 import data from "../../data.json"
 import DaumPostcode from "react-daum-postcode";
 import Modal from "react-modal";
@@ -15,7 +15,7 @@ data.pro["players"].forEach((el) => {
 
 
 export default function MemberInformation () {
-
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
       userId: '',
       userPw: '',
@@ -107,6 +107,7 @@ export default function MemberInformation () {
               const data = await res.json();
               if (res.ok) {
                 alert('회원가입 성공!');
+                navigate('/login/joinUs/Certification/MemberInformation/Registrationcomplete')
               } else {
                   alert(data.message || '회원가입 실패');
                 }

@@ -8,13 +8,10 @@ export default function App () {
 
     const Location = useLocation();
     const firstLocation = Location.pathname.split('/')[1] || 'main';
-
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 1120);
-
     const handleResize = () => {
         setIsMobile(window.innerWidth <= 1120)
     }
-
     useEffect(() => {
         window.addEventListener('resize',handleResize)
         handleResize()
@@ -26,12 +23,12 @@ export default function App () {
 
     return (
         <>
-         {firstLocation !== "managementTeam" && <Header />}
-         { !isMobile && firstLocation !== "managementTeam" && <QuickSns />}
-         <div className={firstLocation+'Page'}>
-            <Outlet />
-         </div>
-         {firstLocation !== "managementTeam" && <Footer />}
+            {firstLocation !== "managementTeam" && <Header />}
+            { !isMobile && firstLocation !== "managementTeam" && <QuickSns />}
+            <div className={firstLocation+'Page'}>
+               <Outlet />
+            </div>
+            {firstLocation !== "managementTeam" && <Footer />}
         </>
     )
 }

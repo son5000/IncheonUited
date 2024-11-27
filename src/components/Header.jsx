@@ -1,32 +1,60 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import QuickSns from "../../src/components/QuickSns";
+// import { UserContext } from "../contexts/userContext";
 export default function Header() {
 
-  const [Id, setId] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  
+  // const { user } = useContext(UserContext)
+  // console.log(user)
+
+  const [id, setId] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(true);  
   useEffect(() => {
-    // 로그인된 유저 정보를 /me API로 가져오기
+    // 로그인된 유저 정보를 /session API로 가져오기
     fetch('http://localhost:5000/session', {
       method: 'GET',
       credentials: 'include', // 세션 쿠키를 포함하여 요청
     })
       .then((response) => {
         if (response.ok) {
-          return response.json();
+          return response.json(); //두번째 then 으로 값 전달.
         } else {
           throw new Error('로그인 상태가 아닙니다.');
         }
       })
-      .then((data) => { setId(data.userId)
-         setIsLoggedIn(true);}) // 로그인한 유저 ID 상태에 저장
+      .then((data) => { //첫번째 then 에서 data 로 값을 받음.
+        setId(data.userId)
+        setIsLoggedIn(true);}) // 로그인한 유저 ID 상태에 저장
         .catch((error) => {
         setId(''); // 로그인되지 않은 상태
         setIsLoggedIn(false)
       });
-  }, []);
+  }, [isLoggedIn]);
+
+  const handleLogout = () => {
+    if(isLoggedIn){
+      fetch('http://localhost:5000/logout' , {
+      method: 'POST',
+      credentials:'include',
+      }).then((response) => {
+        if(response.ok){
+        setIsLoggedIn(false)
+        setId('')
+        alert('로그아웃 되었습니다.')
+      }else{
+        return response.json().then((data) => {
+          throw new Error(data.error || '세션 상태를 확인할 수 없습니다.')
+        })
+      }
+      }).catch((error) => {
+        console.error(error.message);
+        alert(error.message); // 에러 메시지를 사용자에게 표시 (예: alert)
+      })
+    } 
+  }
+
+
     
   const location = useLocation();
   const firstLocation = location.pathname.split('/')[1];
@@ -70,7 +98,7 @@ export default function Header() {
   const handleHamburger = () =>  {
     if(isMobile  && !OpenHamburgerMenu){
       return  setOpenHamburgerMenu(true);
-    }
+    } 
     return 
   }
   
@@ -228,7 +256,7 @@ export default function Header() {
         </nav>
         { !isMobile && 
           <div>{isLoggedIn ? 
-          <><Link>{Id}님</Link><Link>LOGOUT</Link></> 
+          <><Link>{id}님</Link><Link onClick={handleLogout}>LOGOUT</Link></> 
           : 
           <><Link to={"login"}>LOGIN</Link> <Link to={"login/joinUs"}>JOIN US</Link></>
           }</div>
