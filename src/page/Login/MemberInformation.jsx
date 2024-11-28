@@ -86,9 +86,33 @@ export default function MemberInformation () {
     const [isActive,setIsActive] = useState(Array(2).fill(null));
     function handleActive (index) {
         let temp = [...isActive];
-        temp[index] = !temp[index]
+        temp[index] = !temp[index];
         return setIsActive(temp);
     }
+
+// userID 중복확인 API 유효성 검사 통과 안됐을시 return (올바른 값일때만 API 호출)
+const handleDuplicateCheck = async () => {
+    if(isValid[0]){
+        try{
+            const res = await fetch(`http://localhost:5000/duplicatecheck?userId=${encodeURIComponent(formData.userId)}`)
+            if(!res.ok){
+                throw new Error('서버와의 통신 중 오류가 발생했습니다.');
+            }
+            const data = await res.json(); 
+            if(data.isAvailable){
+                alert('사용 가능한 아이디입니다.');
+            }else{
+                alert('중복되는 아이디입니다. 다른 아이디를 입력하세요.');
+                // input value 초기화 
+                 handleChange('userId','');
+            }
+        }catch (error){
+            alert(error);
+        }
+    }else{
+        return alert('올바른 값을 입력해주세요.')
+    }
+}
     
 
     const handleSubmit = async (e) => {
@@ -102,22 +126,22 @@ export default function MemberInformation () {
                     },
                     body: JSON.stringify(formData),
                     credentials: 'include', // 쿠키를 포함하여 요청을 보냄
-              });
-          
+              });     
               const data = await res.json();
               if (res.ok) {
                 alert('회원가입 성공!');
                 navigate('/login/joinUs/Certification/MemberInformation/Registrationcomplete')
               } else {
-                  alert(data.message || '회원가입 실패');
+                  alert(data.error || '회원가입 실패');
                 }
             } catch (error) {
-                console.error('회원가입 중 오류 발생:', error);
                 alert('회원가입 중 오류가 발생했습니다.');
             }
         }else{
-            e.preventDefault();
-            alert('입력정보를 다시 확인해주세요!')
+            if(isValid[2] === false){
+                alert('비밀번호가 일치하지 않습니다.')
+            }
+            alert('입력정보를 다시 확인해주세요!');
         }
       };
 
@@ -130,7 +154,7 @@ export default function MemberInformation () {
             <label htmlFor="userId">아이디</label>
             <div className="input_box">
                 <input onChange={(e) => handleChange('userId',e.target.value)}  className={isValid[0] ? "" : "active"} value={formData.userId}  id="userId" type="text" placeholder="6~ 12자 이내 영문 소문자, 숫자 조합"/>
-                <button style={{cursor : isValid && formData.userId !== '' ? "pointer" : ""}} disabled={!isValid}>중복확인</button>
+                <button onClick={handleDuplicateCheck} type="button" style={{cursor : isValid && formData.userId !== '' ? "pointer" : ""}} disabled={!isValid}>중복확인</button>
                 {!isValid[0] && <strong>*유효하지 않은 값입니다. 6~ 12자 이내 영문 소문자, 숫자 조합</strong>}
             </div>
             <label htmlFor="userPassword">비밀번호</label>
@@ -144,7 +168,7 @@ export default function MemberInformation () {
             <p>우편번호 <mark>(필수)</mark></p>
             <div className="input_box">
                 <p>{formData.address === "" ? "우편번호를 검색하세요." : formData.address}</p>
-                <button  onClick={openModal}>우편번호 검색</button>
+                <button type="button"  onClick={openModal}>우편번호 검색</button>
                 <AdressModal handleChange={handleChange} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} formData={formData} setFormData={setFormData} />
             </div>
             <small>

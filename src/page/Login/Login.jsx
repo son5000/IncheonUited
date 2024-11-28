@@ -11,6 +11,7 @@ export default function Login () {
 
     const navigate = useNavigate();
 
+    // 로그인 API 호출 함수.
     const handleLogin = async (e) => {
         e.preventDefault();
         if(userId === '' || userPw === ''){
@@ -28,10 +29,10 @@ export default function Login () {
             const data = await response.json();
             console.log(data);
             if(response.ok){
-                alert(`환영합니다, ${userId} 님 :)`)
-                login(userId)
-                console.log({ user })
                 navigate('/')
+                login(userId)
+                alert(`환영합니다, ${userId} 님 :)`)
+                console.log({ user })
             }else{
                 setError(data.message) 
             }
