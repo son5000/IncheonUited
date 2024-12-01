@@ -94,7 +94,9 @@ export default function MemberInformation () {
 const handleDuplicateCheck = async () => {
     if(isValid[0]){
         try{
-            const res = await fetch(`http://localhost:5000/duplicatecheck?userId=${encodeURIComponent(formData.userId)}`)
+            const res = await fetch(
+                `http://localhost:5000/user/duplicatecheck?userId=${encodeURIComponent(formData.userId)}`
+              ); 
             if(!res.ok){
                 throw new Error('서버와의 통신 중 오류가 발생했습니다.');
             }
@@ -119,7 +121,7 @@ const handleDuplicateCheck = async () => {
         e.preventDefault(); // 기본 form 제출 동작 방지
         if(isValid.every((el) => el === true)){
             try {
-                const res = await fetch('http://localhost:5000/signup', {
+                const res = await fetch('http://localhost:5000/user/signUp', {
                     method: 'POST',
                     headers: {
                       'Content-Type': 'application/json',

@@ -1,46 +1,22 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import QuickSns from "../../src/components/QuickSns";
-// import { UserContext } from "../contexts/userContext";
+import { useSelector } from "react-redux";
 export default function Header() {
 
-  // const { user } = useContext(UserContext)
-  // console.log(user)
+  const loggedInUserName = useSelector(state => state.login.userId);
 
-  const [id, setId] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(true);  
-  useEffect(() => {
-    // 로그인된 유저 정보를 /session API로 가져오기
-    fetch('http://localhost:5000/session', {
-      method: 'GET',
-      credentials: 'include', // 세션 쿠키를 포함하여 요청
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json(); //두번째 then 으로 값 전달.
-        } else {
-          throw new Error('로그인 상태가 아닙니다.');
-        }
-      })
-      .then((data) => { //첫번째 then 에서 data 로 값을 받음.
-        setId(data.userId)
-        setIsLoggedIn(true);}) // 로그인한 유저 ID 상태에 저장
-        .catch((error) => {
-        setId(''); // 로그인되지 않은 상태
-        setIsLoggedIn(false)
-      });
-  }, [isLoggedIn]);
 
   const handleLogout = () => {
     if(isLoggedIn){
-      fetch('http://localhost:5000/logout' , {
+      fetch('http://localhost:5000/user/logout' , {
       method: 'POST',
       credentials:'include',
       }).then((response) => {
         if(response.ok){
         setIsLoggedIn(false)
-        setId('')
         alert('로그아웃 되었습니다.')
       }else{
         return response.json().then((data) => {
@@ -256,7 +232,7 @@ export default function Header() {
         </nav>
         { !isMobile && 
           <div>{isLoggedIn ? 
-          <><Link>{id}님</Link><Link onClick={handleLogout}>LOGOUT</Link></> 
+          <><Link>{loggedInUserName}님</Link><Link onClick={handleLogout}>LOGOUT</Link></> 
           : 
           <><Link to={"login"}>LOGIN</Link> <Link to={"login/joinUs"}>JOIN US</Link></>
           }</div>

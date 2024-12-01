@@ -37,12 +37,13 @@ import BuyTickets from "./page/TicketMembership/buyTickets";
 import BuyMembership from "./page/TicketMembership/buyMembership";
 import GroupTour from "./page/TicketMembership/groupTour";
 import FrequentlyQandA from "./page/TicketMembership/frequentlyQandA"
-import { UserProvider } from "./contexts/userContext";
+import { Provider } from "react-redux";
+import store from "./Redux/setting";
 
 export default function Root() {
 
   return (
-    <UserProvider>
+    <Provider store={store}>
       <BrowserRouter>
           <Routes>
             <Route path="/" element={<App />}>
@@ -99,6 +100,6 @@ export default function Root() {
             </Route>
           </Routes>
       </BrowserRouter>
-    </UserProvider>
+    </Provider>
   );
 }

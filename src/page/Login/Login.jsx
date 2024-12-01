@@ -1,10 +1,12 @@
-import { useState  } from 'react';
+import { useState , useEffect  } from 'react';
 import { useNavigate , Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { UserContext } from '../../contexts/userContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { ActionLogin } from '../../Redux/setting';
 export default function Login () {
 
-    const { user,login } = useContext(UserContext)
+    const dispatch = useDispatch();
+    const state = useSelector((state) => state.login.userId);
+
     const [userId,setUserId] = useState('')
     const [userPw,serUserPw] = useState('')
     const [error , setError] = useState('');
@@ -18,7 +20,7 @@ export default function Login () {
             return (alert('아이디와 비밀번호를 입력해 주세요.'))
         }
         try{
-            const response = await fetch("http://localhost:5000/login", {
+            const response = await fetch("http://localhost:5000/user/login", {
                 method:'POST',
                 headers:{
                     "Content-Type" : "application/json",
@@ -29,10 +31,8 @@ export default function Login () {
             const data = await response.json();
             console.log(data);
             if(response.ok){
-                navigate('/')
-                login(userId)
-                alert(`환영합니다, ${userId} 님 :)`)
-                console.log({ user })
+                dispatch(ActionLogin(userId));
+                alert(`환영합니다, ${userId} 님 :)`);
             }else{
                 setError(data.message) 
             }
@@ -40,6 +40,12 @@ export default function Login () {
             setError("서버 연결에 문제가 발생했습니다.");
         }
     }
+
+    useEffect(() => {
+        if(state){
+            navigate('/');
+        }
+    },[state , navigate])
 
     return (  
             <section className="loginArea">
