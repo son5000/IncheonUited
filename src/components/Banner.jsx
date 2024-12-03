@@ -3,11 +3,13 @@ import data from '../data.json'
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-export default function Banner ({aniWidth}) {
+export default function Banner ({aniWidth }) {
     
     const location = useLocation();
     const firstLocation = location.pathname.split('/')[1];
-    const categoris = data.bannerCategoris[firstLocation];
+    let categoris  = '';
+
+        categoris = data.bannerCategoris[firstLocation];
     
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 1120);
 
@@ -26,6 +28,8 @@ export default function Banner ({aniWidth}) {
     if(isMobile){
         return ;
     }
+    
+    console.log(firstLocation);
 
     return (
         <div style={{'--ani--width': aniWidth }} className="banner">  

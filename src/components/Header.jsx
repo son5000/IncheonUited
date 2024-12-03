@@ -3,21 +3,23 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import QuickSns from "../../src/components/QuickSns";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { ActionLoginLogout } from "../Redux/setting";
 export default function Header() {
 
-  const loggedInUserName = useSelector(state => state.login.userId);
-
-  const [isLoggedIn, setIsLoggedIn] = useState(true);  
+  const loggedInUserName = useSelector(state => state.LoginLogout.userId);
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
-    if(isLoggedIn){
+    if(loggedInUserName){
       fetch('http://localhost:5000/user/logout' , {
       method: 'POST',
       credentials:'include',
       }).then((response) => {
         if(response.ok){
-        setIsLoggedIn(false)
+        dispatch(ActionLoginLogout(''));
         alert('로그아웃 되었습니다.')
+        
       }else{
         return response.json().then((data) => {
           throw new Error(data.error || '세션 상태를 확인할 수 없습니다.')
@@ -231,8 +233,8 @@ export default function Header() {
           {isMobile && <QuickSns />}
         </nav>
         { !isMobile && 
-          <div>{isLoggedIn ? 
-          <><Link>{loggedInUserName}님</Link><Link onClick={handleLogout}>LOGOUT</Link></> 
+          <div>{ loggedInUserName ? 
+          <><Link>{ loggedInUserName }님</Link><Link onClick={handleLogout}>LOGOUT</Link></> 
           : 
           <><Link to={"login"}>LOGIN</Link> <Link to={"login/joinUs"}>JOIN US</Link></>
           }</div>

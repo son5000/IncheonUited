@@ -284,7 +284,6 @@ const handleDuplicateCheck = async () => {
 Modal.setAppElement("#root");
 
 function AdressModal ({isModalOpen,setIsModalOpen,handleChange}) {
-
         const handleComplete = (data) => {
         const fullAddress = data.address; // 도로명 주소
         const extraAddress = data.bname || data.buildingName ? ` (${data.bname || data.buildingName})` : ""; // 추가 주소 정보

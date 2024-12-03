@@ -39,6 +39,7 @@ import GroupTour from "./page/TicketMembership/groupTour";
 import FrequentlyQandA from "./page/TicketMembership/frequentlyQandA"
 import { Provider } from "react-redux";
 import store from "./Redux/setting";
+import Post from "./components/fanZone/post";
 
 export default function Root() {
 
@@ -70,12 +71,16 @@ export default function Root() {
               </Route>
               <Route path="fanZone">
                 <Route index path="announcement" element={<Announcement />} />
+                <Route path="announcementPost/:id" element={<Post />} />
                 <Route  path="cheeringGrounds" element={<CheeringGrounds />} />
+                <Route path="cheeringGroundsPost/:id" element={<Post />} />
                 <Route  path="cheerSong" element={<CheerSong />} />
                 <Route  path="gallery" element={<Gallery />} />
                 <Route  path="magazine" element={<Magazine />} />
                 <Route  path="news" element={<News />} />
+                <Route path="newsPost/:id" element={<Post />} />
                 <Route  path="utdReporter" element={<UtdReporter />} />
+                <Route path="utdReporterPost/:id" element={<Post />} />
                 <Route  path="vod" element={<Vod />} />
                 <Route  path="lostItem" element={<LostItem />} />
                 <Route  path="event" element={<Event />} />

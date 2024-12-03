@@ -1,11 +1,10 @@
-import { useState , useEffect  } from 'react';
+import { useState } from 'react';
 import { useNavigate , Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { ActionLogin } from '../../Redux/setting';
+import { useDispatch } from 'react-redux';
+import { ActionLoginLogout } from '../../Redux/setting';
 export default function Login () {
 
     const dispatch = useDispatch();
-    const state = useSelector((state) => state.login.userId);
 
     const [userId,setUserId] = useState('')
     const [userPw,serUserPw] = useState('')
@@ -29,10 +28,10 @@ export default function Login () {
                 credentials:'include',
             })
             const data = await response.json();
-            console.log(data);
             if(response.ok){
-                dispatch(ActionLogin(userId));
+                dispatch(ActionLoginLogout(userId));
                 alert(`환영합니다, ${userId} 님 :)`);
+                navigate('/');
             }else{
                 setError(data.message) 
             }
@@ -40,12 +39,6 @@ export default function Login () {
             setError("서버 연결에 문제가 발생했습니다.");
         }
     }
-
-    useEffect(() => {
-        if(state){
-            navigate('/');
-        }
-    },[state , navigate])
 
     return (  
             <section className="loginArea">

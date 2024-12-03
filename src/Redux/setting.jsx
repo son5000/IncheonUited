@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 // 액션 타입 정의
-export const LOGIN = "LOGIN/ADDUSERID";
+export const LOGINLOGOUT = "LOGIN&LOGOUT";
 
 // 액션 생성자
-export const ActionLogin = value => ({ type: LOGIN, value });
+export const ActionLoginLogout = value => ({ type: LOGINLOGOUT, value });
 
 // 초기 상태 정의
 const initialState = {
@@ -12,9 +12,9 @@ const initialState = {
 };
 
 // 리듀서 정의
-export const ReducerLogin = (state = initialState, action) => {
+export const ReducerLoginLogut = (state = initialState, action) => {
     switch (action.type) {
-        case LOGIN: 
+        case LOGINLOGOUT: 
             return { ...state, userId: action.value };
         default:
             return state;
@@ -24,7 +24,7 @@ export const ReducerLogin = (state = initialState, action) => {
 // store 생성 (reducer는 객체 형식으로 전달)
 const store = configureStore({
     reducer: {
-        login: ReducerLogin  // 'login' 상태를 관리할 리듀서
+        LoginLogout: ReducerLoginLogut  // 'login' 상태를 관리할 리듀서
     }
 });
 
