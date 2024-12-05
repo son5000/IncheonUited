@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate , Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { ActionLoginLogout } from '../../Redux/setting';
+import { ActionLoginLogout } from '../../controllers/Redux/setting.jsx'
 export default function Login () {
 
     const dispatch = useDispatch();

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import QuickSns from "../../src/components/QuickSns";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { ActionLoginLogout } from "../Redux/setting";
+import { ActionLoginLogout } from "../controllers/Redux/setting.jsx"
 export default function Header() {
 
   const loggedInUserName = useSelector(state => state.LoginLogout.userId);

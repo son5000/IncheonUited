@@ -38,7 +38,7 @@ import BuyMembership from "./page/TicketMembership/buyMembership";
 import GroupTour from "./page/TicketMembership/groupTour";
 import FrequentlyQandA from "./page/TicketMembership/frequentlyQandA"
 import { Provider } from "react-redux";
-import store from "./Redux/setting";
+import store from "./controllers/Redux/setting.jsx"
 import Post from "./components/fanZone/post";
 
 export default function Root() {

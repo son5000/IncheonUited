@@ -28,10 +28,10 @@ export default function MemberInformation () {
       advertisement:'agreement'
     });
 
-    console.log(formData)
-
+    
     // 유효성 검사 배열 1-ID , 2-PW , 3-PWCHECK , 4-PHONE , 5-ADRESS , 6-FAVORITE PLAYER
-    const [isValid, setIsValid] = useState(Array(6).fill('-'));
+    const [isValid, setIsValid] = useState(Array(7).fill(''));
+    console.log(isValid)
     const validators = {
         userId : (value) => /^[a-z0-9]{6,12}$/.test(value),
         userPw : (value) => /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{9,12}$/.test(value),
@@ -49,6 +49,11 @@ export default function MemberInformation () {
         if(field !== 'singleOrMarried' && field !== 'advertisement' && field !== 'selectedJob'){
         const validTemp = [...isValid];
         validTemp[Object.keys(validators).indexOf(field)] = validators[field](value);
+        if(field === 'userId'){
+            validTemp[6] = false;
+            setIsValid(validTemp);
+            return;
+        }
         setIsValid(validTemp);
         }
       };
@@ -92,7 +97,7 @@ export default function MemberInformation () {
 
 // userID 중복확인 API 유효성 검사 통과 안됐을시 return (올바른 값일때만 API 호출)
 const handleDuplicateCheck = async () => {
-    if(isValid[0]){
+    if(isValid[0] && formData.userId !== ''){
         try{
             const res = await fetch(
                 `http://localhost:5000/user/duplicatecheck?userId=${encodeURIComponent(formData.userId)}`
@@ -103,15 +108,21 @@ const handleDuplicateCheck = async () => {
             const data = await res.json(); 
             if(data.isAvailable){
                 alert('사용 가능한 아이디입니다.');
+                let vaildTemp = [...isValid];
+                vaildTemp[6] = true;
+                setIsValid(vaildTemp);
             }else{
                 alert('중복되는 아이디입니다. 다른 아이디를 입력하세요.');
                 // input value 초기화 
-                 handleChange('userId','');
+                handleChange('userId','');
             }
         }catch (error){
             alert(error);
         }
     }else{
+        if(formData.userId === ''){
+        return alert(' 값을 입력해주세요.')    
+        }
         return alert('올바른 값을 입력해주세요.')
     }
 }
@@ -157,7 +168,7 @@ const handleDuplicateCheck = async () => {
             <div className="input_box">
                 <input onChange={(e) => handleChange('userId',e.target.value)}  className={isValid[0] ? "" : "active"} value={formData.userId}  id="userId" type="text" placeholder="6~ 12자 이내 영문 소문자, 숫자 조합"/>
                 <button onClick={handleDuplicateCheck} type="button" style={{cursor : isValid && formData.userId !== '' ? "pointer" : ""}} disabled={!isValid}>중복확인</button>
-                {!isValid[0] && <strong>*유효하지 않은 값입니다. 6~ 12자 이내 영문 소문자, 숫자 조합</strong>}
+                {!isValid[0] && formData.userId !== '' ? <strong>*유효하지 않은 값입니다. 6~ 12자 이내 영문 소문자, 숫자 조합</strong> : null}
             </div>
             <label htmlFor="userPassword">비밀번호</label>
             <input onBlur={handleBlurPw} onChange={(e) => handleChange('userPw',e.target.value)} value={formData.userPw} id="userPassword" type="password" placeholder="비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다."/>
