@@ -48,50 +48,50 @@
     {
         "titie":"FeedDataUTDReport",
         "categori":"UTDREPORT",
-        "text":"인생 참 쉽지 않아..",
+        "text":"안녕하세요! 인천유나이티드 공식 홈페이지 리팩토링 프로젝트 진행 중 입니다.",
         "image":"/images/main/feed_2.png"
     },
     {
         "titie":"FeedDataNews",
         "categori":"NEWS",
-        "text":"인천유나이티드 공식 홈페이지 리뉴얼 작업 중 언제 끝날지 아무도 몰라...",
+        "text":"안녕하세요! 인천유나이티드 공식 홈페이지 리팩토링 프로젝트 진행 중 입니다.",
         "image":"/images/main/feed_3.png"
     },
     
     {
         "titie":"FeedDataInstagram",
         "categori":"INSTAGRAM",
-        "text":"아직도 삽질중인 병신 같은 나자신 오늘 또 삽질 50호 홈런 장외로 날려",
+        "text":"안녕하세요! 인천유나이티드 공식 홈페이지 리팩토링 프로젝트 진행 중 입니다.",
         "image":"/images/main/feed_4.png"
     },
     {
         "titie":"FeedDataYoutube",
         "categori":"YOUTUBE",
-        "text":"아직도 메인페이지 작업 못끝내고 자빠져있는 나 자신의 아주 한심한 V-log",
+        "text":"안녕하세요! 인천유나이티드 공식 홈페이지 리팩토링 프로젝트 진행 중 입니다.",
         "image":"/images/main/feed_4.png"
     },
     {
         "titie":"FeedDataYoutube",
         "categori":"ACADEMY",
-        "text":"아직도 메인페이지 작업 못끝내고 자빠져있는 나 자신의 아주 한심한 V-log",
+        "text":"안녕하세요! 인천유나이티드 공식 홈페이지 리팩토링 프로젝트 진행 중 입니다.",
         "image":"/images/main/feed_4.png"
     },
     {
         "titie":"FeedDataYoutube",
         "categori":"ACADEMY",
-        "text":"아직도 메인페이지 작업 못끝내고 자빠져있는 나 자신의 아주 한심한 V-log",
+        "text":"안녕하세요! 인천유나이티드 공식 홈페이지 리팩토링 프로젝트 진행 중 입니다.",
         "image":"/images/main/feed_4.png"
     },
     {
         "titie":"FeedDataYoutube",
         "categori":"ACADEMY",
-        "text":"아직도 메인페이지 작업 못끝내고 자빠져있는 나 자신의 아주 한심한 V-log",
+        "text":"안녕하세요! 인천유나이티드 공식 홈페이지 리팩토링 프로젝트 진행 중 입니다.",
         "image":"/images/main/feed_4.png"
     },
     {
         "titie":"FeedDataYoutube",
         "categori":"ACADEMY",
-        "text":"아직도 메인페이지 작업 못끝내고 자빠져있는 나 자신의 아주 한심한 V-log",
+        "text":"안녕하세요! 인천유나이티드 공식 홈페이지 리팩토링 프로젝트 진행 중 입니다.",
         "image":"/images/main/feed_4.png"
     },
     {
@@ -103,25 +103,25 @@
     {
         "titie":"FeedDataNews",
         "categori":"NEWS",
-        "text":"인천유나이티드 공식 홈페이지 리뉴얼 작업 중 언제 끝날지 아무도 몰라...",
+        "text":"안녕하세요! 인천유나이티드 공식 홈페이지 리팩토링 프로젝트 진행 중 입니다..",
         "image":"/images/main/feed_3.png"
     },
     {
         "titie":"FeedDataInstagram",
         "categori":"INSTAGRAM",
-        "text":"아직도 삽질중인 병신 같은 나자신 오늘 또 삽질 50호 홈런 장외로 날려",
+        "text":"안녕하세요! 인천유나이티드 공식 홈페이지 리팩토링 프로젝트 진행 중 입니다.",
         "image":"/images/main/feed_4.png"
     },
     {
         "titie":"FeedDataYoutube",
         "categori":"YOUTUBE",
-        "text":"아직도 메인페이지 작업 못끝내고 자빠져있는 나 자신의 아주 한심한 V-log",
+        "text":"안녕하세요! 인천유나이티드 공식 홈페이지 리팩토링 프로젝트 진행 중 입니다.",
         "image":"/images/main/feed_4.png"
     },
     {
         "titie":"FeedDataUTDReport",
         "categori":"UTDREPORT",
-        "text":"와 행복하다 ^^ 기분 최고다 !! 나는 즐겁다 나는 즐겁다 나는 즐겁다",
+        "text":"안녕하세요! 인천유나이티드 공식 홈페이지 리팩토링 프로젝트 진행 중 입니다.",
         "image":"/images/main/feed_2.png"
     },
     {
@@ -537,54 +537,6 @@
         {"src":"/images/fanZone/gallary_img_11.png","text":"gallary sample Image"},
         {"src":"/images/fanZone/gallary_img_11.png","text":"gallary sample Image"},
         {"src":"/images/fanZone/gallary_img_11.png","text":"gallary sample Image"}
-    ],
-    "announcement":[
-        {"type":"NOTICE","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NOTICE","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NOTICE","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NOTICE","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NOTICE","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NOTICE","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NOTICE","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NOTICE","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NOTICE","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NOTICE","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"}
-    ],
-    "news":[
-        {"type":"NEWS","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NEWS","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NEWS","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NEWS","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NEWS","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NEWS","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NEWS","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NEWS","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NEWS","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"NEWS","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"}
-    ],
-    "utdReporter":[
-        {"type":"REPORT","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"REPORT","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"REPORT","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"REPORT","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"REPORT","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"REPORT","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"REPORT","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"REPORT","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"REPORT","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"type":"REPORT","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"}
-    ],
-    "cheeringGrounds":[
-        {"author":"감동이", "id":"10", "type":"응원마당","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"author":"돼지감동이", "id":"9", "type":"응원마당","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"author":"똥개감동이", "id":"8", "type":"응원마당","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"author":"똥싸개감동이", "id":"7", "type":"응원마당","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"author":"감동이아빠", "id":"6", "type":"응원마당","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"author":"감동이밥줄", "id":"5", "type":"응원마당","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"author":"감동이식모", "id":"4", "type":"응원마당","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"author":"손감동", "id":"3", "type":"응원마당","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"author":"감동이발바닥", "id":"2", "type":"응원마당","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"},
-        {"author":"감동이똥구멍", "id":"1", "type":"응원마당","title":"인천유나이티드 직원(그라운드 관리) 채용 공고","date":"2024.09.11","views":"161"}
     ],
     "magazine":[
         {"date":"2024월08월","src":"/images/fanZone/magazine_2024_08.png"},

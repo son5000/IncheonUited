@@ -29,7 +29,6 @@ export default function Banner ({aniWidth }) {
         return ;
     }
     
-    console.log(firstLocation);
 
     return (
         <div style={{'--ani--width': aniWidth }} className="banner">  

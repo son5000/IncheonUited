@@ -24,41 +24,63 @@ export default function PostList (){
         default : type = 'notice'
     }
 
-    
+    // 페이지당 보여지는 게시물 최대 게시물 개수
+    const MAXIMUM = 10;
+    // 현재페이지 번호 1로 현재페이지를 나타내는 state 생성
+    const [currentPage, setCurrentPage] = useState(1);
+    // total  =  데이터의 총 개수 => 데이터의 총 개수에 따라서 pageNation이 달라진다.
+    const [total , setTotal ] =  useState(0);
+    // 페이지네이션 생성을 위한 state
+    const [pageNation , setPageNation] = useState(null)
+    // 마지막 페이지네이션 count
+    const lastPage = Math.ceil(total / 10);
     const [data ,setData]  = useState(null);
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const res = await fetch(`http://localhost:5000/post/List?type=${type}&offset=0&count=1`);
+            const res = await fetch(`http://localhost:5000/post/List?type=${type}&offset=${(currentPage - 1) * MAXIMUM}&count=${MAXIMUM}`);
             if (!res.ok) {
               throw new Error('서버로부터 데이터를 불러오는데 실패했습니다.');
             }
             const data = await res.json();
-            setData(data); // 데이터 그대로 상태에 저장
+            setData(data.posts); 
+            setTotal( data.totalPostCount)
+            // 현재페이지 번호가 6보다 작을 경우의 pageNation 배열 생성 6 <= current 경우는 next함수에서 새로운 배열 생성
+            if(currentPage < 6){
+                setPageNation(Array.from({ length: Math.ceil(total / 10) > 5 && 5 }, (_, index) => index + 1));
+            }
           } catch (error) {
-            alert(error.message);  // 오류 메시지 출력
-            navigate('/');  // 오류 발생 시 다른 페이지로 이동
+            alert(error.message);  
+            navigate('/');  
           }
         };
         
         fetchData();
-    }, [navigate, type]);
+    }, [navigate, type, currentPage, total]);
     
-    const [isPageNation,setIsPageNation] = useState(1)
-    const pageNation =  [1,2,3,4,5];
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 1120);
     
-    const handlePrevBtn = () => {
-        if(isPageNation === 1){
-        return;
+    const handlePrevPage = () => {
+        if(currentPage === 1)return;
+        setCurrentPage(currentPage - 1);
+        if ( currentPage % 5 === 1 ) {
+            const newPageNation = Array.from(
+              { length: 5 },
+              (_, index) =>  currentPage - index -1
+            ).reverse();
+            setPageNation(newPageNation);
         }
-        setIsPageNation(isPageNation - 1);
     }
-    const handleNextBtn = () => {
-        if(isPageNation === 5){
-        return;
+    const handleNextPage = () => {
+        if(currentPage === lastPage) return alert('마지막 페이지입니다.') ;
+        setCurrentPage(currentPage + 1);
+        if (currentPage % 5 === 0) {
+            const newPageNation = Array.from(
+              { length: 5 < Math.ceil((total - (currentPage) * MAXIMUM) / MAXIMUM) ? 5 : Math.ceil((total - (currentPage) * MAXIMUM) / MAXIMUM) },
+              (_, index) => index + currentPage + 1
+            );
+            setPageNation(newPageNation);
         }
-        setIsPageNation(isPageNation + 1);
     }
 
     const handleResize = () => {
@@ -82,23 +104,23 @@ export default function PostList (){
             {secondLocation === 'cheeringGrounds' ? 
             <div className="boardList">
                 <ol>
-                    {data.map((el,index) => <li id={el.id} key={index}><Link to={`/fanZone/${secondLocation}Post/${el.id}`}><p>{el.title}</p><span>{el.author}</span><span className="division">{el.createdAt}</span><span>{el.views}</span></Link></li>)}
+                    {data.map((el,index) => <li id={el.id} key={index}><Link to={`/fanZone/${secondLocation}/${el.id}`}><p>{el.title}</p><span>{el.author}</span><span className="division">{el.createdAt}</span><span>{el.views}</span></Link></li>)}
                 </ol>
             </div>
                 :
             <div className="boardList">
                 <ol>
-                    {data.map((el,index) => <li id={el.id} key={index}><Link to={`/fanZone/${secondLocation}Post/${el.id}`}><p>{el.title}</p><span>{el.createdAt}</span><span>{el.views}</span></Link></li>)}
+                    {data.map((el,index) => <li id={el.id} key={index}><Link to={`/fanZone/${secondLocation}/${el.id}`}><p>{el.title}</p><span>{el.createdAt}</span><span>{el.views}</span></Link></li>)}
                 </ol>
             </div>
             }
     
             <div>
-                <button onClick={handlePrevBtn}>prev</button>
+                <button onClick={handlePrevPage}>prev</button>
                 <ol>
-                    {pageNation.map((el) => <li key={el} onClick={() => setIsPageNation(el)} className={isPageNation === el ? "active" : ''}>{el}</li>)}
+                    {pageNation.map((el) => <li key={el} onClick={() => setCurrentPage(el)} className={currentPage === el ? "active" : ''}>{el}</li>)}
                 </ol>
-                <button onClick={handleNextBtn}>next</button>
+                <button onClick={handleNextPage}>next</button>
             </div>
             </>
         )
@@ -111,25 +133,25 @@ export default function PostList (){
         <div className="boardList">
             <div><span>NO</span><span>구분</span><p>제목</p><span>작성자</span><span>작성일</span><span>조회수</span></div>
             <ol>
-                {data.map((el,index) => <li id={el.id} key={index}><Link to={`/fanZone/${secondLocation}Post/${el.id}`}><span>{el.id}</span><span>{el.type.toUpperCase()}</span><p>{el.title}</p><span>{el.author}</span><span>{formatDate(el.createdAt,'yyyy-MM-dd')}</span><span>{el.views}</span></Link></li>)}
+                {data.map((el,index) => <li id={el.id} key={index}><Link to={`/fanZone/${secondLocation}/${el.id}`}><span>{el.id}</span><span>{el.type.toUpperCase()}</span><p>{el.title}</p><span>{el.author}</span><span>{formatDate(el.createdAt,'yyyy-MM-dd')}</span><span>{el.views}</span></Link></li>)}
             </ol>
         </div>
             :
         <div className="boardList">
             <div><span>구분</span><p>제목</p><span>작성일</span><span>조회수</span></div>
             <ol>
-                {data.map((el,index) => <li id={el.id} key={index}><Link to={`/fanZone/${secondLocation}Post/${el.id}`}><span>{el.type.toUpperCase()}</span><p>{el.title}</p><span>{formatDate(el.createdAt,'yyyy-MM-dd')}</span><span>{el.views}</span></Link></li>)}
+                {data.map((el,index) => <li id={el.id} key={index}><Link to={`/fanZone/${secondLocation}/${el.id}`}><span>{el.type.toUpperCase()}</span><p>{el.title}</p><span>{formatDate(el.createdAt,'yyyy-MM-dd')}</span><span>{el.views}</span></Link></li>)}
             </ol>
         </div>
         }
 
-        <div>
-            <button onClick={handlePrevBtn}>prev</button>
-            <ol>
-                {pageNation.map((el) => <li key={el} onClick={() => setIsPageNation(el)} className={isPageNation === el ? "active" : ''}>{el}</li>)}
-            </ol>
-            <button onClick={handleNextBtn}>next</button>
-        </div>
+            <div>
+                <button onClick={handlePrevPage}>prev</button>
+                <ol>
+                    {pageNation.map((el) => <li key={el} onClick={() => setCurrentPage(el)} className={currentPage === el ? "active" : ''}>{el}</li>)}
+                </ol>
+                <button onClick={handleNextPage}>next</button>
+            </div>
         </>
     )
 }

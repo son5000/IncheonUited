@@ -84,7 +84,7 @@ function Games ({data,currentYear}){
                         <ol key={index}>
                             {el[Object.keys(el)].map((i) => {
                                 return(
-                                    <li key={i.date}>
+                                    <li key={i.date} className="matchPrevNext">
                                         {/* 뒷배경색 때문에 */}
                                         <div>
                                             <span> 

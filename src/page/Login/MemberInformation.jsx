@@ -57,10 +57,7 @@ export default function MemberInformation () {
         setIsValid(validTemp);
         }
       };
-      
-    const handleBlurPw = () => {
-        if(!isValid[1])alert(`비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다.`)
-    }
+
     
     // 핸드폰 
     // 텍스트에 '-' 추가 함수
@@ -107,12 +104,12 @@ const handleDuplicateCheck = async () => {
             }
             const data = await res.json(); 
             if(data.isAvailable){
-                alert('사용 가능한 아이디입니다.');
+                alert(data.message);
                 let vaildTemp = [...isValid];
                 vaildTemp[6] = true;
                 setIsValid(vaildTemp);
             }else{
-                alert('중복되는 아이디입니다. 다른 아이디를 입력하세요.');
+                alert(data.message);
                 // input value 초기화 
                 handleChange('userId','');
             }
@@ -121,7 +118,7 @@ const handleDuplicateCheck = async () => {
         }
     }else{
         if(formData.userId === ''){
-        return alert(' 값을 입력해주세요.')    
+        return alert(' 아이디를 입력해주세요.')    
         }
         return alert('올바른 값을 입력해주세요.')
     }
@@ -151,10 +148,10 @@ const handleDuplicateCheck = async () => {
                 alert('회원가입 중 오류가 발생했습니다.');
             }
         }else{
-            if(isValid[2] === false){
-                alert('비밀번호가 일치하지 않습니다.')
-            }
-            alert('입력정보를 다시 확인해주세요!');
+            if(!isValid[1])alert(`비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다.`)
+            else if(!isValid[2])alert('비밀번호가 일치하지 않습니다.')
+            else if(!isValid[6])alert('아이디 중복확인을 해주세요.')
+            else alert('입력정보를 다시 확인해주세요!');
         }
       };
 
@@ -171,7 +168,7 @@ const handleDuplicateCheck = async () => {
                 {!isValid[0] && formData.userId !== '' ? <strong>*유효하지 않은 값입니다. 6~ 12자 이내 영문 소문자, 숫자 조합</strong> : null}
             </div>
             <label htmlFor="userPassword">비밀번호</label>
-            <input onBlur={handleBlurPw} onChange={(e) => handleChange('userPw',e.target.value)} value={formData.userPw} id="userPassword" type="password" placeholder="비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다."/>
+            <input  onChange={(e) => handleChange('userPw',e.target.value)} value={formData.userPw} id="userPassword" type="password" placeholder="비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다."/>
             <small>※허용 특수문자는 !@#$%^*+=- 내에서 사용 가능합니다.</small>
             <label htmlFor="userPasswordCheck">비밀번호 확인</label>
             <input onChange={(e) => handleChange('userPwCheck',e.target.value)} value={formData.userPwCheck} id="userPasswordCheck" type="password" placeholder="비밀번호를 재 입력하세요." />

@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 
+
 // slide component
 const Slider = () => {
-  
   
   // slide 요소의 click  으로 앞뒤로 한칸씩 움직이는 애니메이션을 구현할건데
   // 현재의 slide 가 어떤 상태인지 , 어떤 slide 요소를 보여주고 있는지 판단하기 위해
@@ -51,7 +51,32 @@ const Slider = () => {
           key={index}
             onClick={() => handleClick(index)} // 클릭 시 슬라이드 이동
           >
-           slide {index}
+              <div className='mainPrevNextMatch'>
+                    {/* 뒷배경색 때문에 */}
+                    <div>
+                        <span> 
+                            <img src="/images/matchCenter/logo_match_kleague.png" alt="대회아이콘" />
+                        </span>
+                        <p>K-LEAGUE</p>
+                        <small>인천축구전용경기장</small>
+                        <b>10라운드</b>
+                    </div>
+                    <div>
+                        <span>
+                            <span>
+                                <img src="/images/matchCenter/schedul_icon_인천.png" alt={`인천 심볼 이미지`} />
+                            </span>
+                            <strong>인천</strong>
+                        </span>
+                        1 : 0
+                        <span>
+                            <span>
+                                <img src={`/images/matchCenter/schedul_icon_강원.png`} alt={`인천 심볼 이미지`} />
+                            </span>
+                            <strong>강원</strong>
+                        </span>
+                    </div>
+               </div>
           </div>
         ))}
       </div>
