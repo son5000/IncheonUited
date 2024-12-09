@@ -649,4 +649,20 @@
   }
 }
 
+.postWrite {
+   border-radius: 20px;
+  /* > * { color: black;} */
+  > form { padding: 20px;
+     > * {display: block; margin-bottom: 20px}
+     > label {font-size: 26px; font-weight: 600;}
+     > input,textarea { border: 1px solid  black; border-radius: 10px; width: 100%;}
+     > input{ height: 64px; padding-inline: 10px; font-size: 20px; font-weight: 500;}
+     > textarea {height: 600px; padding: 10px;}
+     > strong {color: var(--color--blue);}
+     > ul {
+      > li{line-height: 34px;}
+     }
+     > button {cursor: pointer; width: 100%; border-radius: 10px; background-color: var(--color--blue); line-height: 64px;}
+  }
+}
 

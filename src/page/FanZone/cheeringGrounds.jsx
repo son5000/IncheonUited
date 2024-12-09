@@ -15,9 +15,10 @@ export default function CheeringGrounds(){
 
     const handleWrite = () => {
         if(state){
-            navigate('/')
+            navigate('/fanZone/cheeringGrounds/writePost')
         }else{
-            return alert('로그인 후 이용하실 수 있습니다.')
+            alert('로그인 후 이용하실 수 있습니다.')
+            navigate('/login')
         }
     }
 

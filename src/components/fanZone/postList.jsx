@@ -47,7 +47,7 @@ export default function PostList (){
             setTotal( data.totalPostCount)
             // 현재페이지 번호가 6보다 작을 경우의 pageNation 배열 생성 6 <= current 경우는 next함수에서 새로운 배열 생성
             if(currentPage < 6){
-                setPageNation(Array.from({ length: Math.ceil(total / 10) > 5 && 5 }, (_, index) => index + 1));
+                setPageNation(Array.from({ length: Math.ceil(total / 10) > 5 ? 5 : Math.ceil(total / 10) }, (_, index) => index + 1));
             }
           } catch (error) {
             alert(error.message);  

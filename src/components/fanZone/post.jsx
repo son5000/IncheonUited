@@ -75,11 +75,13 @@ export default function Post (){
 
             </div>
             <ul>
+              {previousPost &&
                 <li>
                 <Link to={`/fanZone/announcement/${previousPost.id}`}>
                     <span>이전글</span><div>{previousPost.title}</div><p className="postCreatedAtViews"><small>작성일</small><span>{formatDate(previousPost.createdAt,'yyyy-MM-dd')}</span>|<small>조회수</small><span>{previousPost.views}</span></p>
                   </Link>
                 </li>
+              }               
                 <li>
                   <Link to={`/fanZone/announcement/${nextPost.id}`}>
                     <span>다음글</span><div>{nextPost.title}</div><p className="postCreatedAtViews"><small>작성일</small><span>{formatDate(nextPost.createdAt,'yyyy-MM-dd')}</span>|<small>조회수</small><span>{nextPost.views}</span></p>

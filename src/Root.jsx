@@ -40,6 +40,7 @@ import FrequentlyQandA from "./page/TicketMembership/frequentlyQandA"
 import { Provider } from "react-redux";
 import store from "./controllers/Redux/setting.jsx"
 import Post from "./components/fanZone/post";
+import WritePost from './components/fanZone/writePost.jsx'
 
 export default function Root() {
 
@@ -74,6 +75,7 @@ export default function Root() {
                 <Route path="announcement/:id" element={<Post />} />
                 <Route  path="cheeringGrounds" element={<CheeringGrounds />} />
                 <Route path="cheeringGrounds/:id" element={<Post />} />
+                <Route path="cheeringGrounds/writePost" element={<WritePost />} />
                 <Route  path="cheerSong" element={<CheerSong />} />
                 <Route  path="gallery" element={<Gallery />} />
                 <Route  path="magazine" element={<Magazine />} />
