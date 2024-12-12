@@ -12,8 +12,8 @@ export default function AdminPageBox ({children}) {
             {loggedInUserName} 관리자님
             <Link to={"/admin/login"}>로그아웃</Link>
         </div>
-        <div className="tabMenu">
-            <aside>
+        <div>
+            <aside className="tabMenu">
                 <ul>
                     <li><NavLink to={'/admin/main'}>회원관리</NavLink></li>
                     <li>

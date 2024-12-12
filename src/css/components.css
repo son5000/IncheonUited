@@ -611,7 +611,7 @@
   .header { display: flex; justify-content: space-between; padding-inline: 30px; align-items: center; border-bottom: 2px solid #262626; padding-block: 10px;
     > a:nth-of-type(1){background:url(../../public/images/main/icon_인천.png) no-repeat center / auto; display: block; height: 90px; text-indent: -9999px; width: 100px;}
     > a:nth-of-type(2) {line-height: 40px; border: 2px solid var(--color--blue); padding-inline: 10px; border-radius: 10px;}}
-  .tabMenu { display: flex; 
+  > div:nth-of-type(2) { display: flex; 
     > aside {  font-size: 16px;
       > ul { cursor: pointer; width: 150px; text-indent: 30px;
         > li{line-height: 60px; height: 60px; overflow: hidden; border-bottom: 1px solid #262626;
@@ -626,7 +626,7 @@
         }
       }
     }
-    > .content {height: 1000px; border-left: 1px solid #262626;}
+    > .content {height: 1000px; width: 100%; border-left: 1px solid #262626;}
   }
 
 }
