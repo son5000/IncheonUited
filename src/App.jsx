@@ -26,12 +26,12 @@ export default function App() {
 
   return (
     <>
-      {firstLocation !== "managementTeam" && <Header />}
-      {!isMobile && firstLocation !== "managementTeam" && <QuickSns />}
+      {firstLocation !== "admin" && <Header />}
+      {!isMobile && firstLocation !== "admin" && <QuickSns />}
       <div className={`${firstLocation}Page`}>
         <Outlet />
       </div>
-      {firstLocation !== "managementTeam" && <Footer />}
+      {firstLocation !== "admin" && <Footer />}
     </>
   );
 }

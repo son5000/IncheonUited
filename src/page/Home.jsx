@@ -21,12 +21,12 @@ export default function Home() {
         {/* BLUE MARKET */}
         <section className="marketArea size1442">
           <h2 className="hStyle">INCHEON UNITED BLUE MARKET</h2>
-          <a className="a-after" href="###">블루마켓 바로가기</a>
+          <a className="a-after" rel="noreferrer" target="_blank" href="https://www.incheonutdmarket.com/">블루마켓 바로가기</a>
           <ul>
             {products.map((el)=>{
               return(
                 <li key={el.id} herf="###">
-                  <a href="###">
+                  <a rel="noreferrer" target="_blank" href="https://www.incheonutdmarket.com/">
                     <img src={el.image} alt={el.title} />
                     <p>{el.title}</p>
                   </a>

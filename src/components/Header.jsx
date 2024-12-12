@@ -128,11 +128,13 @@ export default function Header() {
         </h1>
         {firstLocation && (<span>{firstLocation.toUpperCase()}</span>)}
         <nav ref={hamburgerMenuRef} onClick={() => handleHamburger()} className={OpenHamburgerMenu ? "active" : ""}>
-          { isMobile && 
-          <div>
-          <Link to={"login"}>LOGIN</Link>
-          <Link to={"login/joinUs"}>JOIN US</Link>
-          </div>
+          { isMobile &&  
+            <div> { loggedInUserName ? 
+            <><Link>{loggedInUserName}</Link><Link onClick={handleLogout}>LOGOUT</Link></>
+            :
+            <><Link to={"login"}>LOGIN</Link><Link to={"login/joinUs"}>JOIN US</Link></>
+              }
+            </div>
           }
           <ul>
             <li className={isActive[0] ? "active" : ""}>
@@ -227,7 +229,7 @@ export default function Header() {
               </ul>
             </li>
             <li>
-              <a href="###">BLUE MARKET</a>
+              <a rel="noreferrer" target="_blank" href="https://www.incheonutdmarket.com/">BLUE MARKET</a>
             </li>
           </ul>
           {isMobile && <QuickSns />}

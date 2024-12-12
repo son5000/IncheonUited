@@ -13,7 +13,7 @@ export default function Post (){
   const [ nextPost , setNextPost] = useState(null);
 
   useEffect(() => {
-    const fetchPost = async () => {
+    const getPostData = async () => {
       try {
         const res = await fetch(`http://localhost:5000/post/${ id }`);
         if(!res.ok){
@@ -29,7 +29,7 @@ export default function Post (){
         navigate(-1)
       }
     }
-    fetchPost();
+    getPostData();
   },[navigate,id])
 
   console.log(previousPost);

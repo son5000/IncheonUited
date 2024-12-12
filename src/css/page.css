@@ -851,7 +851,7 @@
 
 /* managementTeamPage */
 
-.managementTeamPage {
+.adminPage {
   > .loginArea { max-width: 580px;  margin-inline: auto; height: 100vh;
       h2 {margin-bottom: 30px; font-size: 34px; text-align: center; padding-top: calc((100vh - 432px) / 2);}
       > form { max-width: 570px; width: 100%; margin: 0 auto; font-size: 18px; margin-bottom: 35px;

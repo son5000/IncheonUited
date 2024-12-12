@@ -1,17 +1,21 @@
-import {Link} from "react-router-dom"
+import {Link, NavLink} from "react-router-dom"
+import { useSelector } from "react-redux"
 
-export default function ManagerPageBox ({children}) {
+export default function AdminPageBox ({children}) {
+
+    const loggedInUserName = useSelector(state => state.LoginLogout.userId);
 
     return (
         <>
-        <div>
-            <Link to={"/managementTeam/main"}>인천유나이티드 관리자 페이지</Link>
-            <Link to={"/managementTeam/login"}>로그아웃</Link>
+        <div className="header">
+            <Link to={"/admin/main"}>인천유나이티드 관리자 페이지</Link>
+            {loggedInUserName} 관리자님
+            <Link to={"/admin/login"}>로그아웃</Link>
         </div>
-        <div>
+        <div className="tabMenu">
             <aside>
                 <ul>
-                    <li><Link>회원관리</Link></li>
+                    <li><NavLink to={'/admin/main'}>회원관리</NavLink></li>
                     <li>
                         선수단관리
                         <ul>
