@@ -862,6 +862,24 @@
           > button {line-height: 64px; background-color: var(--color--blue); cursor: pointer;}
       }
   }
-
-
+   .usersArea{ height: 1000px; width: 100%; border-left: 1px solid #262626; padding-inline: 30px;
+    h2 { font-size: 42px; margin-top: 30px;}
+    > div{
+      .title { text-indent: 30px; font-size: 28px; margin-block: 25px;
+        > strong{color: var(--color--blue); font-size: 34px;}
+      }
+      > div:nth-of-type(1){ border-bottom: 2px dashed white;
+          form { margin-bottom: 10px;
+            > label { display: block; margin-bottom: 20px;}
+            > input {text-indent: 10px; width: 30%; line-height: 30px; border-radius: 5px;  margin-bottom: 20px; margin-right: 20px; color:black; } 
+            > button {background-color: var(--color--blue); line-height: 30px;padding-inline: 10px; border-radius: 10px; font-size: 16px; cursor: pointer;}
+          }
+          table{ margin-bottom: 20px; width: 100%; 
+            caption{font-size: 25px; margin-bottom: 10px; text-align: left;}
+            th,td{ font-size: 18px; border: 1px solid white; line-height: 30px; padding-inline: 10px; text-align: center;}
+            th{font-weight: 400; color: var(--color--blue);}
+          }
+        }
+      }
+    }
 }
