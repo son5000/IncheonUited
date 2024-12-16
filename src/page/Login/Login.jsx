@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import { ActionLoginLogout } from '../../controllers/Redux/setting.jsx'
 export default function Login () {
 
-    const backendUrl = process.env.REACT_APP_BACKEND_URL;
-    console.log(backendUrl);
+    // const backendUrl = process.env.REACT_APP_BACKEND_URL;
+    // console.log(backendUrl);
 
     const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ export default function Login () {
             return (alert('아이디와 비밀번호를 입력해 주세요.'))
         }
         try{
-            const response = await fetch(`${backendUrl}/user/login`, {
+            const response = await fetch(`http://localhost:5000/user/login`, {
                 method:'POST',
                 headers:{
                     "Content-Type" : "application/json",

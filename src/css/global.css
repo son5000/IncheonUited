@@ -198,7 +198,6 @@
 }
 
 @media (width <= 1520px){
-
     footer{padding-inline: 30px; border-top: 1px solid var(--color--gray);
         > div:nth-of-type(1) {display: none;}
         > div:nth-of-type(2) {padding-block: 50px; font-weight: 300; color: #bbbbbb;display:flex; font-size: 16px; flex-wrap: wrap;

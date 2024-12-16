@@ -32,7 +32,6 @@ export default function Post (){
     getPostData();
   },[navigate,id])
 
-  console.log(previousPost);
 
   if(!post){
     return null;

@@ -19,9 +19,9 @@ export default function Event(){
             <h2 className="hiddenH2">이벤트</h2>
             <YearSearchBox handleClick={handleClick} SelectedYear={selectedYear} />
             <ul>
-                {eventData.map((el)=> {
+                {eventData.map((el , index)=> {
                 return(
-                <li>
+                <li key={index}>
                     <Link>
                         <img src={el.src} alt={`${el.text}이미지`}/>
                         <mark>종료</mark>

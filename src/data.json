@@ -14,27 +14,32 @@
     {
         "id":1,
         "title": "2024 유니폼 세컨드 킷 (2nd KIT)", 
-        "image":"/images/main/products_01.png" 
+        "image":"/images/main/products_01.png" ,
+        "url" : "https://www.incheonutdmarket.com/goods/goods_view.php?goodsNo=1000000518"
     },
     {
         "id":2,
         "title": "2024 유니폼 서드 킷 (3rd KIT)", 
-        "image":"/images/main/products_02.png" 
+        "image":"/images/main/products_02.png" ,
+        "url" : "https://www.incheonutdmarket.com/goods/goods_view.php?goodsNo=1000000534"
     },
     {
         "id":3, 
         "title": "2024 유니폼 퍼스트 킷 (1st KIT)", 
-        "image":"/images/main/products_03.png" 
+        "image":"/images/main/products_03.png" ,
+        "url" : "https://www.incheonutdmarket.com/goods/goods_view.php?goodsNo=1000000514"
     },
     {
         "id":4,
         "title": "2024 전사 스카프 1호", 
-        "image":"/images/main/products_04.png" 
+        "image":"/images/main/products_04.png" ,
+        "url" : "https://www.incheonutdmarket.com/goods/goods_view.php?goodsNo=1000000548"
     },
     {
         "id":5,
         "title": "IUFC SQUARE 93L/24”", 
-        "image":"/images/main/products_05.png" 
+        "image":"/images/main/products_05.png" ,
+        "url" : "https://www.incheonutdmarket.com/goods/goods_view.php?goodsNo=1000000504"
     }
     ],
 

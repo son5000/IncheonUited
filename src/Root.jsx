@@ -1,3 +1,4 @@
+import '../src/css/import.css'
 import { BrowserRouter, Routes ,Route } from "react-router-dom";
 import App from "./App";
 import Home from "./page/Home";
@@ -32,7 +33,6 @@ import UtdReporter from "./page/FanZone/utdReporter";
 import Vod from "./page/FanZone/vod";
 import LostItem from "./page/FanZone/lostItem";
 import Event from "./page/FanZone/event";
-import '../src/css/import.css'
 import BuyTickets from "./page/TicketMembership/buyTickets";
 import BuyMembership from "./page/TicketMembership/buyMembership";
 import GroupTour from "./page/TicketMembership/groupTour";

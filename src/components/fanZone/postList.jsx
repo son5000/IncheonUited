@@ -50,8 +50,8 @@ export default function PostList (){
                 setPageNation(Array.from({ length: Math.ceil(total / 10) > 5 ? 5 : Math.ceil(total / 10) }, (_, index) => index + 1));
             }
           } catch (error) {
-            alert(error.message);  
-            navigate('/');  
+            alert('백엔드 서버 배포 작업을 진행 중입니다!');  
+            // navigate('/');  
           }
         };
         

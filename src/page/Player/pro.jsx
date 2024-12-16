@@ -37,56 +37,44 @@ export default function Pro () {
         <>
           <Banner aniWidth={'50%'}/>
           <section className="size1442 proArea">
-            <h2>프로 선수들 프로필</h2>
-            <TabMenu isMobile={isMobile} isCategori={isCategori} setIsCategori={setIsCategori} playersData={playersData} />
-            <ul>
-                {newFeed.map((el,index) => 
-                <li key={index}>
-                    <p>{el.title}</p>
-                    {el.categori === '군입대'|| el.categori === '임대'|| el.categori ==='우선지명' ? 
-                    <ul>
-                        {el.profile.map((i,index) => 
-                        <li key={i.id || index}>
-                            <span>
-                             <img src={i.image} alt={i.name} />
-                            </span>
-                            <p>{i.name}<span>{i.positionAndAffiliation}</span></p>
+                <h2>프로 선수들 프로필</h2>
+                <TabMenu isMobile={isMobile} isCategori={isCategori} setIsCategori={setIsCategori} playersData={playersData} />
+                <ul>
+                    {newFeed.map((el, index) => (
+                        <li key={el.id || index}>
+                            <p>{el.title}</p>
+                            {el.categori === '군입대' || el.categori === '임대' || el.categori === '우선지명' ? 
+                            <ul>
+                                {el.profile.map((i, index) => (
+                                    <li key={i.id || index}>
+                                        <span>
+                                            <img src={i.image} alt={i.name} />
+                                        </span>
+                                        <p>{i.name}<span>{i.positionAndAffiliation}</span></p>
+                                    </li>
+                                ))}
+                            </ul>
+                            :
+                            <ul>
+                                {el.profile.map((i, index) => (
+                                    <li key={i.id || index}>
+                                        <img src={i.image} alt={i.name}/>
+                                        <div>
+                                            <span>{i.id}</span>
+                                            <p><span>{i.name}</span><br />
+                                                {i.englishName}
+                                            </p>
+                                        </div>
+                                        <button onClick={() => setIsPopup(i.name)}>프로필</button>
+                                        {isPopup === i.name && <Popup key={i.id} scrollPosition={currentScrollY} data={i} isMobile={isMobile} handlePopupClose={() => setIsPopup('')} />}
+                                    </li>   
+                                ))}
+                            </ul>
+                            }
                         </li>
-                        )}
-                    </ul>
-                    :
-                    <ul>
-                        {el.profile.map((i,index)=>
-                            <>
-                            <li key={i.id || index}>
-                            <img src={i.image} alt={i.name}/>
-                            <div>
-                                <span>{i.id}</span>
-                                <p><span>{i.name}</span><br />
-                                   {i.englishName}
-                                </p>
-                            </div>
-                            <button onClick={() => {setIsPopup(i.name)
-                            }}>프로필</button>
-                            </li>      
-                            {/* Popup! */}
-                            {/* popup  요소를 컴포넌트 렌더링과 동시에 항상 같이 렌더링 하는게 아니라 */}
-                            {/* ispopup의 요소와 데이터의 name 값이 같을때 => true 값이 됐을때만 렌더링이 되게 만들었다. */}
-                            {/* 이렇게 구성하니 좋은점은 props 를 많이? 아꼈다는 것이다. */}
-                            {/* 1. toggle class를 구성할 필요가 없다. */}
-                            {/* 애초에 렌더링이 되지 않기 때문에 class를 toggle하지 않아도 되는것이다. */}
-                            {/* 2. css display none */}
-                            {/* 기존에 toggle class방식으로 display none , active => display block */}
-                            {/* css 코드도 줄였다. */}
-                            {isPopup === i.name && <Popup key={i.id} scrollPosition={currentScrollY} data={i} isMobile={isMobile}  handlePopupClose={() => setIsPopup('')} />}
-                            </>
-                        )}
-                    </ul>
-                    }
-                </li>
-                )}
-            </ul>
-          </section>
+                    ))}
+                </ul>
+            </section>
         </>
 
     )

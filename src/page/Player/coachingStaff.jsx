@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react"
 import Banner from "../../components/Banner"
 import data from "../../data.json"
+import React from "react";
 
 const staffs = data.staffs;
 
@@ -83,71 +84,101 @@ export default function CoachingStaff () {
                 </div>
                 <h3>INCHEON UNITED COACH</h3>
                 <ul>
-                    {staffs.map((el) => { return <><li key={el.id}><img src={el.image} alt={el.name} /><button onClick={()=> setIsPopup(el.englishName)}>프로필</button><p>{el.name} <br/><span>{el.englishName}</span></p></li>
-                    <div className={el.englishName === isPopup ? "popup-OverLay active" : "popup-OverLay"}>
-                        <div className="popup-Content">
+                {staffs.map((el, index) => (
+                      <React.Fragment key={el.id}>
+                        <li key={el.id}>
+                          <img src={el.image} alt={el.name} />
+                          <button onClick={() => setIsPopup(el.englishName)}>프로필</button>
+                          <p>
+                            {el.name} <br />
+                            <span>{el.englishName}</span>
+                          </p>
+                        </li>
+                        <div
+                          key={el.id + index} // id 기반의 고유한 key 설정
+                          className={el.englishName === isPopup ? "popup-OverLay active" : "popup-OverLay"}
+                        >
+                          <div className="popup-Content">
                             <button onClick={() => setIsPopup('')}>닫힘 버튼</button>
                             <img src={el.image} alt={el.name} />
                             <div>
-                                <div>
-                                    <button onClick={()=>setIsActiveInPopup(true)} className={isActiveInPopup ? 'active' : ''}>프로필</button>
-                                    <button onClick={()=>setIsActiveInPopup(false)} className={!isActiveInPopup ? 'active' : ''}>약력</button>
-                                </div>
-                                {
-                                isActiveInPopup ?    
+                              <div>
+                                <button
+                                  onClick={() => setIsActiveInPopup(true)}
+                                  className={isActiveInPopup ? 'active' : ''}
+                                >
+                                  프로필
+                                </button>
+                                <button
+                                  onClick={() => setIsActiveInPopup(false)}
+                                  className={!isActiveInPopup ? 'active' : ''}
+                                >
+                                  약력
+                                </button>
+                              </div>
+                              {isActiveInPopup ? (
                                 <>
-                                <p>{el.name} <span>{el.englishName}</span></p>
-                                <ul>
+                                  <p>{el.name} <span>{el.englishName}</span></p>
+                                  <ul>
                                     <li><span>직책</span>{el.profile["position"]}</li>
                                     <li><span>생년월일</span>{el.profile["birthData"]}</li>
                                     <li><span>출신학교</span>{el.profile["schoolOfOrigin"]}</li>
-                                </ul>
+                                  </ul>
                                 </>
-                                :
+                              ) : (
                                 <>
-                                <ul>
-                                    <li style={{'marginBottom':'20px'}}>
-                                        <span>지도자경력</span>
-                                        <div>
-                                            <p>
-                                               {el.briefHistory["LeadershipExperience"].year.map((i)=> <>{i}<br /></> )}
-                                            </p>
-                                            <p>
-                                               {el.briefHistory["LeadershipExperience"].text.map((i)=> <>{i}<br /></> )}
-                                            </p>
-                                        </div>    
+                                  <ul>
+                                    <li style={{ marginBottom: '20px' }}>
+                                      <span>지도자경력</span>
+                                      <div>
+                                        <p>
+                                          {el.briefHistory["LeadershipExperience"].year.map((i, index) => (
+                                            <React.Fragment key={index}>{i}<br /></React.Fragment>
+                                          ))}
+                                        </p>
+                                        <p>
+                                          {el.briefHistory["LeadershipExperience"].text.map((i, index) => (
+                                            <React.Fragment key={index}>{i}<br /></React.Fragment>
+                                          ))}
+                                        </p>
+                                      </div>    
                                     </li>
-                                    {
-                                        el.briefHistory["playerCareer"].year[0] == null ?
-                                    <li>
-                                        <span style={{display:`${el.briefHistory["playerCareer"].year[0]== null && el.briefHistory["playerCareer"].text[0] == null ? 'none' : ''}`}}>자격증</span>
+                                    {el.briefHistory["playerCareer"].year[0] == null ? (
+                                      <li>
+                                        <span style={{ display: `${el.briefHistory["playerCareer"].year[0] == null && el.briefHistory["playerCareer"].text[0] == null ? 'none' : ''}` }}>자격증</span>
                                         <div>
-                                            <p>
-                                               {el.briefHistory["playerCareer"].text.map((i)=> <>{i}<br /></> )}
-                                            </p>
+                                          <p>
+                                            {el.briefHistory["playerCareer"].text.map((i, index) => (
+                                              <React.Fragment key={index}>{i}<br /></React.Fragment>
+                                            ))}
+                                          </p>
                                         </div>    
-                                     </li>
-                                        :
-                                    <li>
+                                      </li>
+                                    ) : (
+                                      <li>
                                         <span>선수경력</span>
                                         <div>
-                                            <p>
-                                               {el.briefHistory["playerCareer"].year.map((i)=> <>{i}<br /></> )}
-                                            </p>
-                                            <p>
-                                               {el.briefHistory["playerCareer"].text.map((i)=> <>{i}<br /></> )}
-                                            </p>
+                                          <p>
+                                            {el.briefHistory["playerCareer"].year.map((i, index) => (
+                                              <React.Fragment key={index}>{i}<br /></React.Fragment>
+                                            ))}
+                                          </p>
+                                          <p>
+                                            {el.briefHistory["playerCareer"].text.map((i, index) => (
+                                              <React.Fragment key={index}>{i}<br /></React.Fragment>
+                                            ))}
+                                          </p>
                                         </div>    
-                                     </li>
-                                    }
-                                    
-                                </ul>
+                                      </li>
+                                    )}
+                                  </ul>
                                 </>
-                                }
+                              )}
                             </div>
-                         </div>
-                    </div>
-                     </>} )}
+                          </div>
+                        </div>
+                      </React.Fragment>
+                    ))}
                 </ul>
         </section>
         </>

@@ -26,7 +26,7 @@ export default function Home() {
             {products.map((el)=>{
               return(
                 <li key={el.id} herf="###">
-                  <a rel="noreferrer" target="_blank" href="https://www.incheonutdmarket.com/">
+                  <a rel="noreferrer" target="_blank" href={el.url}>
                     <img src={el.image} alt={el.title} />
                     <p>{el.title}</p>
                   </a>
@@ -48,11 +48,11 @@ export default function Home() {
           <ul>
             <li>
               <h3 className="hStyle">PHOTO</h3>
-              <a href="###">인천유나이티드 사진첩</a>
+              <a href="/fanZone/gallery">인천유나이티드 사진첩</a>
             </li>
             <li>
               <h3 className="hStyle">MAGAZINE</h3>
-              <a href="###">인천유나이티드 매거진</a>
+              <a href="/fanZone/magazine">인천유나이티드 매거진</a>
             </li>
             <li>
               <h3 className="hStyle">IUFC VIDEO</h3>
@@ -79,8 +79,8 @@ export default function Home() {
               <br /> 보다 좋은 환경에서 축구를 마음껏 즐길 수 있도록 다양한
               프로그램을 진행하고 있습니다.
             </p>
-            <a className="a-before" href="###">성인축구클리닉 결제</a>
-            <a className="a-before" href="###">공지사항 NOTICE</a>
+            <a className="a-before" href="/fanZone/announcement">성인축구클리닉 결제</a>
+            <a className="a-before" href="/fanZone/announcement">공지사항 NOTICE</a>
          </div>
         </section>
 
@@ -89,19 +89,19 @@ export default function Home() {
           <h2 className="hStyleItalic">IUFC EVENT</h2>
           <ul>
             <li>
-              <a href="###">
+              <a href="/ticketMembership/buyTickets">
                 <strong>EVENT1</strong>
                 <p className="a-after">8/24(토) 전북전 홈경기 예매</p>
               </a>
             </li>
             <li>
-              <a href="###">
+              <a href="/ticketMembership/buyTickets">
                 <strong>EVENT2</strong>
                 <p className="a-after">2024 홈경기 티켓 예매 안내</p>
               </a>
             </li>
             <li>
-              <a href="###">
+              <a href="/ticketMembership/buyTickets">
                 <strong>EVENT3</strong>
                 <p className="a-after">시민주주 정보 최신화 안내</p>
               </a>

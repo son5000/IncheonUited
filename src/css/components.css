@@ -1,7 +1,3 @@
-
-
-/* mainSlide */
-
 /* mainSlide */
 
 @media (width > 1120px){
@@ -50,7 +46,6 @@
       
 
 @media (width > 1510px) {
-
   .mainPage{
     /* matchSlide */
     .matchArea{
@@ -100,7 +95,7 @@
             /* custom Arrow */
             > .btn-next { background: url(../../public/images/main/_.png) no-repeat center / cover; top: 35%; right: -2%} 
             > .btn-prev { background: url(../../public/images/main/_-1.png) no-repeat center / cover; top: 35%; ;} 
-            .slide-item > div { margin: 0 10px; padding: 0; border-radius: 20px; box-sizing: border-box; display: flex; flex-direction: column; 
+            .slide-item > a { margin: 0 10px; padding: 0; border-radius: 20px; box-sizing: border-box; display: flex; flex-direction: column; 
               img { display: block; width: 100%; margin-bottom: 26px; border-radius: 20px 20px 0 0; background-color: #161616; } 
               p { width: 100%; font-size: 18px; line-height: 25px; max-width: 340px; font-weight: 400; display: inline-block; } 
               strong { margin-right: 5px; text-transform: capitalize; display: inline; color: #ffea00; } 
@@ -171,7 +166,7 @@
        /* custom Arrow */
        > .btn-next { background: url(../../public/images/main/_.png) no-repeat center / cover; top: 35%; right: -2%} 
        > .btn-prev { background: url(../../public/images/main/_-1.png) no-repeat center / cover; top: 35%; ;} 
-       .slide-item > div { margin: 0 10px; padding: 0; border-radius: 20px; box-sizing: border-box; display: flex; flex-direction: column; 
+       .slide-item > a { margin: 0 10px; padding: 0; border-radius: 20px; box-sizing: border-box; display: flex; flex-direction: column; 
          img { display: block; width: 100%; margin-bottom: 20px; border-radius: 20px 20px 0 0; background-color: #161616; } 
          p { width: 100%; font-size: 16px; line-height: 20px; max-width: 340px; font-weight: 400; display: inline-block; } 
          strong { margin-right: 5px; text-transform: capitalize; display: inline; color: #ffea00; } 
@@ -181,7 +176,7 @@
 }
 
       
-      /* league ranking table animation */
+/* league ranking table animation */
 @keyframes slideBound{
   0% { -webkit-transform: translateY(0); transform: translateY(0);}
   25% { -webkit-transform: translateY(-50px); transform: translateY(-50px);}
@@ -256,6 +251,7 @@
       }
     }
 }
+
 /* seatInformation : club => seat , ticket/membership => buytickets  */
 @media(width > 1120px){
   .seat {width: 100%;
@@ -312,7 +308,6 @@
 
 
 /* player : calendar => schedulePage */
-
 @media(width > 1120px){
   .scheduleArea{
     .calendar{width: 100%;
@@ -345,7 +340,6 @@
 }
 
 /* matchCenter : selectedBox => gameSchedulePage , rankingPage */
-
 @media (width > 1120px){
 
   .selectedBox{display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 70px;
@@ -534,6 +528,7 @@
       }
     } 
 }
+
 @media (width <= 1120px){
   .year-search-box {margin-block: 20px; display: flex; gap: 20px; align-items: center; justify-content: flex-end;
     > *{ background-color: #262626;}

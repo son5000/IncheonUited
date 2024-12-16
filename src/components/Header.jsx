@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLocation ,  Link } from "react-router-dom";
 import QuickSns from "../../src/components/QuickSns";
 import { useSelector , useDispatch } from "react-redux";
-import { ActionLoginLogout } from "../controllers/Redux/setting.jsx"
+import { ActionClear } from "../controllers/Redux/setting.jsx"
 export default function Header() {
 
   const loggedInUserName = useSelector(state => state.LoginLogout.userId);
@@ -15,7 +15,7 @@ export default function Header() {
       credentials:'include',
       }).then((response) => {
         if(response.ok){
-        dispatch(ActionLoginLogout(''));
+        dispatch(ActionClear());
         alert('로그아웃 되었습니다.')
         
       }else{

@@ -94,7 +94,7 @@ export default function Calendar () {
       }
       <ol>
         {calendarTiles.map((el,index)=> 
-           <li className={isSameDay(today,el) && 'active' } key={index}><span>{!isMobile ? format(el,'d') : (`${format(el,'yyyy-MM-dd')} (${format(el, 'EE', { locale: ko })})`)}</span></li>
+           <li className={isSameDay(today,el) ? 'active' : '' } key={index}><span>{!isMobile ? format(el,'d') : (`${format(el,'yyyy-MM-dd')} (${format(el, 'EE', { locale: ko })})`)}</span></li>
         )}
       </ol>
       <p>※ 훈련 일정 및 장소 등은 사전 공지 없이 변경될 수 있습니다..</p>
