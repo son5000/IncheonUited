@@ -107,25 +107,6 @@ function TabMenu ({isMobile,isCategori,playersData,setIsCategori}) {
 }
 
 
-
-/* proArea 의 선수프로필의 popup 을 만드는데 발생했던 에러사항 */
-
-/* 팝업안에서  scroll 이 동작하는데 오류가 있었다. */
-/* 팝업 내부에서는 바깥의 scroll 이 동작을 하면 안되고 */
-/* 내부의 컨텐츠의 양이 많아서 내부의 scroll만 표시되고 동작이 되야하는 것이다. */
-
-/* 그래서 useEfect 의  callback 함수의 내부에 */
-/* 조건문으로  ispopup 값이 true 일때만 즉, popup이 표시되고 있을때만 */
-/* 바깥의 scroll 을 overflow hidden  으로 막아주었다. */
-/* 당연하게 ispopup 의 값이 false 일때는 auto 로 설정해 다시 scroll을 표시했다. */
-
-/* 그리고 컴포넌트가 unMount될때도 마찬가지로 auto 로 설정해주고 */
-/* 의존성배열에 ispopup state 를 넘겨 ispopup 의 값이 변할때만 함수 내부가 작동하게 만들었다. */
-
-// 이렇게 구성하고 속성으로 overFlowY auto 를 주고 마무리했다.
-
-
-
 function Popup ({data,handlePopupClose,isMobile}) {
     
 return (

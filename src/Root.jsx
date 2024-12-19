@@ -41,6 +41,7 @@ import { Provider } from "react-redux";
 import store from "./controllers/Redux/setting.jsx"
 import Post from "./components/fanZone/post";
 import WritePost from './components/fanZone/writePost.jsx'
+import AdminPlayer from './page/Admin/AdminPlayer.jsx';
 
 export default function Root() {
 
@@ -103,6 +104,7 @@ export default function Root() {
               <Route path="admin">
                 <Route path="login" element ={<AdminLogin />} />
                 <Route path="main" element ={<AdminMain />} />
+                <Route path="player" element={<AdminPlayer />} />
               </Route>
             </Route>
           </Routes>
