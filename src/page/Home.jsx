@@ -2,6 +2,7 @@ import MainSlide  from "../components/main/MainSlide";
 import LeagueAndMatch from "../components/main/LeagueAndMatch";
 import FeedSlide from "../components/main/FeedSlide";
 import data from '../data.json';
+import { Link } from "react-router-dom";
 
 const  products = data.products;
 
@@ -48,11 +49,11 @@ export default function Home() {
           <ul>
             <li>
               <h3 className="hStyle">PHOTO</h3>
-              <a href="/fanZone/gallery">인천유나이티드 사진첩</a>
+              <Link to="/fanZone/gallery">인천유나이티드 사진첩</Link>
             </li>
             <li>
               <h3 className="hStyle">MAGAZINE</h3>
-              <a href="/fanZone/magazine">인천유나이티드 매거진</a>
+              <Link to="/fanZone/magazine">인천유나이티드 매거진</Link>
             </li>
             <li>
               <h3 className="hStyle">IUFC VIDEO</h3>

@@ -19,7 +19,7 @@ export default function App() {
 
   useEffect(() => {
       window.scrollTo(0, 0); 
-  }, [pathname]);
+  }, [firstLocation]);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);

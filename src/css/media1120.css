@@ -7,7 +7,6 @@
 section {margin-bottom: 150px;}
 
 .mainPage{
-
   /* blue market */
   .marketArea { color: var(--color--white); 
     h2 { text-align: center; } 
@@ -898,5 +897,4 @@ section {margin-bottom: 150px;}
       }
     }
   }
-
 }

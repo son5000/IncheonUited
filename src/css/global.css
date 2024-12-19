@@ -96,7 +96,7 @@
     }
 
 }
-@media ( width <= 505px){
+@media (0px <= width <= 505px){
     header{font-size: 14px; background-color:var(--color--black); padding-bottom:15px ; width:100%; color:var(--color--white); position:sticky; top: 0;  z-index: 100; padding-top:15px; border-bottom: var(--boarder--bottom);
         > div {display: flex; width: 100%; align-items: center; font-size: 25px; font-weight: 600; 
             > h1 { width: 100%; padding-left: 5%;
