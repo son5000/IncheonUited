@@ -9,9 +9,6 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
-  Pie,
-  PieChart,
-  Cell
 } from "recharts";
 
 
@@ -112,7 +109,6 @@ export default function AdminMain() {
                 </table>
             </div>
             {usersData && <ChartFavoritPlayer favoritPlayer={usersData.favoritPlayer} />}
-            {usersData && <ChartSingleOrMarried singleOrMarried={usersData.singleOrMarried} />}
             {usersData && <ChartSelectedJob selectedJob={usersData.selectedJob} />}
           </div>
         </section>
@@ -188,79 +184,12 @@ function ChartFavoritPlayer({ favoritPlayer }) {
   );
 }
 
-function ChartSingleOrMarried({ singleOrMarried }) {
-
-  const data = dataCustomeForChart(singleOrMarried);
-  const RADIAN = Math.PI / 180;
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      {`${(percent * 100).toFixed(0)}%`}
-    </text>
-  );
-};
-  
-  return (
-    <ResponsiveContainer width="50%" height={300}>
-      <p className="title">유저 혼인율</p>
-      <PieChart width={400} height={400}>
-      <Legend  verticalAlign="bottom" align="left" layout="vertical" />
-        <Pie
-          data={data}
-          cx="25%"
-          cy="50%"
-          labelLine={false}
-          label={renderCustomizedLabel}
-          outerRadius={80}
-          dataKey="count"
-        >
-            <Cell fill="#00C49F" />
-            <Cell fill="#FF8042" />
-        </Pie>
-      </PieChart>
-    </ResponsiveContainer>
-  );
-}
-
 function ChartSelectedJob ({selectedJob}) {
 
     const data = dataCustomeForChart(selectedJob);
 
-    return (
-      <PieChart width={800} height={400} >
-        <Pie
-          data={data}
-          cx={120}
-          cy={200}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="count"
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} />
-          ))}
-        </Pie>
-        <Pie
-          data={data}
-          cx={420}
-          cy={200}
-          startAngle={180}
-          endAngle={0}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`}/>
-          ))}
-        </Pie>
-      </PieChart>
-    );
+    return ( 
+    <>
+    </>
+    )
   }

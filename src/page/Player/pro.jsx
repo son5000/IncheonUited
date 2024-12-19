@@ -37,7 +37,7 @@ export default function Pro () {
         <>
           <Banner aniWidth={'50%'}/>
           <section className="size1442 proArea">
-                <h2>프로 선수들 프로필</h2>
+                <h2 className="hiddenH2">프로 선수들 프로필</h2>
                 <TabMenu isMobile={isMobile} isCategori={isCategori} setIsCategori={setIsCategori} playersData={playersData} />
                 <ul>
                     {newFeed.map((el, index) => (

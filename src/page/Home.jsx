@@ -80,8 +80,8 @@ export default function Home() {
               <br /> 보다 좋은 환경에서 축구를 마음껏 즐길 수 있도록 다양한
               프로그램을 진행하고 있습니다.
             </p>
-            <a className="a-before" href="/fanZone/announcement">성인축구클리닉 결제</a>
-            <a className="a-before" href="/fanZone/announcement">공지사항 NOTICE</a>
+            <Link className="a-before" to={'/fanZone/announcement'}>성인축구클리닉 결제</Link>
+            <Link className="a-before" to={'/fanZone/announcement'}>공지사항 NOTICE</Link>
          </div>
         </section>
 
@@ -90,22 +90,22 @@ export default function Home() {
           <h2 className="hStyleItalic">IUFC EVENT</h2>
           <ul>
             <li>
-              <a href="/ticketMembership/buyTickets">
+              <Link to={'/ticketMembership/buyTickets'}>
                 <strong>EVENT1</strong>
                 <p className="a-after">8/24(토) 전북전 홈경기 예매</p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/ticketMembership/buyTickets">
+              <Link to={'/ticketMembership/buyTickets'}>
                 <strong>EVENT2</strong>
                 <p className="a-after">2024 홈경기 티켓 예매 안내</p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/ticketMembership/buyTickets">
+              <Link to={'/ticketMembership/buyTickets'}>
                 <strong>EVENT3</strong>
                 <p className="a-after">시민주주 정보 최신화 안내</p>
-              </a>
+              </Link>
             </li>
           </ul>
         </section>
@@ -121,12 +121,12 @@ export default function Home() {
             미래에 풍요롭고 행복하며 여유로운 삶을 살아갈 수 있도록 돕기 위한
             사단법인입니다.
           </p>
-          <a className="a-before" href="###">인천 유소년체육진흥원 홈페이지</a>
+          <Link className="a-before" to={'/fanZone/announcement'}>인천 유소년체육진흥원 홈페이지</Link>
         </section>
 
         {/* SPONSOR */}
         <section className="sponsorArea size1442">
-          <a href="###">SPONSOR</a>
+          <Link to={'/fanZone/announcement'}>SPONSOR</Link>
           <h2 className="hStyle">INCHEON UNITED PREMIER SPONSOR</h2>
           <ul>
             <li>인천광역시</li>
@@ -134,8 +134,8 @@ export default function Home() {
             <li>신한은행</li>
             <li>posco포스코이앤씨</li>
           </ul>
-          <a href="###">스폰서 더보기</a>
-          <a href="###">스폰서십 프로그램 안내</a>
+          <Link to={'/fanZone/announcement'}>스폰서 더보기</Link>
+          <Link to={'/fanZone/announcement'}>스폰서십 프로그램 안내</Link>
         </section>
     </>
   );

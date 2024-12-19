@@ -27,7 +27,7 @@ export default function Stadium () {
                     남부역사거리 {'>'} 숭의로터리 {'>'}</p>
                 </li>
             </ul>
-            <a href="###">
+            <a rel="noreferrer" target="_blank" href="https://place.map.kakao.com/11462023">
                 <span>인천광역시 중구 참외전로 246</span>
             </a>
          </section>
