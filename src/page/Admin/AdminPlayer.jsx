@@ -5,9 +5,9 @@ import AdminPageBox from "../../components/admin/adminPageBox.jsx";
 
 export default function AdminPlayer() {
   const [data, setData] = useState(null);
-  const [playerId, setPlayerId] = useState('');
+  const [name, setName] = useState('');
   const [isSearchedId, setIsSearchedId] = useState('');
-  const [temp , settemp] = useState([]);
+
   useEffect(() => {
     const getPlayersData = async () => {
       try {
@@ -25,17 +25,35 @@ export default function AdminPlayer() {
     getPlayersData();
   }, []);
 
-  const handleChange = (e) => {
-    setIsSearchedId(e.target.value);
-    for(let i = 0 ; i <= e.target.value.length ; i ++ ){
-        const temp = data.filter((player) => 
-            player.name.split('').some(letter => letter === e.target.value )  )
-        settemp(...temp);
+
+  const handleSearchPlayer = async(e) => {
+    e.preventDefault();
+    if (!name) {
+      return alert("name 를 입력해주세요.");
+    }
+    try {
+      const response = await fetch('http://localhost:5000/admin/playerUnique', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json", 
+        },
+        body: JSON.stringify({ name }), 
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        return alert(data.message);
+      }
+      setIsSearchedId(data);
+    } catch (error) {
+      alert("서버 연결에 문제가 발생했습니다.");
     }
   }
 
-  console.log(temp);
+  // const handleChange = (e) => {
+  //   return setName(e.target.value);
+  // }
   console.log(isSearchedId);
+
   return (
       <AdminPageBox>
         <section className="usersArea">
@@ -43,34 +61,30 @@ export default function AdminPlayer() {
           <div>
             <p className="title">총 선수 수 : <strong>{data && data.length}</strong></p>
             <div>
-                <form>
+                <form onSubmit={(e) => handleSearchPlayer(e)}>
                   <label htmlFor="searchPlayer">선수 검색</label>
-                  <input onChange={(e) => handleChange(e)}  value={isSearchedId} id="searchPlayer" type="text" />
+                  <input onChange={(e) => setName(e.target.value)}  value={name} id="searchPlayer" type="text" />
                   <button type="submit">검색하기</button>
                 </form>
                 <table>
                   <caption>조회된 데이터</caption>
                   <thead>
                     <tr>
-                      <th>아이디</th>
+                      <th>이름</th>
                       {/* <th>비밀번호</th> */}
-                      <th>연락처</th>
-                      <th>주소지</th>
-                      <th>선호하는 선수</th>
-                      <th>직업</th>
-                      <th>혼여여부</th>
-                      <th>광고성 수신동의</th>
+                      <th>영어 이름</th>
+                      <th>현 소속</th>
+                      <th>번호</th>
+                      <th>포지션</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>{isSearchedId.name}</td>
+                      <td>{isSearchedId?.englishName}</td>
+                      <td>{isSearchedId?.type}</td>
+                      <td>{isSearchedId?.backNumber}</td>
+                      <td>{isSearchedId?.position}</td>
                     </tr>
                   </tbody>
                 </table>

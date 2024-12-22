@@ -24,9 +24,11 @@ export default function MemberInformation () {
       address: '',
       favoritPlayer: '',
       selectedJob: '',
-      singleOrMarried:'single',
-      advertisement:'agreement'
+      singleOrMarried:'N',
+      advertisement:'Y'
     });
+
+    console.log(formData);
 
     
     // 유효성 검사 배열 1-ID , 2-PW , 3-PWCHECK , 4-PHONE , 5-ADRESS , 6-FAVORITE PLAYER
@@ -218,11 +220,11 @@ const handleDuplicateCheck = async () => {
             <p>결혼 여부 <mark>(선택)</mark></p>
             <div className="check_box">
                 <label>
-                    <input onChange={(e) => handleChange('singleOrMarried',e.target.value)} type="radio" value="single" name="singleOrMarried" checked={formData.singleOrMarried === 'single'} />
+                    <input onChange={(e) => handleChange('singleOrMarried',e.target.value)} type="radio" value="N" name="singleOrMarried" checked={formData.singleOrMarried === 'N'} />
                     미혼
                 </label>
                 <label>
-                    <input onChange={(e) => handleChange('singleOrMarried',e.target.value)} type="radio" value="married" name="singleOrMarried" checked={formData.singleOrMarried === 'married'} />
+                    <input onChange={(e) => handleChange('singleOrMarried',e.target.value)} type="radio" value="Y" name="singleOrMarried" checked={formData.singleOrMarried === 'Y'} />
                     기혼
                 </label>
             </div>
@@ -234,11 +236,11 @@ const handleDuplicateCheck = async () => {
             <p>광고성 정보 수신동의 <mark>(선택)</mark></p>
             <div className="check_box">
                 <label>
-                    <input onChange={(e) => handleChange('advertisement',e.target.value)} type="radio" value="agreement" name="advertisement" checked={formData.advertisement === 'agreement'} />
+                    <input onChange={(e) => handleChange('advertisement',e.target.value)} type="radio" value="Y" name="advertisement" checked={formData.advertisement === 'Y'} />
                     동의
                 </label>
                 <label>
-                    <input onChange={(e) => handleChange('advertisement',e.target.value)} type="radio" value="disagree" name="advertisement" checked={formData.advertisement === 'disagree'} />
+                    <input onChange={(e) => handleChange('advertisement',e.target.value)} type="radio" value="N" name="advertisement" checked={formData.advertisement === 'N'} />
                     비동의
                 </label>
             </div>
