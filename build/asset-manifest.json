@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.68c93919.css",
+    "main.js": "/static/js/main.3df1c098.js",
+    "static/media/fanZone_banner.png": "/static/media/fanZone_banner.0622760c60e245879220.png",
+    "static/media/subBanner_01.png": "/static/media/subBanner_01.cbbc08cdc7a458d9a3cf.png",
+    "static/media/player_Banner.png": "/static/media/player_Banner.c5bfc6c8d4d08f42f90d.png",
+    "static/media/ticketMembership_banner.png": "/static/media/ticketMembership_banner.d69dc12a23858d4220cc.png",
+    "static/media/matchCenter_banner_img.png": "/static/media/matchCenter_banner_img.6119fb70d7110243a380.png",
+    "static/media/iufcYouthBackGround_img.png": "/static/media/iufcYouthBackGround_img.1daf64ce4010b72b9357.png",
+    "static/media/Photo_Section_01.png": "/static/media/Photo_Section_01.53a77ed68b36ea8cc3a4.png",
+    "static/media/bg_club_greeting_owner.png": "/static/media/bg_club_greeting_owner.a50eeebeb7fba423fcd3.png",
+    "static/media/bg_club_greeting_ceo.png": "/static/media/bg_club_greeting_ceo.80d6d99e921dc8dcdf6b.png",
+    "static/media/event_02.png": "/static/media/event_02.f9825cd6bd11b7eb190d.png",
+    "static/media/event_01.png": "/static/media/event_01.7792aa698d0f2f794565.png",
+    "static/media/event_03.png": "/static/media/event_03.9f43b052bb1aa98e0789.png",
+    "static/media/좌석안내비디오.png": "/static/media/좌석안내비디오.96cecc24d07de7b37455.png",
+    "static/media/경기관람안내_2.png": "/static/media/경기관람안내_2.428d92c78ba8129c7dfb.png",
+    "static/media/경기관람안내_1.png": "/static/media/경기관람안내_1.7f600f6c2d72a6916e63.png",
+    "static/media/경기관람안내_4.png": "/static/media/경기관람안내_4.4192e0f71b651320d5a5.png",
+    "static/media/경기장 반입 절차.png": "/static/media/경기장 반입 절차.78e392153fd9e41f64a7.png",
+    "static/media/경기관람안내_3.png": "/static/media/경기관람안내_3.0353fc5d2288657b0c0c.png",
+    "static/media/magazine.png.jpg": "/static/media/magazine.png.8976338f37616384abc9.jpg",
+    "static/media/academy.BackGround_Img.png": "/static/media/academy.BackGround_Img.ae5465fafb1e49a85028.png",
+    "static/media/Main_logo_header.png": "/static/media/Main_logo_header.21b147bd436c1ecc67f1.png",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.68c93919.css.map": "/static/css/main.68c93919.css.map",
+    "main.3df1c098.js.map": "/static/js/main.3df1c098.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.68c93919.css",
+    "static/js/main.3df1c098.js"
+  ]
+}

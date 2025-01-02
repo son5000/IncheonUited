@@ -7,6 +7,7 @@ export default function PostList (){
     const navigate = useNavigate();
     const Location = useLocation(); 
     const secondLocation = Location.pathname.split('/')[2]
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
     let type = "";
     switch(secondLocation){
         case 'announcement' : 
@@ -23,6 +24,7 @@ export default function PostList (){
         break;
         default : type = 'notice'
     }
+    console.log(backendUrl);
 
     // 페이지당 보여지는 게시물 최대 게시물 개수
     const MAXIMUM = 10;
@@ -38,7 +40,7 @@ export default function PostList (){
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const res = await fetch(`http://localhost:5000/post/List?type=${type}&offset=${(currentPage - 1) * MAXIMUM}&count=${MAXIMUM}`);
+            const res = await fetch(`${backendUrl}/post/List?type=${type}&offset=${(currentPage - 1) * MAXIMUM}&count=${MAXIMUM}`);
             if (!res.ok) {
               throw new Error('서버로부터 데이터를 불러오는데 실패했습니다.');
             }
@@ -56,7 +58,7 @@ export default function PostList (){
         };
         
         fetchData();
-    }, [navigate, type, currentPage, total]);
+    }, [navigate, type, currentPage, total,backendUrl]);
     
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 1120);
     
