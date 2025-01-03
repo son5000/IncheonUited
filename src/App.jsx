@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { ActionLoginLogout , ActionClear } from "./controllers/Redux/setting";
 
 export default function App() {
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
   const dispatch = useDispatch();  
   const { pathname } = useLocation();
   const firstLocation = pathname.split("/")[1] || "main";
@@ -32,7 +33,7 @@ export default function App() {
   useEffect(() => {
     const getSession = async () => {
       try {
-        const response = await fetch('http://localhost:5000/user/session',{
+        const response = await fetch(`${backendUrl}/user/session`,{
           credentials: "include",
         });
         const data = await response.json();
@@ -44,7 +45,9 @@ export default function App() {
       }
     }
     getSession();
-  },[dispatch])
+  },[dispatch,backendUrl
+    
+  ])
 
 
 
