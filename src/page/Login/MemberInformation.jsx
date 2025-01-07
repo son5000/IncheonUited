@@ -28,13 +28,9 @@ export default function MemberInformation () {
       singleOrMarried:'N',
       advertisement:'Y'
     });
-
-    console.log(formData);
-
     
     // 유효성 검사 배열 1-ID , 2-PW , 3-PWCHECK , 4-PHONE , 5-ADRESS , 6-FAVORITE PLAYER
     const [isValid, setIsValid] = useState(Array(7).fill(''));
-    console.log(isValid)
     const validators = {
         userId : (value) => /^[a-z0-9]{6,12}$/.test(value),
         userPw : (value) => /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{9,12}$/.test(value),

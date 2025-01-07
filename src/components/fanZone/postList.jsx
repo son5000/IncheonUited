@@ -24,7 +24,6 @@ export default function PostList (){
         break;
         default : type = 'notice'
     }
-    console.log(backendUrl);
 
     // 페이지당 보여지는 게시물 최대 게시물 개수
     const MAXIMUM = 10;
