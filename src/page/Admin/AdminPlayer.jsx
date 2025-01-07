@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChartFavoritPlayer } from "../../components/admin/chart.jsx";
 import AdminPageBox from "../../components/admin/adminPageBox.jsx";
-
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 export default function AdminPlayer() {
   const [data, setData] = useState(null);
@@ -11,7 +11,7 @@ export default function AdminPlayer() {
   useEffect(() => {
     const getPlayersData = async () => {
       try {
-        const res = await fetch("http://localhost:5000/admin/playerData");
+        const res = await fetch(`${backendUrl}/admin/playerData`);
         if (!res.ok) {
           throw new Error("데이터를 불러오는 데 실패했습니다.");
         }

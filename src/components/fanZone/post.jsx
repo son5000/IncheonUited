@@ -2,7 +2,7 @@ import { useEffect , useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom"
 import { formatDate } from "date-fns";
 import Banner from "../Banner";
-
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 export default function Post (){
 
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function Post (){
   useEffect(() => {
     const getPostData = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/post/${ id }`);
+        const res = await fetch(`${backendUrl}/post/${ id }`);
         if(!res.ok){
           throw new Error('게시물을 불러오는 데 실패했습니다.')
         }

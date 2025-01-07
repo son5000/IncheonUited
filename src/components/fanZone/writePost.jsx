@@ -2,24 +2,21 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux";
 import Banner from "../Banner";
-
 export default function WritePost (){
-    
-    const navigate = useNavigate();
 
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
+    const navigate = useNavigate();
     const loggedInUserName = useSelector(state => state.LoginLogout.userId);
-    
     const [postValue , setPostValue] = useState({
         title: '',
         content : ''
     })
-
+    console.log(loggedInUserName);
     if(!loggedInUserName){
         alert('로그인이 필요합니다.');
         navigate('/login')
         return null;
     }
-
     const handleChange = (field,value) => {
         setPostValue({
             ...postValue,
@@ -32,7 +29,7 @@ export default function WritePost (){
             return alert('게시글의 제목 또는 내용을 확인해주세요.')
         }
         try {
-           const res = await fetch('http://localhost:5000/post/write' , {
+           const res = await fetch(`${backendUrl}/post/write` , {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

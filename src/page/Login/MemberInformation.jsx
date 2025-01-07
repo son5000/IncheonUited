@@ -3,7 +3,7 @@ import { Link , useNavigate } from "react-router-dom"
 import data from "../../data.json"
 import DaumPostcode from "react-daum-postcode";
 import Modal from "react-modal";
-
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 const jobList = data.userJobSelectList;
 const playerList = [];
 
@@ -15,6 +15,7 @@ data.pro["players"].forEach((el) => {
 
 
 export default function MemberInformation () {
+
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
       userId: '',
@@ -99,7 +100,7 @@ const handleDuplicateCheck = async () => {
     if(isValid[0] && formData.userId !== ''){
         try{
             const res = await fetch(
-                `http://localhost:5000/user/duplicatecheck?userId=${encodeURIComponent(formData.userId)}`
+                `${backendUrl}/user/duplicatecheck?userId=${encodeURIComponent(formData.userId)}`
               ); 
             if(!res.ok){
                 throw new Error('서버와의 통신 중 오류가 발생했습니다.');
@@ -131,7 +132,7 @@ const handleDuplicateCheck = async () => {
         e.preventDefault(); // 기본 form 제출 동작 방지
         if(isValid.every((el) => el === true)){
             try {
-                const res = await fetch('http://localhost:5000/user/signUp', {
+                const res = await fetch(`${backendUrl}/user/signUp`, {
                     method: 'POST',
                     headers: {
                       'Content-Type': 'application/json',

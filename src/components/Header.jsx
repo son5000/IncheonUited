@@ -4,13 +4,13 @@ import QuickSns from "../../src/components/QuickSns";
 import { useSelector , useDispatch } from "react-redux";
 import { ActionClear } from "../controllers/Redux/setting.jsx"
 export default function Header() {
-
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
   const loggedInUserName = useSelector(state => state.LoginLogout.userId);
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     if(loggedInUserName){
-      fetch('http://localhost:5000/user/logout' , {
+      fetch(`${backendUrl}/user/logout` , {
       method: 'POST',
       credentials:'include',
       }).then((response) => {

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ActionLoginLogout } from '../../controllers/Redux/setting';
-
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 export default function AdminLogin () {
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export default function AdminLogin () {
             return alert('비밀번호를 입력해주세요.')
         }
         try{
-            const res = await fetch("http://localhost:5000/admin/login",{
+            const res = await fetch(`${backendUrl}/admin/login`,{
                 method:'POST',
                 headers:{
                     "Content-type" : "application/json",

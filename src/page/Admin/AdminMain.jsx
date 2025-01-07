@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AdminPageBox from "../../components/admin/adminPageBox.jsx";
 import { ChartSelectedJob } from "../../components/admin/chart.jsx";
-
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 export default function AdminMain() {
   const [usersData, setUserData] = useState(null);
@@ -10,7 +10,7 @@ export default function AdminMain() {
   useEffect(() => {
     const getUsersData = async () => {
       try {
-        const res = await fetch("http://localhost:5000/admin/userData");
+        const res = await fetch(`${backendUrl}/admin/userData`);
         if (!res.ok) {
           throw new Error("데이터를 불러오는 데 실패했습니다.");
         }
