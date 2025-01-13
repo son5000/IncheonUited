@@ -1,17 +1,18 @@
 import { useEffect , useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom"
+import { useParams, useNavigate, Link , useLocation } from "react-router-dom"
 import { formatDate } from "date-fns";
 import Banner from "../Banner";
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 export default function Post (){
+  const location = useLocation();
+  const secondLocation = location.pathname.split('/')[2];
 
   const navigate = useNavigate();
-
   const { id } = useParams();
   const [post , setPost] = useState(null);
   const [ previousPost , setPreviousPost] = useState(null);
   const [ nextPost , setNextPost] = useState(null);
-
+  console.log(post);
   useEffect(() => {
     const getPostData = async () => {
       try {
@@ -19,8 +20,7 @@ export default function Post (){
         if(!res.ok){
           throw new Error('게시물을 불러오는 데 실패했습니다.')
         }
-        const data = await res.json()
-        
+        const data = await res.json()     
         setPost(data.post);
         setPreviousPost(data.previousPost);
         setNextPost(data.nextPost);
@@ -42,9 +42,9 @@ export default function Post (){
         <section className="size1442 post" >
             <h2>{post.title}</h2>
             <p className="postCreatedAtViews"><small>작성일</small><span>{formatDate(post.createdAt,'yyyy-MM-dd')}</span>|<small>조회수</small><span>{post.views}</span></p>
-            <div>
+            <div>{ secondLocation === 'cheeringGrounds' ? <p>{post.content}</p> :
+                <>
                 <img src="/images/fanZone/board_sample_img.png" alt="" />
-
                 ㈜인천유나이티드에서 근무할 기간제계약직 직원을 다음과 같이 공개 채용하고자 하니, 많은 지원바랍니다. 
                 <br />
                 <br />
@@ -71,6 +71,8 @@ export default function Post (){
                   <br />
                 5. 관련문의<br />
                   가. 구단 사무국 경영기획팀(☎032-880-5512)<br />
+                </>
+                }
 
             </div>
             <ul>
