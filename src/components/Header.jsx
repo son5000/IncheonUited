@@ -8,28 +8,35 @@ export default function Header() {
   const loggedInUserName = useSelector(state => state.LoginLogout.userId);
   const dispatch = useDispatch();
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     if(loggedInUserName){
-      fetch(`${backendUrl}/user/logout` , {
-      method: 'POST',
-      credentials:'include',
-      }).then((response) => {
-        if(response.ok){
-        dispatch(ActionClear());
-        alert('로그아웃 되었습니다.')
-        
-      }else{
-        return response.json().then((data) => {
-          throw new Error(data.error || '세션 상태를 확인할 수 없습니다.')
+      const refreshToken = localStorage.getItem('refreshToken');
+      try{
+        const response = await fetch(`${backendUrl}/user/logout` , {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({refreshToken})
         })
+        if(!response.ok){
+          console.log('정상적인 로그아웃 실패')
+        }
+        const data = await response.json();
+        console.log(data.message)
       }
-      }).catch((error) => {
-        console.error(error.message);
-        alert(error.message); // 에러 메시지를 사용자에게 표시 (예: alert)
-      })
-    } 
+      catch (error) {
+        console.error('로그아웃 중 에러 발생:', error);
+      } finally {
+        dispatch(ActionClear())
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        alert('로그아웃 되었습니다.')
+      }
+  } else {
+        return;
   }
-
+}
 
     
   const location = useLocation();

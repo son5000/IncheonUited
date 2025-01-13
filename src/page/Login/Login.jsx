@@ -2,16 +2,22 @@ import { useState } from 'react';
 import { useNavigate , Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ActionLoginLogout } from '../../controllers/Redux/setting.jsx'
-
+import { useSelector } from 'react-redux';
 export default function Login () {
 
     const backendUrl = process.env.REACT_APP_BACKEND_URL;
+    const loggedInUserName = useSelector(state => state.LoginLogout.userId);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [userId,setUserId] = useState('')
     const [userPw,serUserPw] = useState('')
     const [error , setError] = useState('');
 
-    const navigate = useNavigate();
+    if(loggedInUserName){
+        return null;
+    }
+
+    
 
     // 로그인 API 호출 함수.
     const handleLogin = async (e) => {
@@ -30,6 +36,8 @@ export default function Login () {
             })
             const data = await response.json();
             if(response.ok){
+                localStorage.setItem('accessToken',data.accessToken);
+                localStorage.setItem('refreshToken',data.refreshToken);
                 dispatch(ActionLoginLogout(userId));
                 alert(`환영합니다, ${userId} 님 :)`);
                 navigate('/');

@@ -4,8 +4,8 @@ import Header from "./components/Header";
 import QuickSns from "./components/QuickSns";
 import Footer from "./components/Footer";
 import { Outlet } from "react-router-dom";
+import { checkToken } from "./controllers/setToken.jsx"
 import { useDispatch } from "react-redux";
-import { ActionLoginLogout , ActionClear } from "./controllers/Redux/setting";
 
 export default function App() {
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
@@ -31,23 +31,13 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const getSession = async () => {
-      try {
-        const response = await fetch(`${backendUrl}/user/session`,{
-          credentials: "include",
-        });
-        const data = await response.json();
-        if(response.ok){
-          dispatch(ActionLoginLogout(data.userId));
-        }
-      } catch (error) {
-        dispatch(ActionClear());
-      }
-    }
-    getSession();
-  },[dispatch,backendUrl
-    
-  ])
+    // 비동기 함수 호출을 위한 즉시 실행 함수 (IIFE)
+    const verifyToken = async () => {
+      await checkToken(dispatch, backendUrl);
+    };
+
+    verifyToken(); // 토큰 확인 함수 실행
+  }, [dispatch, backendUrl]);
 
 
 

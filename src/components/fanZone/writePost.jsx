@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux";
+import { checkToken } from "../../controllers/setToken.jsx";
+
 import Banner from "../Banner";
 export default function WritePost (){
-
+    const dispatch = useDispatch();
     const backendUrl = process.env.REACT_APP_BACKEND_URL;
     const navigate = useNavigate();
     const loggedInUserName = useSelector(state => state.LoginLogout.userId);
@@ -11,23 +14,40 @@ export default function WritePost (){
         title: '',
         content : ''
     })
-    console.log(loggedInUserName);
-    if(!loggedInUserName){
-        alert('로그인이 필요합니다.');
-        navigate('/login')
-        return null;
-    }
+
+    useEffect(() => {
+        // 비동기 함수 호출을 위한 즉시 실행 함수 (IIFE)
+        const verifyToken = async () => {
+          await checkToken(dispatch, backendUrl);
+        };
+    
+        verifyToken(); // 토큰 확인 함수 실행
+      }, [dispatch, backendUrl]);
+
     const handleChange = (field,value) => {
         setPostValue({
             ...postValue,
             [field] : value,
+            author : loggedInUserName,
         })
     }
+
+    console.log(postValue);
+
     const handleSubmit =  async (e) => {
+
+        if(!loggedInUserName){
+            alert('로그인이 필요합니다.');
+            navigate('/login')
+            return null;
+        }
+
         e.preventDefault();
+
         if(postValue.title === '' || postValue.content === ''){
             return alert('게시글의 제목 또는 내용을 확인해주세요.')
         }
+
         try {
            const res = await fetch(`${backendUrl}/post/write` , {
             method: 'POST',
@@ -37,14 +57,16 @@ export default function WritePost (){
             body: JSON.stringify(postValue),
             credentials: 'include', // 쿠키를 포함하여 요청을 보냄
            })
+           
            const data = await res.json();
-           console.log(data);
+
            if(res.ok){
             alert('게시글이 등록되었습니다.');
             navigate('/fanZone/cheeringGrounds');
            }else{
             alert(data.error)
            }
+           
         }catch(error){
             alert('서버로부터 오류가 발생했습니다.')
         }
