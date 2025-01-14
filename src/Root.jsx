@@ -42,6 +42,7 @@ import store from "./controllers/Redux/setting.jsx"
 import Post from "./components/fanZone/post";
 import WritePost from './components/fanZone/writePost.jsx'
 import AdminPlayer from './page/Admin/AdminPlayer.jsx';
+import Redirection from './page/Login/Redirection.jsx';
 
 export default function Root() {
 
@@ -100,6 +101,9 @@ export default function Root() {
                 <Route path="joinUs/Certification" element={<Certification />} />
                 <Route path="joinUs/Certification/MemberInformation" element={<MemberInformation />} />
                 <Route path="joinUs/Certification/MemberInformation/RegistrationComplete" element={<RegistrationComplete />} />
+              </Route>
+              <Route path="kakao">
+                <Route path="redirection" element={<Redirection />} /> 
               </Route>
               <Route path="admin">
                 <Route path="login" element ={<AdminLogin />} />

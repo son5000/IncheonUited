@@ -12,7 +12,7 @@ export default function Post (){
   const [post , setPost] = useState(null);
   const [ previousPost , setPreviousPost] = useState(null);
   const [ nextPost , setNextPost] = useState(null);
-  console.log(post);
+  
   useEffect(() => {
     const getPostData = async () => {
       try {

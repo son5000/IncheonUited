@@ -64,10 +64,27 @@ export default function Login () {
                 <p>
                     회원 가입하시면 다양한 부가서비스를 받으실 수 있습니다. <Link to={"joinUs"}>회원가입</Link>
                 </p>
-                <p>
+                <p> 
+                    <Kakao />
                     <Link>아이디찾기</Link>|
                     <Link>비밀번호 찾기</Link>
                 </p>
             </section>
     )
 }
+
+const Kakao = () =>
+    {
+        const Rest_api_key=process.env.REST_API_KEY //REST API KEY
+        const redirect_uri =process.env.REDIRECT_URL; //Redirect URI
+        // oauth 요청 URL
+        const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${Rest_api_key}&redirect_uri=${redirect_uri}&response_type=code`
+        const handleLogin = ()=>{
+            window.location.href = kakaoURL
+        }
+        return(
+        <>
+        <button onClick={handleLogin}>카카오 로그인</button>
+        </>
+        )
+    }
