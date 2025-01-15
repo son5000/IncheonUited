@@ -7,8 +7,9 @@ export default function PostList (){
     const navigate = useNavigate();
     const Location = useLocation(); 
     const secondLocation = Location.pathname.split('/')[2]
-    const backendUrl = process.env.REACT_APP_BACKEND_URL;
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
     let type = "";
+
     switch(secondLocation){
         case 'announcement' : 
         type = 'notice'
@@ -37,19 +38,25 @@ export default function PostList (){
     const lastPage = Math.ceil(total / 10);
     const [data ,setData]  = useState(null);
     useEffect(() => {
+
         const fetchData = async () => {
+
           try {
-            const res = await fetch(`${backendUrl}/post/List?type=${type}&offset=${(currentPage - 1) * MAXIMUM}&count=${MAXIMUM}`);
+            const res = await fetch(`${BACKEND_URL}/post/List?type=${type}&offset=${(currentPage - 1) * MAXIMUM}&count=${MAXIMUM}`);
+
             if (!res.ok) {
               throw new Error('서버로부터 데이터를 불러오는데 실패했습니다.');
             }
+
             const data = await res.json();
             setData(data.posts); 
             setTotal( data.totalPostCount)
+
             // 현재페이지 번호가 6보다 작을 경우의 pageNation 배열 생성 6 <= current 경우는 next함수에서 새로운 배열 생성
             if(currentPage < 6){
                 setPageNation(Array.from({ length: Math.ceil(total / 10) > 5 ? 5 : Math.ceil(total / 10) }, (_, index) => index + 1));
             }
+
           } catch (error) {
             alert('백엔드 서버 배포 작업을 진행 중입니다!');  
             // navigate('/');  
@@ -57,25 +64,34 @@ export default function PostList (){
         };
         
         fetchData();
-    }, [navigate, type, currentPage, total,backendUrl]);
+    }, [navigate, type, currentPage, total,BACKEND_URL]);
     
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 1120);
     
     const handlePrevPage = () => {
+
         if(currentPage === 1)return;
+
         setCurrentPage(currentPage - 1);
+
         if ( currentPage % 5 === 1 ) {
             const newPageNation = Array.from(
               { length: 5 },
               (_, index) =>  currentPage - index -1
             ).reverse();
+
             setPageNation(newPageNation);
         }
+
     }
     const handleNextPage = () => {
+
         if(currentPage === lastPage) return alert('마지막 페이지입니다.') ;
+
         setCurrentPage(currentPage + 1);
+
         if (currentPage % 5 === 0) {
+
             const newPageNation = Array.from(
               { length: 5 < Math.ceil((total - (currentPage) * MAXIMUM) / MAXIMUM) ? 5 : Math.ceil((total - (currentPage) * MAXIMUM) / MAXIMUM) },
               (_, index) => index + currentPage + 1
@@ -85,14 +101,17 @@ export default function PostList (){
     }
 
     const handleResize = () => {
+
         setIsMobile(window.innerWidth <= 1120)
     }
     useEffect(() => {
+
         window.addEventListener('resize',handleResize)
         handleResize()
         return () =>{
             window.removeEventListener('resize',handleResize)
         } 
+
     },[])
 
     if (!data || !Array.isArray(data)) {

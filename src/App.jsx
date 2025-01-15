@@ -8,7 +8,7 @@ import { checkToken } from "./controllers/setToken.jsx"
 import { useDispatch } from "react-redux";
 
 export default function App() {
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const dispatch = useDispatch();  
   const { pathname } = useLocation();
   const firstLocation = pathname.split("/")[1] || "main";
@@ -33,11 +33,11 @@ export default function App() {
   useEffect(() => {
     // 비동기 함수 호출을 위한 즉시 실행 함수 (IIFE)
     const verifyToken = async () => {
-      await checkToken(dispatch, backendUrl);
+      await checkToken(dispatch, BACKEND_URL);
     };
 
     verifyToken(); // 토큰 확인 함수 실행
-  }, [dispatch, backendUrl]);
+  }, [dispatch, BACKEND_URL]);
 
 
 

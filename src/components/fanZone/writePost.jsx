@@ -7,7 +7,7 @@ import { checkToken } from "../../controllers/setToken.jsx";
 import Banner from "../Banner";
 export default function WritePost (){
     const dispatch = useDispatch();
-    const backendUrl = process.env.REACT_APP_BACKEND_URL;
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
     const navigate = useNavigate();
     const loggedInUserName = useSelector(state => state.LoginLogout.userId);
     const [postValue , setPostValue] = useState({
@@ -18,11 +18,11 @@ export default function WritePost (){
     useEffect(() => {
         // 비동기 함수 호출을 위한 즉시 실행 함수 (IIFE)
         const verifyToken = async () => {
-          await checkToken(dispatch, backendUrl);
+          await checkToken(dispatch, BACKEND_URL);
         };
     
         verifyToken(); // 토큰 확인 함수 실행
-      }, [dispatch, backendUrl]);
+      }, [dispatch, BACKEND_URL]);
 
     const handleChange = (field,value) => {
         setPostValue({
@@ -49,7 +49,7 @@ export default function WritePost (){
         }
 
         try {
-           const res = await fetch(`${backendUrl}/post/write` , {
+           const res = await fetch(`${BACKEND_URL}/post/write` , {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

@@ -251,7 +251,10 @@
             > input , button {border-radius: 10px;}
             > label {color: var(--color--gray);margin-bottom: 18px;}
             > input {background-color: #262626; width: calc(100% - 40px); margin-bottom: 50px; line-height: 64px; padding-inline: 20px; color: white; font-weight: 300;}
-            > button {line-height: 64px; background-color: var(--color--blue);}
+            > div{ display: flex; justify-content: center; flex-wrap: wrap; gap:20px; align-items: center;
+                 button:nth-of-type(1) { background-color: var(--color--blue); width: 342px; height: 50px; cursor: pointer; }
+                .kakaoLogin { background : url(../../public/images/Login/kakao_login_medium_narrow.png) no-repeat center / auto ; width: 171px;  text-indent: -9999px; height: 50px; cursor: pointer; }           
+            }
             > p {text-align: center; color: red; position: absolute; bottom: 80px; font-size: 14px; }
         }
         > p:nth-of-type(2) { margin-bottom: 20px; font-weight: 200; font-size: 16px;

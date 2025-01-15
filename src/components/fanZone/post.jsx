@@ -2,8 +2,11 @@ import { useEffect , useState } from "react";
 import { useParams, useNavigate, Link , useLocation } from "react-router-dom"
 import { formatDate } from "date-fns";
 import Banner from "../Banner";
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+
 export default function Post (){
+
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const location = useLocation();
   const secondLocation = location.pathname.split('/')[2];
 
@@ -15,22 +18,26 @@ export default function Post (){
   
   useEffect(() => {
     const getPostData = async () => {
+
       try {
-        const res = await fetch(`${backendUrl}/post/${ id }`);
+        const res = await fetch(`${BACKEND_URL}/post/${ id }`);
+
         if(!res.ok){
           throw new Error('게시물을 불러오는 데 실패했습니다.')
         }
+
         const data = await res.json()     
         setPost(data.post);
         setPreviousPost(data.previousPost);
         setNextPost(data.nextPost);
+
       } catch(error){
         alert(error.message)
         navigate(-1)
       }
     }
     getPostData();
-  },[navigate,id])
+  },[BACKEND_URL,navigate,id])
 
 
   if(!post){
