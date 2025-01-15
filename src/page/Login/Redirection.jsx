@@ -55,7 +55,7 @@ export default function Redirection ()  {
             }
         }
         kakaoLoginToBackend();
-    },[ACCESS_KEY,BACKEND_URL])
+    },[ACCESS_KEY,BACKEND_URL,dispatch,navigate])
 
 
     return (
