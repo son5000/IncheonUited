@@ -17,6 +17,7 @@ data.pro["players"].forEach((el) => {
 export default function MemberInformation () {
 
     const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
       userId: '',
       userPw: '',
@@ -31,6 +32,7 @@ export default function MemberInformation () {
     
     // 유효성 검사 배열 1-ID , 2-PW , 3-PWCHECK , 4-PHONE , 5-ADRESS , 6-FAVORITE PLAYER
     const [isValid, setIsValid] = useState(Array(7).fill(''));
+    
     const validators = {
         userId : (value) => /^[a-z0-9]{6,12}$/.test(value),
         userPw : (value) => /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{9,12}$/.test(value),
@@ -41,13 +43,16 @@ export default function MemberInformation () {
     }
     
     const handleChange = (field, value) => {
+
         setFormData({
           ...formData,
           [field]: value,
         });
+
         if(field !== 'singleOrMarried' && field !== 'advertisement' && field !== 'selectedJob'){
         const validTemp = [...isValid];
         validTemp[Object.keys(validators).indexOf(field)] = validators[field](value);
+
         if(field === 'userId'){
             validTemp[6] = false;
             setIsValid(validTemp);
@@ -57,11 +62,11 @@ export default function MemberInformation () {
         }
       };
 
-    
     // 핸드폰 
-    // 텍스트에 '-' 추가 함수
     const formatPhoneValue = (value) => {
+
         const transfromValue = value.replace(/[^0-9]/g, "");
+
         if(transfromValue.length <= 3){
             return transfromValue;
         }else if(transfromValue <= 7 ){
@@ -91,17 +96,22 @@ export default function MemberInformation () {
         return setIsActive(temp);
     }
 
-// userID 중복확인 API 유효성 검사 통과 안됐을시 return (올바른 값일때만 API 호출)
-const handleDuplicateCheck = async () => {
+    // userID 중복확인 API 유효성 검사 통과 안됐을시 return (올바른 값일 때 API 호출)
+    const handleDuplicateCheck = async () => {
+
     if(isValid[0] && formData.userId !== ''){
+
         try{
             const res = await fetch(
                 `${backendUrl}/user/duplicatecheck?userId=${encodeURIComponent(formData.userId)}`
               ); 
+
             if(!res.ok){
                 throw new Error('서버와의 통신 중 오류가 발생했습니다.');
             }
+
             const data = await res.json(); 
+
             if(data.isAvailable){
                 alert(data.message);
                 let vaildTemp = [...isValid];
@@ -112,10 +122,13 @@ const handleDuplicateCheck = async () => {
                 // input value 초기화 
                 handleChange('userId','');
             }
+
         }catch (error){
             alert(error);
         }
+
     }else{
+
         if(formData.userId === ''){
         return alert(' 아이디를 입력해주세요.')    
         }
@@ -125,7 +138,9 @@ const handleDuplicateCheck = async () => {
     
 
     const handleSubmit = async (e) => {
+
         e.preventDefault(); // 기본 form 제출 동작 방지
+
         if(isValid.every((el) => el === true)){
             try {
                 const res = await fetch(`${backendUrl}/user/signUp`, {
@@ -135,17 +150,21 @@ const handleDuplicateCheck = async () => {
                     },
                     body: JSON.stringify(formData),
                     credentials: 'include', // 쿠키를 포함하여 요청을 보냄
-              });     
+              });    
+
               const data = await res.json();
+
               if (res.ok) {
                 alert('회원가입 성공!');
                 navigate('/login/joinUs/Certification/MemberInformation/Registrationcomplete')
               } else {
                   alert(data.error || '회원가입 실패');
                 }
+
             } catch (error) {
                 alert('회원가입 중 오류가 발생했습니다.');
             }
+            
         }else{
             if(!isValid[1])alert(`비밀번호는 9~12자리 이내 [영문],[숫자],[특수문자]를 모두 포함하여야 합니다.`)
             else if(!isValid[2])alert('비밀번호가 일치하지 않습니다.')

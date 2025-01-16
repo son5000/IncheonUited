@@ -1,7 +1,6 @@
 import PageBox from '../../../components/club/PageBox'
 
 
-// 마지막 p태그 문단의 텍스트의 줄바꿈에 어려움을 겪는중.. 원하는 곳에서 줄바꿈이 일어나주지 않는다..
 
 export default function Organization () {
     return (

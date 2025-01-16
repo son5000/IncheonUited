@@ -12,6 +12,7 @@ export default function JoinUs () {
     }
 
     function clickCheckBtn (index,e) {
+        
         if(index < 3){
             let temp = [...isChecked]
             temp[index] = !temp[index];
@@ -22,9 +23,6 @@ export default function JoinUs () {
         }
 
     }
-
-
-
 
     return (
         <section className="joinUsArea">

@@ -11,7 +11,6 @@ export default function Event(){
     const [selectedYear,setSelectedYear] = useState(2024)
     const handleClick = (index) =>  setSelectedYear(index);
 
-    
     return (
         <>
         <Banner aniWidth={"90%"} />

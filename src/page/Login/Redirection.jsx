@@ -52,6 +52,7 @@ export default function Redirection ()  {
 
             } catch (error) {
                 alert(error);
+                console.log(error)
             }
         }
         kakaoLoginToBackend();

@@ -6,9 +6,8 @@ import { useState } from "react";
 const images = data.gallaryImgs;
 
 export default function Gallery(){
-    
-const [selectedYear,setSelectedYear] = useState(2024)
 
+const [selectedYear,setSelectedYear] = useState(2024)
 const handleClick = (index) =>  setSelectedYear(index);
 
     return (
